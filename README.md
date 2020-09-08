@@ -7,7 +7,7 @@
 
 ## What is it, exactly?
 
-Basically, it is already configured [Vue CLI](https://cli.vuejs.org/) project with some cool and handly features from another Webpack Front-end project named [nightpack](https://github.com/nightrunner91/nightpack).
+Basically, it is already configured [Vue CLI](https://cli.vuejs.org/) project with some cool and handly features from my another Webpack Front-end project named [nightpack](https://github.com/nightrunner91/nightpack).
 
 Vue CLI settings used in this project are:
 
@@ -46,146 +46,15 @@ npm run build
 
 ## Features included:
 
-- Vue.js
+- Vue
+- Router
+- Vuex
 - Babel
 - Hot reload server
 - PUG
 - SASS (with node-sass autoprefixer)
 - Flex Grid
 - Normalize.css
+- Images loader
+- SVG Sprite loader
 
-## Documentation
-
-- [SASS Structure](#sass-structure)
-- [Grid system](#grid-system)
-
-### Templates structure
-
-This project uses [Vue Router](https://router.vuejs.org/) to make a lightning fast traversing between pages. It also uses one of my favourite feature that Vue can provide and it's [component system](https://vuejs.org/v2/guide/components.html). By default structure of templates looks like this:
-
-```
-views
-  ├── components
-      ├── _header.pug
-      ├── _footer.pug
-      ├── _component.pug
-      ├── etc...
-  └── pages
-      ├── _home.pug
-      ├── _page.pug
-      ├── etc...
-```
-
-Pages need to be written in [router.js](src/router.js) file like this:
-
-```
-import Home from './views/pages/_home.vue'
-import Page from './views/pages/_page.vue'
-
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/page',
-    name: 'Page',
-    component: Page
-  }
-]
-```
-
-Pages will be rendered in ```<router-view>``` which you can find in [App.vue](src/App.vue). 
-
-```
-div(id='app')
-
-  app-header
-
-  main(class='main')
-    router-view
-
-  app-footer
-```
-
-Links to pages looks like this:
-
-```
-router-link(to='/') Home
-router-link(to='/page') Page
-```
-
-Of course this can be easely expanded as you wish. This is just very basic example to start with. Learn [Vue Router Documentation](https://router.vuejs.org/) for more detailed information.
-
-### `SASS structure`
-
-I use [BEM methodology](https://en.bem.info/methodology/css/) to separate **B**locks and **E**lements. Default file structure looks lke this:
-
-```
-styles
-  ├── animations
-      └── _animations.sass
-  ├── blocks
-      ├── _header.sass
-      ├── _footer.sass
-      ├── etc...
-  ├── core
-      ├── _colors.sass
-      ├── _extends.sass
-      ├── _grid.sass
-      ├── _mixins.sass
-      ├── _normalize.sass
-      ├── _typography.sass
-  └── elements
-      ├── _button.sass
-      ├── etc...
-  main.sass
-```
-
-Also I use [SASS @extends](https://sass-lang.com/documentation/at-rules/extend) feature very often, thats why I included many useful shortenings in [_extends.sass](src/styles/core/_extends.sass) file. 
-
-### `Grid system`
-
-Nightpack uses custom 12 column grid system based on flex. Actually, you can modify number of columns. For example, 24 or 36 depends on project you work on. You can use grid system both in PUG or SASS. I personally prefer SASS method because in that case output HTML looks pretty and clean.
-
-**PUG**:
-
-```
-.col.lg-6.md-6.sm-6.xs-6.mb-12
-// or
-div(class='col lg-6 md-6 sm-6 xs-6 mb-12')
-```
-
-**SASS**:
-
-```
-.classname
-  @extend .col
-  @extend .lg-6
-  @extend .md-6
-  @extend .sm-6
-  @extend .xs-6
-  @extend .mb-12
-```
-
-It also includes list of popular breakpoints:
-
-```
-$mb-screen: 320px !default // mobile (mobile portrait)
-$xs-screen: 480px !default // extra small (mobile landscape)
-$sm-screen: 648px !default // small
-$md-screen: 960px !default // medium
-$lg-screen: 1140px !default // large 
-$xl-screen: 1600px !default // extra large
-```
-
-With this, you can use @media queries like this:
-
-```
-@media #{$lg-up} // styles will apply on LG+ resolutions (>1140px)
-@media #{$sm-dw} // styles will apply on SM- resolutions (<648px)
-@media #{md-lg} // styles will apply between MD and LG resolutions only (>960px && <1140px)
-```
-
-See [_grid.sass](src/styles/core/_grid.sass) file for more details.
