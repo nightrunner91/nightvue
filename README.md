@@ -8,7 +8,15 @@
 
 ## How to use it?
 
-Clone repo and install dependencies
+First of all, you need to install Vue CLI
+
+```
+npm install -g @vue/cli
+# OR
+yarn global add @vue/cli
+```
+
+Then clone repo and install dependencies
 
 ```
 git clone git@github.com:nightrunner91/nightvue.git
