@@ -18,7 +18,7 @@ npm i
 Run hot-reload dev server
 
 ```
-npm run watch
+npm run serve
 ```
 
 Build your project
