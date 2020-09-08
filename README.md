@@ -61,7 +61,7 @@ npm run build
 
 ### Templates structure
 
-This project uses [Vue Router](https://router.vuejs.org/) to make a lightning fast traversing between pages. It also uses one of my favourite feature that Vue can provide and it's [component system](https://vuejs.org/v2/guide/components.html). By default structure of 
+This project uses [Vue Router](https://router.vuejs.org/) to make a lightning fast traversing between pages. It also uses one of my favourite feature that Vue can provide and it's [component system](https://vuejs.org/v2/guide/components.html). By default structure of templates looks like this:
 
 ```
 views
@@ -75,6 +75,48 @@ views
       ├── _page.pug
       ├── etc...
 ```
+
+Pages need to be written in [router.js](src/router.js) file like this:
+
+```
+import Home from './views/pages/_home.vue'
+import Page from './views/pages/_page.vue'
+
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/page',
+    name: 'Page',
+    component: Page
+  }
+]
+```
+
+Pages will be rendered in ```<router-view>``` which you can find in [App.vue](src/App.vue). 
+
+```
+div(id='app')
+
+  app-header
+
+  main(class='main')
+    router-view
+
+  app-footer
+```
+
+Links to pages looks like this:
+
+```
+router-link(to='/') Home
+router-link(to='/page') Page
+```
+
+Of course this can be easely expanded as you wish. This is just very basic example to start with. Learn [Vue Router Documentation](https://router.vuejs.org/) for more detailed information.
 
 ### `SASS structure`
 
