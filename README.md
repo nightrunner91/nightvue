@@ -7,14 +7,14 @@
 
 ## What is it, exactly?
 
-Basically, it is already configured [Vue CLI](https://cli.vuejs.org/) project with some cool and handly features from my another Webpack Front-end project named [nightpack](https://github.com/nightrunner91/nightpack).
+Basically, it is already configured [Vue CLI](https://cli.vuejs.org/) project with some cool and handly features from my another Webpack Front-end project named [nightpack](https://github.com/nightrunner91/nightpack). 
 
-Vue CLI settings used in this project are:
+Vue CLI settings used:
 
 - Babel
 - Router (with history mode enabled)
 - Vuex
-- SASS/SCSS Preprocessor based on node-sass
+- SASS/SCSS Preprocessor (based on node-sass)
 - ESLint with error prevention only (on save)
 
 ## How to use it?
@@ -44,7 +44,7 @@ Build your project
 npm run build
 ```
 
-## Features included:
+## List of all included features:
 
 - Vue
 - Router
@@ -57,4 +57,3 @@ npm run build
 - Normalize.css
 - Images loader
 - SVG Sprite loader
-
