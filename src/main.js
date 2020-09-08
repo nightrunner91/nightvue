@@ -11,13 +11,25 @@ Vue.config.productionTip = false
 export const eventBus = new Vue();
 
 // Import and regitser components
-import appHeader from "./views/blocks/_header";
-import appFooter from "./views/blocks/_footer";
+import appHeader from "./views/components/_header";
+import appFooter from "./views/components/_footer";
 import appComponent from "./views/components/_component.vue";
 
 Vue.component('app-component', appComponent);
 Vue.component('app-header', appHeader);
 Vue.component('app-footer', appFooter);
+
+// SVG Sprite
+import sprite from './assets/sprite.svg';
+
+fetch(sprite)
+  .then(response => response.text())
+  .then(svg => {
+    let div = document.createElement('div');
+    div.hidden = true;
+    div.insertAdjacentHTML('afterbegin', svg);
+    document.body.insertBefore(div, document.body.childNodes[0]);
+  });
 
 // Init app
 new Vue({
