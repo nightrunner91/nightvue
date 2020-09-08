@@ -1,0 +1,157 @@
+$base-fz: 16px
+$base-lh: 1.2
+
+
+body
+  font-size: $base-fz
+  line-height: $base-lh
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+  -webkit-font-smoothing: antialiased !important
+  text-rendering: optimizelegibility
+  -moz-osx-font-smoothing: grayscale
+  font-family: "Open Sans", sans-serif
+  font-weight: 400
+  overflow-x: hidden
+  background: $clr-white
+  color: $clr-black
+
+  &.body--locked
+    overflow-y: hidden
+
+  @media #{$mb-dw}
+    display: none !important
+
+
+h1, h2, h3, h4, h5, h6
+  margin-top: 0
+  margin-bottom: 20px
+  font-weight: 700
+  line-height: $base-lh
+
+.fz1, .fz2, .fz3, .fz4, .fz5, .fz6
+  font-weight: 700
+
+h1, .fz1
+  font-size: 44px
+
+  @media #{$xs-dw}
+    font-size: 36px
+
+h2, .fz2
+  font-size: 36px
+
+  @media #{$xs-dw}
+    font-size: 28px
+
+h3, .fz3
+  font-size: 28px
+
+  @media #{$xs-dw}
+    font-size: 24px
+
+h4, .fz4
+  font-size: 24px
+
+  @media #{$xs-dw}
+    font-size: 20px
+
+h5, .fz5
+  font-size: 20px
+
+  @media #{$xs-dw}
+    font-size: 18px
+
+h6, .fz6
+  font-size: 18px
+
+  @media #{$xs-dw}
+    font-size: 17px
+
+
+p,
+ul,
+ol,
+pre,
+table,
+blockquote
+  margin-top: 0
+  margin-bottom: 20px
+  font-size: $base-fz
+  line-height: $base-lh
+
+
+ul,
+ol 
+  font-size: $base-fz
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+
+small,
+.small 
+  font-size: 12px
+  line-height: 1.2
+
+
+.tagline
+  font-size: 24px
+  line-height: 1.2
+
+
+hr 
+  height: 0
+  box-sizing: border-box
+  border: none
+  border-bottom: 1px solid $clr-black
+  margin-top: 40px
+  margin-bottom: 0
+
+
+a 
+  text-decoration: none
+  transition: all 0.3s ease
+  cursor: pointer
+
+
+strong,
+.strong 
+  font-weight: 700
+
+
+em,
+.italic 
+  font-style: italic
+
+
+mark,
+.mark 
+  background-color: $clr-black
+  color: lighten($clr-black, 75%)
+
+
+::selection 
+  background-color: $clr-black
+  color: $clr-white
+
+
+* 
+  -webkit-tap-highlight-color: transparent
+
+
+input[type="number"] 
+  -moz-appearance: textfield
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button 
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  margin: 0
+
+
+.svg-sprite 
+  display: none !important
+  visibility: hidden !important

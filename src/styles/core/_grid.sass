@@ -1,0 +1,193 @@
+// Extra large monitors support?
+$xl-support: false
+  
+// Breakpoints
+$mb-screen: 320px !default // mobile (mobile portrait)
+$xs-screen: 480px !default // extra small (mobile landscape)
+$sm-screen: 648px !default // small
+$md-screen: 960px !default // medium
+$lg-screen: 1140px !default // large 
+$xl-screen: 1600px !default // extra large
+
+// Queries between breakpoints
+$mb-xs: "screen and (min-width : #{$mb-screen}) and (max-width : #{$xs-screen - 1px})" !default
+$xs-sm: "screen and (min-width : #{$xs-screen}) and (max-width : #{$sm-screen - 1px})" !default
+$sm-md: "screen and (min-width : #{$sm-screen}) and (max-width : #{$md-screen - 1px})" !default
+$md-lg: "screen and (min-width : #{$md-screen}) and (max-width : #{$lg-screen - 1px})" !default
+$lg-xl: "screen and (min-width : #{$lg-screen}) and (max-width : #{$xl-screen - 1px})" !default
+
+// Queries based on min-width
+$mb-up: "screen and (min-width : #{$mb-screen})" !default
+$xs-up: "screen and (min-width : #{$xs-screen})" !default
+$sm-up: "screen and (min-width : #{$sm-screen})" !default
+$md-up: "screen and (min-width : #{$md-screen})" !default
+$lg-up: "screen and (min-width : #{$lg-screen})" !default
+$xl-up: "screen and (min-width : #{$xl-screen})" !default
+
+// Queries based on max-width
+$mb-dw: "screen and (max-width : #{$mb-screen - 1px})" !default
+$xs-dw: "screen and (max-width : #{$xs-screen - 1px})" !default
+$sm-dw: "screen and (max-width : #{$sm-screen - 1px})" !default
+$md-dw: "screen and (max-width : #{$md-screen - 1px})" !default
+$lg-dw: "screen and (max-width : #{$lg-screen - 1px})" !default
+$xl-dw: "screen and (max-width : #{$xl-screen - 1px})" !default
+
+// Grid settings
+$num-cols:     12
+$gutter-width: 30px
+
+// Container width settings
+.container 
+  margin: 0 auto
+  width: 100%
+  padding: 0 $gutter-width / 2
+
+  &.flexed 
+    width: 100% !important
+
+  @media #{$mb-up}
+    width: 100%
+
+  @media #{$sm-up}
+    width: $sm-screen
+
+  @media #{$md-up}
+    width: $md-screen
+
+  @media #{$lg-up}
+    width: $lg-screen
+
+  @if $xl-support
+    @media #{$xl-up}
+      width: $xl-screen
+
+// Row settings
+.row 
+  margin-left: ($gutter-width / -2)
+  margin-right: ($gutter-width / -2)
+  display: flex
+  flex-wrap: wrap
+
+// Column settigns
+.col
+  padding: 0 ($gutter-width / 2)
+  margin: 0
+  position: relative
+  flex-basis: 100%
+  max-width: 100%
+  -ms-flex-preferred-size: 100%
+
+// MB settings
+@media #{$mb-up}
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .mb-#{$i}
+      flex-basis: $perc
+      max-width: $perc
+      -ms-flex-preferred-size: $perc
+    
+    $i: $i + 1
+
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .offset-mb-#{$i} 
+      margin-left: $perc
+    $i: $i + 1
+
+// XS settings
+@media #{$xs-up}
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .xs-#{$i}
+      flex-basis: $perc
+      max-width: $perc
+      -ms-flex-preferred-size: $perc
+    
+    $i: $i + 1
+
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .offset-xs-#{$i} 
+      margin-left: $perc
+    $i: $i + 1
+
+// SM settings
+@media #{$sm-up}
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .sm-#{$i} 
+      flex-basis: $perc
+      max-width: $perc
+      -ms-flex-preferred-size: $perc
+    
+    $i: $i + 1
+  
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .offset-sm-#{$i} 
+      margin-left: $perc
+    $i: $i + 1
+
+// MD settigns
+@media #{$md-up}
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .md-#{$i} 
+      flex-basis: $perc
+      max-width: $perc
+      -ms-flex-preferred-size: $perc
+    
+    $i: $i + 1
+  
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .offset-md-#{$i} 
+      margin-left: $perc
+    $i: $i + 1
+
+// LG settings
+@media #{$lg-up}
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .lg-#{$i} 
+      flex-basis: $perc
+      max-width: $perc
+      -ms-flex-preferred-size: $perc
+    
+    $i: $i + 1
+  
+  $i: 1
+  @while $i <= $num-cols 
+    $perc: unquote((100 / ($num-cols / $i)) + "%")
+    .offset-lg-#{$i} 
+      margin-left: $perc
+    $i: $i + 1
+
+// XL settings
+@if $xl-support
+  @media #{$xl-up}
+    $i: 1
+    @while $i <= $num-cols 
+      $perc: unquote((100 / ($num-cols / $i)) + "%")
+      .xl-#{$i} 
+        flex-basis: $perc
+        max-width: $perc
+        -ms-flex-preferred-size: $perc
+      
+      $i: $i + 1
+    
+    $i: 1
+    @while $i <= $num-cols 
+      $perc: unquote((100 / ($num-cols / $i)) + "%")
+      .offset-xl-#{$i} 
+        margin-left: $perc
+      $i: $i + 1
