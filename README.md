@@ -120,7 +120,7 @@ Of course this can be easely expanded as you wish. This is just very basic examp
 
 ### `SASS structure`
 
-Just like in PUG Templates I use [BEM methodology](https://en.bem.info/methodology/css/) to separate **B**locks and **E**lements. Default file structure looks lke this:
+I use [BEM methodology](https://en.bem.info/methodology/css/) to separate **B**locks and **E**lements. Default file structure looks lke this:
 
 ```
 styles
@@ -143,7 +143,7 @@ styles
   main.sass
 ```
 
-I use [SASS @extends](https://sass-lang.com/documentation/at-rules/extend) feature very often, thats why I included many useful shortenings in [_extends.sass](src/styles/core/_extends.sass) file. 
+Also I use [SASS @extends](https://sass-lang.com/documentation/at-rules/extend) feature very often, thats why I included many useful shortenings in [_extends.sass](src/styles/core/_extends.sass) file. 
 
 ### `Grid system`
 
