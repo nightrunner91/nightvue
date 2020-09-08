@@ -19,12 +19,10 @@ Vue CLI settings used in this project are:
 
 ## How to use it?
 
-First of all, you need to install Vue CLI
+First of all, you need to install Vue CLI globally:
 
 ```
 npm install -g @vue/cli
-# OR
-yarn global add @vue/cli
 ```
 
 Then clone repo and install dependencies
@@ -60,6 +58,23 @@ npm run build
 
 - [SASS Structure](#sass-structure)
 - [Grid system](#grid-system)
+
+### Templates structure
+
+This project uses [Vue Router](https://router.vuejs.org/) to make a lightning fast traversing between pages. It also uses one of my favourite feature that Vue can provide and it's [component system](https://vuejs.org/v2/guide/components.html). By default structure of 
+
+```
+views
+  ├── components
+      ├── _header.pug
+      ├── _footer.pug
+      ├── _component.pug
+      ├── etc...
+  └── pages
+      ├── _home.pug
+      ├── _page.pug
+      ├── etc...
+```
 
 ### `SASS structure`
 
