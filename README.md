@@ -19,13 +19,7 @@ Vue CLI settings used:
 
 ## How to use it?
 
-First of all, you need to install Vue CLI globally:
-
-```
-npm install -g @vue/cli
-```
-
-Then clone repo and install dependencies
+Clone repo and install dependencies
 
 ```
 git clone git@github.com:nightrunner91/nightvue.git
