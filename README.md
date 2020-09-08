@@ -44,7 +44,7 @@ Build your project
 npm run build
 ```
 
-## List of all included features:
+## Features included:
 
 - Vue
 - Router
