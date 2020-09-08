@@ -1,7 +1,7 @@
 <div align="center">
   <img width="200" height="200" src="src/assets/logo-vue.png">
   <img width="200" height="200" src="src/assets/logo-sn.png">
-  <h1 style='border-bottom: 0px !important;'>Nightrunner's Vue Front-end Boilerplate</h1>
+  <h1 style='border-bottom-color: transparent !important;'>Nightrunner's Vue Front-end Boilerplate</h1>
   <p>It uses best features from <a href='https://cli.vuejs.org/'>Vue CLI</a> and <a href='https://github.com/nightrunner91/nightpack'>nightpack</a> to provide a modern and ready to use boilerplate for Front-end developement</p>
 </div>
 
