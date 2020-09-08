@@ -5,6 +5,18 @@
   <p>It uses best features from <a href='https://cli.vuejs.org/'>Vue CLI</a> and <a href='https://github.com/nightrunner91/nightpack'>nightpack</a> to provide a modern and ready to use boilerplate for Front-end developement</p>
 </div>
 
+## What is it, exactly?
+
+Basically, it is already configured [Vue CLI](https://cli.vuejs.org/) project with some cool and handly features from another Webpack Front-end project named [nightpack](https://github.com/nightrunner91/nightpack).
+
+Vue CLI settings used in this project are:
+
+- Babel
+- Router (with history mode enabled)
+- Vuex
+- SASS/SCSS Preprocessor based on node-sass
+- ESLint with error prevention only (on save)
+
 ## How to use it?
 
 First of all, you need to install Vue CLI
@@ -33,3 +45,12 @@ Build your project
 ```
 npm run build
 ```
+
+## Features included:
+
+- Hot reload server
+- PUG
+- SASS (with PostCSS autoprefixer)
+- Flex Grid
+- Normalize.css
+- Babel
