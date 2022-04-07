@@ -1,0 +1,17 @@
+$icon-sizes: 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 48, 64;
+
+@mixin icons($breakpoint:null) {
+  @each $size in $icon-sizes {
+    .icon#{$breakpoint}-#{$size} {
+      @include size($size, $size)
+    }
+  }
+}
+
+@include icons();
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}px) {
+    @include icons('-' + $breakpoint)
+  }
+};

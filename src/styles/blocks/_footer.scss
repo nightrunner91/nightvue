@@ -1,0 +1,15 @@
+.footer {
+  @extend .small;
+
+  min-height: $footer-height;
+  border-top: 1px solid lighten(map-get($theme-colors, 'secondary'), 40%);
+
+  &__social {
+    color: map-get($theme-colors, 'secondary');
+    transition: .3s ease;
+
+    &:hover {
+      color: map-get($theme-colors, 'primary')
+    }
+  }
+}

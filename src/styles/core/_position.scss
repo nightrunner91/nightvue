@@ -1,0 +1,13 @@
+$positions: relative, absolute, static, fixed, static;
+
+@each $position in $positions {
+  .position-#{$position} { position: $position !important; }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}px) {
+    @each $position in $positions {
+      .position-#{$breakpoint}-#{$position} { position: $position !important; }
+    }
+  }
+}

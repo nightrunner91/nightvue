@@ -1,0 +1,91 @@
+$body-bg:           #F9F9F9 !default;
+$body-color:        #343a40 !default;
+$border-color:      #D6D5FA !default;
+$headings-color:    #121158 !default;
+
+$colors: (
+  'black':     #000000,
+  'white':     #ffffff,
+  'light':     #f8f9fa,
+  'dark':      #343a40,
+  'grey':      #E5EBEB,
+  'pale':      #6A747D,
+  'blue':      #4D4D9F,
+  'indigo':    #6610f2,
+  'purple':    #6f42c1,
+  'pink':      #e83e8c,
+  'red':       #DF5563,
+  'orange':    #fd7e14,
+  'yellow':    #FFB300,
+  'green':     #45ca64,
+  'teal':      #20c997,
+  'cyan':      #17a2b8,
+);
+
+$levels: (
+  1: 10%,
+  2: 20%,
+  3: 30%,
+  4: 40%,
+  5: 50%,
+);
+
+$theme-colors: (
+  'primary':    map-get($colors, 'purple'),
+  'secondary':  map-get($colors, 'pale'),
+  'success':    map-get($colors, 'green'),
+  'info':       map-get($colors, 'cyan'),
+  'warning':    map-get($colors, 'yellow'),
+  'danger':     map-get($colors, 'red'),
+  'accent':     map-get($colors, 'orange'),
+  'muted':      map-get($colors, 'teal'),
+  'neutral':    map-get($colors, 'blue'),
+  'light':      map-get($colors, 'light'),
+  'dark':       map-get($colors, 'dark'),
+);
+
+@each $name, $code in $colors {
+  .bg-#{$name} { background-color: $code }
+  .clr-#{$name} { color: $code }
+  .fill-#{$name} { fill: $code }
+
+  @each $level, $rate in $levels {
+    .bg-#{$name}-light-#{$level} { background-color: lighten($code, $rate) }
+    .bg-#{$name}-dark-#{$level} { background-color: darken($code, $rate) }
+    .bg-#{$name}-saturate-#{$level} { background-color: saturate($code, $rate) }
+    .bg-#{$name}-desaturate-#{$level} { background-color: desaturate($code, $rate) }
+
+    .clr-#{$name}-light-#{$level} { color: lighten($code, $rate) }
+    .clr-#{$name}-dark-#{$level} { color: darken($code, $rate) }
+    .clr-#{$name}-saturate-#{$level} { color: saturate($code, $rate) }
+    .clr-#{$name}-desaturate-#{$level} { color: desaturate($code, $rate) }
+
+    .fill-#{$name}-light-#{$level} { fill: lighten($code, $rate) }
+    .fill-#{$name}-dark-#{$level} { fill: darken($code, $rate) }
+    .fill-#{$name}-saturate-#{$level} { fill: saturate($code, $rate) }
+    .fill-#{$name}-desaturate-#{$level} { fill: desaturate($code, $rate) }
+  }
+}
+
+@each $name, $code in $theme-colors {
+  .bg-#{$name} { background-color: $code }
+  .clr-#{$name} { color: $code }
+  .fill-#{$name} { fill: $code }
+
+  @each $level, $rate in $levels {
+    .bg-#{$name}-light-#{$level} { background-color: lighten($code, $rate) }
+    .bg-#{$name}-dark-#{$level} { background-color: darken($code, $rate) }
+    .bg-#{$name}-saturate-#{$level} { background-color: saturate($code, $rate) }
+    .bg-#{$name}-desaturate-#{$level} { background-color: desaturate($code, $rate) }
+
+    .clr-#{$name}-light-#{$level} { color: lighten($code, $rate) }
+    .clr-#{$name}-dark-#{$level} { color: darken($code, $rate) }
+    .clr-#{$name}-saturate-#{$level} { color: saturate($code, $rate) }
+    .clr-#{$name}-desaturate-#{$level} { color: desaturate($code, $rate) }
+
+    .fill-#{$name}-light-#{$level} { fill: lighten($code, $rate) }
+    .fill-#{$name}-dark-#{$level} { fill: darken($code, $rate) }
+    .fill-#{$name}-saturate-#{$level} { fill: saturate($code, $rate) }
+    .fill-#{$name}-desaturate-#{$level} { fill: desaturate($code, $rate) }
+  }
+}

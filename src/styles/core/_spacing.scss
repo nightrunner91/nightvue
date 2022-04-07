@@ -1,0 +1,52 @@
+$spacers: (
+  0: 0,
+  25: 0.25rem,
+  50: 0.5rem,
+  75: 0.75rem,
+  1: 1rem,
+  2: 2rem,
+  3: 3rem,
+  4: 4rem,
+  5: 5rem,
+  auto: auto
+);
+
+@mixin makeSpacers($breakpoint: null) {
+  @each $name, $indent in $spacers {
+    .p#{$breakpoint}-#{$name} { padding: $indent !important }
+    .pt#{$breakpoint}-#{$name} { padding-top: $indent !important }
+    .pl#{$breakpoint}-#{$name} { padding-left: $indent !important }
+    .pb#{$breakpoint}-#{$name} { padding-bottom: $indent !important }
+    .pr#{$breakpoint}-#{$name} { padding-right: $indent !important }
+    .px#{$breakpoint}-#{$name} {
+      padding-left: $indent !important;
+      padding-right: $indent !important
+    }
+    .py#{$breakpoint}-#{$name} {
+      padding-top: $indent !important;
+      padding-bottom: $indent !important
+    }
+
+    .m#{$breakpoint}-#{$name} { margin: $indent !important }
+    .mt#{$breakpoint}-#{$name} { margin-top: $indent !important }
+    .ml#{$breakpoint}-#{$name} { margin-left: $indent !important }
+    .mb#{$breakpoint}-#{$name} { margin-bottom: $indent !important }
+    .mr#{$breakpoint}-#{$name} { margin-right: $indent !important }
+    .mx#{$breakpoint}-#{$name} {
+      margin-left: $indent !important;
+      margin-right: $indent !important
+    }
+    .my#{$breakpoint}-#{$name} {
+      margin-top: $indent !important;
+      margin-bottom: $indent !important
+    }
+  }
+}
+
+@include makeSpacers();
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}px) {
+    @include makeSpacers('-' + $breakpoint)
+  }
+}

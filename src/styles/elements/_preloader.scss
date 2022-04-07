@@ -1,0 +1,106 @@
+$spinnerColor: 'secondary';
+
+$spinnerSizes: (
+  'xs': 14px,
+  'sm': 22px,
+  'md': 33px,
+  'lg': 44px,
+);
+
+.preloader {
+  position: fixed;
+  visibility: hidden;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 2000;
+  opacity: 0;
+  transition: all 0.5s ease;
+  user-select: none;
+
+  &--revealed {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.spinner {
+  // Sizes
+  @each $name, $size in $spinnerSizes {
+    &-#{$name} {
+      width: $size +  $size / 2;
+      height: $size + $size / 2;
+
+      .spinner {
+        &__inner {
+          width: $size +  $size / 2;
+          height: $size + $size / 2;
+  
+          i {
+            width: $size;
+            height: $size;
+
+            @if $name == 'xs' {
+              border-width: $size / 3;
+            }
+            
+            @if $name == 'sm' {
+              border-width: $size / 4;
+            }
+
+            @if $name == 'md' {
+              border-width: $size / 5;
+            }
+
+            @if $name == 'lg' {
+              border-width: $size / 6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Color variants
+  @each $name, $code in $theme-colors {
+    &-#{$name} {
+      .spinner {
+        &__inner {
+          i {
+            border-color: $code transparent transparent transparent;
+          }
+        }
+      }
+    }
+  }
+
+  &__inner {
+    display: inline-block;
+    position: relative;
+
+    i {
+      @extend .radius-circle;
+
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      animation: spin 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-style: solid;
+
+      &:nth-child(1) {
+        animation-delay: -0.45s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: -0.3s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: -0.15s;
+      }
+    }
+  }
+}

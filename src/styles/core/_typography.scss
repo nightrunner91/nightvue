@@ -1,0 +1,170 @@
+// Body and text
+$base-fz: 16px;
+$base-lh: 1.5em;
+$base-fw: 400;
+$base-mg: 1.5em;
+$small-fz: 0.875; // ratio of how lower will be font-size for <small> tag
+
+
+// Headings
+$headings-fz: (
+  h1: 2.25rem,
+  h2: 1.875rem,
+  h3: 1.5rem,
+  h4: 1.125rem,
+  h5: 1rem,
+  h6: 0.875rem,
+);
+$headings-lh: 1.25em;
+$headings-fw: 500;
+$headings-margins: (
+  top: 0,
+  bottom: 0.5em,
+);
+$headings-breake: true; // should or not headings be lowered on specific breakpoint
+$headings-breakepoint: 'sm'; // on which breakpoint headings will have lowered font-size
+$headings-decrease: 0.75; // ratio of how lower will be font-size for headings after breakpoint
+
+
+// Font families
+$font-families: (
+  base: "Rubik",
+  headings: "Rubik",
+  displays: "Rubik"
+);
+
+
+// Displays
+$displays-fz: (
+  display-1: 74px,
+  display-2: 62px,
+  display-3: 48px,
+  display-4: 34px,
+);
+$displays-lh: 1.25em;
+$displays-fw: 500;
+$displays-margins: (
+  top: 0,
+  bottom: 1em,
+);
+$displays-breake: true; // should or not displays be lowered on specific breakpoint
+$displays-breakepoint: 'sm'; // on which breakpoint displays will have lowered font-size
+$displays-decrease: 0.75; // ratio of how lower will be font-size for displays after breakpoint
+
+
+body {
+  overflow-x: hidden;
+  overflow-y: visible;
+  font-family: map-get($font-families, base), sans-serif;
+  font-weight: 400;
+  font-size: $base-fz;
+  line-height: $base-lh;
+  background: $body-bg;
+  color: $body-color;
+
+  &.body--locked { overflow-y: hidden }
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: map-get($font-families, headings), sans-serif;
+  font-weight: $headings-fw;
+  line-height: $headings-lh;
+  color: map-get($theme-colors, 'dark');
+}
+  
+h1, h2, h3, h4, h5, h6 {
+  display: block;
+  margin-top: map-get($headings-margins, top);
+  margin-bottom: map-get($headings-margins, bottom);
+}
+
+@each $heading, $size in $headings-fz {
+  #{$heading},
+  .#{$heading} {
+    font-size: $size;
+
+    @if ($headings-breake) {
+      @media screen and (min-width: map-get($breakpoints, $headings-breakepoint)px) {
+        font-size: $size * $headings-decrease
+      }
+    }
+  }
+}
+
+@each $display, $size in $displays-fz {
+  .#{$display} {
+    font-size: $size;
+    font-family: map-get($font-families, displays), sans-serif;
+    font-weight: $displays-fw;
+    line-height: $displays-lh;
+
+    @if ($displays-breake) {
+      @media screen and (min-width: map-get($breakpoints, $displays-breakepoint)px) {
+        font-size: $size * $displays-decrease
+      }
+    }
+  }
+}
+
+p,
+ul,
+ol,
+pre,
+table,
+blockquote {
+  display: block;
+  margin-top: 0;
+  margin-bottom: $base-mg;
+  padding: 0;
+  font-size: $base-fz;
+  line-height: $base-lh;
+}
+
+ul,
+ol {
+  padding-left: 2em
+}
+
+small,
+.small {
+  font-size: $base-fz * $small-fz;
+  line-height: $base-lh * $small-fz;
+}
+
+hr {
+  box-sizing: border-box;
+  height: 0;
+  margin-top: $base-mg;
+  margin-bottom: $base-mg;
+  border: none;
+  border-bottom: 1px solid lighten(map-get($theme-colors, 'secondary'), 45%);
+}
+
+::selection {
+  background-color: map-get($theme-colors, 'dark');
+  color: lighten(map-get($colors, 'white'), 75%);
+}
+
+mark {
+  background-color: rgba(map-get($colors, 'black'), 0.75);
+}
+
+code,
+pre {
+  background: rgba(map-get($colors, 'black'), 0.25);
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+a {
+  color: map-get($theme-colors, 'primary');
+  transition: .3s ease;
+
+  &:hover {
+    color: lighten(map-get($theme-colors, 'primary'), 20%);
+  }
+}

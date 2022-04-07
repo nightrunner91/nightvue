@@ -1,0 +1,77 @@
+.accordion {
+  @extend .radius-base;
+
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: 1px solid lighten(map-get($theme-colors, 'secondary'), 45%);
+
+  &__item {
+    &:not(:first-child) {
+      .accordion {
+        &__toggle {
+          border-top: 1px solid lighten(map-get($theme-colors, 'secondary'), 45%);
+        }
+      }
+    }
+
+    &:first-child {
+      .accordion {
+        &__toggle {
+          border-top-left-radius: map-get($radiuses, 'base');
+          border-top-right-radius: map-get($radiuses, 'base');
+        }
+      }
+    }
+
+    &:last-child {
+      .accordion {
+        &__toggle {
+          border-bottom-left-radius: map-get($radiuses, 'base');
+          border-bottom-right-radius: map-get($radiuses, 'base');
+        }
+      }
+    }
+
+    &--opened {
+      .accordion {
+        &__toggle {
+          @extend .radius-bl-zero;
+          @extend .radius-br-zero;
+
+          background: linear-gradient(to left, map-get($colors, 'light') 0%, lighten(map-get($theme-colors, 'info'), 50%) 50%, lighten(map-get($theme-colors, 'info'), 50%) 100%);
+          color: map-get($theme-colors, 'primary');
+        }
+
+        &__arrow {
+          transform: rotate(180deg);
+        }
+
+        &__content {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__toggle {
+    background: map-get($colors, 'light');
+    color: map-get($theme-colors, 'dark');
+    transition: .15s ease;
+
+    &:hover {
+      @extend .bg-grey;
+    }
+  }
+
+  &__arrow {
+    @extend .clr-dark;
+
+    transition: transform .3s ease;
+  }
+
+  &__content {
+    display: none;
+    border-top: 1px solid lighten(map-get($theme-colors, 'secondary'), 45%);
+  }
+}

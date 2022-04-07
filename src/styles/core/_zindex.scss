@@ -1,0 +1,38 @@
+$zindex-type: 'steps'; // 'layers' | 'steps'
+
+// settings for option 'layers'
+$zindex-start: -1;
+$zindex-end: 100;
+
+// setup zindex steps
+$zindex-steps: -1, 0, 1, 2, 3, 4, 5, 10, 50, 100, 1000, 9999;
+
+@mixin zIndexes($breakpoint:null) {
+  @if ($zindex-type == 'layers') {
+    $i: $zindex-start;
+    @while $i <= $zindex-end {
+      @if ($i >= 0) {
+        .z#{$breakpoint}-plus-#{$i} { z-index: $i }
+      } @else {
+        .z#{$breakpoint}-minus#{$i} { z-index: $i }
+      }
+      $i: $i + 1;
+    }
+  } @else if ($zindex-type == 'steps') {
+    @each $step in $zindex-steps {
+      @if ($step >= 0) {
+        .z#{$breakpoint}-plus-#{$step} { z-index: $step }
+      } @else {
+        .z#{$breakpoint}-minus#{$step} { z-index: $step }
+      }
+    }
+  }
+}
+
+@include zIndexes();
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}px) {
+    @include zIndexes('-' + $breakpoint)
+  }
+};

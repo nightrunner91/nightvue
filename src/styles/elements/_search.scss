@@ -1,0 +1,83 @@
+$searchItemHeight: 65px;
+$visibleItems: 3;
+$preloaderWidth: 40px;
+
+.search {
+  position: relative;
+  z-index: 90;
+
+  &__field {
+    position: relative;
+  }
+
+  &__preloader {
+    position: absolute;
+    top: 0;
+    right: 1em;
+    bottom: 0;
+    margin: auto;
+    width: $preloaderWidth;
+    height: $preloaderWidth;
+  }
+
+  &__input {
+    padding-right: $preloaderWidth;
+  }
+
+  &__dropdown {
+    @include material-shadow($z-depth: 3, $color: map-get($theme-colors, 'info'));
+
+    position: absolute;
+    top: calc(100% - #{$labelHeight});
+    left: 0;
+    width: 100%;
+    border: 1px solid $border-color;
+    border-top: none;
+  }
+
+  &__scrollarea {
+    @extend .radius-bl-base;
+    @extend .radius-br-base;
+
+    max-height: $searchItemHeight * $visibleItems;
+
+    .ps__rail-x,
+    .ps__rail-y {
+      z-index: 900;
+    }
+  }
+
+  &__item {
+    position: relative;
+    border-top: 1px solid lighten(map-get($theme-colors, 'secondary'), 45%);
+    min-height: $searchItemHeight;
+    transition: .3s ease;
+
+    &:hover {
+      @extend .bg-info-light-5;
+    }
+
+    &--selected {
+      &::before {
+        @extend .pseudoelem;
+        @extend .bg-primary-light-4;
+
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+      }
+    }
+  }
+
+  &__placeholder {
+    border-top: 1px solid lighten(map-get($theme-colors, 'secondary'), 45%);
+  }
+}
+
+.text__highlight {
+  @extend .radius-small; 
+
+  background: map-get($theme-colors, 'warning') !important;
+  color: map-get($colors, 'black') !important;
+}

@@ -1,0 +1,25 @@
+$vt-namespace: 'Vue-Toastification' !default;
+$vt-toast-min-width: 326px !default;
+$vt-toast-max-width: 600px !default;
+$vt-toast-background: map-get($theme-colors, 'info') !default;
+
+$vt-toast-min-height: 42px !default;
+$vt-toast-max-height: 800px !default;
+
+$vt-color-default: map-get($theme-colors, 'primary') !default;
+$vt-text-color-default: map-get($colors, 'white') !default;
+$vt-color-info: map-get($theme-colors, 'info') !default;
+$vt-text-color-info: map-get($colors, 'white') !default;
+$vt-color-success: map-get($theme-colors, 'success') !default;
+$vt-text-color-success: map-get($colors, 'white') !default;
+$vt-color-warning: map-get($theme-colors, 'warning') !default;
+$vt-text-color-warning: map-get($colors, 'white') !default;
+$vt-color-error: map-get($theme-colors, 'danger') !default;
+$vt-text-color-error: map-get($colors, 'white') !default;
+
+$vt-color-progress-default: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55) !default;
+
+$vt-mobile: "only screen and (max-width : 600px)" !default;
+$vt-not-mobile: "only screen and (min-width : 600px)" !default;
+$vt-font-family: "Lato", Helvetica, "Roboto", Arial, sans-serif !default;
+$vt-z-index: 9999 !default;

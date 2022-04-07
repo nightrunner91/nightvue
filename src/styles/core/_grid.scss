@@ -1,0 +1,84 @@
+$num-cols:           12;
+$gutter-width:       1rem;
+$container-width:    1580px;
+
+// Dublicated in store/modules/config.js
+$breakpoints: (
+  'xs': 576,
+  'sm': 768,
+  'md': 1024,
+  'lg': 1280,
+  'xl': 1600,
+);
+
+// Queries between breakpoints
+$xs-sm: "screen and (min-width: #{map-get($breakpoints, 'xs') + 'px'}) and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
+$sm-md: "screen and (min-width: #{map-get($breakpoints, 'sm') + 'px'}) and (max-width: #{map-get($breakpoints, 'md') - 1px})" !default;
+$md-lg: "screen and (min-width: #{map-get($breakpoints, 'md') + 'px'}) and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
+$lg-xl: "screen and (min-width: #{map-get($breakpoints, 'lg') + 'px'}) and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
+
+// Queries based on min-width
+$xs-up: "screen and (min-width: #{map-get($breakpoints, 'xs') + 'px'})" !default;
+$sm-up: "screen and (min-width: #{map-get($breakpoints, 'sm') + 'px'})" !default;
+$md-up: "screen and (min-width: #{map-get($breakpoints, 'md') + 'px'})" !default;
+$lg-up: "screen and (min-width: #{map-get($breakpoints, 'lg') + 'px'})" !default;
+$xl-up: "screen and (min-width: #{map-get($breakpoints, 'xl') + 'px'})" !default;
+
+// Queries based on max-width
+$xs-dw: "screen and (max-width: #{map-get($breakpoints, 'xs') - 1px})" !default;
+$sm-dw: "screen and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
+$md-dw: "screen and (max-width: #{map-get($breakpoints, 'md') - 1px}" !default;
+$lg-dw: "screen and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
+$xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
+
+// Container settings
+.container  {
+  margin: 0 auto;
+  padding: 0 $gutter-width;
+  width: 100%;
+  max-width: $container-width;
+
+  &--full {
+    max-width: initial;
+  }
+}
+
+// Row settings
+.row  {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: ($gutter-width / -2);
+  margin-right: ($gutter-width / -2);
+}
+
+// Column settigns
+.col {
+  position: relative;
+  flex-basis: 100%;
+  padding: 0 ($gutter-width / 2);
+  margin: 0;
+  max-width: 100%;
+  -ms-flex-preferred-size: 100%;
+}
+
+@mixin makeGrid($breakpoint:null) {
+  $i: 0;
+  @while $i <= $num-cols {
+    $perc: if($i > 0, unquote((100 / ($num-cols / $i)) + "%"), 0%);
+    .col#{$breakpoint}-#{$i} {
+      flex-basis: $perc;
+      max-width: $perc;
+      -ms-flex-preferred-size: $perc;
+    }
+    .offset#{$breakpoint}-#{$i} { margin-left: $perc }
+    $i: $i + 1;
+  }
+}
+
+@include makeGrid();
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}px) {
+    @include makeGrid('-' + $breakpoint)
+  }
+};

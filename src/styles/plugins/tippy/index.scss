@@ -1,0 +1,75 @@
+.tippy-popper {
+  .tippy-tooltip {
+    &.html-theme {
+      @extend .radius-base;
+      
+      padding: 1rem;
+    }
+
+    &.light-theme {
+      @include material-shadow($z-depth: 2, $color: map-get($theme-colors, 'info'));
+
+      background-color: map-get($colors, 'light');
+      color: $body-color;
+
+      &[x-placement^=top] {
+        .tippy-arrow {
+          border-top-color: map-get($colors, 'light');
+        }
+      }
+    
+      &[x-placement^=bottom] {
+        .tippy-arrow {
+          border-bottom-color: map-get($colors, 'light');
+        }
+      }
+    
+      &[x-placement^=left] {
+        .tippy-arrow {
+          border-left-color: map-get($colors, 'light');
+        }
+      }
+    
+      &[x-placement^=right] {
+        .tippy-arrow {
+          border-right-color: map-get($colors, 'light');
+        }
+      }
+    }
+
+    &.headed-theme {
+      padding: 0 !important;
+
+      &[x-placement^=bottom] {
+        .tippy-arrow {
+          border-bottom-color: map-get($theme-colors, 'primary');
+        }
+      }
+    }
+
+    .tippy-header {
+      @extend .radius-tl-base;
+      @extend .radius-tr-base;
+      @extend .font-weight-500;
+
+      text-align: left;
+      padding: .5rem 1rem;
+      background: map-get($theme-colors, 'primary');
+      color: map-get($colors, 'light');
+    }
+
+    .tippy-body {
+      padding: .75rem 1rem;
+    }
+
+    a,
+    .tippy-link {
+      color: map-get($theme-colors, 'info');
+      transition: .3s ease;
+
+      &:hover {
+        color: lighten(map-get($theme-colors, 'info'), 10%);
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+.btn {
+  @extend .d-flex;
+  @extend .justify-content-center;
+  @extend .align-items-center;
+  @extend .flex-nowrap;
+  @extend .radius-base;
+  @extend .cursor-pointer;
+  @extend .text-center;
+  @extend .no-select;
+
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  line-height: 1.5em;
+  transition: .3s ease;
+  white-space: nowrap;
+
+  &:disabled {
+    background-color: lighten(map-get($theme-colors, 'secondary'), 20%) !important;
+    border-color: lighten(map-get($theme-colors, 'secondary'), 10%) !important;
+    box-shadow: inset 0 0 0 1px lighten(map-get($theme-colors, 'secondary'), 10%) !important;
+    color: map-get($colors, 'white') !important;
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+    filter: grayscale(50%) !important;
+  }
+
+  // Sizes
+  &-flat {
+    @extend .font-weight-400;
+
+    padding: 0;
+  }
+
+  &-iconed {
+    @include size(40, 40)
+  }
+
+  &-tiny {
+    @extend .font-weight-500;
+
+    min-height: 32px;
+    padding: 0 1rem;
+  }
+
+  &-small {
+    @extend .font-weight-500;
+
+    padding: .5rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  &-medium {
+    @extend .font-weight-500;
+
+    padding: .7rem 1.25rem;
+    font-size: 1.1rem;
+  }
+
+  &-large {
+    @extend .font-weight-500;
+
+    padding: .95rem 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  // Types
+  &-inline {
+    display: inline-block !important;
+  }
+
+  &-block {
+    display: block !important;
+    width: 100%;
+  }
+
+  // Align
+  &-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Loading element
+  &__loading {
+    &::after {
+      content: '. ';
+      animation: dots 1.2s steps(5, end) infinite;
+    }
+  }
+}
+
+// Color variants
+@each $name, $value in $theme-colors {
+  .btn-#{$name} {
+    background-color: $value;
+
+    @if $name == 'light' {
+      color: map-get($colors, 'black');
+    } @else {
+      color: map-get($colors, 'white');
+    }
+
+    &:hover {
+      @include material-shadow($z-depth: 2, $color: desaturate($value, 30%));
+
+      background-color: lighten($value, 10%);
+      
+      @if $name == 'light' {
+        color: map-get($colors, 'black');
+      } @else {
+        color: map-get($colors, 'white');
+      }
+    }
+  }
+
+  .btn-#{$name}-outline {
+    background-color: rgba($value, .085);
+    box-shadow: inset 0 0 0 1px $value;
+    color: $value;
+
+    &:hover {
+      background-color: map-get($colors, 'white');
+      box-shadow: inset 0 0 0 1px lighten($value, 15%);
+      color: $value;
+    }
+  }
+
+  .btn-#{$name}-link {
+    position: relative;
+    color: $value;
+
+    &::before {
+      @extend .pseudoelem;
+
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      border-style: dashed;
+      border-width: 1px;
+      border-color: transparent;
+      border-bottom-color: rgba(lighten($value, 10%), .5);
+      opacity: 0;
+      transition: .3s ease;
+    }
+
+    &:hover {
+      color: lighten($value, 10%);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  .btn-#{$name}-flat {
+    position: relative;
+    color: $value;
+
+    &:hover {
+      background-color: rgba($value, .085);
+      color: lighten($value, 10%);
+    }
+  }
+}
