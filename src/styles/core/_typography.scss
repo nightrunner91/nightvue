@@ -1,11 +1,25 @@
-$aligns: (
+$font-families: (
+  base: "Inter",
+  headings: "Montserrat",
+  displays: "Montserrat"
+);
+
+$line-heights: (
+  1: 1,
+  25: 1.25,
+  50: 1.5,
+  75: 1.75,
+  2: 2,
+);
+
+$text-aligns: (
   left: left, 
   center: center, 
   right: right, 
   justify: justify
 );
 
-$weights: (
+$font-weights: (
   lighter: lighter, 
   bolder: bolder, 
 
@@ -18,48 +32,76 @@ $weights: (
   700: 700, // bold
   800: 800, // extra bold
   900: 900, // black
-
-  inherit: inherit,
-  initial: initial,
-  unset: unset
 );
 
-$transforms: (
+$text-transforms: (
   lowercase: lowercase, 
   uppercase: uppercase, 
   capitalize: capitalize
 );
 
-$styles: (
+$font-styles: (
   normal: normal, 
   italic: italic, 
   oblique: oblique
 );
 
-$decorations: (
+$text-decorations: (
   underline: underline, 
   line-through: line-through, 
   none: none
 );
 
-$line-heights: (
-  1: 1,
-  25: 1.25,
-  50: 1.5,
-  75: 1.75,
-  2: 2,
+$text-wraps: (
+  normal: normal,
+  nowrap: nowrap,
+  pre: pre,
+  pre-line: pre-line,
+  pre-wrap: pre-wrap
 );
 
+@mixin textStyles($breakpoint:null) {
+  @each $lh, $value in $line-heights {
+    .line-height#{$breakpoint}-#{$lh} { line-height: $value !important; }
+  }
+  @each $align, $value in $text-aligns {
+    .text#{$breakpoint}-#{$align} { text-align: $value !important; }
+  }
+  @each $weight, $value in $font-weights {
+    .font-weight#{$breakpoint}-#{$weight} { font-weight: $value !important; }
+  }
+  @each $transform, $value in $text-transforms {
+    .text#{$breakpoint}-#{$transform} { text-transform: $value !important; }
+  }
+  @each $style, $value in $font-styles {
+    .font#{$breakpoint}-#{$style} { font-style: $value !important; }
+  }
+  @each $decoration, $value in $text-decorations {
+    .text#{$breakpoint}-#{$decoration} { text-decoration: $value !important; }
+  }
+  @each $wrap, $value in $text-wraps {
+    .text#{$breakpoint}-#{$wrap} { white-space: $value !important; }
+  }
+}
+
+@include textStyles();
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}) {
+    @include textStyles('-' + $breakpoint);
+  }
+}
+
 $headings-fz: (
-  h1: 2.25rem,
-  h2: 1.875rem,
-  h3: 1.5rem,
-  h4: 1.125rem,
+  h1: 3.25rem,
+  h2: 2.5rem,
+  h3: 1.75rem,
+  h4: 1.25rem,
   h5: 1rem,
   h6: 0.875rem,
 );
 $headings-lh: map-get($line-heights, 25);
-$headings-fw: map-get($weights, 500);
+$headings-fw: map-get($font-weights, 500);
 $headings-margins: (
   top: 0,
   bottom: 0.5em,
@@ -68,11 +110,18 @@ $headings-breake: true; // should or not headings be lowered on specific breakpo
 $headings-breakepoint: 'sm'; // on which breakpoint headings will have lowered font-size
 $headings-decrease: 0.75; // ratio of how lower will be font-size for headings after breakpoint
 
-$font-families: (
-  base: "Inter",
-  headings: "Montserrat",
-  displays: "Montserrat"
-);
+@each $heading, $size in $headings-fz {
+  #{$heading},
+  .#{$heading} {
+    font-size: $size;
+
+    @if ($headings-breake) {
+      @media screen and (max-width: map-get($breakpoints, $headings-breakepoint)) {
+        font-size: $size * $headings-decrease
+      }
+    }
+  }
+}
 
 $displays-fz: (
   display-1: 74px,
@@ -81,7 +130,7 @@ $displays-fz: (
   display-4: 34px,
 );
 $displays-lh: map-get($line-heights, 25);
-$displays-fw: map-get($weights, 500);
+$displays-fw: map-get($font-weights, 500);
 $displays-margins: (
   top: 0,
   bottom: 1em,
@@ -89,25 +138,6 @@ $displays-margins: (
 $displays-breake: true; // should or not displays be lowered on specific breakpoint
 $displays-breakepoint: 'sm'; // on which breakpoint displays will have lowered font-size
 $displays-decrease: 0.75; // ratio of how lower will be font-size for displays after breakpoint
-
-$base-fz: 16px;
-$base-lh: map-get($line-heights, 50);
-$base-fw: map-get($weights, 400);
-$base-mg: 1.5em;
-$small-fz: 0.875; // ratio of how lower will be font-size for <small> tag
-
-@each $heading, $size in $headings-fz {
-  #{$heading},
-  .#{$heading} {
-    font-size: $size;
-
-    @if ($headings-breake) {
-      @media screen and (min-width: map-get($breakpoints, $headings-breakepoint)px) {
-        font-size: $size * $headings-decrease
-      }
-    }
-  }
-}
 
 @each $display, $size in $displays-fz {
   .#{$display} {
@@ -117,67 +147,24 @@ $small-fz: 0.875; // ratio of how lower will be font-size for <small> tag
     line-height: $displays-lh;
 
     @if ($displays-breake) {
-      @media screen and (min-width: map-get($breakpoints, $displays-breakepoint)px) {
+      @media screen and (max-width: map-get($breakpoints, $displays-breakepoint)) {
         font-size: $size * $displays-decrease
       }
     }
   }
 }
 
-@each $heading, $size in $headings-fz {
-  #{$heading},
-  .#{$heading} {
-    font-size: $size;
-
-    @if ($headings-breake) {
-      @media screen and (min-width: map-get($breakpoints, $headings-breakepoint)px) {
-        font-size: $size * $headings-decrease
-      }
-    }
-  }
-}
-
-@each $lh, $size in $line-heights {
-  .lh-#{$lh} {
-    line-height: $size;
-  }
-}
-
-@mixin makeText($breakpoint:null) {
-  @each $align, $value in $aligns {
-    .text#{$breakpoint}-#{$align} { text-align: $value !important; }
-  }
-  
-  @each $weight, $value in $weights {
-    .font-weight#{$breakpoint}-#{$weight} { font-weight: $value !important; }
-  }
-  
-  @each $transform, $value in $transforms {
-    .text#{$breakpoint}-#{$transform} { text-transform: $value !important; }
-  }
-  
-  @each $style, $value in $styles {
-    .font#{$breakpoint}-#{$style} { font-style: $value !important; }
-  }
-
-  @each $decoration, $value in $decorations {
-    .text#{$breakpoint}-#{$decoration} { text-decoration: $value !important; }
-  }
-}
-
-@include makeText();
-
-@each $breakpoint, $size in $breakpoints {
-  @media screen and (min-width: #{$size}px) {
-    @include makeText('-' + $breakpoint);
-  }
-}
+$base-fz: 16px; // ⚠ CRUCIAL VALUE! A lot of things depends on it. Be aware.
+$base-lh: map-get($line-heights, 50);
+$base-fw: map-get($font-weights, 400);
+$base-mg: map-get($spacers, 1);
+$small-fz: 0.875; // ratio of how lower will be font-size for <small> tag
 
 body {
   overflow-x: hidden;
   overflow-y: visible;
   font-family: map-get($font-families, base), sans-serif;
-  font-weight: map-get($weights, 400);
+  font-weight: map-get($font-weights, 400);
   font-size: $base-fz;
   line-height: $base-lh;
   background: $body-bg;
@@ -214,24 +201,10 @@ blockquote {
   line-height: $base-lh;
 }
 
-ul,
-ol {
-  padding-left: 2rem
-}
-
 small,
 .small {
   font-size: $base-fz * $small-fz;
   line-height: $base-lh * $small-fz;
-}
-
-hr {
-  box-sizing: border-box;
-  height: 0;
-  margin-top: $base-mg;
-  margin-bottom: $base-mg;
-  border: none;
-  border-bottom: 1px solid lighten(map-get($theme-colors, 'secondary'), 45%);
 }
 
 mark {
@@ -241,6 +214,16 @@ mark {
 code,
 pre {
   background: rgba(map-get($colors, 'black'), 0.25);
+}
+
+hr {
+  box-sizing: border-box;
+  width: 100%;
+  height: 0;
+  margin-top: $base-mg;
+  margin-bottom: $base-mg;
+  border: none;
+  border-bottom: 1px solid rgba(map-get($colors, 'black'), .15);
 }
 
 a {
@@ -259,10 +242,6 @@ a {
   white-space: nowrap;
 }
 
-.text-nowrap {
-  white-space: nowrap !important;
-}
-
 .text-dotted {
   &:after {
     content: '…'
@@ -270,6 +249,6 @@ a {
 }
 
 ::selection {
-  background-color: map-get($theme-colors, 'dark');
+  background-color: map-get($colors, 'black');
   color: lighten(map-get($colors, 'white'), 75%);
 }

@@ -5,11 +5,11 @@ $container-width:    1400px;
 
 // Dublicated in store/modules/config.js
 $breakpoints: (
-  'xs': 576,
-  'sm': 768,
-  'md': 1024,
-  'lg': 1280,
-  'xl': 1600,
+  'xs': 576px,
+  'sm': 768px,
+  'md': 1024px,
+  'lg': 1280px,
+  'xl': 1600px,
 );
 
 // Queries between breakpoints
@@ -77,7 +77,7 @@ $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 @include makeGrid();
 
 @each $breakpoint, $size in $breakpoints {
-  @media screen and (min-width: #{$size}px) {
+  @media screen and (min-width: #{$size}) {
     @include makeGrid('-' + $breakpoint)
   }
 };

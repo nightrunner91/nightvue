@@ -32,7 +32,7 @@ $zindex-steps: -1, 0, 1, 2, 3, 4, 5, 10, 50, 100, 1000, 9999;
 @include zIndexes();
 
 @each $breakpoint, $size in $breakpoints {
-  @media screen and (min-width: #{$size}px) {
+  @media screen and (min-width: #{$size}) {
     @include zIndexes('-' + $breakpoint)
   }
 };

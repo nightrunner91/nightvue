@@ -37,7 +37,7 @@ $radiuses: (
 @include makeRadius();
 
 @each $breakpoint, $size in $breakpoints {
-  @media screen and (min-width: #{$size}px) {
+  @media screen and (min-width: #{$size}) {
     @include makeRadius('-' + $breakpoint);
   }
 }

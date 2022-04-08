@@ -20,7 +20,7 @@ $opacity-sizes: 25, 50, 75, 100;
 @include opacity();
 
 @each $breakpoint, $size in $breakpoints {
-  @media screen and (min-width: #{$size}px) {
+  @media screen and (min-width: #{$size}) {
     @include opacity('-' + $breakpoint)
   }
 };

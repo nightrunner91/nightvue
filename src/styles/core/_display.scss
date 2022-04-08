@@ -45,7 +45,7 @@ $grows: (0, 1);
 @include makeDisplays();
 
 @each $breakpoint, $size in $breakpoints {
-  @media screen and (min-width: #{$size}px) {
+  @media screen and (min-width: #{$size}) {
     @include makeDisplays('-' + $breakpoint);
   }
 }

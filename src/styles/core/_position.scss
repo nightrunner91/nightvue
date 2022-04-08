@@ -5,7 +5,7 @@ $positions: relative, absolute, static, fixed, static;
 }
 
 @each $breakpoint, $size in $breakpoints {
-  @media screen and (min-width: #{$size}px) {
+  @media screen and (min-width: #{$size}) {
     @each $position in $positions {
       .position-#{$breakpoint}-#{$position} { position: $position !important; }
     }
