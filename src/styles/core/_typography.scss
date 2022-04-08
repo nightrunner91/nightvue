@@ -59,7 +59,7 @@ $headings-fz: (
   h6: 0.875rem,
 );
 $headings-lh: map-get($line-heights, 25);
-$headings-fw: map-get($weights, 700);
+$headings-fw: map-get($weights, 500);
 $headings-margins: (
   top: 0,
   bottom: 0.5em,
@@ -69,9 +69,9 @@ $headings-breakepoint: 'sm'; // on which breakpoint headings will have lowered f
 $headings-decrease: 0.75; // ratio of how lower will be font-size for headings after breakpoint
 
 $font-families: (
-  base: "Rubik",
-  headings: "Rubik",
-  displays: "Rubik"
+  base: "Inter",
+  headings: "Montserrat",
+  displays: "Montserrat"
 );
 
 $displays-fz: (

@@ -1,9 +1,15 @@
 <template>
   <div id="app">
-    <div class="vw-100 vh-100 d-flex justify-content-center align-items-center">
+    <div class="vw-100 vh-100 d-flex flex-column justify-content-center align-items-center">
     <img
       :src="require('@/assets/images/logo.png')"
-      class="no-select">
+      class="no-select mb-3">
+    <h1>
+      Кристально-чистый Vue 2 фреймворк
+    </h1>
+    <p>
+      Создан чтобы создавать.
+    </p>
     </div>
   </div>
 </template>
