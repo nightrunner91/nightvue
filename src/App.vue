@@ -1,14 +1,9 @@
 <template>
   <div id="app">
-    <div>
-      <h1 class="font-weight-400">Lorem</h1>
-      <h2>Lorem</h2>
-      <h3>Lorem</h3>
-      <h4>Lorem</h4>
-      <h5>Lorem</h5>
-      <h6>Lorem</h6>
-      <a href="#">ololo</a>
-      <p class="classname transition-base">Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, debitis!</p>
+    <div class="vw-100 vh-100 d-flex justify-content-center align-items-center">
+    <img
+      :src="require('@/assets/images/logo.png')"
+      class="no-select">
     </div>
   </div>
 </template>
