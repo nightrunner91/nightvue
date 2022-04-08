@@ -1,6 +1,7 @@
+// Base grid settings
 $num-cols:           12;
 $gutter-width:       1rem;
-$container-width:    1580px;
+$container-width:    1400px;
 
 // Dublicated in store/modules/config.js
 $breakpoints: (
@@ -43,7 +44,6 @@ $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
   }
 }
 
-// Row settings
 .row  {
   display: flex;
   flex-wrap: wrap;
@@ -51,7 +51,6 @@ $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
   margin-right: ($gutter-width / -2);
 }
 
-// Column settigns
 .col {
   position: relative;
   flex-basis: 100%;

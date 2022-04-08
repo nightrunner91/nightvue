@@ -1,85 +1,14 @@
 .layout {
-  &--default,
-  &--wizard {
-    padding-top: $header-height;
-
-    &::before {
-      @extend .pseudoelem;
-
-      z-index: -1;
-      top: -$header-height;
-      left: 0;
-      width: 100%;
-      height: calc(#{$header-height} * 6 + #{$header-height});
-      background: linear-gradient(to top, transparent 0%, lighten(map-get($theme-colors, 'secondary'), 40%), 70%, lighten(map-get($theme-colors, 'secondary'), 40%) 100%);
-      transform: translateY(0);
-      transition: 1s ease;
-    }
-  }
-
   &.page-enter,
   &.page-leave-to {
     .main {
       opacity: 0;
     }
   }
-
-  &--scrolled {
-    &::before {
-      transform: translateY(-40%);
-    }
-  }
-
-  &__left-bg {
-    position: relative;
-
-    &::before,
-    &::after {
-      @extend .pseudoelem;
-
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: -$gutter-width / 2;
-      background-position: bottom center;
-      background-size: cover;
-    }
-
-    &::after {
-      background-image: url(./assets/images/full-layout-bg.jpeg);
-      z-index: 1;
-    }
-    
-    &::before {
-      background: linear-gradient(transparent, map-get($theme-colors, 'primary'));
-      opacity: .45;
-      z-index: 2;
-    }
-  }
 }
 
 .main {
-  min-height: calc(100vh - (#{$header-height} + #{$footer-height}));
-  padding-bottom: 3rem;
-  padding-top: $header-height / 4;
+  min-height: 100%;
   transition: opacity 1s ease;
-
-  @media #{$sm-up} {
-    padding-top: $header-height / 1.5;
-  }
 }
 
-// Scrollbar custom
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: map-get($colors, 'white');
-}
-::-webkit-scrollbar-thumb {
-  @extend .radius-base;
-  background: lighten(map-get($theme-colors, 'secondary'), 15%);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: map-get($theme-colors, 'secondary')
-}

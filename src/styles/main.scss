@@ -8,7 +8,6 @@
 @import "core/position";
 @import "core/mixins";
 @import "core/spacing";
-@import "core/text";
 @import "core/radius";
 @import "core/display";
 @import "core/sizing";
@@ -18,29 +17,18 @@
 @import "core/helpers";
 @import "core/shadows";
 @import "core/layout";
+@import "core/scrollbar";
+@import "core/transitions";
 
 // Elements
-@import "elements/forms";
-@import "elements/button";
-@import "elements/card";
-@import "elements/wizard";
-@import "elements/table";
-@import "elements/badge";
-@import "elements/search";
-@import "elements/preloader";
-@import "elements/accordion";
-@import "elements/tabs";
-@import "elements/scrolltop";
-@import "elements/timeline";
+
 
 // Blocks
 @import "blocks/header";
 @import "blocks/footer";
 
 // Plugins
-@import "plugins/toastification";
-@import "plugins/tippy";
-@import "plugins/vmodal";
+
 
 // Animations
 @import "animations/animation";

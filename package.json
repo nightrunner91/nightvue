@@ -1,6 +1,6 @@
 {
-  "name": "botcoin-cabinet",
-  "version": "0.1.0",
+  "name": "nightvue",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,13 +15,7 @@
     "eslint-plugin-vuejs-accessibility": "^1.1.1",
     "lodash": "^4.17.21",
     "vue": "^2.6.11",
-    "vue-js-modal": "^2.0.1",
-    "vue-moment": "^4.1.0",
-    "vue-perfect-scrollbar": "^0.2.1",
     "vue-router": "^3.2.0",
-    "vue-text-highlight": "^2.0.10",
-    "vue-tippy": "^4.13.0",
-    "vue-toastification": "^1.7.14",
     "vue-waves-effect": "^1.0.0",
     "vue2-touch-events": "^3.2.2",
     "vuex": "^3.4.0"
@@ -38,8 +32,6 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.12.0",
-    "pug": "^3.0.0",
-    "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   }

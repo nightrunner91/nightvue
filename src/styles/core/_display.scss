@@ -37,7 +37,7 @@ $grows: (0, 1);
 
   $i: 0;
   @while $i <= $num-cols {
-    .order#{$breakpoint}-#{$i} { order: #{$i} }
+    .order#{$breakpoint}-#{$i} { order: #{$i} !important }
     $i: $i + 1;
   }
 }
@@ -48,23 +48,4 @@ $grows: (0, 1);
   @media screen and (min-width: #{$size}px) {
     @include makeDisplays('-' + $breakpoint);
   }
-}
-
-// Custom classnames
-.d-flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin invisible($state) {
-  visibility: $state;
-}
-
-.visible {
-  visibility: visible;
-}
-
-.invisible {
-  visibility: hidden;
 }

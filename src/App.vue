@@ -1,21 +1,25 @@
 <template>
   <div id="app">
-    <app-layout v-if="!checkLoginResponse">
-      <router-view />
-    </app-layout>
-    <app-preloader :show="checkLoginResponse" />
-    <app-scroll-top />
+    <div>
+      <h1 class="font-weight-400">Lorem</h1>
+      <h2>Lorem</h2>
+      <h3>Lorem</h3>
+      <h4>Lorem</h4>
+      <h5>Lorem</h5>
+      <h6>Lorem</h6>
+      <a href="#">ololo</a>
+      <p class="classname transition-base">Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, debitis!</p>
+    </div>
   </div>
 </template>
 
 <script>
-import AppLayout from "./layouts/AppLayout.vue"
-import AppScrollTop from "./core/components/ScrollTop.vue"
+// import AppLayout from "./layouts/AppLayout.vue"
 import { eventBus } from './main'
 import debounce from 'lodash/debounce'
 
 export default {
-  components: { AppLayout, AppScrollTop },
+  components: {  },
   name: 'Home',
   data() {
     return {
@@ -23,24 +27,20 @@ export default {
     }
   },
   computed: {
-    checkLoginResponse() {
-      return this.$store.state.auth.responses.checkLogin
-    },
+
   },
   created() {
 
   },
   mounted() {
-    eventBus.$on('showToast', data => { this.showToast(data) })
+    eventBus.$on('eventName', data => { this.methodName(data) })
 
     this.watchWindowWidth()
     window.addEventListener('resize', debounce(this.watchWindowWidth, 500))
   },
   methods: {
-    showToast(data) {
-      this.$toast(data.message, {
-        type: data.type,
-      })
+    methodName(data) {
+      return data
     },
 
     watchWindowWidth() {

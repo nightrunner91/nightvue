@@ -6,8 +6,6 @@ Vue.use(Vuex)
 export default {
   namespaced: true,
   state: {
-    menuOpened: false,
-    userMenuOpened: false,
     windowWidth: undefined,
 
     // Dublicated in styles/core/_grid.scss
@@ -20,14 +18,6 @@ export default {
     },
   },
   mutations: {
-    TOGGLE_MENU(state, value) {
-      state.menuOpened = value
-    },
-
-    TOGGLE_USER_MENU(state, value) {
-      state.userMenuOpened = value
-    },
-
     SAVE_WINDOW_WIDTH(state, data) {
       state.windowWidth = data
     }

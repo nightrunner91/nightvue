@@ -3,7 +3,7 @@ const webpack = require('webpack')
 module.exports = {
   publicPath: '/app/',
   devServer: {
-    port: 8326,
+    port: 1991,
   },
   configureWebpack: {
     plugins: [

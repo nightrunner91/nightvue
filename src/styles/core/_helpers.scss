@@ -1,9 +1,15 @@
+// ============ //
+// Cursor types //
+// ============ // 
 $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 
 @each $cursor in $cursors {
   .cursor-#{$cursor} { cursor: $cursor !important; }
 }
 
+// =============================== //
+// Most usable before, after state //
+// =============================== // 
 .pseudoelem { 
   content: '';
   display: block;
@@ -13,3 +19,16 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 .no-select { user-select: none }
 .no-overflow { overflow: hidden }
 .no-events  { pointer-events: none }
+
+// Visibility
+@mixin visibility($state) {
+  visibility: $state;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
