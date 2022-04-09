@@ -16,19 +16,16 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
   position: absolute;
 }
 
+// ============ //
+// Misc classes //
+// ============ // 
+
 .no-select { user-select: none }
 .no-overflow { overflow: hidden }
 .no-events  { pointer-events: none }
 
-// Visibility
 @mixin visibility($state) {
   visibility: $state;
 }
-
-.visible {
-  visibility: visible;
-}
-
-.invisible {
-  visibility: hidden;
-}
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
