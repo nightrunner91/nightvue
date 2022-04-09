@@ -1,25 +1,3 @@
-@mixin size($width, $height) {
-  width: $width + px !important;
-  height: $height + px !important;
-  max-width: $width + px !important;
-  min-width: $width + px !important;
-  max-height: $height + px !important;
-  min-height: $height + px !important;
-}
-
-@mixin icon($width, $height, $icon) {
-  display: inline-block !important;
-  width: $width + px !important;
-  height: $height + px !important;
-  max-width: $width + px !important;
-  min-width: $width + px !important;
-  max-height: $height + px !important;
-  min-height: $height + px !important;
-  overflow: hidden !important;
-  background-image: url('../assets/' + $icon + '.svg') !important;
-  background-size: $width + px $height + px !important
-}
-
 @mixin animation($name, $duration, $delay, $count, $timing, $mode) {
   animation-name: $name;
   animation-duration: $duration;

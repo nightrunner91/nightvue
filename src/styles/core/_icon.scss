@@ -1,17 +1,41 @@
-$icon-sizes: 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 48, 64;
+$icon-sizes: 18, 24, 36, 48;
 
-@mixin icons($breakpoint:null) {
+@mixin icon($dimension1, $dimesnion2:false, $icon:null) {
+  width: $dimension1 + px !important;
+  max-width: $dimension1 + px !important;
+  min-width: $dimension1 + px !important;
+
+  @if ($icon) {
+    display: inline-block !important;
+    overflow: hidden !important;
+    background-image: url('../assets/' + $icon + '.svg') !important;
+  }
+
+  @if ($dimesnion2) {
+    height: $dimesnion2 + px !important;
+    max-height: $dimesnion2 + px !important;
+    min-height: $dimesnion2 + px !important;
+    background-size: $dimension1 + px $dimension2 + px !important;
+  } @else {
+    height: $dimension1 + px !important;
+    max-height: $dimension1 + px !important;
+    min-height: $dimension1 + px !important;
+    background-size: $dimension1 + px $dimension1 + px !important;
+  }
+}
+
+@mixin icons-sizes($breakpoint:null) {
   @each $size in $icon-sizes {
-    .icon#{$breakpoint}-#{$size} {
-      @include size($size, $size)
+    .icon-size#{$breakpoint}-#{$size} {
+      @include icon($size)
     }
   }
 }
 
-@include icons();
+@include icons-sizes();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include icons('-' + $breakpoint)
+    @include icons-sizes('-' + $breakpoint)
   }
 };

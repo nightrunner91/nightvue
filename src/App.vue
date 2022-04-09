@@ -77,4 +77,8 @@ export default {
       transform: rotate(25deg);
     }
   }
+
+  .test {
+    
+  }
 </style>
