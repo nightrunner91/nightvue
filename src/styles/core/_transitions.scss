@@ -22,7 +22,7 @@ $transition-timings: (
   accelerated: cubic-bezier(0.4, 0.0, 1, 1), // transition in which the element starts at rest and ends at peak velocity
 
   // Custom easings (here you can add new ones)
-  sharp: cubic-bezier(0.4, 0, 0.6, 1) // the sharp curve is used by objects that may return to the screen at any time
+  sharp: cubic-bezier(0.4, 0, 0.6, 1) // the sharp curve is used for objects that may return to the screen at any time
 );
 
 @each $speed, $value in $transition-speed {
@@ -43,15 +43,4 @@ $transition-timings: (
 
 @mixin complex-transition($args...) {
   transition: $args;
-}
-
-.classname {
-  @include complex-transition(
-    color map-get($transition-speed, base) map-get($transition-timings, decelerated),
-    transform map-get($transition-speed, slow) map-get($transition-timings, accelerated));
-
-  &:hover {
-    transform: translateX(-50px);
-    @include color('danger')
-  }
 }
