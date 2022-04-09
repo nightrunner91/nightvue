@@ -228,7 +228,7 @@ hr {
 
 a {
   @include color('primary');
-  transition: .3s ease;
+  @include transition(all, base, ease);
 
   &:hover {
     @include color('primary', 'lighten', 2)

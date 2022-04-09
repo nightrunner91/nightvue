@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <div class="vw-100 vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="vw-100 vh-100 d-flex flex-column justify-content-center align-items-center background position-relative">
     <img
       :src="require('@/assets/images/logo.png')"
       class="no-select mb-3">
-    <h1 class="clr-primary text-nowrap classname cursor-pointer">
+    <h1 class="clr-primary">
       NightVue
     </h1>
     <h3 class="text-center">Кристально-чистый Vue 2 фреймворк</h3>
@@ -52,4 +52,29 @@ export default {
 
 <style lang="scss">
   @import "styles/main";
+
+  .background {
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: fixed;
+      @include background('primary');
+      width: 20vw;
+      height: 200vh;
+      z-index: -1;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      transform: rotate(-25deg);
+    }
+
+    &::after {
+      top: 0;
+      right: 0;
+      transform: rotate(25deg);
+    }
+  }
 </style>

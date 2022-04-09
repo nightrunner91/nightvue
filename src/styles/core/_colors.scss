@@ -1,3 +1,4 @@
+// List of colors defined by user
 $colors: (
   'black':     #000000,
   'white':     #ffffff,
@@ -7,7 +8,7 @@ $colors: (
   'pale':      #6A747D,
   'blue':      #4D4D9F,
   'indigo':    #6610f2,
-  'purple':    #6f42c1,
+  'purple':    #682cab,
   'pink':      #e83e8c,
   'red':       #DF5563,
   'orange':    #fd7e14,
@@ -17,6 +18,33 @@ $colors: (
   'cyan':      #17a2b8,
 );
 
+// Standard material color theme 
+// https://material.io/design/color/the-color-system.html#tools-for-picking-colors
+// You can disable this pallete if you don't need it in your project
+$material-colors-support: true; 
+$material-colors: (
+  red:         #F44336,
+  pink:        #E91E63,
+  purple:      #9C27B0,
+  deep-purple: #673AB7,
+  indigo:      #3F51B5,
+  blue:        #2196F3,
+  light-blue:  #03A9F4,
+  cyan:        #00BCD4,
+  teal:        #009688,
+  green:       #4CAF50,
+  light-green: #8BC34A,
+  lime:        #CDDC39,
+  yellow:      #FFEB3B,
+  amber:       #FFC107,
+  orange:      #FF9800,
+  deep-orange: #FF5722,
+  brown:       #795548,
+  grey:        #9E9E9E,
+  blue-grey:   #607D8B
+);
+
+// Pick up theme colors from basic color pallete or material colors
 $theme-colors: (
   'primary':    map-get($colors, 'purple'),
   'secondary':  map-get($colors, 'pale'),
@@ -28,6 +56,7 @@ $theme-colors: (
   'dark':       map-get($colors, 'dark'),
 );
 
+// Levels of lighten, darken, saturate and desaturate values of colors in $colors list
 $levels: (
   1: 5%,
   2: 10%,
@@ -36,6 +65,7 @@ $levels: (
   5: 25%,
 );
 
+// Basic page settings
 $body-bg:           map-get($colors, 'light');
 $body-color:        map-get($colors, 'dark');
 $border-color:      map-get($colors, 'grey');
@@ -147,5 +177,42 @@ $headings-color:    map-get($colors, 'black');
     .fill-#{$name}-darken-#{$level} { fill: darken($code, $rate) !important }
     .fill-#{$name}-saturate-#{$level} { fill: saturate($code, $rate) !important }
     .fill-#{$name}-desaturate-#{$level} { fill: desaturate($code, $rate) !important }
+  }
+}
+
+// https://codepen.io/jonrohan/pen/NNGaBO
+@function colorMap($material-colors, $variations) {
+  $colors:();
+  
+  @each $color, $value in $material-colors {
+    $maxVar: 36;
+    $mid: $variations / 2;
+    $dist: $mid - 1;
+    $step: $maxVar / $dist;
+    
+    // lighten and darken
+    @for $i from 1 through $dist {
+      $percent: $maxVar - ($step * ($i - 1));
+      $darken: ($variations - $i) * 100;
+      $lighten: $i * 100;
+
+      $colors: map-merge($colors, (
+         #{$color}-#{$lighten}: lighten($value, $percent),
+         #{$color}-#{$darken}:  darken($value, $percent)
+      ));
+    }
+
+    // middle eg 500
+    $colors: map-merge($colors, (#{$color}-50: lighten($value, 38.7)));
+    $colors: map-merge($colors, (#{$color}-#{$variations/2*100}: $value));
+  }
+  @return $colors;
+};
+
+@if $material-colors-support {
+  @each $color, $value in colorMap($material-colors, 10) {
+    .bg-#{$color} { background-color: $value !important }
+    .clr-#{$color} { color: $value !important }
+    .fill-#{$color} { fill: $value !important }
   }
 }
