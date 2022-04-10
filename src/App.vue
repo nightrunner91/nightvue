@@ -1,13 +1,17 @@
 <template>
   <div id="app">
     <div class="vw-100 vh-100 d-flex flex-column justify-content-center align-items-center background position-relative">
-    <img
-      :src="require('@/assets/images/logo.png')"
-      class="no-select mb-3">
-    <h1 class="clr-primary">
-      NightVue
-    </h1>
-    <h3 class="text-center">Кристально-чистый Vue 2 фреймворк</h3>
+      <img
+        :src="require('@/assets/images/logo.png')"
+        class="no-select mb-3">
+      <h1 class="clr-primary">
+        NightVue
+      </h1>
+      <h3 class="text-center">Кристально-чистый Vue 2 фреймворк</h3>
+      <svg-icon
+        icon="face"
+        size="36"
+        class="my-1" />
     </div>
   </div>
 </template>
@@ -76,9 +80,5 @@ export default {
       right: 0;
       transform: rotate(25deg);
     }
-  }
-
-  .test {
-    
   }
 </style>

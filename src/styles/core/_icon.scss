@@ -1,15 +1,9 @@
 $icon-sizes: 18, 24, 36, 48;
 
-@mixin icon($dimension1, $dimesnion2:false, $icon:null) {
+@mixin icon-size($dimension1, $dimesnion2:false) {
   width: $dimension1 + px !important;
   max-width: $dimension1 + px !important;
   min-width: $dimension1 + px !important;
-
-  @if ($icon) {
-    display: inline-block !important;
-    overflow: hidden !important;
-    background-image: url('../assets/' + $icon + '.svg') !important;
-  }
 
   @if ($dimesnion2) {
     height: $dimesnion2 + px !important;
@@ -27,7 +21,7 @@ $icon-sizes: 18, 24, 36, 48;
 @mixin icons-sizes($breakpoint:null) {
   @each $size in $icon-sizes {
     .icon-size#{$breakpoint}-#{$size} {
-      @include icon($size)
+      @include icon-size($size)
     }
   }
 }
