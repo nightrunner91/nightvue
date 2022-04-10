@@ -8,6 +8,10 @@
         NightVue
       </h1>
       <h3 class="text-center">Кристально-чистый Vue 2 фреймворк</h3>
+      <svg-icon
+        icon="face"
+        size="36"
+        class="my-1" />
     </div>
   </div>
 </template>
