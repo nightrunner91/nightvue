@@ -56,10 +56,11 @@ export default {
   .background {
     &::before,
     &::after {
+      @extend .gradient-pro;
+
       content: '';
       display: block;
       position: fixed;
-      @include background('primary');
       width: 20vw;
       height: 200vh;
       z-index: -1;

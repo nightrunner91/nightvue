@@ -1,0 +1,26 @@
+$gradients: (
+  base: (
+    45deg,
+    map-get($theme-colors, primary),
+    map-get($theme-colors, warning),
+    map-get($theme-colors, danger)),
+
+  advanced: (
+    to top,
+    map-get($theme-colors, warning) 20%,
+    map-get($theme-colors, info)),
+
+  pro: (
+    to top,
+    lighten(map-get($theme-colors, primary), 20%),
+    map-get($theme-colors, primary)),
+);
+
+@mixin linear-gradient($gradient...) {
+  background-color: nth($gradient, 1);
+  background-image: linear-gradient($gradient);
+}
+
+@each $gradient, $value in $gradients {
+  .gradient-#{$gradient} { @include linear-gradient($value) }
+}
