@@ -1,7 +1,7 @@
 // List of shadows defined by user
 $shadows: (
-  small: (1px 1px 3px map-get($colors, 'black')),
-  base: (3px 3px 6px map-get($theme-colors, 'primary')),
+  small: 1px 1px 3px map-get($colors, 'black'),
+  base: 3px 3px 6px map-get($theme-colors, 'primary'),
   large: (4px 4px 8px rgba(map-get($colors, 'black'), .5), 6px 7px 24px rgba(map-get($theme-colors, 'warning'), .75)),
 );
 

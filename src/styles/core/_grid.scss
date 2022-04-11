@@ -70,6 +70,7 @@ $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
       -ms-flex-preferred-size: $perc;
     }
     .offset#{$breakpoint}-#{$i} { margin-left: $perc }
+    .order#{$breakpoint}-#{$i} { order: #{$i} }
     $i: $i + 1;
   }
 }

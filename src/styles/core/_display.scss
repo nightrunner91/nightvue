@@ -34,12 +34,6 @@ $grows: (0, 1);
     .flex#{$breakpoint}-grow-#{$grow} { flex-grow: $grow !important; }
     .flex#{$breakpoint}-shrink-#{$grow} { flex-shrink: $grow !important; }
   }
-
-  $i: 0;
-  @while $i <= $num-cols {
-    .order#{$breakpoint}-#{$i} { order: #{$i} !important }
-    $i: $i + 1;
-  }
 }
 
 @include makeDisplays();
