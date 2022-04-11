@@ -4,25 +4,10 @@
       <img
         :src="require('@/assets/images/logo.png')"
         class="no-select mb-3">
-      <h1 class="clr-primary opacity-30 opacity-sm-80">
+      <h1 class="clr-primary">
         NightVue
       </h1>
       <h3 class="text-center">Кристально-чистый Vue 2 фреймворк</h3>
-      <div class="w-25 radius-base bg-white material-shadow-1 mb-2 p-2">
-        1
-      </div>
-      <div class="w-25 radius-base bg-white material-shadow-2 mb-2 p-2">
-        2
-      </div>
-      <div class="w-25 radius-base bg-white material-shadow-3 mb-2 p-2">
-        3
-      </div>
-      <div class="w-25 radius-base bg-white material-shadow-4 mb-2 p-2">
-        4
-      </div>
-      <div class="w-25 radius-base bg-white material-shadow-5 mb-2 p-2">
-        5
-      </div>
     </div>
   </div>
 </template>
