@@ -81,7 +81,7 @@ $headings-fz: (
 $headings-lh: map-get($line-heights, 25);
 $headings-fw: map-get($font-weights, 500);
 $headings-margins: (
-  top: 0,
+  top: 1.5em,
   bottom: 0.5em,
 );
 $headings-breake: true; // should or not headings be lowered on specific breakpoint
@@ -127,7 +127,7 @@ $displays-fz: (
 $displays-lh: map-get($line-heights, 25);
 $displays-fw: map-get($font-weights, 500);
 $displays-margins: (
-  top: 0,
+  top: 1.5em,
   bottom: 1em,
 );
 $displays-breake: true; // should or not displays be lowered on specific breakpoint
@@ -152,7 +152,7 @@ $displays-decrease: 0.75; // ratio of how lower will be font-size for displays a
 // ===================== // 
 // BASIC PAGE TYPOGRAPHY //
 // ===================== // 
-$base-fz: 16px; // ❗ CRUCIAL VALUE! A lot of things depends on it. Be aware.
+$base-fz: 18px; // ❗ CRUCIAL VALUE! A lot of things depends on it. Be aware.
 $base-lh: map-get($line-heights, 50);
 $base-fw: map-get($font-weights, 400);
 $base-mg: map-get($spacers, 1);
@@ -211,11 +211,27 @@ hr {
 }
 
 a {
+  @extend .position-relative;
   @include color('primary');
   @include transition(all, base, ease);
+  
+  &::before {
+    @extend .pseudoelem;
+    @include transition(opacity, base, standard);
+
+    bottom: -0.1em;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed rgba(map-get($theme-colors, primary), .5);
+  }
 
   &:hover {
-    @include color('primary', 'lighten', 2)
+    @include color('primary', 'lighten', 3);
+
+    &::before {
+      opacity: 0;
+    }
   }
 }
 

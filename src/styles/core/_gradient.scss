@@ -22,6 +22,7 @@ $gradients: (
 );
 
 @mixin linear-gradient($gradient...) {
+  background-color: nth(nth($gradient, 1), 2);
   background-image: linear-gradient($gradient);
 }
 
