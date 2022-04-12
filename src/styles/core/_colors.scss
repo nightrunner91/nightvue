@@ -1,21 +1,20 @@
 // List of colors defined by user
 $colors: (
   'black':     #000000,
-  'white':     #ffffff,
-  'light':     #F9F9F9,
   'dark':      #343a40,
   'grey':      #E5EBEB,
+  'light':     #F9F9F9,
+  'white':     #ffffff,
+  'red':       #f94144,
+  'orange':    #f3722c,
+  'amber':     #f8961e,
+  'yellow':    #f9c74f,
+  'green':     #00B154,
+  'turquoise': #43aa8b,
   'pale':      #6A747D,
-  'blue':      #4D4D9F,
-  'indigo':    #6610f2,
+  'cyan':      #bbadff,
+  'blue':      #4361ee,
   'purple':    #682cab,
-  'pink':      #e83e8c,
-  'red':       #DF5563,
-  'orange':    #fd7e14,
-  'yellow':    #FFB300,
-  'green':     #00B155,
-  'teal':      #20c997,
-  'cyan':      #17a2b8,
 );
 
 // Standard material color theme 
@@ -66,7 +65,7 @@ $levels: (
 );
 
 // Basic page settings
-$body-bg:           map-get($colors, 'light');
+$body-bg:           map-get($colors, 'white');
 $body-color:        map-get($colors, 'dark');
 $border-color:      map-get($colors, 'grey');
 $headings-color:    map-get($colors, 'black');

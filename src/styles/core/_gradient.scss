@@ -19,6 +19,11 @@ $gradients: (
     to top,
     transparent,
     rgba(map-get($theme-colors, 'dark'), .09)),
+
+  white-transparent: (
+    to top,
+    transparent,
+    map-get($colors, 'light')),
 );
 
 @mixin linear-gradient($gradient...) {

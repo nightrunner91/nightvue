@@ -185,6 +185,13 @@ blockquote {
   line-height: $base-lh;
 }
 
+ul,
+ol {
+  &.list-unstyled {
+    list-style-type: none !important;
+  }
+}
+
 small,
 .small {
   font-size: $base-fz * $small-fz;

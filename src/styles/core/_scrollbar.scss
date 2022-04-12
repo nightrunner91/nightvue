@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-  width: 6px
+  width: 8px
 }
 
 ::-webkit-scrollbar-track {
@@ -7,9 +7,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: lighten(map-get($theme-colors, 'secondary'), 15%)
+  background: lighten(map-get($theme-colors, 'dark'), 15%)
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: map-get($theme-colors, 'secondary')
+  background: map-get($theme-colors, 'dark')
 }
