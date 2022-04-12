@@ -120,6 +120,14 @@ code, kbd, samp, pre {
   padding: .2em;
 }
 
+pre {
+  padding: 1rem !important;
+
+  code {
+    background: none;
+  }
+}
+
 hr {
   box-sizing: border-box;
   width: 100%;

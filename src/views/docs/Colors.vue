@@ -8,7 +8,26 @@
         :key="`color-${color}`"
         class="color mr-75 radius-circle material-shadow-1" />
     </ul>
-    <p></p>
+    <p>
+      <pre class="language-css"><code class="language-css">// List of colors defined by user
+$colors: (
+  'black':     #000000,
+  'dark':      #343a40,
+  'grey':      #E5EBEB,
+  'light':     #F9F9F9,
+  'white':     #ffffff,
+  'red':       #f94144,
+  'orange':    #f3722c,
+  'amber':     #f8961e,
+  'yellow':    #f9c74f,
+  'green':     #00B154,
+  'turquoise': #43aa8b,
+  'pale':      #6A747D,
+  'cyan':      #bbadff,
+  'blue':      #4361ee,
+  'purple':    #682cab,
+);</code></pre>
+    </p>
   </div>
 </template>
 
