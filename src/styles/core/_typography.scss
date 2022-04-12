@@ -114,10 +114,10 @@ mark {
 
 code, kbd, samp, pre {
   @include radius(base);
+  @extend .small;
   
   background: rgba(map-get($colors, 'black'), 0.15);
-  font-size: 80%;
-  padding: .2em;
+  padding: .2em .5em;
 }
 
 pre {
@@ -125,6 +125,7 @@ pre {
 
   code {
     background: none;
+    padding: 0;
   }
 }
 
