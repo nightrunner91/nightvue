@@ -4,7 +4,15 @@
     <div
       class="vw-100 vh-100 d-flex flex-column justify-content-center align-items-center intro position-relative"
       :class="windowScroll > animationTriggerPosition ? 'intro--scrolled' : ''">
-      <div class="intro__content d-flex flex-column justify-content-center align-items-center">
+      <div
+        class="intro__decoration intro__decoration--left"
+        :style="decorationTransforms.left" />
+      <div
+        class="intro__decoration intro__decoration--right"
+        :style="decorationTransforms.right" />
+      <div
+        class="intro__content d-flex flex-column justify-content-center align-items-center"
+        :style="contentTransform">
         <img
         :src="require('@/assets/images/logo.png')"
         class="no-select mb-3 intro__logo">
@@ -24,9 +32,9 @@
           <div class="col cols-12 py-3">
             <h1>Введение</h1>
             <h2>Чем является NightVue?</h2>
-            <p>NightVue — фреймворк для разработки на <a rel="nofollow" target="_blank" href="https://ru.vuejs.org/v2/guide/">Vue.js 2.x</a>. Его главная особенность — отсутствие интегрированных стилевых решений для распространённых компонентов (кнопок, форм, карточек, дропдаунов, модальных окон и т.д). NightVue предоставляет максимальную свободу разработки собственных веб-интерфейсов, наряду с этим предлагая множество полезных утилит для облегчения этого процесса.</p>
+            <p>NightVue — это фреймворк для разработки на <a rel="nofollow" target="_blank" href="https://ru.vuejs.org/v2/guide/">Vue.js 2.x</a>. Его главная особенность — отсутствие интегрированных решений для распространённых компонентов (кнопок, форм, карточек, дропдаунов, модальных окон и т.д). NightVue предоставляет максимальную свободу разработки собственных веб-интерфейсов, наряду с этим предлагая множество полезных утилит для облегчения этого процесса.</p>
 
-            <p>В основу фреймворка легли наиболее полезные и удачные решения из <a rel="nofollow" target="_blank" href="https://getbootstrap.com/">Bootstrap 4.x</a>, многие из которых доработаны и улучшены. Разработчики, которые привыкли к Boostrap, легко освоятся в предлагаемой нами среде разработки. В NightVue повсеместно используются рекомендации <a rel="nofollow" target="_blank" href="https://material.io/">Material Design</a>. Фреймворк  работает на основе <a rel="nofollow" target="_blank" href="https://getbootstrap.com/">Vue CLI v.4</a> — одного из самых удобных инструментов для разработки на Vue.js.</p>
+            <p>В основу фреймворка легли наиболее полезные утилиты из <a rel="nofollow" target="_blank" href="https://getbootstrap.com/">Bootstrap 4.x</a>, многие из которых доработаны и улучшены. Разработчики, которые привыкли к Boostrap, легко освоятся в предлагаемой нами среде разработки. В NightVue повсеместно используются рекомендации <a rel="nofollow" target="_blank" href="https://material.io/">Material Design</a>. Фреймворк  работает на основе <a rel="nofollow" target="_blank" href="https://getbootstrap.com/">Vue CLI v.4</a> — одного из самых удобных инструментов для разработки на Vue.js.</p>
 
             <h2>Кому подойдёт NightVue?</h2>
             <p>Front-end разработчикам, которым не нравится переписывать встроенные стилевые решения сторонних фреймворков и плагинов. Кого не устраивает разбираться в их настройках и особенностях. Коротко говоря, тем, кто предпочитает разрабатывать “с чистого листа”. NightVue предоставляет гораздо бо&#x301;льшую свободу в написании собственного кода, чем множество других фреймворков, в чём вы вскоре убедитесь.</p>
@@ -85,7 +93,34 @@ export default {
     },
 
     animationTriggerPosition() {
-      return this.windowSize.height / 4
+      return this.windowSize.height / 5
+    },
+
+    decorationTransforms() {
+      const styles = {
+        left: '',
+        right: ''
+      }
+
+      if (this.windowScroll < 1500) {
+        styles.left = `transform: rotate(-25deg) translateX(-${this.windowScroll}px)`
+        styles.right = `transform: rotate(25deg) translateX(${this.windowScroll}px)`
+
+        return styles
+      } else {
+        styles.left = 'transform: rotate(-25deg) translateX(-1500px)'
+        styles.right = 'transform: rotate(25deg) translateX(1500px)'
+
+        return styles
+      }
+    },
+
+    contentTransform() {
+      if (this.windowScroll < 750) {
+        return `transform: translateY(-${this.windowScroll / 2}px)`
+      } else {
+        return `transform: translateY(-750px)`
+      }
     },
   },
   created() {
@@ -96,7 +131,7 @@ export default {
 
     this.watchWindowSize()
     window.addEventListener('resize', debounce(this.watchWindowSize, 500))
-    window.addEventListener('scroll', debounce(this.watchWindowScroll, 50))
+    window.addEventListener('scroll', this.watchWindowScroll)
   },
   methods: {
     methodName(data) {
@@ -129,27 +164,27 @@ export default {
     &__title { @include transition(all, lazy, decelerated, .15s); }
     &__text { @include transition(all, lazy, decelerated, .15s); }
 
-    &::before,
-    &::after {
+    &__decoration {
       @include linear-gradient(map-get($gradients, pro));
       @include transition(transform, lazy, emphasized);
-      @extend .pseudoelem;
       @extend .position-fixed;
       @extend .z-minus-1;
 
       width: 40vw;
       height: 200vh;
       top: -20%;
+
+      &--left {
+        left: -20%;
+      }
+
+      &--right {
+        right: -20%;
+      }
     }
 
-    &::before {
-      left: -20%;
-      transform: rotate(-25deg);
-    }
-
-    &::after {
-      right: -20%;
-      transform: rotate(25deg);
+    &__content {
+      @include transition(transform, lazy, decelerated)
     }
 
     &--scrolled {
@@ -161,13 +196,10 @@ export default {
           opacity: 0;
         }
 
-        &__logo { transform: translateY(-160px); }
+        &__logo { transform: translateY(-120px) scale(0.6); }
         &__title { transform: translateY(-50px); }
         &__text { transform: translateY(-40px); }
       }
-
-      &::before { transform: translateX(-100%); }
-      &::after { transform: translateX(100%); }
     }
   }
 
