@@ -6,6 +6,10 @@ $radiuses: (
   'zero': 0
 );
 
+@mixin radius($type) {
+  border-radius: map-get($radiuses, $type);
+}
+
 @mixin makeRadius($breakpoint:null) {
   @each $name, $size in $radiuses {
     .radius#{$breakpoint}-#{$name} { border-radius: $size !important }

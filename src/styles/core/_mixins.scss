@@ -7,3 +7,45 @@
   animation-iteration-count: $count;
   animation-direction: $mode;
 }
+
+@mixin color($name, $style: false, $rate: false) {
+  $targetMap: $colors;
+  @if map-has-key($theme-colors, $name) {
+    $targetMap: $theme-colors;
+  }
+
+  @if $style {
+    @if $style == 'lighten' {
+      color: lighten(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    } @else if $style == 'darken' {
+      color: darken(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    } @else if $style == 'saturate' {
+      color: saturate(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    } @else if $style == 'desaturate' {
+      color: desaturate(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    }
+  } @else {
+    color: map-get($targetMap, $name) !important
+  }
+}
+
+@mixin fill($name, $style: false, $rate: false) {
+  $targetMap: $colors;
+  @if map-has-key($theme-colors, $name) {
+    $targetMap: $theme-colors;
+  }
+
+  @if $style {
+    @if $style == 'lighten' {
+      fill: lighten(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    } @else if $style == 'darken' {
+      fill: darken(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    } @else if $style == 'saturate' {
+      fill: saturate(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    } @else if $style == 'desaturate' {
+      fill: desaturate(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    }
+  } @else {
+    fill: map-get($targetMap, $name) !important
+  }
+}

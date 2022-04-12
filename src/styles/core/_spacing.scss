@@ -1,16 +1,3 @@
-$spacers: (
-  0: 0,
-  25: 0.25rem,
-  50: 0.5rem,
-  75: 0.75rem,
-  1: 1rem,
-  2: 2rem,
-  3: 3rem,
-  4: 4rem,
-  5: 5rem,
-  auto: auto
-);
-
 @mixin makeSpacers($breakpoint: null) {
   @each $name, $indent in $spacers {
     .p#{$breakpoint}-#{$name} { padding: $indent !important }

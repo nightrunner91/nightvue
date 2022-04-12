@@ -1,13 +1,14 @@
 <template>
   <div>
     <h2 id="colors">Цвета</h2>
-    <p>По умолчанию в NightVue предустановлена библиотека из 15 стандартных цветов. Однако, вы можете полностью изменить её либо использовать свою.</p>
-    <ul class="d-flex list-unstyled colors">
+    <p>По умолчанию в NightVue предустановлена библиотека из 15 стандартных цветов. Однако, вы можете полностью изменить её либо использовать свою. Список цветов доступен в файле <code>_colors.scss</code>. Из этих базовых цветов далее можно настроить цвета темы.</p>
+    <ul class="d-flex list-unstyled colors my-3">
       <li
         v-for="color in defaultColors"
-        :key="color"
+        :key="`color-${color}`"
         class="color mr-75 radius-circle material-shadow-1" />
     </ul>
+    <p></p>
   </div>
 </template>
 
@@ -33,7 +34,7 @@
 
   @for $i from 1 through length($colors) {
     &:nth-child(#{$i}) {
-      @include background(nth(nth($colors, $i), 1))
+      @include background(nth(nth($colors, $i), 1));
     }
   }
 }
