@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <h2 id="colors">Цвета</h2>
     <p>По умолчанию в NightVue предустановлена библиотека из 15 стандартных цветов. Однако, вы можете полностью изменить её либо использовать свою. Список цветов доступен в файле <code>_colors.scss</code>. Из этих базовых цветов далее можно настроить цвета темы.</p>
     <ul class="d-flex list-unstyled colors my-3">
@@ -28,19 +28,18 @@ $colors: (
   'purple':    #682cab,
 );</code></pre>
     </p>
-  </div>
+  </section>
 </template>
 
 <script>
-  export default {
-    name: 'Colors',
-    data() {
-      return {
-        defaultColors: 15
-      }
-    },
-
-  }
+export default {
+  name: 'Colors',
+  data() {
+    return {
+      defaultColors: 15
+    }
+  },
+}
 </script>
 
 <style lang="scss">

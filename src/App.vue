@@ -1,5 +1,4 @@
 <template>
-  <!-- eslint-disable vue/max-attributes-per-line -->
   <div id="app">
     <div
       class="vw-100 vh-100 d-flex flex-column justify-content-center align-items-center intro position-relative"
@@ -30,27 +29,9 @@
       <div class="container">
         <div class="row">
           <div class="col cols-12 py-3">
-            <h1>Введение</h1>
-            <h2>Чем является NightVue?</h2>
-            <p>NightVue — это фреймворк для разработки на <a rel="nofollow" target="_blank" href="https://ru.vuejs.org/v2/guide/">Vue.js 2.x</a>. Его главная особенность — отсутствие популярных интегрированных компонентов (кнопок, форм, карточек, дропдаунов, модальных окон и т.д) и минимальное количество предустановленных стилевых решений. NightVue предоставляет максимальную свободу разработки собственных веб-интерфейсов, наряду с этим предлагая множество полезных утилит для облегчения этого процесса.</p>
-
-            <p>В основу фреймворка легли наиболее полезные утилиты из <a rel="nofollow" target="_blank" href="https://getbootstrap.com/">Bootstrap 4.x</a>, многие из которых доработаны и улучшены. Разработчики, которые привыкли к Boostrap, легко освоятся в предлагаемой нами среде разработки. В NightVue повсеместно используются лучшие практики из <a rel="nofollow" target="_blank" href="https://material.io/">Material Design 2</a>. Фреймворк  работает на основе <a rel="nofollow" target="_blank" href="https://cli.vuejs.org/">Vue CLI 4.x</a> — одного из самых удобных инструментов для разработки на Vue.js.</p>
-
-            <h2>Кому подойдёт NightVue?</h2>
-            <p>Front-end разработчикам, которым не нравится переписывать встроенные стилевые решения сторонних фреймворков и плагинов. Кого не устраивает разбираться в их настройках и особенностях. Коротко говоря, тем, кто предпочитает разрабатывать “с чистого листа”. NightVue предоставляет гораздо бо&#x301;льшую свободу в написании собственного кода, чем множество других фреймворков, в чём вы вскоре убедитесь.</p>
-
-            <h2>Кому <span class="font-weight-700 clr-black">не</span> подойдёт NightVue?</h2>
-            <p>Front-end разработчикам, которым требуется база готовых решений для быстро старта разработки типизированных веб-интерфейсов. Либо тем, кто привык к такому подходу. В этом случае нашей рекомендацией будет использование таких популярных решений как <a rel="nofollow" target="_blank" href="https://bootstrap-vue.org/">BootstrapVue</a>, <a rel="nofollow" target="_blank" href="https://vuetifyjs.com/en/">Vuetify</a>, <a rel="nofollow" target="_blank" href="https://www.creative-tim.com/vuematerial/">Vue Material</a> или любого другого на ваш вкус.</p>
-
-            <h1>Документация</h1>
-            <ul class="list-unstyled">
-              <li
-                v-for="item, index in menu"
-                :key="`menu-${index}`">
-                <a :href="item.anchor">{{ item.title }}</a>
-              </li>
-            </ul>
-
+            <Introduction />
+            <Installation />
+            <DocsMenu />
             <Colors />
           </div>
         </div>
@@ -64,23 +45,22 @@
 import { eventBus } from './main'
 import debounce from 'lodash/debounce'
 
+import Introduction from './views/docs/Introduction.vue'
+import Installation from './views/docs/Installation.vue'
+import DocsMenu from './views/docs/DocsMenu.vue'
 import Colors from './views/docs/Colors.vue'
 
 export default {
-  components: { Colors },
+  components: {
+    Introduction,
+    Installation,
+    DocsMenu,
+    Colors
+  },
   name: 'Home',
   data() {
     return {
-      menu: [
-        {
-          title: 'Установка NightVue',
-          anchor: '#installation'
-        },
-        {
-          title: 'Цвета',
-          anchor: '#colors'
-        },
-      ]
+      
     }
   },
   computed: {
