@@ -14,10 +14,14 @@ $gradients: (
     to top,
     lighten(map-get($theme-colors, primary), 20%),
     map-get($theme-colors, primary)),
+
+  light: (
+    to top,
+    transparent,
+    rgba(map-get($theme-colors, 'dark'), .09)),
 );
 
 @mixin linear-gradient($gradient...) {
-  background-color: nth($gradient, 1);
   background-image: linear-gradient($gradient);
 }
 
