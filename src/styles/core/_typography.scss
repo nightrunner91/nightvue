@@ -1,7 +1,7 @@
 $font-families: (
-  base: "Inter",
-  headings: "Montserrat",
-  displays: "Montserrat"
+  base: "Onest",
+  headings: "Onest",
+  displays: "Onest"
 );
 
 $line-heights: (
@@ -60,11 +60,18 @@ $text-wraps: (
   pre-wrap: pre-wrap
 );
 
+$letter-spacings: (
+  normal: normal,
+  tight: -0.05em,
+  wide: .1em,
+  wider: .5em,
+);
+
 // ======== // 
 // HEADINGS //
 // ======== // 
 $headings-fz: (
-  h1: 3.25rem,
+  h1: 4.5rem,
   h2: 2.5rem,
   h3: 1.75rem,
   h4: 1.25rem,
@@ -236,6 +243,9 @@ a {
   }
   @each $wrap, $value in $text-wraps {
     .text#{$breakpoint}-#{$wrap} { white-space: $value !important; }
+  }
+  @each $spacing, $value in $letter-spacings {
+    .spacing#{$breakpoint}-#{$spacing} { letter-spacing: $value !important; }
   }
 }
 
