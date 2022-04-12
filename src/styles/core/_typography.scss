@@ -113,7 +113,7 @@ mark {
 }
 
 code, kbd, samp, pre {
-  @include radius(small);
+  @include radius(base);
   
   background: rgba(map-get($colors, 'black'), 0.15);
   font-size: 80%;
