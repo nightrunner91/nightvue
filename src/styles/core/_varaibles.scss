@@ -191,7 +191,7 @@ $gradients: (
 
   pro: (
     to top,
-    lighten(map-get($theme-colors, primary), 20%),
+    lighten(map-get($theme-colors, primary), 25%),
     map-get($theme-colors, primary)),
 );
 
