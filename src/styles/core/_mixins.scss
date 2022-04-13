@@ -72,8 +72,18 @@
 }
 
 @mixin linear-gradient($gradient...) {
+  @debug $gradient;
   background-color: nth(nth($gradient, 1), 2);
   background-image: linear-gradient($gradient);
+}
+
+@mixin shadow($name) {
+  $targetMap: $shadows;
+  @if map-has-key($material-shadows, $name) {
+    $targetMap: $material-shadows;
+  }
+
+  box-shadow: map-get($targetMap, $name)
 }
 
 @mixin icon-size($dimension1, $dimesnion2:false) {
@@ -92,4 +102,12 @@
     min-height: $dimension1 + px !important;
     background-size: $dimension1 + px $dimension1 + px !important;
   }
+}
+
+@mixin transition($property, $speed, $timing, $delay:0s) {
+  transition: $property map-get($transition-speed, $speed) map-get($transition-timings, $timing) $delay
+}
+
+@mixin complex-transition($args...) {
+  transition: $args;
 }

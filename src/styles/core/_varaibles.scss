@@ -70,6 +70,7 @@ $letter-spacings: (
   wider: .5em,
 );
 
+
 // ======== // 
 // HEADINGS //
 // ======== // 
@@ -91,6 +92,7 @@ $headings-breake: true; // should or not headings be lowered on specific breakpo
 $headings-breakepoint: 'sm'; // on which breakpoint headings will have lowered font-size
 $headings-decrease: 0.75; // ratio of how lower will be font-size for headings after breakpoint
 
+
 // ======== // 
 // DISPLAYS // 
 // ======== // 
@@ -110,6 +112,7 @@ $displays-breake: true; // should or not displays be lowered on specific breakpo
 $displays-breakepoint: 'sm'; // on which breakpoint displays will have lowered font-size
 $displays-decrease: 0.75; // ratio of how lower will be font-size for displays after breakpoint
 
+
 // ======= //
 // SPACING // 
 // ======= // 
@@ -126,10 +129,10 @@ $spacers: (
   auto: auto
 );
 
+
 // ====== //
 // COLORS //
 // ====== // 
-
 // List of colors defined by user
 $colors: (
   'black':     #000000,
@@ -147,32 +150,6 @@ $colors: (
   'cyan':      #bbadff,
   'blue':      #4361ee,
   'purple':    #682cab,
-);
-
-// Standard material color theme 
-// https://material.io/design/color/the-color-system.html#tools-for-picking-colors
-// You can disable this pallete if you don't need it in your project
-$material-colors-support: true; 
-$material-colors: (
-  red:         #F44336,
-  pink:        #E91E63,
-  purple:      #9C27B0,
-  deep-purple: #673AB7,
-  indigo:      #3F51B5,
-  blue:        #2196F3,
-  light-blue:  #03A9F4,
-  cyan:        #00BCD4,
-  teal:        #009688,
-  green:       #4CAF50,
-  light-green: #8BC34A,
-  lime:        #CDDC39,
-  yellow:      #FFEB3B,
-  amber:       #FFC107,
-  orange:      #FF9800,
-  deep-orange: #FF5722,
-  brown:       #795548,
-  grey:        #9E9E9E,
-  blue-grey:   #607D8B
 );
 
 // Pick up theme colors from basic color pallete or material colors
@@ -202,42 +179,26 @@ $body-color:        map-get($colors, 'dark');
 $border-color:      map-get($colors, 'grey');
 $headings-color:    map-get($colors, 'black');
 
+
 // ========= //
 // GRADIENTS //
 // ========= // 
-
 $gradients: (
-  base: (
-    45deg,
-    map-get($theme-colors, primary),
-    map-get($theme-colors, warning),
-    map-get($theme-colors, danger)),
-
-  advanced: (
-    to top,
-    map-get($theme-colors, warning) 20%,
-    map-get($theme-colors, info)),
+  docsmenu: (
+    145deg,
+    lighten(map-get($theme-colors, primary), map-get($levels, 5)),
+    lighten(map-get($theme-colors, success), map-get($levels, 5))),
 
   pro: (
     to top,
     lighten(map-get($theme-colors, primary), 20%),
     map-get($theme-colors, primary)),
-
-  light: (
-    to top,
-    transparent,
-    rgba(map-get($theme-colors, 'dark'), .09)),
-
-  white-transparent: (
-    to top,
-    transparent,
-    map-get($colors, 'light')),
 );
+
 
 // ==== // 
 // GRID // 
 // ==== // 
-
 // Base grid settings
 $num-cols:           12;
 $gutter-width:       1rem;
@@ -272,8 +233,61 @@ $md-dw: "screen and (max-width: #{map-get($breakpoints, 'md') - 1px}" !default;
 $lg-dw: "screen and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
 $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 
+
 // ===== //
 // ICONS // 
 // ===== // 
-
 $icon-sizes: 18, 24, 36, 48;
+
+// ======= // 
+// SHADOWS // 
+// ======= // 
+// List of shadows defined by user
+$shadows: (
+  none: none,
+  small: 1px 1px 3px map-get($colors, 'black'),
+  base: 3px 3px 6px map-get($theme-colors, 'primary'),
+  large: (4px 4px 8px rgba(map-get($colors, 'black'), .5), 6px 7px 24px rgba(map-get($theme-colors, 'warning'), .75)),
+);
+
+// List of shadows based on Material methodology
+// See more on https://material.io/design/environment/light-shadows.html
+$material-shadows-support: true; 
+$material-shadows: (
+  1: (0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)),
+  2: (0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)),
+  3: (0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)),
+  4: (0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)),
+  5: (0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)),
+);
+
+
+// =========== // 
+// TRANSITIONS //
+// =========== // 
+$transition-speed: (
+  shortest: .15s,
+  shorter: .2s,
+  short: .25s,
+  base: .3s,
+  slow: .375s,
+  lazy: .75s,
+);
+
+$transition-timings: (
+  // "Standard" easings 👉 https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions
+  linear: cubic-bezier(0, 0, 1, 1),
+  ease: cubic-bezier(0.25, 0.1, 0.25, 1),
+  ease-in: cubic-bezier(0.42, 0, 1, 1),
+  ease-out: cubic-bezier(0,0,0.58,1),
+  ease-in-out: cubic-bezier(0.42, 0, 0.58, 1),
+
+  // Material easings 👉 https://material.io/design/motion/speed.html#easing
+  standard: cubic-bezier(0.4, 0, 0.2, 1), // speed up quickly and slow down gradually, in order to emphasize the end of the transition
+  emphasized: cubic-bezier(0.0, 0, 0.2, 1), // speed up quickly and slow down very gradually, placing extra emphasis on the end of the transition
+  decelerated: cubic-bezier(0.0, 0.0, 0.2, 1), // transitions begin at peak velocity (the fastest point in an element's movement) and end at rest
+  accelerated: cubic-bezier(0.4, 0.0, 1, 1), // transition in which the element starts at rest and ends at peak velocity
+
+  // Custom easings (here you can add new ones)
+  sharp: cubic-bezier(0.4, 0, 0.6, 1) // the sharp curve is used for objects that may return to the screen at any time
+);

@@ -1,16 +1,18 @@
 <template>
+  <!-- eslint-disable vue/max-attributes-per-line -->
   <section>
-    <h2 id="colors">Цвета</h2>
-    <p>По умолчанию в NightVue предустановлена библиотека из 15 стандартных цветов. Однако, вы можете полностью изменить её либо использовать свою. Список цветов доступен в файле <code>_colors.scss</code>. Из этих базовых цветов далее можно настроить цвета темы.</p>
+    <div class="h1" id="colors">Цвета</div>
+    <h2 id="colors-list">Библиотека цветов</h2>
+    <p>По умолчанию в NightVue предустановлена библиотека из 15 стандартных цветов. Разумеется, вы можете полностью изменить её либо использовать свою. Из этих базовых цветов далее можно настроить цвета темы.</p>
     <ul class="d-flex list-unstyled colors my-3">
       <li
         v-for="color in defaultColors"
         :key="`color-${color}`"
         class="color mr-75 radius-circle material-shadow-1" />
     </ul>
+    <p>Список цветов доступен в файле <code>_varaibles.scss</code>:</p>
     <p>
-      <pre class="language-css"><code class="language-css">// List of colors defined by user
-$colors: (
+      <pre class="language-css mb-3"><code class="language-css">$colors: (
   'black':     #000000,
   'dark':      #343a40,
   'grey':      #E5EBEB,
@@ -28,6 +30,24 @@ $colors: (
   'purple':    #682cab,
 );</code></pre>
     </p>
+    <h2 id="color-levels">
+      Уровни цветов
+    </h2>
+    <p>
+      К каждому из цветов применяется система, изменяющая его яркость и насыщенность.
+    </p>
+    <p>
+      Использовать цвета в проекте можно несколькими способами:
+    </p>
+    <ol class="pl-2">
+      <li>
+        Применять HTML классы к элементам. Для этого используйте классы вида <code>bg-red</code>, <code>clr-red</code> или <code>fill-red</code> для придания нужного цвета фону, тексту или SVG элементу соответственно.
+      </li>
+      <li>
+        Использовать <code>@mixin</code> к нужному классу <code>.scss</code> документе.
+      </li>
+    </ol>
+
   </section>
 </template>
 

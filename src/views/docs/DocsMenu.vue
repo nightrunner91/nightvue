@@ -1,12 +1,15 @@
 <template>
-  <section>
-    <h1>Документация</h1>
+  <section class="gradient-docsmenu p-3 radius-large mt-5">
+    <h2 class="mt-0 mb-2 clr-white">Содержание</h2>
     <ul class="list-unstyled">
       <li
         v-for="item, index in menu"
         :key="`menu-${index}`"
-        class="h4 my-50">
-        <a :href="item.anchor">{{ item.title }}</a>
+        class="h4 my-50 clr-white">
+        &#9866;
+        <a
+          :href="item.anchor"
+          class="docsmenu__link">{{ item.title }}</a>
       </li>
     </ul>
   </section>
@@ -73,5 +76,20 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/styles/core/globals";
 
+.docsmenu {
+  &__link {
+    @include color('white');
+    @include transition(all, base, ease);
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      @include color('dark');
+    }
+  }
+}
 </style>

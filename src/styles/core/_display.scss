@@ -5,7 +5,7 @@ $aligns: (start, end, center, baseline, stretch);
 $wraps: (nowrap, wrap, wrap-reverse);
 $grows: (0, 1);
 
-@mixin makeDisplays($breakpoint: null) {
+@mixin displays($breakpoint: null) {
   @each $display, $type in $displays {
     .d#{$breakpoint}-#{$display} { display: $display !important }
   }
@@ -36,10 +36,10 @@ $grows: (0, 1);
   }
 }
 
-@include makeDisplays();
+@include displays();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include makeDisplays('-' + $breakpoint);
+    @include displays('-' + $breakpoint);
   }
 }

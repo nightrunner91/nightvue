@@ -1,30 +1,3 @@
-$transition-speed: (
-  shortest: .15s,
-  shorter: .2s,
-  short: .25s,
-  base: .3s,
-  slow: .375s,
-  lazy: .75s,
-);
-
-$transition-timings: (
-  // "Standard" easings 👉 https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions
-  linear: cubic-bezier(0, 0, 1, 1),
-  ease: cubic-bezier(0.25, 0.1, 0.25, 1),
-  ease-in: cubic-bezier(0.42, 0, 1, 1),
-  ease-out: cubic-bezier(0,0,0.58,1),
-  ease-in-out: cubic-bezier(0.42, 0, 0.58, 1),
-
-  // Material easings 👉 https://material.io/design/motion/speed.html#easing
-  standard: cubic-bezier(0.4, 0, 0.2, 1), // speed up quickly and slow down gradually, in order to emphasize the end of the transition
-  emphasized: cubic-bezier(0.0, 0, 0.2, 1), // speed up quickly and slow down very gradually, placing extra emphasis on the end of the transition
-  decelerated: cubic-bezier(0.0, 0.0, 0.2, 1), // transitions begin at peak velocity (the fastest point in an element's movement) and end at rest
-  accelerated: cubic-bezier(0.4, 0.0, 1, 1), // transition in which the element starts at rest and ends at peak velocity
-
-  // Custom easings (here you can add new ones)
-  sharp: cubic-bezier(0.4, 0, 0.6, 1) // the sharp curve is used for objects that may return to the screen at any time
-);
-
 @each $speed, $value in $transition-speed {
   .speed-#{$speed} {
     transition-duration: $value !important
@@ -35,12 +8,4 @@ $transition-timings: (
   .timing-#{$timing} {
     transition-timing-function: $value !important
   }
-}
-
-@mixin transition($property, $speed, $timing, $delay:0s) {
-  transition: $property map-get($transition-speed, $speed) map-get($transition-timings, $timing) $delay
-}
-
-@mixin complex-transition($args...) {
-  transition: $args;
 }

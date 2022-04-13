@@ -48,14 +48,11 @@ body {
   &.body--locked { overflow-y: hidden }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
   display: block;
   margin-top: map-get($headings-margins, top);
   margin-bottom: map-get($headings-margins, bottom);
-}
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: map-get($font-families, headings), sans-serif;
   font-weight: $headings-fw;
   line-height: $headings-lh;
@@ -95,9 +92,11 @@ mark {
 
 code, kbd, samp, pre {
   @include radius(base);
+  @include background('grey');
+  @include shadow(1);
   @extend .small;
   
-  background: rgba(map-get($colors, 'black'), 0.15);
+  margin-bottom: $base-mg;
   padding: .2em .5em;
 }
 
@@ -105,6 +104,8 @@ pre {
   padding: 1rem !important;
 
   code {
+    @include shadow(none);
+
     background: none;
     padding: 0;
   }
@@ -130,7 +131,7 @@ a {
     @extend .pseudoelem;
     @include transition(opacity, base, standard);
 
-    bottom: 0;
+    bottom: .1em;
     left: 0;
     width: 100%;
     height: 1px;
