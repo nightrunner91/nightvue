@@ -1,37 +1,3 @@
-// Base grid settings
-$num-cols:           12;
-$gutter-width:       1rem;
-$container-width:    1280px;
-
-// Dublicated in store/modules/config.js
-$breakpoints: (
-  'xs': 576px,
-  'sm': 768px,
-  'md': 1024px,
-  'lg': 1280px,
-  'xl': 1600px,
-);
-
-// Queries between breakpoints
-$xs-sm: "screen and (min-width: #{map-get($breakpoints, 'xs') + 'px'}) and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
-$sm-md: "screen and (min-width: #{map-get($breakpoints, 'sm') + 'px'}) and (max-width: #{map-get($breakpoints, 'md') - 1px})" !default;
-$md-lg: "screen and (min-width: #{map-get($breakpoints, 'md') + 'px'}) and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
-$lg-xl: "screen and (min-width: #{map-get($breakpoints, 'lg') + 'px'}) and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
-
-// Queries based on min-width
-$xs-up: "screen and (min-width: #{map-get($breakpoints, 'xs') + 'px'})" !default;
-$sm-up: "screen and (min-width: #{map-get($breakpoints, 'sm') + 'px'})" !default;
-$md-up: "screen and (min-width: #{map-get($breakpoints, 'md') + 'px'})" !default;
-$lg-up: "screen and (min-width: #{map-get($breakpoints, 'lg') + 'px'})" !default;
-$xl-up: "screen and (min-width: #{map-get($breakpoints, 'xl') + 'px'})" !default;
-
-// Queries based on max-width
-$xs-dw: "screen and (max-width: #{map-get($breakpoints, 'xs') - 1px})" !default;
-$sm-dw: "screen and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
-$md-dw: "screen and (max-width: #{map-get($breakpoints, 'md') - 1px}" !default;
-$lg-dw: "screen and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
-$xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
-
 // Container settings
 .container  {
   margin: 0 auto;

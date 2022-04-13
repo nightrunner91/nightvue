@@ -60,7 +60,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      
+
     }
   },
   computed: {
@@ -137,7 +137,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "styles/main";
+  @import "styles/style";
 
   .intro {
     &__logo { @include transition(all, lazy, emphasized); }

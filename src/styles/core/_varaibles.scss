@@ -91,6 +91,25 @@ $headings-breake: true; // should or not headings be lowered on specific breakpo
 $headings-breakepoint: 'sm'; // on which breakpoint headings will have lowered font-size
 $headings-decrease: 0.75; // ratio of how lower will be font-size for headings after breakpoint
 
+// ======== // 
+// DISPLAYS // 
+// ======== // 
+$displays-fz: (
+  display-1: 74px,
+  display-2: 62px,
+  display-3: 48px,
+  display-4: 34px,
+);
+$displays-lh: map-get($line-heights, 25);
+$displays-fw: map-get($font-weights, 500);
+$displays-margins: (
+  top: 1.5em,
+  bottom: 1em,
+);
+$displays-breake: true; // should or not displays be lowered on specific breakpoint
+$displays-breakepoint: 'sm'; // on which breakpoint displays will have lowered font-size
+$displays-decrease: 0.75; // ratio of how lower will be font-size for displays after breakpoint
+
 // ======= //
 // SPACING // 
 // ======= // 
@@ -106,3 +125,155 @@ $spacers: (
   5: 5rem,
   auto: auto
 );
+
+// ====== //
+// COLORS //
+// ====== // 
+
+// List of colors defined by user
+$colors: (
+  'black':     #000000,
+  'dark':      #343a40,
+  'grey':      #E5EBEB,
+  'light':     #F9F9F9,
+  'white':     #ffffff,
+  'red':       #f94144,
+  'orange':    #f3722c,
+  'amber':     #f8961e,
+  'yellow':    #f9c74f,
+  'green':     #00B154,
+  'turquoise': #43aa8b,
+  'pale':      #6A747D,
+  'cyan':      #bbadff,
+  'blue':      #4361ee,
+  'purple':    #682cab,
+);
+
+// Standard material color theme 
+// https://material.io/design/color/the-color-system.html#tools-for-picking-colors
+// You can disable this pallete if you don't need it in your project
+$material-colors-support: true; 
+$material-colors: (
+  red:         #F44336,
+  pink:        #E91E63,
+  purple:      #9C27B0,
+  deep-purple: #673AB7,
+  indigo:      #3F51B5,
+  blue:        #2196F3,
+  light-blue:  #03A9F4,
+  cyan:        #00BCD4,
+  teal:        #009688,
+  green:       #4CAF50,
+  light-green: #8BC34A,
+  lime:        #CDDC39,
+  yellow:      #FFEB3B,
+  amber:       #FFC107,
+  orange:      #FF9800,
+  deep-orange: #FF5722,
+  brown:       #795548,
+  grey:        #9E9E9E,
+  blue-grey:   #607D8B
+);
+
+// Pick up theme colors from basic color pallete or material colors
+$theme-colors: (
+  'primary':    map-get($colors, 'purple'),
+  'secondary':  map-get($colors, 'pale'),
+  'success':    map-get($colors, 'green'),
+  'info':       map-get($colors, 'cyan'),
+  'warning':    map-get($colors, 'yellow'),
+  'danger':     map-get($colors, 'red'),
+  'light':      map-get($colors, 'light'),
+  'dark':       map-get($colors, 'dark'),
+);
+
+// Levels of lighten, darken, saturate and desaturate values of colors in $colors list
+$levels: (
+  1: 5%,
+  2: 10%,
+  3: 15%,
+  4: 20%,
+  5: 25%,
+);
+
+// Basic page settings
+$body-bg:           map-get($colors, 'white');
+$body-color:        map-get($colors, 'dark');
+$border-color:      map-get($colors, 'grey');
+$headings-color:    map-get($colors, 'black');
+
+// ========= //
+// GRADIENTS //
+// ========= // 
+
+$gradients: (
+  base: (
+    45deg,
+    map-get($theme-colors, primary),
+    map-get($theme-colors, warning),
+    map-get($theme-colors, danger)),
+
+  advanced: (
+    to top,
+    map-get($theme-colors, warning) 20%,
+    map-get($theme-colors, info)),
+
+  pro: (
+    to top,
+    lighten(map-get($theme-colors, primary), 20%),
+    map-get($theme-colors, primary)),
+
+  light: (
+    to top,
+    transparent,
+    rgba(map-get($theme-colors, 'dark'), .09)),
+
+  white-transparent: (
+    to top,
+    transparent,
+    map-get($colors, 'light')),
+);
+
+// ==== // 
+// GRID // 
+// ==== // 
+
+// Base grid settings
+$num-cols:           12;
+$gutter-width:       1rem;
+$container-width:    1280px;
+
+// Dublicated in store/modules/config.js
+$breakpoints: (
+  'xs': 576px,
+  'sm': 768px,
+  'md': 1024px,
+  'lg': 1280px,
+  'xl': 1600px,
+);
+
+// Queries between breakpoints
+$xs-sm: "screen and (min-width: #{map-get($breakpoints, 'xs') + 'px'}) and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
+$sm-md: "screen and (min-width: #{map-get($breakpoints, 'sm') + 'px'}) and (max-width: #{map-get($breakpoints, 'md') - 1px})" !default;
+$md-lg: "screen and (min-width: #{map-get($breakpoints, 'md') + 'px'}) and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
+$lg-xl: "screen and (min-width: #{map-get($breakpoints, 'lg') + 'px'}) and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
+
+// Queries based on min-width
+$xs-up: "screen and (min-width: #{map-get($breakpoints, 'xs') + 'px'})" !default;
+$sm-up: "screen and (min-width: #{map-get($breakpoints, 'sm') + 'px'})" !default;
+$md-up: "screen and (min-width: #{map-get($breakpoints, 'md') + 'px'})" !default;
+$lg-up: "screen and (min-width: #{map-get($breakpoints, 'lg') + 'px'})" !default;
+$xl-up: "screen and (min-width: #{map-get($breakpoints, 'xl') + 'px'})" !default;
+
+// Queries based on max-width
+$xs-dw: "screen and (max-width: #{map-get($breakpoints, 'xs') - 1px})" !default;
+$sm-dw: "screen and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
+$md-dw: "screen and (max-width: #{map-get($breakpoints, 'md') - 1px}" !default;
+$lg-dw: "screen and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
+$xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
+
+// ===== //
+// ICONS // 
+// ===== // 
+
+$icon-sizes: 18, 24, 36, 48;

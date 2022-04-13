@@ -11,39 +11,6 @@
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  display: block;
-  margin-top: map-get($headings-margins, top);
-  margin-bottom: map-get($headings-margins, bottom);
-}
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: map-get($font-families, headings), sans-serif;
-  font-weight: $headings-fw;
-  line-height: $headings-lh;
-  color: map-get($theme-colors, 'dark');
-}
-
-// ======== // 
-// DISPLAYS // 
-// ======== // 
-$displays-fz: (
-  display-1: 74px,
-  display-2: 62px,
-  display-3: 48px,
-  display-4: 34px,
-);
-$displays-lh: map-get($line-heights, 25);
-$displays-fw: map-get($font-weights, 500);
-$displays-margins: (
-  top: 1.5em,
-  bottom: 1em,
-);
-$displays-breake: true; // should or not displays be lowered on specific breakpoint
-$displays-breakepoint: 'sm'; // on which breakpoint displays will have lowered font-size
-$displays-decrease: 0.75; // ratio of how lower will be font-size for displays after breakpoint
-
 @each $display, $size in $displays-fz {
   .#{$display} {
     font-size: $size;
@@ -79,6 +46,20 @@ body {
   color: $body-color;
 
   &.body--locked { overflow-y: hidden }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  display: block;
+  margin-top: map-get($headings-margins, top);
+  margin-bottom: map-get($headings-margins, bottom);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: map-get($font-families, headings), sans-serif;
+  font-weight: $headings-fw;
+  line-height: $headings-lh;
+  color: map-get($theme-colors, 'dark');
 }
 
 p,

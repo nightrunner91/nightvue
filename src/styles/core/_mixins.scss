@@ -8,6 +8,27 @@
   animation-direction: $mode;
 }
 
+@mixin background($name, $style: false, $rate: false) {
+  $targetMap: $colors;
+  @if map-has-key($theme-colors, $name) {
+    $targetMap: $theme-colors;
+  }
+
+  @if $style {
+    @if $style == 'lighten' {
+      background-color: lighten(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    } @else if $style == 'darken' {
+      background-color: darken(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    } @else if $style == 'saturate' {
+      background-color: saturate(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    } @else if $style == 'desaturate' {
+      background-color: desaturate(map-get($targetMap, $name), map-get($levels, $rate)) !important
+    }
+  } @else {
+    background-color: map-get($targetMap, $name) !important
+  }
+}
+
 @mixin color($name, $style: false, $rate: false) {
   $targetMap: $colors;
   @if map-has-key($theme-colors, $name) {
@@ -47,5 +68,28 @@
     }
   } @else {
     fill: map-get($targetMap, $name) !important
+  }
+}
+
+@mixin linear-gradient($gradient...) {
+  background-color: nth(nth($gradient, 1), 2);
+  background-image: linear-gradient($gradient);
+}
+
+@mixin icon-size($dimension1, $dimesnion2:false) {
+  width: $dimension1 + px !important;
+  max-width: $dimension1 + px !important;
+  min-width: $dimension1 + px !important;
+
+  @if ($dimesnion2) {
+    height: $dimesnion2 + px !important;
+    max-height: $dimesnion2 + px !important;
+    min-height: $dimesnion2 + px !important;
+    background-size: $dimension1 + px $dimension2 + px !important;
+  } @else {
+    height: $dimension1 + px !important;
+    max-height: $dimension1 + px !important;
+    min-height: $dimension1 + px !important;
+    background-size: $dimension1 + px $dimension1 + px !important;
   }
 }

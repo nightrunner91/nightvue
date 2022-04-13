@@ -1,23 +1,3 @@
-$icon-sizes: 18, 24, 36, 48;
-
-@mixin icon-size($dimension1, $dimesnion2:false) {
-  width: $dimension1 + px !important;
-  max-width: $dimension1 + px !important;
-  min-width: $dimension1 + px !important;
-
-  @if ($dimesnion2) {
-    height: $dimesnion2 + px !important;
-    max-height: $dimesnion2 + px !important;
-    min-height: $dimesnion2 + px !important;
-    background-size: $dimension1 + px $dimension2 + px !important;
-  } @else {
-    height: $dimension1 + px !important;
-    max-height: $dimension1 + px !important;
-    min-height: $dimension1 + px !important;
-    background-size: $dimension1 + px $dimension1 + px !important;
-  }
-}
-
 @mixin icons-sizes($breakpoint:null) {
   @each $size in $icon-sizes {
     .icon-size#{$breakpoint}-#{$size} {

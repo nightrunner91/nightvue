@@ -27,6 +27,10 @@ export default {
           anchor: '#colors'
         },
         {
+          title: 'Градиенты',
+          anchor: '#gradient'
+        },
+        {
           title: 'Типография',
           anchor: '#typography'
         },
@@ -61,10 +65,6 @@ export default {
         {
           title: 'Прозрачность',
           anchor: '#opacity'
-        },
-        {
-          title: 'Градиенты',
-          anchor: '#gradient'
         },
       ]
     }

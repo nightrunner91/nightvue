@@ -43,9 +43,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/core/grid";
-@import "../../styles/core/colors";
-@import "../../styles/core/icon";
+@import "@/styles/core/globals";
 
 .color {
   @include icon-size(48);

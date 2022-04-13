@@ -1,9 +1,9 @@
 // Core
 @import "core/normalize";
-@import "core/mixins";
-@import "core/varaibles";
-@import "core/colors";
+@import "core/globals";
+
 @import "core/grid";
+@import "core/colors";
 @import "core/scrollbar";
 @import "core/spacing";
 @import "core/transitions";
