@@ -93,7 +93,6 @@ mark {
 code, kbd, samp, pre {
   @include radius(base);
   @include background('grey');
-  @include shadow(1);
   @extend .small;
   
   margin-bottom: $base-mg;
@@ -104,8 +103,6 @@ pre {
   padding: 1rem !important;
 
   code {
-    @include shadow(none);
-
     background: none;
     padding: 0;
   }
