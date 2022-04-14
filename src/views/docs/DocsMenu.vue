@@ -6,7 +6,7 @@
         v-for="item, index in menu"
         :key="`menu-${index}`"
         class="h4 my-50 clr-white">
-        &#9866;
+        <span class="clr-white mr-50">&#9866;</span>
         <a
           :href="item.anchor"
           class="docsmenu__link">{{ item.title }}</a>
@@ -88,7 +88,7 @@ export default {
     }
 
     &:hover {
-      @include color('dark');
+      @include color('shade', $rate: 14);
     }
   }
 }

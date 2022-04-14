@@ -136,17 +136,13 @@ $spacers: (
 // List of colors defined by user
 $colors: (
   'black':     #000000,
-  'dark':      #343a40,
-  'grey':      #B7BDBD,
-  'light':     #EEEEEE,
   'white':     #ffffff,
+
   'red':       #f94144,
   'orange':    #f3722c,
-  'amber':     #f8961e,
   'yellow':    #f9c74f,
   'green':     #00B154,
-  'turquoise': #43aa8b,
-  'pale':      #6A747D,
+  'teal':      #1aa179,
   'cyan':      #AB9DEF,
   'blue':      #4361ee,
   'purple':    #682cab,
@@ -155,30 +151,24 @@ $colors: (
 // Pick up theme colors from basic color pallete or material colors
 $theme-colors: (
   'primary':    map-get($colors, 'purple'),
-  'secondary':  map-get($colors, 'pale'),
+  'secondary':  map-get($colors, 'blue'),
   'success':    map-get($colors, 'green'),
-  'info':       map-get($colors, 'cyan'),
+  'info':       map-get($colors, 'teal'),
   'warning':    map-get($colors, 'yellow'),
   'danger':     map-get($colors, 'red'),
-  'light':      map-get($colors, 'light'),
-  'dark':       map-get($colors, 'dark'),
+  // 'light':      map-get($colors, 'light'),
+  // 'dark':       map-get($colors, 'dark'),
 );
 
-// Levels of lighten, darken, saturate and desaturate values of colors in $colors list
+// Levels of lighten and darken in $colors and $theme-colors list
 $levels: (
-  1: 4%,
-  2: 8%,
-  3: 12%,
-  4: 16%,
-  5: 20%,
+  1: 5%,
+  2: 10%,
+  3: 15%,
+  4: 20%,
+  5: 25%,
 );
-
-// Basic page settings
-$body-bg:           map-get($colors, 'white');
-$body-color:        map-get($colors, 'dark');
-$border-color:      map-get($colors, 'grey');
-$headings-color:    map-get($colors, 'black');
-
+$shades: 16;
 
 // ========= //
 // GRADIENTS //

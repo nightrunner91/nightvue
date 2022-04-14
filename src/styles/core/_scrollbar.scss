@@ -7,9 +7,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: lighten(map-get($theme-colors, 'dark'), 15%)
+  background: lighten(map-get($colors, 'black'), 15%)
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: map-get($theme-colors, 'dark')
+  background: map-get($colors, 'black')
 }
