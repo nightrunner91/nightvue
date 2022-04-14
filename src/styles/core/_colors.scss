@@ -4,20 +4,16 @@
   .fill-#{$name} { fill: $code !important }
 
   @each $level, $rate in $levels {
-    .bg-#{$name}-lighten-#{$level} { background-color: lighten($code, $rate) !important }
-    .bg-#{$name}-darken-#{$level} { background-color: darken($code, $rate) !important }
-    .bg-#{$name}-saturate-#{$level} { background-color: saturate($code, $rate) !important }
-    .bg-#{$name}-desaturate-#{$level} { background-color: desaturate($code, $rate) !important }
+    @if ($name != 'black' and $name != 'white') {
+      .bg-#{$name}-lighten-#{$level} { background-color: lighten($code, $rate) !important }
+      .bg-#{$name}-darken-#{$level} { background-color: darken($code, $rate) !important }
 
-    .clr-#{$name}-lighten-#{$level} { color: lighten($code, $rate) !important }
-    .clr-#{$name}-darken-#{$level} { color: darken($code, $rate) !important }
-    .clr-#{$name}-saturate-#{$level} { color: saturate($code, $rate) !important }
-    .clr-#{$name}-desaturate-#{$level} { color: desaturate($code, $rate) !important }
+      .clr-#{$name}-lighten-#{$level} { color: lighten($code, $rate) !important }
+      .clr-#{$name}-darken-#{$level} { color: darken($code, $rate) !important }
 
-    .fill-#{$name}-lighten-#{$level} { fill: lighten($code, $rate) !important }
-    .fill-#{$name}-darken-#{$level} { fill: darken($code, $rate) !important }
-    .fill-#{$name}-saturate-#{$level} { fill: saturate($code, $rate) !important }
-    .fill-#{$name}-desaturate-#{$level} { fill: desaturate($code, $rate) !important }
+      .fill-#{$name}-lighten-#{$level} { fill: lighten($code, $rate) !important }
+      .fill-#{$name}-darken-#{$level} { fill: darken($code, $rate) !important }
+    }
   }
 }
 
@@ -29,17 +25,11 @@
   @each $level, $rate in $levels {
     .bg-#{$name}-lighten-#{$level} { background-color: lighten($code, $rate) !important }
     .bg-#{$name}-darken-#{$level} { background-color: darken($code, $rate) !important }
-    .bg-#{$name}-saturate-#{$level} { background-color: saturate($code, $rate) !important }
-    .bg-#{$name}-desaturate-#{$level} { background-color: desaturate($code, $rate) !important }
 
     .clr-#{$name}-lighten-#{$level} { color: lighten($code, $rate) !important }
     .clr-#{$name}-darken-#{$level} { color: darken($code, $rate) !important }
-    .clr-#{$name}-saturate-#{$level} { color: saturate($code, $rate) !important }
-    .clr-#{$name}-desaturate-#{$level} { color: desaturate($code, $rate) !important }
 
     .fill-#{$name}-lighten-#{$level} { fill: lighten($code, $rate) !important }
     .fill-#{$name}-darken-#{$level} { fill: darken($code, $rate) !important }
-    .fill-#{$name}-saturate-#{$level} { fill: saturate($code, $rate) !important }
-    .fill-#{$name}-desaturate-#{$level} { fill: desaturate($code, $rate) !important }
   }
 }

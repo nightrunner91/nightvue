@@ -147,7 +147,7 @@ $colors: (
   'green':     #00B154,
   'turquoise': #43aa8b,
   'pale':      #6A747D,
-  'cyan':      #bbadff,
+  'cyan':      #B1A3F5,
   'blue':      #4361ee,
   'purple':    #682cab,
 );
@@ -166,11 +166,11 @@ $theme-colors: (
 
 // Levels of lighten, darken, saturate and desaturate values of colors in $colors list
 $levels: (
-  1: 5%,
-  2: 10%,
-  3: 15%,
-  4: 20%,
-  5: 25%,
+  1: 4%,
+  2: 8%,
+  3: 12%,
+  4: 16%,
+  5: 20%,
 );
 
 // Basic page settings
