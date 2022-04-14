@@ -8,7 +8,7 @@
       <li
         v-for="(color, value) in colors"
         :key="`color-${color}-${value}`"
-        class="color icon-size-48 mr-75 radius-circle material-shadow-2"
+        class="color icon-size-48 mr-75 radius-base material-shadow-1"
         :class="[`bg-${value}`, { 'mr-2' : value === 'white' }]" />
     </ul>
     <p>Список цветов доступен в файле <code>_varaibles.scss</code>:</p>
@@ -35,17 +35,20 @@
       Уровни цветов
     </h2>
     <p class="mb-3">
-      К каждому из цветов в библиотеке применяется ряд модификаторов, изменяющих его яркость. Для этого используются встроенные модули SASS <code>lighten()</code> и <code>darken()</code>. Подробнее о работе с цветами в SASS можно ознакомиться в <a rel="nofollow" target="_blank" href="https://sass-lang.com/documentation/modules/color">документации</a>.
+      За исключением белого и чёрного, к каждому из цветов в библиотеке применяется ряд модификаторов, изменяющих его яркость. Для этого используются встроенные модули SASS <code>lighten()</code> и <code>darken()</code>. Подробнее о работе с цветами в SASS можно ознакомиться в <a rel="nofollow" target="_blank" href="https://sass-lang.com/documentation/modules/color">документации</a>.
     </p>
     <ul
       v-for="(color, value) in colors"
       :key="`variants-${color}-${value}`"
-      class="d-flex list-unstyled colors my-1"
+      class="d-flex list-unstyled colors my-75"
       :class="value == 'black' || value == 'white' ? 'd-none' : ''">
+      <li
+        class="d-flex align-items-center h4 m-0 minw-15"
+        :class="value == 'dark' || value == 'grey' || value == 'light' ? 'clr-dark-lighten-4' : `clr-${value}`">{{ value }}</li>
       <li
         v-for="(level, index) in levels"
         :key="`level-${index}`"
-        class="color icon-size-48 mr-75 radius-circle material-shadow-2"
+        class="color icon-size-48 mr-75 radius-base material-shadow-1"
         :class="levelClassname(value, level)" />
     </ul>
     <p class="mt-3">
