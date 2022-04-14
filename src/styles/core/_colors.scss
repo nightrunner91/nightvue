@@ -4,16 +4,14 @@
   .fill-#{$name} { fill: $code !important }
 
   @each $level, $rate in $levels {
-    @if ($name != 'black' and $name != 'white') {
-      .bg-#{$name}-lighten-#{$level} { background-color: lighten($code, $rate) !important }
-      .bg-#{$name}-darken-#{$level} { background-color: darken($code, $rate) !important }
+    .bg-#{$name}-lighten-#{$level} { background-color: mix(white, $code, $rate) !important }
+    .bg-#{$name}-darken-#{$level} { background-color: mix(black, $code, $rate) !important }
 
-      .clr-#{$name}-lighten-#{$level} { color: lighten($code, $rate) !important }
-      .clr-#{$name}-darken-#{$level} { color: darken($code, $rate) !important }
+    .clr-#{$name}-lighten-#{$level} { color: mix(white, $code, $rate) !important }
+    .clr-#{$name}-darken-#{$level} { color: mix(black, $code, $rate) !important }
 
-      .fill-#{$name}-lighten-#{$level} { fill: lighten($code, $rate) !important }
-      .fill-#{$name}-darken-#{$level} { fill: darken($code, $rate) !important }
-    }
+    .fill-#{$name}-lighten-#{$level} { fill: mix(white, $code, $rate) !important }
+    .fill-#{$name}-darken-#{$level} { fill: mix(black, $code, $rate) !important }
   }
 }
 
@@ -23,13 +21,13 @@
   .fill-#{$name} { fill: $code !important }
 
   @each $level, $rate in $levels {
-    .bg-#{$name}-lighten-#{$level} { background-color: lighten($code, $rate) !important }
-    .bg-#{$name}-darken-#{$level} { background-color: darken($code, $rate) !important }
+    .bg-#{$name}-lighten-#{$level} { background-color: mix(white, $code, $rate) !important }
+    .bg-#{$name}-darken-#{$level} { background-color: mix(black, $code, $rate) !important }
 
-    .clr-#{$name}-lighten-#{$level} { color: lighten($code, $rate) !important }
-    .clr-#{$name}-darken-#{$level} { color: darken($code, $rate) !important }
+    .clr-#{$name}-lighten-#{$level} { color: mix(white, $code, $rate) !important }
+    .clr-#{$name}-darken-#{$level} { color: mix(black, $code, $rate) !important }
 
-    .fill-#{$name}-lighten-#{$level} { fill: lighten($code, $rate) !important }
-    .fill-#{$name}-darken-#{$level} { fill: darken($code, $rate) !important }
+    .fill-#{$name}-lighten-#{$level} { fill: mix(white, $code, $rate) !important }
+    .fill-#{$name}-darken-#{$level} { fill: mix(black, $code, $rate) !important }
   }
 }

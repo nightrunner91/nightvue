@@ -32,19 +32,21 @@
 );</code></pre>
     </p>
     <h2 id="color-levels">
+      Цвета темы
+    </h2>
+    <p>
+      По умолчанию в NighVue настроена привычная пользователям Boostrap система из 8 цветов, составленных из стандартной библиотеки.
+    </p>
+    <h2 id="color-levels">
       Уровни цветов
     </h2>
     <p class="mb-3">
-      За исключением белого и чёрного, к каждому из цветов в библиотеке применяется ряд модификаторов, изменяющих его яркость. Для этого используются встроенные модули SASS <code>lighten()</code> и <code>darken()</code>. Подробнее о работе с цветами в SASS можно ознакомиться в <a rel="nofollow" target="_blank" href="https://sass-lang.com/documentation/modules/color">документации</a>.
+      К каждому из цветов в библиотеке применяется ряд модификаторов, изменяющих его яркость. Для этого используются миксины и встроеннй модули SASS <code>mix()</code>. Подробнее о работе с цветами в SASS можно ознакомиться в <a rel="nofollow" target="_blank" href="https://sass-lang.com/documentation/modules/color">документации</a>.
     </p>
     <ul
       v-for="(color, value) in colors"
       :key="`variants-${color}-${value}`"
-      class="d-flex list-unstyled colors my-75"
-      :class="value == 'black' || value == 'white' ? 'd-none' : ''">
-      <li
-        class="d-flex align-items-center h4 m-0 minw-15"
-        :class="value == 'dark' || value == 'grey' || value == 'light' ? 'clr-dark-lighten-4' : `clr-${value}`">{{ value }}</li>
+      class="d-flex list-unstyled colors mb-75">
       <li
         v-for="(level, index) in levels"
         :key="`level-${index}`"
