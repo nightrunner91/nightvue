@@ -3,7 +3,7 @@
   <section>
     <div class="h1" id="colors">Цвета</div>
     <h2 id="colors-list">Библиотека цветов</h2>
-    <p>По умолчанию в NightVue предустановлена библиотека из 10 стандартных цветов. Разумеется, вы можете полностью изменить её либо использовать свою. Из этих базовых цветов далее можно настроить цвета темы. Мы не рекомендуем изменять либо удалять из библиотеки цвета <code>$black</code> и <code>$white</code> по причине их распространённости и универсальности в абсолютно любом проекте. Кроме того, на их основе выстраивается ряд ахроматических цветов, о которых мы поговорим далее.</p>
+    <p>По умолчанию в NightVue предустановлена библиотека из 10 стандартных цветов. Из этих базовых цветов далее можно настроить цвета темы. Мы не рекомендуем изменять либо удалять из библиотеки цвета <code>$black</code> и <code>$white</code> по причине их распространённости и универсальности в абсолютно любом проекте. Кроме того, на их основе выстраивается ряд ахроматических цветов, о которых мы поговорим далее.</p>
     <ul class="d-flex list-unstyled colors my-3">
       <li
         v-for="(color, value) in colors"
@@ -27,6 +27,9 @@
   'purple':    #682cab,
 );</code></pre>
     </p>
+    <prism :language="'markup'">
+      {{ codeExamples.colors.defaultColors }}
+    </prism>
     <p class="mt-3">
       Использовать цвета в проекте можно несколькими способами:
     </p>
@@ -52,7 +55,7 @@
     <h2 id="color-monoochrome">
       Ахроматические цвета
     </h2>
-    <p>В NighVue доступен ахроматический ряд из 24 цветов, где крайними выступают белый и чёрный цвета, а в промежутке между ними — оттенки серого, различающихся по яркости. Длину ряда можно изменять, редактируя перменную <code>$shades: 22</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует заданное количество промежуточных цветов.</p>
+    <p>В NighVue доступен ахроматический ряд из 24 цветов, где крайними выступают белый и чёрный цвета, а в промежутке между ними — оттенки серого, различающихся по яркости. Длину ряда можно изменять, редактируя переменную <code>$shades: 22</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует заданное количество промежуточных цветов.</p>
     <ul class="d-flex list-unstyled colors my-3">
       <li class="color icon-size-36 mr-75 radius-circle material-shadow-1 bg-white" />
       <li
@@ -62,12 +65,6 @@
         :class="`bg-shade-${shade}`" />
       <li class="color icon-size-36 mr-75 radius-circle material-shadow-1 bg-black" />
     </ul>
-    <h2 id="color-levels">
-      Цвета темы
-    </h2>
-    <p>
-      По умолчанию в NighVue настроена привычная пользователям Boostrap система из 8 цветов, составленных из стандартной библиотеки.
-    </p>
     <h2 id="color-levels">
       Уровни цветов
     </h2>
@@ -85,14 +82,28 @@
         class="color icon-size-48 mr-75 radius-circle material-shadow-1"
         :class="levelClassname(value, level)" />
     </ul>
+    <h2 id="color-levels">
+      Цвета темы
+    </h2>
+    <p>
+      Пользователю доступна компактная схема из 8 цветов, составленных из библиотеки. Эта схема доступна в виде карты Sass <code>$theme-colors</code> в файле <code>_varaibles.scss</code>.
+    </p>
   </section>
 </template>
 
 <script>
+import { codeExamples } from './code_examples'
+import 'prismjs'
+import 'prismjs/themes/prism-tomorrow.css'
+import Prism from 'vue-prism-component'
+
 export default {
   name: 'Colors',
+  components: { Prism },
   data() {
     return {
+      codeExamples,
+
       colors: {
         'black':     '#000000',
         'white':     '#ffffff',
