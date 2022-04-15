@@ -22,6 +22,9 @@
         <h3 class="text-center intro__text mt-0 font-weight-400">Кристально-чистый Vue 2 фреймворк.</h3>
       </div>
     </div>
+    <nav class="menu position-fixed gradient-docsmenu z-plus-1000 w-25 h-100">
+
+    </nav>
     <div
       class="docs position-relative"
       :class="windowScroll > animationTriggerPosition ? 'docs--appear' : ''"
@@ -189,6 +192,21 @@ export default {
 
     &--appear {
       opacity: 1;
+    }
+  }
+
+  .menu {
+    @include transition(all, base, emphasized);
+
+    top: 0;
+    left: 0;
+    min-width: 320px;
+    max-width: 480px;
+    transform: translateX(calc(-100% + 10px));
+
+    &:hover {
+      @include shadow(1);
+      transform: translateX(0);
     }
   }
 </style>
