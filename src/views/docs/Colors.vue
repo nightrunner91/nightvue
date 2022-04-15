@@ -8,7 +8,7 @@
       <li
         v-for="(color, value) in colors"
         :key="`color-${color}-${value}`"
-        class="color icon-size-48 mr-75 radius-circle material-shadow-1"
+        class="color icon-size-48 mr-75 radius-circle material-shadow-2"
         :class="[`bg-${value}`, { 'mr-2' : value === 'white' }]" />
     </ul>
     <p>Список цветов доступен в файле <code>_varaibles.scss</code>:</p>
@@ -22,29 +22,29 @@
     </h2>
     <p>В NighVue доступен ахроматический ряд из 24 цветов, где крайними выступают белый и чёрный цвета, а в промежутке между ними — оттенки серого, различающихся по яркости. Длину ряда можно изменять, редактируя переменную <code>$shades: 22</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует заданное количество промежуточных цветов.</p>
     <ul class="d-flex list-unstyled colors my-3">
-      <li class="color icon-size-36 mr-75 radius-circle material-shadow-1 bg-white" />
+      <li class="color icon-size-36 mr-75 radius-circle material-shadow-2 bg-white" />
       <li
         v-for="shade in shades"
         :key="`shade-${shade}`"
-        class="color icon-size-36 mr-75 radius-circle material-shadow-1"
+        class="color icon-size-36 mr-75 radius-circle material-shadow-2"
         :class="`bg-shade-${shade}`" />
-      <li class="color icon-size-36 mr-75 radius-circle material-shadow-1 bg-black" />
+      <li class="color icon-size-36 mr-75 radius-circle material-shadow-2 bg-black" />
     </ul>
     <h2 id="color-levels">
       Уровни цветов
     </h2>
     <p class="mb-3 test">
-      К каждому из цветов в библиотеке применяются модификаторы, изменяющие их яркость. Благодаря этому палитра цветов заметно расширяется. Это достигается с помощью Sass миксинов, чтобы осветлять (<code>lighten</code>) или затемнять (<code>darken</code>) цвета с помощью встроенной функции Sass <code>mix()</code>. Использование <code>mix()</code> — не то же самое, что <code>lighten()</code> и <code>darken()</code>. Первое смешивает указанный цвет с белым или черным, тогда как второе лишь регулирует величину яркости цвета.
+      К каждому из цветов в библиотеке применяются модификаторы, изменяющие их яркость. Благодаря этому палитра цветов заметно расширяется. Это достигается с помощью Sass миксинов, чтобы осветлять или затемнять цвета с помощью встроенной функции Sass <code>mix()</code>. Использование <code>mix()</code> — не то же самое, что <code>lighten()</code> и <code>darken()</code>. Первое смешивает указанный цвет с белым или черным, тогда как второе лишь регулирует величину яркости цвета. Подробнее о работе с цветами в Sass можно ознакомиться в <a rel="nofollow" target="_blank" href="https://sass-lang.com/documentation/modules/color">официальной документации</a>.
     </p>
     <ul
       v-for="(color, value) in colors"
       :key="`variants-${color}-${value}`"
-      class="d-flex list-unstyled colors mb-75"
+      class="d-flex list-unstyled colors my-2"
       :class="value == 'black' || value == 'white' ? 'd-none' : ''">
       <li
         v-for="(level, index) in levels"
         :key="`level-${index}`"
-        class="color icon-size-48 mr-75 radius-circle material-shadow-1"
+        class="color icon-size-48 mr-75 radius-circle material-shadow-2"
         :class="levelClassname(value, level)" />
     </ul>
     <h2 id="color-levels">
@@ -64,10 +64,10 @@
         Применять зарезервированные классы к HTML-элементам,
       </li>
       <li>
-        Использовать пользовательские Sass <code>@mixin</code>-ы к нужному классу,
+        Использовать к нужному классу пользовательские Sass <code>@mixin</code>-ы,
       </li>
       <li>
-        Использовать встроенный модуль <code>map.get()</code> для прямого доступа к картам цветов в Sass.
+        Использовать встроенный Sass модуль <code>map.get()</code> для прямого доступа к картам цветов.
       </li>
     </ol>
     <p>Остановимся подробнее на каждом из них.</p>
@@ -123,11 +123,11 @@ export default {
   methods: {
     levelClassname(color, level) {
       if (level < 0) {
-        return `bg-${color}-lighten-${Math.abs(level)}`
+        return `bg-${color}-light-${Math.abs(level)}`
       } else if (level === 0) {
         return `bg-${color}`
       } else if (level > 0) {
-        return `bg-${color}-darken-${level}`
+        return `bg-${color}-dark-${level}`
       }
     },
   },

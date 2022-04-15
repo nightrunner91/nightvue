@@ -21,9 +21,9 @@
     }
 
     @if $style {
-      @if $style == 'lighten' {
+      @if $style == 'light' {
         background-color: mix(white, map-get($targetMap, $name), map-get($levels, $rate)) !important
-      } @else if $style == 'darken' {
+      } @else if $style == 'dark' {
         background-color: mix(black, map-get($targetMap, $name), map-get($levels, $rate)) !important
       }
     } @else {
@@ -45,9 +45,9 @@
     }
 
     @if $style {
-      @if $style == 'lighten' {
+      @if $style == 'light' {
         color: mix(white, map-get($targetMap, $name), map-get($levels, $rate)) !important
-      } @else if $style == 'darken' {
+      } @else if $style == 'dark' {
         color: mix(black, map-get($targetMap, $name), map-get($levels, $rate)) !important
       }
     } @else {
@@ -69,9 +69,9 @@
     }
 
     @if $style {
-      @if $style == 'lighten' {
+      @if $style == 'light' {
         fill: mix(white, map-get($targetMap, $name), map-get($levels, $rate)) !important
-      } @else if $style == 'darken' {
+      } @else if $style == 'dark' {
         fill: mix(black, map-get($targetMap, $name), map-get($levels, $rate)) !important
       }
     } @else {
