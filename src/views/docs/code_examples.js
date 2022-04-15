@@ -31,8 +31,8 @@ $colors: (
   Окрасит фон блока в жёлтый цвет, осветлённый на 3 уровня
   и в основной (primary) цвет темы, затемнённый на 5 уровней
 -->
-<div class="bg-yellow-lighten-3"></div>
-<div class="bg-primary-darken-5"></div>
+<div class="bg-yellow-light-3"></div>
+<div class="bg-primary-dark-5"></div>
 
 <!-- Данный текст будет белого цвета -->
 <span class="clr-white">Я белый текст</span>
