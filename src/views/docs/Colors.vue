@@ -3,13 +3,13 @@
   <section>
     <div class="h1" id="colors">Цвета</div>
     <h2 id="colors-list">Библиотека цветов</h2>
-    <p>По умолчанию в NightVue предустановлена библиотека из 10 стандартных цветов. Из этих базовых цветов далее можно настроить цвета темы. Мы не рекомендуем изменять либо удалять из библиотеки цвета <code>$black</code> и <code>$white</code> по причине их распространённости и универсальности в абсолютно любом проекте. Кроме того, на их основе выстраивается ряд ахроматических цветов, о которых мы поговорим далее.</p>
+    <p>По умолчанию в NightVue предустановлена библиотека из 12 стандартных цветов, включая белый и чёрный. Из этих базовых цветов далее можно настроить цвета темы. Мы не рекомендуем изменять либо удалять из библиотеки чёрный и белый цвета по причине их распространённости и универсальности в абсолютно любом проекте. Кроме того, на их основе выстраивается ряд ахроматических цветов, о которых мы поговорим далее.</p>
     <ul class="d-flex list-unstyled colors my-3">
       <li
-        v-for="(color, value) in colors"
-        :key="`color-${color}-${value}`"
+        v-for="color in colors"
+        :key="`color-${color}`"
         class="color icon-size-48 mr-75 radius-circle material-shadow-2"
-        :class="[`bg-${value}`, { 'mr-2' : value === 'white' }]" />
+        :class="[`bg-${color}`, { 'mr-2' : color === 'white' }]" />
     </ul>
     <p>Список цветов доступен в файле <code>_varaibles.scss</code>:</p>
     <CodeExample :language="'css'">
@@ -37,15 +37,15 @@
       К каждому из цветов в библиотеке применяются модификаторы, изменяющие их яркость. Благодаря этому палитра цветов заметно расширяется. Это достигается с помощью Sass миксинов, чтобы осветлять или затемнять цвета с помощью встроенной функции Sass <code>mix()</code>. Использование <code>mix()</code> — не то же самое, что <code>lighten()</code> и <code>darken()</code>. Первое смешивает указанный цвет с белым или черным, тогда как второе лишь регулирует величину яркости цвета. Подробнее о работе с цветами в Sass можно ознакомиться в <a rel="nofollow" target="_blank" href="https://sass-lang.com/documentation/modules/color">официальной документации</a>.
     </p>
     <ul
-      v-for="(color, value) in colors"
-      :key="`variants-${color}-${value}`"
+      v-for="color in colors"
+      :key="`variants-${color}`"
       class="d-flex list-unstyled colors my-2"
-      :class="value == 'black' || value == 'white' ? 'd-none' : ''">
+      :class="color == 'black' || color == 'white' ? 'd-none' : ''">
       <li
         v-for="(level, index) in levels"
         :key="`level-${index}`"
         class="color icon-size-48 mr-75 radius-circle material-shadow-2"
-        :class="levelClassname(value, level)" />
+        :class="levelClassname(color, level)" />
     </ul>
     <h2 id="color-levels">
       Цвета темы
@@ -103,19 +103,7 @@ export default {
     return {
       codeExamples,
 
-      colors: {
-        'black':     '#000000',
-        'white':     '#ffffff',
-        'red':       '#f94144',
-        'orange':    '#f3722c',
-        'yellow':    '#f9c74f',
-        'green':     '#00B154',
-        'teal':      '#1aa179',
-        'cyan':      '#bbadff',
-        'blue':      '#4361ee',
-        'purple':    '#682cab',
-      },
-
+      colors: ['black', 'white', 'red', 'pink', 'orange', 'yellow', 'green', 'brown', 'teal', 'cyan', 'blue', 'purple'],
       levels: [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5],
       shades: 22,
     }

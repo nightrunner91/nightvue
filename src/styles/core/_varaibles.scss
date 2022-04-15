@@ -136,16 +136,18 @@ $spacers: (
 // List of colors defined by user
 $colors: (
   'black':     #000000,
-  'white':     #ffffff,
+  'white':     #FFFFFF,
 
   'red':       #F44336,
+  'pink':      #EC407A,
   'orange':    #FF9800,
-  'yellow':    #FFEB3B,
+  'yellow':    #FFEE58,
   'green':     #00B154,
+  'brown':     #795548,
   'teal':      #009688,
-  'cyan':      #29B6F6,
-  'blue':      #1E88E5,
-  'purple':    #682cab,
+  'cyan':      #00BCD4,
+  'blue':      #2196F3,
+  'purple':    #682CAB,
 );
 
 // Pick up theme colors from basic color pallete or material colors
