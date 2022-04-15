@@ -37,7 +37,7 @@ $small-fz: 0.875; // ratio of how lower will be font-size for <small> tag
 
 body {
   @include background('white');
-  @include color('shade', $rate: 14);
+  @include color('shade', $rate: 18);
 
   overflow-x: hidden;
   overflow-y: visible;
@@ -51,7 +51,7 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  @include color('shade', $rate: 14);
+  @include color('shade', $rate: 18);
 
   display: block;
   margin-top: map-get($headings-margins, top);

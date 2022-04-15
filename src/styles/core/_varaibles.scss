@@ -138,13 +138,13 @@ $colors: (
   'black':     #000000,
   'white':     #ffffff,
 
-  'red':       #f94144,
-  'orange':    #f3722c,
-  'yellow':    #f9c74f,
+  'red':       #F44336,
+  'orange':    #FF9800,
+  'yellow':    #FFEB3B,
   'green':     #00B154,
-  'teal':      #1aa179,
-  'cyan':      #AB9DEF,
-  'blue':      #4361ee,
+  'teal':      #009688,
+  'cyan':      #29B6F6,
+  'blue':      #1E88E5,
   'purple':    #682cab,
 );
 
@@ -162,13 +162,13 @@ $theme-colors: (
 
 // Levels of lighten and darken in $colors and $theme-colors list
 $levels: (
-  1: 5%,
-  2: 10%,
-  3: 15%,
-  4: 20%,
-  5: 25%,
+  1: 10%,
+  2: 15%,
+  3: 20%,
+  4: 25%,
+  5: 30%,
 );
-$shades: 16;
+$shades: 22;
 
 // ========= //
 // GRADIENTS //
@@ -176,8 +176,8 @@ $shades: 16;
 $gradients: (
   docsmenu: (
     145deg,
-    lighten(map-get($theme-colors, primary), map-get($levels, 5)),
-    lighten(map-get($theme-colors, success), map-get($levels, 5))),
+    lighten(map-get($colors, 'purple'), map-get($levels, 3)),
+    lighten(map-get($colors, 'green'), map-get($levels, 4))),
 
   pro: (
     to top,

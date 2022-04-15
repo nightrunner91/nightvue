@@ -88,7 +88,7 @@ export default {
     }
 
     &:hover {
-      @include color('shade', $rate: 14);
+      @include color('shade', $rate: 19);
     }
   }
 }
