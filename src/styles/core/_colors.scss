@@ -20,9 +20,9 @@
 @for $i from 1 through $shades {
   $percent: 100 / ($shades + 2) * $i * 1%;
 
-  .bg-shade-#{$i} { background-color: darken(map-get($colors, 'white'), $percent); }
-  .clr-shade-#{$i} { background-color: darken(map-get($colors, 'white'), $percent); }
-  .fill-shade-#{$i} { background-color: darken(map-get($colors, 'white'), $percent); }
+  .bg-shade-#{$i} { background-color: darken(map-get($colors, 'white'), $percent) !important }
+  .clr-shade-#{$i} { color: darken(map-get($colors, 'white'), $percent) !important }
+  .fill-shade-#{$i} { fill: darken(map-get($colors, 'white'), $percent) !important }
 }
 
 @each $name, $code in $theme-colors {

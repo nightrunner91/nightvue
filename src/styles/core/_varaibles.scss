@@ -176,7 +176,7 @@ $shades: 22;
 $gradients: (
   docsmenu: (
     145deg,
-    lighten(map-get($colors, 'purple'), map-get($levels, 3)),
+    lighten(map-get($colors, 'purple'), map-get($levels, 5)),
     lighten(map-get($colors, 'green'), map-get($levels, 4))),
 
   pro: (

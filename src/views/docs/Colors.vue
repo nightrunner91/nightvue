@@ -12,47 +12,12 @@
         :class="[`bg-${value}`, { 'mr-2' : value === 'white' }]" />
     </ul>
     <p>Список цветов доступен в файле <code>_varaibles.scss</code>:</p>
-    <p>
-      <pre class="language-css mb-3"><code class="language-css">$colors: (
-  'black':     #000000,
-  'white':     #ffffff,
-
-  'red':       #f94144,
-  'orange':    #f3722c,
-  'yellow':    #f9c74f,
-  'green':     #00B154,
-  'teal':      #1aa179,
-  'cyan':      #AB9DEF,
-  'blue':      #4361ee,
-  'purple':    #682cab,
-);</code></pre>
-    </p>
-    <prism :language="'markup'">
-      {{ codeExamples.colors.defaultColors }}
-    </prism>
-    <p class="mt-3">
-      Использовать цвета в проекте можно несколькими способами:
-    </p>
-    <ol class="pl-2">
-      <li>
-        Применять классы к HTML-элементам,
-      </li>
-      <li>
-        Использовать <code>@mixin</code> к нужному классу <code>.scss</code> документе,
-      </li>
-      <li>
-        Использовать встроенный модуль Sass <code>map.get()</code>.
-      </li>
-    </ol>
-    <p>Остановимся подробнее на каждом из них.</p>
-    <ol class="pl-2">
-      <li>
-        Для использования цветов в HTML-документе используйте классы вида <code>bg-red</code>, <code>clr-red</code> или <code>fill-red</code> для придания нужного цвета фону, тексту или SVG элементу соответственно. Примеры: <pre v-pre class="language-html"><code v-pre>
-          <div v-pre class="bg-red">ololo</div>
-          </code></pre>
-      </li>
-    </ol>
-    <h2 id="color-monoochrome">
+    <CodeExample :language="'css'">
+      <template v-slot:snippet>
+        {{ codeExamples.colors.defaultColors }}
+      </template>
+    </CodeExample>
+    <h2 id="color-monochrome">
       Ахроматические цвета
     </h2>
     <p>В NighVue доступен ахроматический ряд из 24 цветов, где крайними выступают белый и чёрный цвета, а в промежутке между ними — оттенки серого, различающихся по яркости. Длину ряда можно изменять, редактируя переменную <code>$shades: 22</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует заданное количество промежуточных цветов.</p>
@@ -88,18 +53,52 @@
     <p>
       Пользователю доступна компактная схема из 8 цветов, составленных из библиотеки. Эта схема доступна в виде карты Sass <code>$theme-colors</code> в файле <code>_varaibles.scss</code>.
     </p>
+    <h2 id="color-usage">
+      Использование цветов
+    </h2>
+    <p class="mt-3">
+      Использовать цвета в проекте можно несколькими способами:
+    </p>
+    <ol class="pl-2">
+      <li>
+        Применять зарезервированные классы к HTML-элементам,
+      </li>
+      <li>
+        Использовать пользовательские Sass <code>@mixin</code>-ы к нужному классу,
+      </li>
+      <li>
+        Использовать встроенный модуль <code>map.get()</code> для прямого доступа к картам цветов в Sass.
+      </li>
+    </ol>
+    <p>Остановимся подробнее на каждом из них.</p>
+    <ol class="pl-2">
+      <li>
+        <p>
+          Для использования цветов в HTML-документе используйте классы вида <code>bg-${color}</code>, <code>clr-${color}</code> и <code>fill-${color}</code> для придания нужного цвета фону, тексту и заливке SVG-элемента соответственно. В переменную <code>${color}</code> можно подставлять как любой цвет из библиотеки цветов, так и любой цвет темы. При необходимости вы можете указать модификатор <code>-lighten-${level}</code> или <code>-darken-${level}</code> для уточнения уровня цвета. Вот как это выглядит:
+        </p>
+        <CodeExample :language="'html'">
+          <template v-slot:snippet>
+            {{ codeExamples.colors.defaultColorsMethods }}
+          </template>
+        </CodeExample>
+        <p>В случае с ахроматическими цветами логика написания классов слегка другая. Для каждого из оттенков серого указывайте классы вида <code>bg-shade-${level}</code>, <code>clr-shade-${level}</code> и <code>fill-shade-${level}</code> для придания нужного цвета фону, тексту и заливке SVG-элемента соответственно.</p>
+        <CodeExample :language="'html'">
+          <template v-slot:snippet>
+            {{ codeExamples.colors.monochromeColorsMethods }}
+          </template>
+        </CodeExample>
+      </li>
+    </ol>
   </section>
 </template>
 
 <script>
+import CodeExample from './CodeExample'
 import { codeExamples } from './code_examples'
-import 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'
-import Prism from 'vue-prism-component'
 
 export default {
   name: 'Colors',
-  components: { Prism },
+  components: { CodeExample },
   data() {
     return {
       codeExamples,
