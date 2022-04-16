@@ -20,6 +20,17 @@ $colors: (
 );
 `,
 
+    colorLevels:
+`
+$levels: (
+  1: 10%,
+  2: 15%,
+  3: 20%,
+  4: 25%,
+  5: 30%,
+);
+`,
+
     defaultColorsMethods: `
 <!-- Окрасит фон блока в красный цвет -->
 <div class="bg-red"></div>

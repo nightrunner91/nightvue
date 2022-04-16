@@ -22,9 +22,9 @@
         <h3 class="text-center intro__text mt-0 font-weight-400">Кристально-чистый Vue 2 фреймворк.</h3>
       </div>
     </div>
-    <nav class="menu position-fixed gradient-docsmenu z-plus-1000 w-25 h-100">
+    <!-- <nav class="menu position-fixed gradient-docsmenu z-plus-1000 w-25 h-100">
 
-    </nav>
+    </nav> -->
     <div
       class="docs position-relative"
       :class="windowScroll > animationTriggerPosition ? 'docs--appear' : ''"

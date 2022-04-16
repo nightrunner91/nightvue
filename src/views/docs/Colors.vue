@@ -47,6 +47,12 @@
         class="color icon-size-48 mr-75 radius-circle material-shadow-2"
         :class="levelClassname(color, level)" />
     </ul>
+    <p class="mt-3">Количество уровней и их значения можно регулировать в карте <code>$levels</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует требуемое количество уровней, на каждом из которых осветлит либо затемнит базовый цвет на указанное значение. По умолчанию настроена 5 ступенчатая схема с шагом в 5%.</p>
+    <CodeExample :language="'css'">
+      <template v-slot:snippet>
+        {{ codeExamples.colors.colorLevels }}
+      </template>
+    </CodeExample>
     <h2 id="color-levels">
       Цвета темы
     </h2>
@@ -87,6 +93,7 @@
             {{ codeExamples.colors.monochromeColorsMethods }}
           </template>
         </CodeExample>
+        <p>Мы настоятельно рекомендуем использовать этот способ</p>
       </li>
     </ol>
   </section>
