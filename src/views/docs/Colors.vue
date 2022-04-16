@@ -77,25 +77,29 @@
       </li>
     </ol>
     <p>Остановимся подробнее на каждом из них.</p>
-    <ol class="pl-2">
-      <li>
-        <p>
-          Для использования цветов в HTML-документе используйте классы вида <code>bg-${color}</code>, <code>clr-${color}</code> и <code>fill-${color}</code> для придания нужного цвета фону, тексту и заливке SVG-элемента соответственно. В переменную <code>${color}</code> можно подставлять как любой цвет из библиотеки цветов, так и любой цвет темы. При необходимости вы можете указать модификатор <code>-light-${level}</code> или <code>-dark-${level}</code> для уточнения уровня цвета. Вот как это выглядит:
-        </p>
-        <CodeExample :language="'html'">
-          <template v-slot:snippet>
-            {{ codeExamples.colors.defaultColorsMethods }}
-          </template>
-        </CodeExample>
-        <p>В случае с ахроматическими цветами логика написания классов слегка другая. Для каждого из оттенков серого указывайте классы вида <code>bg-shade-${level}</code>, <code>clr-shade-${level}</code> и <code>fill-shade-${level}</code> для придания нужного цвета фону, тексту и заливке SVG-элемента соответственно.</p>
-        <CodeExample :language="'html'">
-          <template v-slot:snippet>
-            {{ codeExamples.colors.monochromeColorsMethods }}
-          </template>
-        </CodeExample>
-        <p>Мы настоятельно рекомендуем использовать этот способ</p>
-      </li>
-    </ol>
+    <h3>
+      Использование зарезервированных классов
+    </h3>
+    <p>
+      Для использования цветов в HTML-документе используйте классы вида <code>bg-${color}</code>, <code>clr-${color}</code> и <code>fill-${color}</code> для придания нужного цвета фону, тексту и заливке SVG-элемента соответственно. В переменную <code>${color}</code> можно подставлять как любой цвет из библиотеки цветов, так и любой цвет темы. При необходимости вы можете указать модификатор <code>-light-${level}</code> или <code>-dark-${level}</code> для уточнения уровня цвета. Вот как это выглядит:
+    </p>
+    <CodeExample :language="'html'">
+      <template v-slot:snippet>
+        {{ codeExamples.colors.defaultColorsMethods }}
+      </template>
+    </CodeExample>
+    <p>В случае с ахроматическими цветами логика написания классов слегка другая. Для каждого из оттенков серого указывайте классы вида <code>bg-shade-${level}</code>, <code>clr-shade-${level}</code> и <code>fill-shade-${level}</code> для придания нужного цвета фону, тексту и заливке SVG-элемента соответственно.</p>
+    <CodeExample :language="'html'">
+      <template v-slot:snippet>
+        {{ codeExamples.colors.monochromeColorsMethods }}
+      </template>
+    </CodeExample>
+    <p>Мы настоятельно рекомендуем использовать этот способ как можно чаще, т.к. это сильно сокращает количество CSS кода. Предпочительней использовать по максимуму классы с уже описанными свойствами, чем генерировать новые.</p>
+    <CodeExample :language="'markup'">
+      <template v-slot:snippet>
+        {{ codeExamples.colors.classnamesVsSass }}
+      </template>
+    </CodeExample>
   </section>
 </template>
 

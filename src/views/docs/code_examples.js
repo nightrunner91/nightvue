@@ -38,11 +38,10 @@ $levels: (
 <!-- Окрасит фон блока в основной (primary) цвет -->
 <div class="bg-primary"></div>
 
-<!--
-  Окрасит фон блока в жёлтый цвет, осветлённый на 3 уровня
-  и в основной (primary) цвет темы, затемнённый на 5 уровней
--->
+<!-- Окрасит фон блока в жёлтый цвет, осветлённый на 3 уровня -->
 <div class="bg-yellow-light-3"></div>
+
+<!-- Цвета темы также поддерживают этот синтаксис -->
 <div class="bg-primary-dark-5"></div>
 
 <!-- Данный текст будет белого цвета -->
@@ -59,8 +58,6 @@ $levels: (
 <div class="bg-shade-1"></div>
 <div class="bg-shade-2"></div>
 <div class="bg-shade-3"></div>
-<div class="bg-shade-4"></div>
-<div class="bg-shade-5"></div>
 ...
 <div class="bg-shade-21"></div>
 <div class="bg-shade-22"></div>
@@ -72,6 +69,23 @@ $levels: (
 <svg class="fill-shade-15">
   <use xlink:href="#icon" />
 </svg>
+`,
+
+    classnamesVsSass: `
+<!-- Лучше делать так ✔ -->
+<div class="bg-success text-white">
+  Здесь белый текст на зелёном фоне
+</div>
+
+<!-- Чем так ✖ -->
+<div class="classname">
+  Здесь белый текст на зелёном фоне
+</div>
+
+.classname {
+  background-color: map-get($theme-colors, 'success');
+  color: map-get($colors, 'white');
+}
 `,
 
   }
