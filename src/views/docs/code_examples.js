@@ -88,6 +88,46 @@ $levels: (
 }
 `,
 
+    sassMixins: `
+.selector {
+  // Добавит селектору синий цвет фона и зелёный цвет текста
+  @include background('blue');
+  @include color('green');
+}
+
+.selector {
+  // Добавит селектору осветленный на три уровня синий цвет фона
+  // и затемнённый на 5 уровней зелёный цвет текста
+  @include background('blue', light, 3);
+  @include color('green', dark, 5);
+}
+
+.selector {
+  // Добавит селектору основной цвет фона...
+  @include background('primary');
+
+  &:hover {
+    // ...который при наведении станет темнее на два уровня
+    @include background('primary', dark, 2);
+  }
+}
+
+.svg-icon {
+  // Иконка по умолчанию залита серым цветом 4 уровня...
+  @include fill('shade', 4);
+
+  &:hover {
+    // ...которая при наведении становится залитой серым цветом 8 уровня...
+    @include fill('shade', 8);
+  }
+
+  &--selected {
+    // ...а с модификатором --selected окрашивается в цвет "success" темы
+    @include fill('success');
+  }
+}
+`,
+
   }
 
 }
