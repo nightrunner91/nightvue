@@ -11,7 +11,7 @@ $colors: (
   'pink':      #EC407A,
   'orange':    #FF9800,
   'yellow':    #FFEE58,
-  'green':     #00B154,
+  'green':     #47b05b,
   'brown':     #795548,
   'teal':      #009688,
   'cyan':      #00BCD4,

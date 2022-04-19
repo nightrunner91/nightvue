@@ -142,7 +142,7 @@ $colors: (
   'pink':      #EC407A,
   'orange':    #FF9800,
   'yellow':    #FFEE58,
-  'green':     #00B154,
+  'green':     #47b05b,
   'brown':     #795548,
   'teal':      #009688,
   'cyan':      #00BCD4,
@@ -179,7 +179,7 @@ $gradients: (
   docsmenu: (
     145deg,
     lighten(map-get($colors, 'purple'), map-get($levels, 3)) 10%,
-    lighten(map-get($colors, 'green'), map-get($levels, 5)) 90%),
+    lighten(map-get($colors, 'green'), map-get($levels, 1)) 80%),
 
   pro: (
     to top,
