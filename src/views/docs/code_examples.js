@@ -128,6 +128,29 @@ $levels: (
 }
 `,
 
+    sassMaps: `
+.selector {
+  // Применит к селектору оранжевый фон и вторичный 'secondary' цвет текста
+  background-color: map-get($colors, 'orange');
+  color: map-get($theme-colors, 'secondary');
+}
+
+.selector {
+  // Применит к селектору осветлённый на 2 уровня фон ошибки 'danger'
+  background-color: lighten(map-get($theme-colors, 'danger'), map-get($levels, 2));
+}
+
+.selector {
+  // Применит 5 уровень серого цвета из ряда ахроматических цветов
+  // В переменную $percent поместим высчитанный на основе переменной $shades уровень затемнения
+  $percent: 100 / ($shades + 2) * 5 * 1%;
+
+  // Затем применим модуль Sass darken() для затемнения белого цвета на указанный процент
+  // Альтернативой darken() может служить mix(black, $color)
+  background-color: darken(map-get($colors, 'white'), $percent)
+}
+`,
+
   }
 
 }
