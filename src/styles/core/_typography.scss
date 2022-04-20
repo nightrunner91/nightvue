@@ -29,7 +29,7 @@
 // ===================== // 
 // BASIC PAGE TYPOGRAPHY //
 // ===================== // 
-$base-fz: 18px; // ❗ CRUCIAL VALUE! A lot of things depends on it. Be aware.
+$base-fz: 16px; // ❗ CRUCIAL VALUE! A lot of things depends on it. Be aware.
 $base-lh: map-get($line-heights, 50);
 $base-fw: map-get($font-weights, 400);
 $base-mg: map-get($spacers, 1);
