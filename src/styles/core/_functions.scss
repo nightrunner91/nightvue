@@ -1,0 +1,31 @@
+@function color($name, $style: false, $rate:false) {
+  @debug $name;
+  
+  @if $name == 'shade' {
+    $step: 100 / ($shades + 2) * 1%;
+    $percent: $step * $rate;
+
+    @if $percent > 100 or $percent < 0 {
+      @return map-get($colors, 'white');
+
+      @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
+    } @else {
+      @return darken(map-get($colors, 'white'), $percent)
+    }
+  } @else {
+    $targetMap: $colors;
+    @if map-has-key($theme-colors, $name) {
+      $targetMap: $theme-colors;
+    }
+
+    @if $style {
+      @if $style == 'light' {
+        @return mix(white, map-get($targetMap, $name), map-get($levels, $rate))
+      } @else if $style == 'dark' {
+        @return mix(black, map-get($targetMap, $name), map-get($levels, $rate))
+      }
+    } @else {
+      @return map-get($targetMap, $name)
+    }
+  }
+}

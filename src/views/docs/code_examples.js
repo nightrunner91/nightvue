@@ -1,8 +1,8 @@
 export const codeExamples = {
 
-  colors: {
-    defaultColors:
-`
+colors: {
+
+defaultColors: `
 $colors: (
   'black':     #000000,
   'white':     #FFFFFF,
@@ -20,8 +20,7 @@ $colors: (
 );
 `,
 
-    colorLevels:
-`
+colorLevels: `
 $levels: (
   1: 10%,
   2: 15%,
@@ -31,7 +30,7 @@ $levels: (
 );
 `,
 
-    defaultColorsMethods: `
+defaultColorsMethods: `
 <!-- Окрасит фон блока в красный цвет -->
 <div class="bg-red"></div>
 
@@ -53,7 +52,7 @@ $levels: (
 </svg>
 `,
 
-    monochromeColorsMethods: `
+monochromeColorsMethods: `
 <!-- Эти блоки залиты различными оттенками серого -->
 <div class="bg-shade-1"></div>
 <div class="bg-shade-2"></div>
@@ -71,7 +70,7 @@ $levels: (
 </svg>
 `,
 
-    classnamesVsSass: `
+classnamesVsSass: `
 <!-- Лучше делать так ✔ -->
 <div class="bg-success text-white">
   Здесь белый текст на зелёном фоне
@@ -88,7 +87,7 @@ $levels: (
 }
 `,
 
-    sassMixins: `
+sassMixins: `
 .selector {
   // Добавит селектору синий цвет фона и зелёный цвет текста
   @include background('blue');
@@ -128,7 +127,25 @@ $levels: (
 }
 `,
 
-    sassMaps: `
+colorFunction: `
+// Функция вернёт основной (primary) цвет темы
+.selector {
+  box-shadow: 1px 1px 4px color('primary'); // box-shadow: 1px 1px 4px #682CAB;
+}
+
+// Функция вернёт осветлённый на 4 уровня коричневый цвет
+.selector {
+  border-color: color('brown', light, 4); // border-color: #9b8076;
+}
+
+// Функция вернёт шестой цвет в ахроматическом ряду
+.selector {
+  text-decoration: underline;
+  text-decoration-color: color('shade', $rate: 6); // text-decoration-color: #bfbfbf;
+}
+`,
+
+sassMaps: `
 .selector {
   // Применит к селектору оранжевый фон и вторичный 'secondary' цвет текста
   background-color: map-get($colors, 'orange');
@@ -151,6 +168,5 @@ $levels: (
 }
 `,
 
-  }
-
+}
 }
