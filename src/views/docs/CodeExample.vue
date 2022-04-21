@@ -30,8 +30,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/styles/core/globals";
+
 .code-example {
   margin: 2rem 0 !important;
   padding: 1px 2rem !important;
+
+  @include background('shade', $rate: 18);
+
+  code {
+    @include background('shade', $rate: 18);
+  }
 }
 </style>

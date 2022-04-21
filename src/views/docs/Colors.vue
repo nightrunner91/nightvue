@@ -14,7 +14,7 @@
         class="color icon-size-48 mr-75 radius-circle material-shadow-2"
         :class="[`bg-${color}`, { 'mr-2' : color === 'white' }]" />
     </ul>
-    <p>Список цветов доступен в файле <code>_varaibles.scss</code>:</p>
+    <p>Карта цветов доступен в файле <code>_varaibles.scss</code>:</p>
     <CodeExample :language="'css'">
       <template v-slot:snippet>
         {{ codeExamples.colors.defaultColors }}
@@ -23,15 +23,13 @@
     <h2 id="color-monochrome">
       Ахроматические цвета
     </h2>
-    <p>В NighVue доступен ахроматический ряд из 24 цветов, где крайними выступают белый и чёрный цвета, а в промежутке между ними — оттенки серого, различающихся по яркости. Длину ряда можно изменять, редактируя переменную <code>$shades: 22</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует заданное количество промежуточных цветов.</p>
+    <p>В NightVue доступен ахроматический ряд из 22 цветов, состоящий из оттенков серого, различающихся по яркости. Длину ряда можно изменять, редактируя переменную <code>$shades: 22</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует заданное количество промежуточных цветов.</p>
     <ul class="d-flex list-unstyled colors my-3">
-      <li class="color icon-size-36 mr-75 radius-circle material-shadow-2 bg-white" />
       <li
         v-for="shade in shades"
         :key="`shade-${shade}`"
         class="color icon-size-36 mr-75 radius-circle material-shadow-2"
         :class="`bg-shade-${shade}`" />
-      <li class="color icon-size-36 mr-75 radius-circle material-shadow-2 bg-black" />
     </ul>
     <h2 id="color-levels">
       Уровни цветов

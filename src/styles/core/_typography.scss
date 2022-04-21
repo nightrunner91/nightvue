@@ -94,7 +94,7 @@ mark {
 
 code, kbd, samp, pre {
   @include radius(base);
-  @include background('shade', $rate: 1);
+  @include background('shade', $rate: 2);
   @include color('green', light, 3);
   @extend .small;
   
