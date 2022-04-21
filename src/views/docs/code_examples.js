@@ -113,11 +113,11 @@ sassMixins: `
 
 .svg-icon {
   // Иконка по умолчанию залита серым цветом 4 уровня...
-  @include fill('shade', 4);
+  @include fill('shade', $rate: 4);
 
   &:hover {
     // ...которая при наведении становится залитой серым цветом 8 уровня...
-    @include fill('shade', 8);
+    @include fill('shade', $rate: 8);
   }
 
   &--selected {
