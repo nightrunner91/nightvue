@@ -5,41 +5,50 @@
     <p>
       Работа с цветами в NightVue будет привычна пользователям Booststrap. В общем и целом системы похожи, но есть небольшие различия, которые опытный пользователь Boostrap наверняка определит самостоятельно.
     </p>
-    <h2 id="colors-list">Библиотека цветов</h2>
-    <p>Карта <code>$colors</code>, расположенная в файле <code>_varaibles.scss</code> перечисляет 12 стандартных цветов, включая белый и чёрный. Из этих базовых цветов далее можно настроить цвета темы. Мы не рекомендуем изменять либо удалять из библиотеки белый и чёрный цвета по причине их распространённости и универсальности в абсолютно любом проекте. Кроме того, на их основе выстраивается ряд ахроматических цветов, о которых мы поговорим далее. Все остальные цвета вы вольны изменять по своему усмотрению или по требованиям проекта.</p>
-    <ul class="d-flex list-unstyled colors my-3">
+    <h2 id="colors-list">Карты цветов</h2>
+    <p>Карта библиотеки цветов <code>$colors</code> доступна в файле <code>_colors.scss</code> и насчитывает 12 стандартных цветов. Из них далее можно настроить цвета темы.</p>
+    <ul class="d-flex list-unstyled colors my-2">
       <li
         v-for="color in colors"
         :key="`color-${color}`"
         class="color icon-size-48 mr-75 radius-circle material-shadow-2"
         :class="[`bg-${color}`, { 'mr-2' : color === 'white' }]" />
     </ul>
-    <p>Карта цветов доступна в файле <code>_varaibles.scss</code>:</p>
     <CodeExample :language="'css'">
       <template v-slot:snippet>
         {{ codeExamples.colors.defaultColors }}
       </template>
     </CodeExample>
-    <h2 id="color-monochrome">
-      Ахроматические цвета
-    </h2>
-    <p>В NightVue доступен ахроматический ряд из 22 цветов, состоящий из оттенков серого, различающихся по яркости.</p>
-    <ul class="d-flex list-unstyled colors my-3">
+    <p>Также пользователю доступен ахроматический ряд из 24 цветов, где крайними выступают белый и чёрный цвета, а в промежутке между ними — оттенки серого, различающихся по яркости. Длину этого ряда можно изменять, редактируя переменную <code>$shadesNum: 22</code> в файле <code>_colors.scss</code>. Наш код автоматически сгенерирует заданное количество промежуточных цветов в карте <code>$grays</code>.</p>
+    <ul class="d-flex list-unstyled colors my-2">
+      <li class="color icon-size-36 mr-75 radius-circle material-shadow-2 bg-white" />
       <li
         v-for="shade in shades"
         :key="`shade-${shade}`"
         class="color icon-size-36 mr-75 radius-circle material-shadow-2"
-        :class="`bg-shade-${shade}`" />
+        :class="`bg-gray-${shade}`" />
+      <li class="color icon-size-36 mr-75 radius-circle material-shadow-2 bg-black" />
     </ul>
-    <p>Длину ряда можно изменять, редактируя переменную <code>$shadesNum: 22</code> в файле <code>_varaibles.scss</code>. Наш код автоматически сгенерирует заданное количество промежуточных цветов. По умолчанию в Nightvue представлен следующий набор ахроматических цветов:</p>
     <CodeExample :language="'css'">
       <template v-slot:snippet>
         {{ codeExamples.colors.shadeColors }}
       </template>
     </CodeExample>
-    <h2 id="color-levels">
-      Уровни цветов
-    </h2>
+    <p>
+      Работать со стандартной библиотекой цветов не всегда удобно и уместно. Как правило, в проектах используется набор семантически названных цветов, составленных из библиотеки. Карта <code>$theme-colors</code> перечисляет такие цвета и также расположена в файле <code>_colors.scss</code>. По умолчанию в ней описана широко распространённая схема из 8 цветов — <code>$primary, $secondary, $success, $info, $warning, $danger, $light, $dark</code>. Вы можете переименовать эти цвета, удалить их или добавить новые. Наши миксины автоматически сгенерируют наборы классов, о которых пойдёт речь далее.
+    </p>
+    <ul class="d-flex list-unstyled colors my-2">
+      <li
+        v-for="color in themeColors"
+        :key="`theme-color-${color}`"
+        class="color icon-size-48 mr-75 radius-circle material-shadow-2"
+        :class="`bg-${color}`" />
+    </ul>
+    <CodeExample :language="'css'">
+      <template v-slot:snippet>
+        {{ codeExamples.colors.themeColors }}
+      </template>
+    </CodeExample>
     <p class="mb-3">
       К каждому из цветов в библиотеке применяются модификаторы, изменяющие их яркость. Благодаря этому палитра цветов заметно расширяется. Это достигается с помощью Sass миксинов, чтобы осветлять или затемнять цвета с помощью встроенной функции Sass <code>mix()</code>. Использование <code>mix()</code> — не то же самое, что <code>lighten()</code> и <code>darken()</code>. Первое смешивает указанный цвет с белым или черным, тогда как второе лишь регулирует величину яркости цвета. Подробнее о работе с цветами в Sass можно ознакомиться в <a rel="nofollow" target="_blank" href="https://sass-lang.com/documentation/modules/color">официальной документации</a>.
     </p>
@@ -58,17 +67,6 @@
     <CodeExample :language="'css'">
       <template v-slot:snippet>
         {{ codeExamples.colors.colorLevels }}
-      </template>
-    </CodeExample>
-    <h2 id="color-levels">
-      Цвета темы
-    </h2>
-    <p>
-      Работать со стандартной библиотекой цветов не всегда удобно и уместно. Как правило, в проектах используется набор семантически названных цветов, составленных из библиотеки. Карта <code>$theme-colors</code> перечисляет такие цвета и также расположена в файле <code>_varaibles.scss</code>. По умолчанию в ней описана широко распространённая схема из 8 цветов — <code>$primary, $secondary, $success, $info, $warning, $danger, $light, $dark</code>. Вы можете переименовать эти цвета, удалить их или добавить новые. Наши миксины автоматически сгенерируют наборы классов, о которых пойдёт речь далее.
-    </p>
-    <CodeExample :language="'css'">
-      <template v-slot:snippet>
-        {{ codeExamples.colors.themeColors }}
       </template>
     </CodeExample>
     <h2 id="color-usage">
@@ -172,7 +170,8 @@ export default {
     return {
       codeExamples,
 
-      colors: ['black', 'white', 'red', 'pink', 'orange', 'yellow', 'green', 'brown', 'teal', 'cyan', 'blue', 'purple'],
+      colors: ['red', 'pink', 'orange', 'yellow', 'green', 'brown', 'teal', 'cyan', 'blue', 'purple'],
+      themeColors: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
       levels: [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5],
       shades: 22,
     }

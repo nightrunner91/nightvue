@@ -9,13 +9,13 @@
 }
 
 @mixin background($name, $style: false, $rate: false) {
-  @if $name == 'shade' {
-    @if $rate > $shadesNum or $rate < 0 {
+  @if $name == 'gray' {
+    @if $rate > $graysNum or $rate < 0 {
       background-color: white !important;
 
-      @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
+      @debug "Looks like you are trying to apply level of gray that doens't exit. Take a look at $grays: Number varaible."
     } @else {
-      background-color: map-get($shades, 'shade-#{$rate}') !important;
+      background-color: map-get($grays, 'gray-#{$rate}') !important;
     }
   } @else {
     $targetMap: $colors;
@@ -36,14 +36,14 @@
 }
 
 @mixin color($name, $style: false, $rate: false) {
-  @if $name == 'shade' {
-    // $step: 100 / ($shades + 2) * 1%;
+  @if $name == 'gray' {
+    // $step: 100 / ($grays + 2) * 1%;
     // $percent: $step * $rate;
 
     // @if $percent > 100 or $percent < 0 {
     //   color: white !important;
 
-    //   @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
+    //   @debug "Looks like you are trying to apply level of gray that doens't exit. Take a look at $grays: Number varaible."
     // } @else {
     //   color: darken(white, $percent) !important;
     // }
@@ -66,14 +66,14 @@
 }
 
 @mixin fill($name, $style: false, $rate: false) {
-  @if $name == 'shade' {
-    // $step: 100 / ($shades + 2) * 1%;
+  @if $name == 'gray' {
+    // $step: 100 / ($grays + 2) * 1%;
     // $percent: $step * $rate;
 
     // @if $percent > 100 or $percent < 0 {
     //   fill: white !important;
 
-    //   @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
+    //   @debug "Looks like you are trying to apply level of gray that doens't exit. Take a look at $grays: Number varaible."
     // } @else {
     //   fill: darken(white, $percent) !important;
     // }

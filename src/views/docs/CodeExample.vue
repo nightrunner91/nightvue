@@ -37,10 +37,10 @@ export default {
   margin: 2rem 0 !important;
   padding: 1px 2rem !important;
 
-  @include background('shade', $rate: 20);
+  @include background('gray', $rate: 20);
 
   code {
-    @include background('shade', $rate: 20);
+    @include background('gray', $rate: 20);
   }
 }
 </style>
