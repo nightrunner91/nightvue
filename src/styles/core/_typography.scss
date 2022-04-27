@@ -89,7 +89,7 @@ small,
 }
 
 mark {
-  background-color: rgba(map-get($colors, 'black'), 0.75);
+  background-color: rgba(black, 0.75);
 }
 
 code, kbd, samp, pre {
@@ -110,7 +110,7 @@ hr {
   margin-top: $base-mg;
   margin-bottom: $base-mg;
   border: none;
-  border-bottom: 1px solid rgba(map-get($colors, 'black'), .15);
+  border-bottom: 1px solid rgba(black, .15);
 }
 
 a {

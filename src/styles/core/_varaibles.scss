@@ -133,11 +133,9 @@ $spacers: (
 // ====== //
 // COLORS //
 // ====== // 
-// List of colors defined by user
-$colors: (
-  'black':     #000000,
-  'white':     #FFFFFF,
 
+// List of default colors
+$colors: (
   'red':       #F44336,
   'pink':      #EC407A,
   'orange':    #FF9800,
@@ -150,6 +148,19 @@ $colors: (
   'purple':    #682CAB,
 );
 
+// List of grey colors
+$shades: (); // Here we will store our colors
+$shadesNum: 22; // Grey colors amount
+
+// Generate map list of grey colors
+@for $i from 1 through $shadesNum {
+  $percent: 100 / ($shadesNum + 2) * $i * 1%; // Evaluate percent 
+  $newShade: ('shade-#{$i}' : mix(black, white, $percent)); // Prepare temporary map
+  $shades: map-merge($shades, $newShade); // Add this map to original $shades map
+}
+
+@debug $shades;
+
 // Pick up theme colors from basic color pallete or material colors
 $theme-colors: (
   'primary':    map-get($colors, 'purple'),
@@ -158,8 +169,8 @@ $theme-colors: (
   'info':       map-get($colors, 'teal'),
   'warning':    map-get($colors, 'yellow'),
   'danger':     map-get($colors, 'red'),
-  // 'light':      map-get($colors, 'light'),
-  // 'dark':       map-get($colors, 'dark'),
+  'light':      map-get($shades, 'shade-4'),
+  'dark':       map-get($shades, 'shade-18'),
 );
 
 // Levels of lighten and darken in $colors and $theme-colors list
@@ -170,7 +181,6 @@ $levels: (
   4: 25%,
   5: 30%,
 );
-$shades: 22;
 
 // ========= //
 // GRADIENTS //
@@ -237,9 +247,9 @@ $icon-sizes: 18, 24, 36, 48;
 // List of shadows defined by user
 $shadows: (
   none: none,
-  small: 1px 1px 3px map-get($colors, 'black'),
+  small: 1px 1px 3px black,
   base: 3px 3px 6px map-get($theme-colors, 'primary'),
-  large: (4px 4px 8px rgba(map-get($colors, 'black'), .5), 6px 7px 24px rgba(map-get($theme-colors, 'warning'), .75)),
+  large: (4px 4px 8px rgba(black, .5), 6px 7px 24px rgba(map-get($theme-colors, 'warning'), .75)),
 );
 
 // List of shadows based on Material methodology

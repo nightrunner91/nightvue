@@ -6,11 +6,11 @@
     $percent: $step * $rate;
 
     @if $percent > 100 or $percent < 0 {
-      @return map-get($colors, 'white');
+      @return white;
 
       @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
     } @else {
-      @return darken(map-get($colors, 'white'), $percent)
+      @return darken(white, $percent)
     }
   } @else {
     $targetMap: $colors;

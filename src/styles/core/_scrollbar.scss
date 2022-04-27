@@ -3,13 +3,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: map-get($colors, 'white')
+  background: white
 }
 
 ::-webkit-scrollbar-thumb {
-  background: lighten(map-get($colors, 'black'), 15%)
+  background: lighten(black, 15%)
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: map-get($colors, 'black')
+  background: black
 }

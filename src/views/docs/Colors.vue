@@ -23,7 +23,7 @@
     <h2 id="color-monochrome">
       Ахроматические цвета
     </h2>
-    <p>В NightVue доступен ахроматический ряд из 22 цветов, состоящий из оттенков серого, различающихся по яркости. Длину ряда можно изменять, редактируя переменную <code>$shades: 22</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует заданное количество промежуточных цветов.</p>
+    <p>В NightVue доступен ахроматический ряд из 22 цветов, состоящий из оттенков серого, различающихся по яркости.</p>
     <ul class="d-flex list-unstyled colors my-3">
       <li
         v-for="shade in shades"
@@ -31,6 +31,12 @@
         class="color icon-size-36 mr-75 radius-circle material-shadow-2"
         :class="`bg-shade-${shade}`" />
     </ul>
+    <p>Длину ряда можно изменять, редактируя переменную <code>$shadesNum: 22</code> в файле <code>_varaibles.scss</code>. Наш код автоматически сгенерирует заданное количество промежуточных цветов. По умолчанию в Nightvue представлен следующий набор ахроматических цветов:</p>
+    <CodeExample :language="'css'">
+      <template v-slot:snippet>
+        {{ codeExamples.colors.shadeColors }}
+      </template>
+    </CodeExample>
     <h2 id="color-levels">
       Уровни цветов
     </h2>
@@ -58,8 +64,13 @@
       Цвета темы
     </h2>
     <p>
-      Карта <code>$theme-colors</code> перечисляет все семантически названные цвета темы и также расположена в файле <code>_varaibles.scss</code>.
+      Работать со стандартной библиотекой цветов не всегда удобно и уместно. Как правило, в проектах используется набор семантически названных цветов, составленных из библиотеки. Карта <code>$theme-colors</code> перечисляет такие цвета и также расположена в файле <code>_varaibles.scss</code>. По умолчанию в ней описана широко распространённая схема из 8 цветов — <code>$primary, $secondary, $success, $info, $warning, $danger, $light, $dark</code>. Вы можете переименовать эти цвета, удалить их или добавить новые. Наши миксины автоматически сгенерируют наборы классов, о которых пойдёт речь далее.
     </p>
+    <CodeExample :language="'css'">
+      <template v-slot:snippet>
+        {{ codeExamples.colors.themeColors }}
+      </template>
+    </CodeExample>
     <h2 id="color-usage">
       Использование цветов
     </h2>
@@ -184,6 +195,6 @@ export default {
 @import "@/styles/core/globals";
 
 .example {
-  
+
 }
 </style>

@@ -4,9 +4,6 @@ colors: {
 
 defaultColors: `
 $colors: (
-  'black':     #000000,
-  'white':     #FFFFFF,
-
   'red':       #F44336,
   'pink':      #EC407A,
   'orange':    #FF9800,
@@ -20,6 +17,33 @@ $colors: (
 );
 `,
 
+shadeColors: `
+$shades: (
+  "shade-1": #f4f4f4,
+  "shade-2": #eaeaea,
+  "shade-3": #dfdfdf,
+  "shade-4": #d5d5d5,
+  "shade-5": #cacaca,
+  "shade-6": #bfbfbf,
+  "shade-7": #b5b5b5,
+  "shade-8": #aaaaaa,
+  "shade-9": #9f9f9f,
+  "shade-10": #959595,
+  "shade-11": #8a8a8a,
+  "shade-12": #cccccc,
+  "shade-13": #757575,
+  "shade-14": #6a6a6a,
+  "shade-15": #606060,
+  "shade-16": #555555,
+  "shade-17": #4a4a4a,
+  "shade-18": #404040,
+  "shade-19": #353535,
+  "shade-20": #2b2b2b,
+  "shade-21": #202020,
+  "shade-22": #151515
+);
+`,
+
 colorLevels: `
 $levels: (
   1: 10%,
@@ -27,6 +51,19 @@ $levels: (
   3: 20%,
   4: 25%,
   5: 30%,
+);
+`,
+
+themeColors: `
+$theme-colors: (
+  'primary':    map-get($colors, 'purple'),
+  'secondary':  map-get($colors, 'blue'),
+  'success':    map-get($colors, 'green'),
+  'info':       map-get($colors, 'teal'),
+  'warning':    map-get($colors, 'yellow'),
+  'danger':     map-get($colors, 'red'),
+  'light':      map-get($shades, 'shade-4'),
+  'dark':       map-get($shades, 'shade-18'),
 );
 `,
 

@@ -10,15 +10,12 @@
 
 @mixin background($name, $style: false, $rate: false) {
   @if $name == 'shade' {
-    $step: 100 / ($shades + 2) * 1%;
-    $percent: $step * $rate;
-
-    @if $percent > 100 or $percent < 0 {
-      background-color: map-get($colors, 'white') !important;
+    @if $rate > $shadesNum or $rate < 0 {
+      background-color: white !important;
 
       @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
     } @else {
-      background-color: darken(map-get($colors, 'white'), $percent) !important;
+      background-color: map-get($shades, 'shade-#{$rate}') !important;
     }
   } @else {
     $targetMap: $colors;
@@ -40,16 +37,16 @@
 
 @mixin color($name, $style: false, $rate: false) {
   @if $name == 'shade' {
-    $step: 100 / ($shades + 2) * 1%;
-    $percent: $step * $rate;
+    // $step: 100 / ($shades + 2) * 1%;
+    // $percent: $step * $rate;
 
-    @if $percent > 100 or $percent < 0 {
-      color: map-get($colors, 'white') !important;
+    // @if $percent > 100 or $percent < 0 {
+    //   color: white !important;
 
-      @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
-    } @else {
-      color: darken(map-get($colors, 'white'), $percent) !important;
-    }
+    //   @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
+    // } @else {
+    //   color: darken(white, $percent) !important;
+    // }
   } @else {
     $targetMap: $colors;
     @if map-has-key($theme-colors, $name) {
@@ -70,16 +67,16 @@
 
 @mixin fill($name, $style: false, $rate: false) {
   @if $name == 'shade' {
-    $step: 100 / ($shades + 2) * 1%;
-    $percent: $step * $rate;
+    // $step: 100 / ($shades + 2) * 1%;
+    // $percent: $step * $rate;
 
-    @if $percent > 100 or $percent < 0 {
-      fill: map-get($colors, 'white') !important;
+    // @if $percent > 100 or $percent < 0 {
+    //   fill: white !important;
 
-      @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
-    } @else {
-      fill: darken(map-get($colors, 'white'), $percent) !important;
-    }
+    //   @debug "Looks like you are trying to apply level of shade that doens't exit. Take a look at $shades: Number varaible."
+    // } @else {
+    //   fill: darken(white, $percent) !important;
+    // }
   } @else {
     $targetMap: $colors;
     @if map-has-key($theme-colors, $name) {
