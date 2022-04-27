@@ -1,3 +1,18 @@
+// ========= //
+// GRADIENTS //
+// ========= // 
+$gradients: (
+  docsmenu: (
+    145deg,
+    lighten(map-get($colors, 'purple'), map-get($levels, 3)) 10%,
+    lighten(map-get($colors, 'green'), map-get($levels, 1)) 80%),
+
+  pro: (
+    to top,
+    lighten(map-get($theme-colors, primary), 25%),
+    map-get($theme-colors, primary)),
+);
+
 @each $gradient, $value in $gradients {
   .gradient-#{$gradient} { @include linear-gradient($value) }
 }

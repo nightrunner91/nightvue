@@ -31,6 +31,7 @@ export default {
 
 <style lang="scss">
 @import "@/styles/core/globals";
+@import "@/styles/core/_colors";
 
 .code-example {
   margin: 2rem 0 !important;
