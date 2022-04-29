@@ -35,11 +35,10 @@ export default {
 .code-example {
   margin: 2rem 0 !important;
   padding: 1px 2rem !important;
-
-  @include background('gray', $rate: 9);
+  background-color: color('gray-9')
 
   code {
-    @include background('gray', $rate: 9);
+    background-color: color('gray-9')
   }
 }
 </style>

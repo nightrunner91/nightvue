@@ -80,15 +80,16 @@ export default {
 
 .docsmenu {
   &__link {
-    @include color('white');
     @include transition(all, base, ease);
+
+    color: color('white');
 
     &::before {
       display: none;
     }
 
     &:hover {
-      @include color('black');
+      color: color('black');
     }
   }
 }

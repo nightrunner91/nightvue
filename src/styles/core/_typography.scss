@@ -36,29 +36,27 @@ $base-mg: map-get($spacers, 1);
 $small-fz: 0.875; // ratio of how lower will be font-size for <small> tag
 
 body {
-  @include background('white');
-  @include color('gray', $rate: 18);
-
   overflow-x: hidden;
   overflow-y: visible;
   font-family: map-get($font-families, base), sans-serif;
   font-weight: map-get($font-weights, 400);
   font-size: $base-fz;
   line-height: $base-lh;
+  background-color: color('white');
+  color: color('gray-9');
 
   &.body--locked { overflow-y: hidden }
 }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  @include color('gray', $rate: 20);
-
   display: block;
   margin-top: map-get($headings-margins, top);
   margin-bottom: map-get($headings-margins, bottom);
   font-family: map-get($font-families, headings), sans-serif;
   font-weight: $headings-fw;
   line-height: $headings-lh;
+  color: color('gray-9')
 }
 
 p,
@@ -94,13 +92,13 @@ mark {
 
 code, kbd, samp, pre {
   @include radius(base);
-  @include background('gray', $rate: 1);
-  @include color('green', light, 3);
   @extend .small;
   
   margin-bottom: $base-mg;
   padding: .2em .5em;
   white-space: nowrap;
+  background: color('gray-1');
+  color: color('green')
 }
 
 hr {
@@ -116,8 +114,9 @@ hr {
 a {
   @extend .d-inline-block;
   @extend .position-relative;
-  @include color('primary');
   @include transition(all, base, ease);
+
+  color: color('primary');
   
   &::before {
     @extend .pseudoelem;
@@ -131,7 +130,7 @@ a {
   }
 
   &:hover {
-    @include color('primary', 'light', 3);
+    color: color('primary', light, 3);
 
     &::before {
       opacity: 0;
@@ -195,13 +194,13 @@ a {
 // ============= // 
 @mixin selection($background, $color) {
   ::-moz-selection {
-    background-color: map-get($colors, $background);
-    color: map-get($colors, $color);
+    background-color: color($background);
+    color: color($color);
   }
   
   ::selection {
-    background-color: map-get($colors, $background);
-    color: map-get($colors, $color);
+    background-color: color($background);
+    color: color($color);
   }
 }
 
