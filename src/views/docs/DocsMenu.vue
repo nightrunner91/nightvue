@@ -77,7 +77,6 @@ export default {
 
 <style lang="scss">
 @import "@/styles/core/globals";
-@import "@/styles/core/_colors";
 
 .docsmenu {
   &__link {

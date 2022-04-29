@@ -6,7 +6,7 @@
       Работа с цветами в NightVue будет привычна пользователям Booststrap. В общем и целом системы похожи, но есть небольшие различия, которые опытный пользователь Boostrap наверняка определит самостоятельно.
     </p>
     <h2 id="colors-list">Карты цветов</h2>
-    <p>Карта библиотеки цветов <code>$colors</code> доступна в файле <code>_colors.scss</code> и насчитывает 12 стандартных цветов. Из них далее можно настроить цвета темы.</p>
+    <p>Карта цветов <code>$colors</code>, расположенная в файле <code>_varaibles.scss</code> насчитывает 12 стандартных цветов. Из них далее можно настроить цвета темы.</p>
     <ul class="d-flex list-unstyled colors my-2">
       <li
         v-for="color in colors"
@@ -19,15 +19,15 @@
         {{ codeExamples.colors.defaultColors }}
       </template>
     </CodeExample>
-    <p>Также пользователю доступен ахроматический ряд из 24 цветов, где крайними выступают белый и чёрный цвета, а в промежутке между ними — оттенки серого, различающихся по яркости. Длину этого ряда можно изменять, редактируя переменную <code>$shadesNum: 22</code> в файле <code>_colors.scss</code>. Наш код автоматически сгенерирует заданное количество промежуточных цветов в карте <code>$grays</code>.</p>
+    <p>Также пользователю доступен ахроматический ряд из 12 цветов, где крайними выступают белый и чёрный цвета, а в промежутке между ними — оттенки серого, различающихся по яркости. Длину этого ряда можно изменять, редактируя переменную <code>$shadesNum: 10</code> в файле <code>_varaibles.scss</code>. Наш код автоматически сгенерирует заданное количество промежуточных цветов в карте <code>$grays</code>.</p>
     <ul class="d-flex list-unstyled colors my-2">
-      <li class="color icon-size-36 mr-75 radius-circle material-shadow-2 bg-white" />
+      <li class="color icon-size-48 mr-75 radius-circle material-shadow-2 bg-white" />
       <li
         v-for="shade in shades"
         :key="`shade-${shade}`"
-        class="color icon-size-36 mr-75 radius-circle material-shadow-2"
+        class="color icon-size-48 mr-75 radius-circle material-shadow-2"
         :class="`bg-gray-${shade}`" />
-      <li class="color icon-size-36 mr-75 radius-circle material-shadow-2 bg-black" />
+      <li class="color icon-size-48 mr-75 radius-circle material-shadow-2 bg-black" />
     </ul>
     <CodeExample :language="'css'">
       <template v-slot:snippet>
@@ -35,7 +35,7 @@
       </template>
     </CodeExample>
     <p>
-      Работать со стандартной библиотекой цветов не всегда удобно и уместно. Как правило, в проектах используется набор семантически названных цветов, составленных из библиотеки. Карта <code>$theme-colors</code> перечисляет такие цвета и также расположена в файле <code>_colors.scss</code>. По умолчанию в ней описана широко распространённая схема из 8 цветов — <code>$primary, $secondary, $success, $info, $warning, $danger, $light, $dark</code>. Вы можете переименовать эти цвета, удалить их или добавить новые. Наши миксины автоматически сгенерируют наборы классов, о которых пойдёт речь далее.
+      Работать со стандартной библиотекой цветов не всегда удобно и уместно. Как правило, в проектах используется набор семантически названных цветов, составленных из библиотеки. Карта <code>$theme-colors</code> перечисляет такие цвета и также расположена в файле <code>_varaibles.scss</code>. По умолчанию в ней описана широко распространённая схема из 8 цветов — <code>$primary, $secondary, $success, $info, $warning, $danger, $light, $dark</code>. Вы можете переименовать эти цвета, удалить их или добавить новые. Наши миксины автоматически сгенерируют наборы классов, о которых пойдёт речь далее.
     </p>
     <ul class="d-flex list-unstyled colors my-2">
       <li
@@ -49,21 +49,20 @@
         {{ codeExamples.colors.themeColors }}
       </template>
     </CodeExample>
-    <p class="mb-3">
-      К каждому из цветов в библиотеке применяются модификаторы, изменяющие их яркость. Благодаря этому палитра цветов заметно расширяется. Это достигается с помощью Sass миксинов, чтобы осветлять или затемнять цвета с помощью встроенной функции Sass <code>mix()</code>. Использование <code>mix()</code> — не то же самое, что <code>lighten()</code> и <code>darken()</code>. Первое смешивает указанный цвет с белым или черным, тогда как второе лишь регулирует величину яркости цвета. Подробнее о работе с цветами в Sass можно ознакомиться в <a rel="nofollow" target="_blank" href="https://sass-lang.com/documentation/modules/color">официальной документации</a>.
+    <p class="mb-2">
+      К каждому из цветов в библиотеке применяются модификаторы, изменяющие их яркость. Благодаря этому палитра цветов заметно расширяется. Это достигается с помощью Sass миксинов, чтобы осветлять или затемнять цвета с помощью встроенной функции Sass <code>mix()</code>. Количество уровней и их значения можно регулировать в карте <code>$levels</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует требуемое количество уровней, на каждом из которых осветлит либо затемнит базовый цвет на указанное значение. По умолчанию настроена 5 ступенчатая схема с шагом в 5%. Подробнее о работе с цветами в Sass можно ознакомиться в <a rel="nofollow" target="_blank" href="https://sass-lang.com/documentation/modules/color">официальной документации</a>.
     </p>
     <ul
       v-for="color in colors"
       :key="`variants-${color}`"
-      class="d-flex list-unstyled colors my-2"
+      class="d-flex list-unstyled colors my-1"
       :class="color == 'black' || color == 'white' ? 'd-none' : ''">
       <li
         v-for="(level, index) in levels"
         :key="`level-${index}`"
-        class="color icon-size-48 mr-75 radius-circle material-shadow-2"
+        class="color icon-size-36 mr-75 radius-circle material-shadow-2"
         :class="levelClassname(color, level)" />
     </ul>
-    <p class="mt-3">Количество уровней и их значения можно регулировать в карте <code>$levels</code> в файле <code>_varaibles.scss</code>. Миксин автоматически сгенерирует требуемое количество уровней, на каждом из которых осветлит либо затемнит базовый цвет на указанное значение. По умолчанию настроена 5 ступенчатая схема с шагом в 5%.</p>
     <CodeExample :language="'css'">
       <template v-slot:snippet>
         {{ codeExamples.colors.colorLevels }}
@@ -173,7 +172,7 @@ export default {
       colors: ['red', 'pink', 'orange', 'yellow', 'green', 'brown', 'teal', 'cyan', 'blue', 'purple'],
       themeColors: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
       levels: [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5],
-      shades: 22,
+      shades: 10,
     }
   },
   methods: {
@@ -191,9 +190,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/styles/core/globals";
 
-.example {
-
-}
 </style>

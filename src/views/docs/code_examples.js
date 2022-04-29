@@ -19,28 +19,18 @@ $colors: (
 
 shadeColors: `
 $shades: (
-  "shade-1": #f4f4f4,
-  "shade-2": #eaeaea,
-  "shade-3": #dfdfdf,
-  "shade-4": #d5d5d5,
-  "shade-5": #cacaca,
-  "shade-6": #bfbfbf,
-  "shade-7": #b5b5b5,
-  "shade-8": #aaaaaa,
-  "shade-9": #9f9f9f,
-  "shade-10": #959595,
-  "shade-11": #8a8a8a,
-  "shade-12": #cccccc,
-  "shade-13": #757575,
-  "shade-14": #6a6a6a,
-  "shade-15": #606060,
-  "shade-16": #555555,
-  "shade-17": #4a4a4a,
-  "shade-18": #404040,
-  "shade-19": #353535,
-  "shade-20": #2b2b2b,
-  "shade-21": #202020,
-  "shade-22": #151515
+  "white":     #ffffff,
+  "gray-1":    #eaeaea,
+  "gray-2":    #d5d5d5,
+  "gray-3":    #bfbfbf,
+  "gray-4":    #aaaaaa,
+  "gray-5":    #959595,
+  "gray-6":    #cccccc,
+  "gray-7":    #6a6a6a,
+  "gray-8":    #555555,
+  "gray-9":    #404040,
+  "gray-10":   #2b2b2b,
+  "black":     #0000000
 );
 `,
 

@@ -31,16 +31,15 @@ export default {
 
 <style lang="scss">
 @import "@/styles/core/globals";
-@import "@/styles/core/_colors";
 
 .code-example {
   margin: 2rem 0 !important;
   padding: 1px 2rem !important;
 
-  @include background('gray', $rate: 20);
+  @include background('gray', $rate: 9);
 
   code {
-    @include background('gray', $rate: 20);
+    @include background('gray', $rate: 9);
   }
 }
 </style>
