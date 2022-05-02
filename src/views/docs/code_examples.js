@@ -57,19 +57,15 @@ $theme-colors: (
 `,
 
 defaultColorsMethods: `
-<!-- Окрасит фон блока в красный цвет -->
+<!-- Окрасит фон одного блока в красный цвет, другой — осветлённый на 2 уровня -->
 <div class="bg-red"></div>
-
-<!-- Окрасит фон блока в основной (primary) цвет -->
-<div class="bg-primary"></div>
-
-<!-- Окрасит фон блока в жёлтый цвет, осветлённый на 3 уровня -->
-<div class="bg-yellow-light-3"></div>
+<div class="bg-red-light-3"></div>
 
 <!-- Цвета темы также поддерживают этот синтаксис -->
+<div class="bg-primary"></div>
 <div class="bg-primary-dark-5"></div>
 
-<!-- Применение различных цветов к тексту -->
+<!-- Применит различные цвета к тексту -->
 <span class="clr-white">Я белый текст</span>
 <span class="clr-danger">Я цвет 'danger' из $theme-colors</span>
 <span class="clr-gray-5">Я серый текст #5</span>
@@ -108,23 +104,24 @@ classnamesVsSass: `
 colorFunction: `
 // Функция вернёт основной (primary) цвет темы
 .selector {
-  box-shadow: 1px 1px 4px color('primary'); // box-shadow: 1px 1px 4px #682CAB;
+  box-shadow: 1px 1px 4px color('primary');
 }
 
 // Функция вернёт осветлённый на 4 уровня коричневый цвет
 .selector {
-  border-color: color('brown', light, 4); // border-color: #9b8076;
+  border-color: color('brown', light, 4);
 }
 
 // Функция вернёт серый цвет уровня #6 в ахроматическом ряду
 .selector {
   text-decoration: underline;
-  text-decoration-color: color('gray-6'); // text-decoration-color: #cccccc;
+  text-decoration-color: color('gray-6');
 }
 
 // Применит к классу вторичный (secondary) цвет темы, который при :hover станет светлее на 2 уровня
 .selector {
   background-color: color('secondary');
+  color: color('white');
 
   &:hover {
     background-color: color('secondary', light, 2);
