@@ -1,8 +1,7 @@
 export const codeExamples = {
 
 colors: {
-
-defaultColors: `
+colorsMap: `
 $colors: (
   'red':       #F44336,
   'pink':      #EC407A,
@@ -17,20 +16,20 @@ $colors: (
 );
 `,
 
-shadeColors: `
-$shades: (
-  "white":     #ffffff,
-  "gray-1":    #eaeaea,
-  "gray-2":    #d5d5d5,
-  "gray-3":    #bfbfbf,
-  "gray-4":    #aaaaaa,
-  "gray-5":    #959595,
-  "gray-6":    #cccccc,
-  "gray-7":    #6a6a6a,
-  "gray-8":    #555555,
-  "gray-9":    #404040,
-  "gray-10":   #2b2b2b,
-  "black":     #0000000
+graysMap: `
+$grays: (
+  'white':     #ffffff,
+  'gray-1':    #eaeaea,
+  'gray-2':    #d5d5d5,
+  'gray-3':    #bfbfbf,
+  'gray-4':    #aaaaaa,
+  'gray-5':    #959595,
+  'gray-6':    #cccccc,
+  'gray-7':    #6a6a6a,
+  'gray-8':    #555555,
+  'gray-9':    #404040,
+  'gray-10':   #2b2b2b,
+  'black':     #0000000
 );
 `,
 
@@ -44,7 +43,7 @@ $levels: (
 );
 `,
 
-themeColors: `
+themeColorsMap: `
 $theme-colors: (
   'primary':    map-get($colors, 'purple'),
   'secondary':  map-get($colors, 'blue'),
@@ -52,8 +51,8 @@ $theme-colors: (
   'info':       map-get($colors, 'teal'),
   'warning':    map-get($colors, 'yellow'),
   'danger':     map-get($colors, 'red'),
-  'light':      map-get($shades, 'shade-4'),
-  'dark':       map-get($shades, 'shade-18'),
+  'light':      map-get($shades, 'gray-2'),
+  'dark':       map-get($shades, 'gray-8'),
 );
 `,
 
@@ -70,31 +69,23 @@ defaultColorsMethods: `
 <!-- Цвета темы также поддерживают этот синтаксис -->
 <div class="bg-primary-dark-5"></div>
 
-<!-- Данный текст будет белого цвета -->
+<!-- Применение различных цветов к тексту -->
 <span class="clr-white">Я белый текст</span>
+<span class="clr-danger">Я цвет 'danger' из $theme-colors</span>
+<span class="clr-gray-5">Я серый текст #5</span>
 
 <!-- Эта SVG иконка будет залита вторичным (secondary) цветом темы -->
 <svg class="fill-secondary">
   <use xlink:href="#icon" />
 </svg>
-`,
 
-monochromeColorsMethods: `
 <!-- Эти блоки залиты различными оттенками серого -->
-<div class="bg-shade-1"></div>
-<div class="bg-shade-2"></div>
-<div class="bg-shade-3"></div>
+<div class="bg-gray-1"></div>
+<div class="bg-gray-2"></div>
+<div class="bg-gray-3"></div>
 ...
-<div class="bg-shade-21"></div>
-<div class="bg-shade-22"></div>
-
-<!-- Такая же логика применима к цвету текста... -->
-<span class="clr-shade-15">Я серый текст #15</span>
-
-<!-- ...и к цвету заливки SVG -->
-<svg class="fill-shade-15">
-  <use xlink:href="#icon" />
-</svg>
+<div class="bg-gray-9"></div>
+<div class="bg-gray-10"></div>
 `,
 
 classnamesVsSass: `
@@ -110,47 +101,7 @@ classnamesVsSass: `
 
 .classname {
   background-color: map-get($theme-colors, 'success');
-  color: map-get($colors, 'white');
-}
-`,
-
-sassMixins: `
-.selector {
-  // Добавит селектору синий цвет фона и зелёный цвет текста
-  @include background('blue');
-  @include color('green');
-}
-
-.selector {
-  // Добавит селектору осветленный на три уровня синий цвет фона
-  // и затемнённый на 5 уровней зелёный цвет текста
-  @include background('blue', light, 3);
-  @include color('green', dark, 5);
-}
-
-.selector {
-  // Добавит селектору основной цвет фона...
-  @include background('primary');
-
-  &:hover {
-    // ...который при наведении станет темнее на два уровня
-    @include background('primary', dark, 2);
-  }
-}
-
-.svg-icon {
-  // Иконка по умолчанию залита серым цветом 4 уровня...
-  @include fill('shade', $rate: 4);
-
-  &:hover {
-    // ...которая при наведении становится залитой серым цветом 8 уровня...
-    @include fill('shade', $rate: 8);
-  }
-
-  &--selected {
-    // ...а с модификатором --selected окрашивается в цвет "success" темы
-    @include fill('success');
-  }
+  color: map-get($grays, 'white');
 }
 `,
 
@@ -165,35 +116,34 @@ colorFunction: `
   border-color: color('brown', light, 4); // border-color: #9b8076;
 }
 
-// Функция вернёт шестой цвет в ахроматическом ряду
+// Функция вернёт серый цвет уровня #6 в ахроматическом ряду
 .selector {
   text-decoration: underline;
-  text-decoration-color: color('shade', $rate: 6); // text-decoration-color: #bfbfbf;
+  text-decoration-color: color('gray-6'); // text-decoration-color: #cccccc;
+}
+
+// Применит к классу вторичный (secondary) цвет темы, который при :hover станет светлее на 2 уровня
+.selector {
+  background-color: color('secondary');
+
+  &:hover {
+    background-color: color('secondary', light, 2);
+  }
 }
 `,
 
 sassMaps: `
+// Применит к селектору оранжевый фон и вторичный 'secondary' цвет текста
 .selector {
-  // Применит к селектору оранжевый фон и вторичный 'secondary' цвет текста
   background-color: map-get($colors, 'orange');
   color: map-get($theme-colors, 'secondary');
 }
 
+// Применит к селектору осветлённый на 2 уровня фон ошибки 'danger'
 .selector {
-  // Применит к селектору осветлённый на 2 уровня фон ошибки 'danger'
   background-color: lighten(map-get($theme-colors, 'danger'), map-get($levels, 2));
 }
-
-.selector {
-  // Применит 5 уровень серого цвета из ряда ахроматических цветов
-  // В переменную $percent поместим высчитанный на основе переменной $shades уровень затемнения
-  $percent: 100 / ($shades + 2) * 5 * 1%;
-
-  // Затем применим модуль Sass darken() для затемнения белого цвета на указанный процент
-  // Альтернативой darken() может служить mix(black, $color)
-  background-color: darken(map-get($colors, 'white'), $percent)
-}
 `,
-
 }
+
 }

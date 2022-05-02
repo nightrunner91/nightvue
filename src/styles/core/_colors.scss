@@ -1,41 +1,40 @@
+// Generate classnames from $colors map
 @each $name, $code in $colors {
   .bg-#{$name} { background-color: $code !important }
   .clr-#{$name} { color: $code !important }
   .fill-#{$name} { fill: $code !important }
 
-  @each $level, $rate in $levels {
-    @if $name != 'black' and $name != 'white' {
-      .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
-      .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }
-
-      .clr-#{$name}-light-#{$level} { color: mix(white, $code, $rate) !important }
-      .clr-#{$name}-dark-#{$level} { color: mix(black, $code, $rate) !important }
-
-      .fill-#{$name}-light-#{$level} { fill: mix(white, $code, $rate) !important }
-      .fill-#{$name}-dark-#{$level} { fill: mix(black, $code, $rate) !important }
-    }
-  }
-}
-
-@each $name, $code in $theme-colors {
-  .bg-#{$name} { background-color: $code !important }
-  .clr-#{$name} { color: $code !important }
-  .fill-#{$name} { fill: $code !important }
-
+  // Adjust colors base on $levels map values
   @each $level, $rate in $levels {
     .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
     .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }
-
     .clr-#{$name}-light-#{$level} { color: mix(white, $code, $rate) !important }
     .clr-#{$name}-dark-#{$level} { color: mix(black, $code, $rate) !important }
-
     .fill-#{$name}-light-#{$level} { fill: mix(white, $code, $rate) !important }
     .fill-#{$name}-dark-#{$level} { fill: mix(black, $code, $rate) !important }
   }
 }
 
+// Generate classnames from $grays map
 @each $name, $code in $grays {
   .bg-#{$name} { background-color: $code !important }
   .clr-#{$name} { color: $code !important }
   .fill-#{$name} { fill: $code !important }
+}
+
+// Generate classnames from $theme-colors map
+@each $name, $code in $theme-colors {
+  .bg-#{$name} { background-color: $code !important }
+  .clr-#{$name} { color: $code !important }
+  .fill-#{$name} { fill: $code !important }
+
+  // Adjust colors base on $levels map values
+  @each $level, $rate in $levels {
+    .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
+    .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }
+    .clr-#{$name}-light-#{$level} { color: mix(white, $code, $rate) !important }
+    .clr-#{$name}-dark-#{$level} { color: mix(black, $code, $rate) !important }
+    .fill-#{$name}-light-#{$level} { fill: mix(white, $code, $rate) !important }
+    .fill-#{$name}-dark-#{$level} { fill: mix(black, $code, $rate) !important }
+  }
 }
