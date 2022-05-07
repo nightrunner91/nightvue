@@ -11,7 +11,7 @@
         :icon="'link'"
         :size="tag === 'h1' ? 24 : 18"
         class="fill-dark cursor-pointer"
-        :class="tag === 'h1' ? 'ml-1' : 'ml-50'" />
+        :class="tag === 'h1' ? 'ml-1 mt-75' : 'ml-50'" />
     </a>
   </div>
 </template>
