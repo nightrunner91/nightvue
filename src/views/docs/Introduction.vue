@@ -1,7 +1,10 @@
 <template>
   <!-- eslint-disable vue/max-attributes-per-line -->
   <section>
-    <h1>Введение</h1>
+    <Heading
+      :tag="'h1'"
+      :id="'introduction'"
+      :title="'Введение'" />
     <h2>Чем является NightVue?</h2>
     <p>NightVue — это фреймворк для разработки на <a rel="nofollow" target="_blank" href="https://ru.vuejs.org/v2/guide/">Vue.js 2.x</a>. Его главная особенность — отсутствие популярных интегрированных компонентов (кнопок, форм, карточек, дропдаунов, модальных окон и т.д) и минимальное количество предустановленных стилей. В то время как множество других фреймворков предлагают готовые UI решения, NightVue предоставляет максимальную свободу разработки собственных веб-интерфейсов. По сути это набор полезного инструментария для разработчиков, которым нравится всё делать самим.</p>
 
@@ -16,8 +19,11 @@
 </template>
 
 <script>
+import Heading from '@/components/Heading'
+
 export default {
   name: 'Introduction',
+  components: { Heading },
   data() {
     return {
 
