@@ -12,7 +12,7 @@ $colors: (
   'teal':      #009688,
   'cyan':      #00BCD4,
   'blue':      #2196F3,
-  'purple':    #682CAB,
+  'purple':    #682CAB
 );
 `,
 
@@ -29,7 +29,7 @@ $grays: (
   'gray-8':    #555555,
   'gray-9':    #404040,
   'gray-10':   #2b2b2b,
-  'black':     #0000000
+  'black':     #000000
 );
 `,
 
