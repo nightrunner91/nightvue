@@ -186,13 +186,13 @@ $levels: (
 // GRADIENTS //
 // ========= //
 $gradients: (
-  purple-green: (
+  docsmenu: (
     145deg,
     lighten(map-get($colors, 'purple'), map-get($levels, 2)) 10%,
     lighten(map-get($colors, 'green'), map-get($levels, 1)) 80%
   ),
 
-  pro: (
+  intro-angles: (
     to top,
     lighten(map-get($theme-colors, primary), 25%),
     map-get($theme-colors, primary)),

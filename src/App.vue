@@ -36,6 +36,7 @@
             <Installation />
             <DocsMenu />
             <Colors />
+            <Gradients />
           </div>
         </div>
       </div>
@@ -52,13 +53,15 @@ import Introduction from './views/docs/Introduction.vue'
 import Installation from './views/docs/Installation.vue'
 import DocsMenu from './views/docs/DocsMenu.vue'
 import Colors from './views/docs/Colors.vue'
+import Gradients from './views/docs/Gradients.vue'
 
 export default {
   components: {
     Introduction,
     Installation,
     DocsMenu,
-    Colors
+    Colors,
+    Gradients,
   },
   name: 'Home',
   data() {

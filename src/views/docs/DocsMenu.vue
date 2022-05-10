@@ -1,5 +1,5 @@
 <template>
-  <section class="docsmenu p-3 radius-large mt-5">
+  <section class="gradient-docsmenu p-3 radius-large mt-5">
     <h2 class="mt-0 mb-2 clr-white">Содержание</h2>
     <ul class="list-unstyled">
       <li
@@ -81,7 +81,7 @@ export default {
 .docsmenu {
   // @include linear-gradient(145deg, lighten(map-get($colors, 'purple'), map-get($levels, 2)), lighten(map-get($colors, 'green'), map-get($levels, 1)));
 
-  background: linear-gradient(map-get($gradients, 'purple-green'));
+  //background: linear-gradient(map-get($gradients, 'docsmenu'));
 
   &__link {
     @include transition(all, base, ease);
