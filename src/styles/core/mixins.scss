@@ -1,16 +1,16 @@
 // ========= //
 // GRADIENTS //
 // ========= //
-@mixin linear-gradient($direction, $color-stops...) {
-  @if is-direction($direction) == false {
-    $color-stops: ($direction, $color-stops);
-    $direction: 180deg;
-  }
-  
-  background: nth(nth($color-stops, 1), 1);
-  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
-  background: linear-gradient($direction, $color-stops);
+@mixin linear-gradient($args...) {
+  $direction: nth(nth(nth($args, 1), 1), 2);
+  $fallback:  nth(nth(nth($args, 1), 2), 2);
+  $list:      nth(nth(nth($args, 1), 3), 2);
+
+  background: $fallback;
+  background: -webkit-linear-gradient(legacy-direction($direction), $list);
+  background: linear-gradient($direction, $list);
 }
+
 
 @mixin animation($name, $duration, $delay, $count, $timing, $mode) {
   animation-name: $name;

@@ -144,7 +144,37 @@ sassMaps: `
 },
 
 gradients: {
+gradientsMap: `
+$gradients: (
+  primary_success: (
+    'direction': 145deg,
+    'fallback': map-get($theme-colors, 'primary'),
+    'list': (
+      lighten(map-get($theme-colors, 'primary'), map-get($levels, 2)) 10%,
+      lighten(map-get($theme-colors, 'success'), map-get($levels, 1)) 80%
+    )
+  ),
 
+  primary-l2_primary: (
+    'direction': to bottom,
+    'fallback': map-get($theme-colors, 'primary'),
+    'list': (
+      map-get($theme-colors, 'primary'),
+      lighten(map-get($theme-colors, 'primary'), map-get($levels, 2))
+    )
+  ),
+
+  blue_yellow_red: (
+    'direction': to right,
+    'fallback': map-get($theme-colors, 'blue'),
+    'list': (
+      map-get($theme-colors, 'blue'),
+      map-get($theme-colors, 'yellow'),
+      map-get($theme-colors, 'red')
+    )
+  ),
+);
+`
 },
 
 }
