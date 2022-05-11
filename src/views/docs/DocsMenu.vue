@@ -31,7 +31,7 @@ export default {
         },
         {
           title: 'Градиенты',
-          anchor: '#gradient'
+          anchor: '#gradients'
         },
         {
           title: 'Типография',
