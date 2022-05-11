@@ -141,6 +141,10 @@ sassMaps: `
   background-color: lighten(map-get($theme-colors, 'danger'), map-get($levels, 2));
 }
 `,
-}
+},
+
+gradients: {
+
+},
 
 }

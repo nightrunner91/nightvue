@@ -133,7 +133,6 @@ $spacers: (
 // ====== //
 // COLORS //
 // ====== // 
-
 // List of default colors
 $colors: (
   'red':       #F44336,
@@ -186,16 +185,15 @@ $levels: (
 // GRADIENTS //
 // ========= //
 $gradients: (
-  docsmenu: (
-    145deg,
-    lighten(map-get($colors, 'purple'), map-get($levels, 2)) 10%,
-    lighten(map-get($colors, 'green'), map-get($levels, 1)) 80%
+  primary_success: (
+    lighten(map-get($theme-colors, 'primary'), map-get($levels, 2)) 10%,
+    lighten(map-get($theme-colors, 'success'), map-get($levels, 1)) 80%
   ),
 
-  intro-angles: (
-    to top,
-    lighten(map-get($theme-colors, primary), 25%),
-    map-get($theme-colors, primary)),
+  primary-l2_primary: (
+    lighten(map-get($theme-colors, primary), map-get($levels, 2)),
+    map-get($theme-colors, primary)
+  ),
 );
 
 // ==== // 
