@@ -177,16 +177,49 @@ $gradients: (
 `,
 
 gradientDetails: `
-gradientName: ( 
+gradientName: (
   // Направление градиента (keyword | angle)
   direction: String,
 
   // Цвет по умолчанию в случае если браузер не поддерживает линейный градиент
+  // перейдите на “caniuse.com/?search=linear-gradient” для подробностей
   fallback: String,
 
   // Список цветов в градиенте, разделённых запятой
-  list: ( String, String, String... )                        
+  list: ( String, String, String... )
 ),
+`,
+
+gradientGenerator: `
+.selector-1 {
+  @include linear-gradient(#31B7D7, #EDAC7D);
+}
+
+.selector-2 {
+  @include linear-gradient(to right, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
+}
+
+.selector-3 {
+  @include linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
+}
+
+.selector-1 {
+  background: #31B7D7;
+  background: -webkit-linear-gradient(-90deg, #31B7D7, #EDAC7D);
+  background: linear-gradient(180deg, #31B7D7, #EDAC7D);
+}
+
+.selector-2 {
+  background: #E47D7D;
+  background: -webkit-linear-gradient(left, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
+  background: linear-gradient(to right, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
+}
+
+.selector-3 {
+  background: #B58234;
+  background: -webkit-linear-gradient(48deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
+  background: linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
+}
 `
 },
 

@@ -160,7 +160,7 @@ $grays: map-merge($grays, ('white' : white));
 }
 $grays: map-merge($grays, ('black' : black));
 
-// Pick up theme colors from basic color pallete or material colors
+// Pick up theme colors
 $theme-colors: (
   'primary':    map-get($colors, 'purple'),
   'secondary':  map-get($colors, 'blue'),
@@ -172,7 +172,7 @@ $theme-colors: (
   'dark':       map-get($grays, 'gray-8'),
 );
 
-// Levels of lighten and darken in $colors and $theme-colors list
+// Levels of mix() in $colors and $theme-colors lists
 $levels: (
   1: 10%,
   2: 15%,
