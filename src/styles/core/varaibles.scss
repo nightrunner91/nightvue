@@ -194,22 +194,31 @@ $gradients: (
     )
   ),
 
-  primary-l2_primary: (
+  primary-l3_primary: (
     direction: to bottom,
     fallback: map-get($theme-colors, 'primary'),
     list: (
       map-get($theme-colors, 'primary'),
-      lighten(map-get($theme-colors, 'primary'), map-get($levels, 2))
+      lighten(map-get($theme-colors, 'primary'), map-get($levels, 3))
     )
   ),
 
-  blue_yellow_red: (
+  red_yellow_blue: (
     direction: to right,
-    fallback: map-get($theme-colors, 'blue'),
+    fallback: map-get($colors, 'red'),
     list: (
-      map-get($theme-colors, 'blue'),
-      map-get($theme-colors, 'yellow'),
-      map-get($theme-colors, 'red')
+      map-get($colors, 'red'),
+      map-get($colors, 'yellow'),
+      map-get($colors, 'blue')
+    )
+  ),
+
+  info_transparent: (
+    direction: 90deg,
+    fallback: map-get($theme-colors, 'info'),
+    list: (
+      map-get($theme-colors, 'info'),
+      transparent
     )
   ),
 );
@@ -255,7 +264,7 @@ $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 // ===== //
 // ICONS // 
 // ===== // 
-$icon-sizes: 18, 24, 36, 48;
+$icon-sizes: 18, 24, 36, 48, 64;
 
 // ======= // 
 // SHADOWS // 

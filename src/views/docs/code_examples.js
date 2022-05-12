@@ -155,7 +155,7 @@ $gradients: (
     )
   ),
 
-  primary-l2_primary: (
+  primary-l3_primary: (
     direction: to bottom,
     fallback: map-get($theme-colors, 'primary'),
     list: (
@@ -164,13 +164,22 @@ $gradients: (
     )
   ),
 
-  blue_yellow_red: (
+  red_yellow_blue: (
     direction: to right,
-    fallback: map-get($theme-colors, 'blue'),
+    fallback: map-get($colors, 'red'),
     list: (
-      map-get($theme-colors, 'blue'),
-      map-get($theme-colors, 'yellow'),
-      map-get($theme-colors, 'red')
+      map-get($colors, 'red'),
+      map-get($colors, 'yellow'),
+      map-get($colors, 'blue')
+    )
+  ),
+
+  info_transparent: (
+    direction: 90deg,
+    fallback: map-get($theme-colors, 'info'),
+    list: (
+      map-get($theme-colors, 'info'),
+      transparent
     )
   ),
 );
@@ -185,7 +194,7 @@ gradientName: (
   // перейдите на “caniuse.com/?search=linear-gradient” для подробностей
   fallback: String,
 
-  // Список цветов в градиенте, разделённых запятой
+  // Список цветов в градиенте, разделённые запятой
   list: ( String, String, String... )
 ),
 `,

@@ -151,7 +151,7 @@ export default {
     &__text { @include transition(all, lazy, decelerated, .15s); }
 
     &__decoration {
-      @include linear-gradient(map-get($gradients, 'primary-l2_primary'));
+      @include linear-gradient(map-get($gradients, 'primary-l3_primary'));
       @include transition(transform, lazy, emphasized);
       @extend .position-fixed;
       @extend .z-minus-1;
