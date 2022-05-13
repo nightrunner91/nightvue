@@ -7,7 +7,6 @@
   $list:      nth(nth(nth($args, 1), 3), 2);
 
   background: $fallback;
-  background: -webkit-linear-gradient(legacy-direction($direction), $list);
   background: linear-gradient($direction, $list);
 }
 

@@ -4,7 +4,7 @@
   .clr-#{$name} { color: $code !important }
   .fill-#{$name} { fill: $code !important }
 
-  // Adjust colors base on $levels map values
+  // Adjust colors lightning and darkness based on $levels map values
   @each $level, $rate in $levels {
     .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
     .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }
@@ -28,7 +28,7 @@
   .clr-#{$name} { color: $code !important }
   .fill-#{$name} { fill: $code !important }
 
-  // Adjust colors base on $levels map values
+  // Adjust colors lightning and darkness based on $levels map values
   @each $level, $rate in $levels {
     .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
     .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }

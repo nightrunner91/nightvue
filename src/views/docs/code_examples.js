@@ -200,35 +200,33 @@ gradientName: (
 `,
 
 gradientGenerator: `
-.selector-1 {
-  @include linear-gradient(#31B7D7, #EDAC7D);
+.gradient-primary_success {
+  background: #682CAB;
+  background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
 }
 
-.selector-2 {
-  @include linear-gradient(to right, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
+.gradient-primary-l3_primary {
+  background: #682CAB;
+  background: linear-gradient(to bottom, #682CAB, #9b65d8);
 }
 
-.selector-3 {
-  @include linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
+.gradient-red_yellow_blue {
+  background: #F44336;
+  background: linear-gradient(to right, #F44336, #FFEE58, #2196F3);
 }
 
-.selector-1 {
-  background: #31B7D7;
-  background: -webkit-linear-gradient(-90deg, #31B7D7, #EDAC7D);
-  background: linear-gradient(180deg, #31B7D7, #EDAC7D);
+.gradient-info_transparent {
+  background: #009688;
+  background: linear-gradient(90deg, #009688, transparent);
 }
+`,
 
-.selector-2 {
-  background: #E47D7D;
-  background: -webkit-linear-gradient(left, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
-  background: linear-gradient(to right, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
-}
-
-.selector-3 {
-  background: #B58234;
-  background: -webkit-linear-gradient(48deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
-  background: linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
-}
+gradientClassnames: `
+<!-- Применит к блокам различные типы градиентов -->
+<div class="gradient-primary_success"></div>
+<div class="gradient-primary-l3_primary"></div>
+<div class="gradient-red_yellow_blue"></div>
+<div class="gradient-info_transparent"></div>
 `
 },
 

@@ -6,7 +6,7 @@
       :id="'gradients'"
       :title="'Градиенты'" />
     <p>
-      Работа с линейными градиентами в CSS порой бывает неудобной. Для этого в NightVue для вас подготовлены инструменты для упрощения этого процесса. Работа с градиентами не сильно отличается от работы с цветами, о которых мы говорили в предыдущем разделе. За подробностями о синтаксисе и особенностях CSS градиентов обращайтесь к <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient">MDN документации</a>.
+      Работа с линейными градиентами в CSS порой бывает неудобной. Для этого в NightVue для вас подготовлены инструменты для упрощения этого процесса. Работа с градиентами не сильно отличается от работы с цветами, о которых мы говорили в предыдущем разделе. За подробностями о синтаксисе и особенностях CSS градиентов обращайтесь к <a rel="nofollow" href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient" target="_blank">MDN документации</a>.
     </p>
     <Heading
       :tag="'h2'"
@@ -83,31 +83,50 @@
       В параметры <code>fallback</code> и <code>list</code> необходимо подставлять цвета из доступных карт цветов <code>$colors</code>, <code>$grays</code> или <code>$theme-colors</code>, используя встроенный модуль Sass <code>map-get()</code>.
     </p>
     <p>
-      На выходе миксин сгенерирует кроссбраузерный код, включающий в себя цвет по умолчанию для браузеров, не поддерживающих линейные градиенты, синтаксис для устаревших браузеров (<code>-webkit-linear-gradient</code>) и современный синтаксис.
+      На выходе миксин генерирует код, включающий в себя цвет по умолчанию для браузеров, не поддерживающих линейные градиенты и современный синтаксис. Градиенты из наших примеров после компиляции выглядит таким образом:
     </p>
+    <CodeExample :language="'css'">
+      <template v-slot:snippet>
+        {{ codeExamples.gradients.gradientGenerator }}
+      </template>
+    </CodeExample>
     <Heading
       :tag="'h2'"
       :id="'gradients-usage'"
       :title="'Использование градиентов'" />
     <p class="mt-3">
-      Существуют два способа применения градиентов:
+      Существуют два способа применения градиентов в NightVue:
     </p>
     <ol class="pl-2">
       <li>
         Применять зарезервированные классы к HTML-элементам,
       </li>
       <li>
-        Использовать пользовательский миксин <code>@linear-gradient()</code>,
+        Применять пользовательский миксин <code>@linear-gradient()</code>.
       </li>
     </ol>
     <Heading
       :tag="'h3'"
-      :id="'color-tags'"
+      :id="'gradients-tags'"
       :title="'Зарезервированные классы градиентов в HTML'" />
     <p>
       NightVue автоматически генерирует соответствующий класс вида <code>gradient-${name}</code> при добавлении градиента в карту <code>$gradients</code>. Так, на основе четырёх примеров выше, вам доступны классы <code>gradient-primary_success</code>, <code>gradient-primary-l2_primary</code>, <code>gradient-red_yellow_blue</code> и <code>gradient-info_transparent</code>. Вы можете добавить сгенерированный класс к любому HTML элементу и это применит к нему соотвествующие стили.
     </p>
-    
+    <CodeExample :language="'css'">
+      <template v-slot:snippet>
+        {{ codeExamples.gradients.gradientClassnames }}
+      </template>
+    </CodeExample>
+    <p>
+      Как и в случае с цветами, мы рекомендуем использовать этот метод чаще, так как это уменьшает количество новых классов и, соответственно, количество скомпилированного кода. Особенно это полезно в ситуациях, когда блок статичен, т.е. к нему не планируется применять селекторы <code>:hover</code>, <code>:focus</code> или различные модификаторы.
+    </p>
+    <Heading
+      :tag="'h3'"
+      :id="'gradients-mixin'"
+      :title="'Использование миксина @linear-gradient()'" />
+    <p>
+
+    </p>
   </section>
 </template>
 
