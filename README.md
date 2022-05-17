@@ -110,7 +110,7 @@ $levels: (
 There are several ways to use colors in a project:
 
 * Apply reserved classnames to HTML elements,
-* Use the global Sass function`@color()` ,
+* Use the global Sass function `@color()`,
 * Use the built-in Sass `map.get()` module to access color maps directly.
 
 Practice shows that most often there is a need to change the color of the block, the color of the text and the fill background of the SVG element. For these purposes, NightVue reserves a number of classes `bg-${color}`, `clr-${color}` and `fill-${color}`. Any color from the above cards can be substituted into the `${color}` variable. Optionally, you can specify the `-light-${level}` or `-dark-${level}` modifier to refine the color level. Here's what it looks like:
@@ -132,24 +132,35 @@ Practice shows that most often there is a need to change the color of the block,
 To apply colors in a stylesheet, the `@color($name, $style, $rate)` global function has been prepared, which returns the color specified by the arguments. The `$name` argument will be the name of a color from any of the available maps - `$colors`, `$grays`, and `$theme-colors`. The following arguments are optional and indicate the level deviation of the selected color. Possible `$style` arguments are 'light' and 'dark'. Any of the levels of the $levels map is substituted into the `$rate` argument.
 ```
 .selector {
-  box-shadow: 1px 1px 4px color('primary'); // #682CAB
+  box-shadow: 1px 1px 4px color('primary');
 }
 
 .selector {
-  border-color: color('brown', light, 4); // #9b8076
+  border-color: color('brown', light, 4);
 }
 
 .selector {
   text-decoration: underline;
-  text-decoration-color: color('gray-6'); // #cccccc
+  text-decoration-color: color('gray-6');
 }
 
 .selector {
-  background-color: color('secondary'); // #2196F3
-  color: color('white'); // #ffffff
+  background-color: color('secondary');
+  color: color('white');
 
   &:hover {
-    background-color: color('secondary', light, 2); // #42a6f5
+    background-color: color('secondary', light, 2);
   }
+}
+```
+Finally, you can use the built-in Sass `map.get()` module to directly access the `$colors`, `$grays`, `$theme-colors`, and `$levels` maps. We do, however, recommend using our global function, as it do exactly what you intend to do yourself. But the choice, of course, is yours.
+```
+.selector {
+  background-color: map-get($colors, 'orange');
+  color: map-get($theme-colors, 'secondary');
+}
+
+.selector {
+  background-color: lighten(map-get($theme-colors, 'danger'), map-get($levels, 2));
 }
 ```
