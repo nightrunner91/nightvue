@@ -46,6 +46,8 @@ npm run lint --fix
 ## Colors
 
 Working with colors in NightVue will be familiar to a Booststrap user. In general, the systems are similar, but there are small differences that an experienced developer will surely determine on their own. The `$colors` map located in the `_varaibles.scss` file has 12 standard colors. Based on them, you can customize the colors of the theme, which will be discussed later.
+
+### Color maps
 ```
 $colors: (
   'red':       #F44336,
@@ -100,6 +102,9 @@ $levels: (
   5: 30%,
 );
 ```
+
+### Color usage
+
 There are several ways to use colors in a project:
 
 * Apply reserved classes to HTML elements,
@@ -121,11 +126,28 @@ Practice shows that most often there is a need to change the color of the block,
 <svg class="fill-secondary">
   <use xlink:href="#icon" />
 </svg>
+```
+To apply colors in a style sheet, the `@color($name, $style, $rate)` global function has been prepared, which returns the color specified by the arguments. The `$name` argument will be the name of a color from any of the available maps - `$colors`, `$grays`, and `$theme-colors`. The following arguments are optional and indicate the level deviation of the selected color. Possible `$style` arguments are 'light' and 'dark'. Any of the levels of the $levels map is substituted into the $rate argument.
+```
+.selector {
+  box-shadow: 1px 1px 4px color('primary');
+}
 
-<div class="bg-gray-1"></div>
-<div class="bg-gray-2"></div>
-<div class="bg-gray-3"></div>
-...
-<div class="bg-gray-9"></div>
-<div class="bg-gray-10"></div>
+.selector {
+  border-color: color('brown', light, 4);
+}
+
+.selector {
+  text-decoration: underline;
+  text-decoration-color: color('gray-6');
+}
+
+.selector {
+  background-color: color('secondary');
+  color: color('white');
+
+  &:hover {
+    background-color: color('secondary', light, 2);
+  }
+}
 ```
