@@ -45,9 +45,11 @@ npm run lint --fix
 
 ## Colors
 
-Working with colors in NightVue will be familiar to a Booststrap user. In general, the systems are similar, but there are small differences that an experienced developer will surely determine on their own. The `$colors` map located in the `_varaibles.scss` file has 12 standard colors. Based on them, you can customize the colors of the theme, which will be discussed later.
+Working with colors in NightVue will be familiar to a Booststrap user. In general, the systems are similar, but there are small differences that an experienced developer will surely determine on their own.
 
 ### Color maps
+
+The `$colors` map located in the `_varaibles.scss` file has 12 standard colors. Based on them, you can customize the colors of the theme, which will be discussed later.
 ```
 $colors: (
   'red':       #F44336,
@@ -79,7 +81,7 @@ $grays: (
   'black':     #000000
 );
 ```
-Working with the standard color library is not always convenient and appropriate. As a rule, projects use a set of semantically named colors compiled from a library. The `$theme-colors` map lists such colors and is also located in the `_varaibles.scss` file. By default, it describes the widely used scheme of 8 colors. You can rename them, delete them or add new ones.
+Working with the standard color library is not always convenient and appropriate. Usually, delevlopers use a set of semantically named colors compiled from a library. The `$theme-colors` map lists such colors and is also located in the `_varaibles.scss` file. By default, it describes the widely used scheme of 8 colors.
 ```
 $theme-colors: (
   'primary':    map-get($colors, 'purple'),
@@ -107,11 +109,11 @@ $levels: (
 
 There are several ways to use colors in a project:
 
-* Apply reserved classes to HTML elements,
-* Use the `@color()` global function,
+* Apply reserved classnames to HTML elements,
+* Use the global Sass function`@color()` ,
 * Use the built-in Sass `map.get()` module to access color maps directly.
 
-Practice shows that most often there is a need to change the color of the block, the color of the text and the fill background of the SVG element. For these purposes, NightVue reserves a number of classes `bg-${color}`, `clr-${color}` and `fill-${color}` to give the desired color to the background, text and fill of the SVG element, respectively. Any color from the above cards can be substituted into the `${color}` variable. Optionally, you can specify the `-light-${level}` or `-dark-${level}` modifier to refine the color level. Here's what it looks like:
+Practice shows that most often there is a need to change the color of the block, the color of the text and the fill background of the SVG element. For these purposes, NightVue reserves a number of classes `bg-${color}`, `clr-${color}` and `fill-${color}`. Any color from the above cards can be substituted into the `${color}` variable. Optionally, you can specify the `-light-${level}` or `-dark-${level}` modifier to refine the color level. Here's what it looks like:
 ```
 <div class="bg-red"></div>
 <div class="bg-red-light-3"></div>
@@ -127,27 +129,27 @@ Practice shows that most often there is a need to change the color of the block,
   <use xlink:href="#icon" />
 </svg>
 ```
-To apply colors in a style sheet, the `@color($name, $style, $rate)` global function has been prepared, which returns the color specified by the arguments. The `$name` argument will be the name of a color from any of the available maps - `$colors`, `$grays`, and `$theme-colors`. The following arguments are optional and indicate the level deviation of the selected color. Possible `$style` arguments are 'light' and 'dark'. Any of the levels of the $levels map is substituted into the $rate argument.
+To apply colors in a stylesheet, the `@color($name, $style, $rate)` global function has been prepared, which returns the color specified by the arguments. The `$name` argument will be the name of a color from any of the available maps - `$colors`, `$grays`, and `$theme-colors`. The following arguments are optional and indicate the level deviation of the selected color. Possible `$style` arguments are 'light' and 'dark'. Any of the levels of the $levels map is substituted into the `$rate` argument.
 ```
 .selector {
-  box-shadow: 1px 1px 4px color('primary');
+  box-shadow: 1px 1px 4px color('primary'); // #682CAB
 }
 
 .selector {
-  border-color: color('brown', light, 4);
+  border-color: color('brown', light, 4); // #9b8076
 }
 
 .selector {
   text-decoration: underline;
-  text-decoration-color: color('gray-6');
+  text-decoration-color: color('gray-6'); // #cccccc
 }
 
 .selector {
-  background-color: color('secondary');
-  color: color('white');
+  background-color: color('secondary'); // #2196F3
+  color: color('white'); // #ffffff
 
   &:hover {
-    background-color: color('secondary', light, 2);
+    background-color: color('secondary', light, 2); // #42a6f5
   }
 }
 ```
