@@ -1,6 +1,5 @@
-<h1 align="center">NightVue</h1>
 <p align="center">
-  <img src="src/assets/images/presentation.svg" alt="Presentation" width="350" height="365">
+  <img src="src/assets/images/presentation.png" alt="Presentation" width="300" height="284">
 </p>
 
 # What is NightVue?
