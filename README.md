@@ -113,7 +113,7 @@ There are several ways to use colors in a project:
 * Use the global Sass function `@color()`,
 * Use the built-in Sass `map.get()` module to access color maps directly.
 
-Practice shows that most often there is a need to change the color of the block, the color of the text and the fill background of the SVG element. For these purposes, NightVue reserves a number of classes `bg-${color}`, `clr-${color}` and `fill-${color}`. Any color from the above cards can be substituted into the `${color}` variable. Optionally, you can specify the `-light-${level}` or `-dark-${level}` modifier to refine the color level. Here's what it looks like:
+Practice shows that most often there is a need to change the color of the block, the color of the text and the fill background of the SVG element. For these purposes, NightVue reserves a number of classes `bg-${color}`, `clr-${color}` and `fill-${color}`. Any color from the above maps can be substituted into the `${color}` variable. Optionally, you can specify the `-light-${level}` or `-dark-${level}` modifier to refine the color brightness level. Here's what it looks like:
 ```
 <div class="bg-red"></div>
 <div class="bg-red-light-3"></div>
