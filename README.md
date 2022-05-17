@@ -1,4 +1,4 @@
-## How to use it?
+# How to use it?
 
 Clone repo and install dependencies
 
@@ -25,3 +25,5 @@ Test errors
 npm run lint
 npm run lint --fix
 ```
+
+# Documentation
