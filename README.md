@@ -17,7 +17,7 @@ Front-end developers who don't like rewriting the built-in styling solutions of 
 ### Who won't it suit?
 Front-end developers who need a base of ready-made UI solutions to quickly start developing typed web interfaces. Or those who are used to this approach. In this case, our recommendation would be to use popular solutions like [BootstrapVue](https://bootstrap-vue.org/), [Vuetify](https://vuetifyjs.com/en/), [Vue Material](https://www.creative-tim.com/vuematerial/), or whatever you like. In any case, we advise you to go over the detailed documentation prepared to get acquainted with the functionality of our framework.
 
-# How to use it?
+# Getting Started
 
 Clone repo and install dependencies
 ```
@@ -40,3 +40,5 @@ npm run lint --fix
 
 # Documentation
 
+* [Colors](#colors)
+* [Gradients](#gradients)
