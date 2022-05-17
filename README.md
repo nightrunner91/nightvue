@@ -2,7 +2,9 @@
   <img src="src/assets/images/logo.png" alt="Bootstrap logo" width="200" height="200">
 </p>
 
-<h3 align="center">NightVue</h3>
+<h1 align="center">
+  <span style="color: red;">NightVue</span>
+</h1>
 
 <p align="center">
   Sleek, intuitive, and powerful front-end framework for faster and easier web development.
