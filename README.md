@@ -169,7 +169,7 @@ Finally, you can use the built-in Sass `map.get()` module to directly access the
 
 Working with linear gradients in CSS can be awkward at times. To do this, NightVue has prepared tools for you to simplify this process. Working with gradients is not much different from working with colors, which we talked about in the previous section. For details about the syntax and features of CSS gradients, see the MDN documentation.
 
-## Gradients map
+### Gradients map
 
 You have at your disposal the `$gradients` gradient map located in the `_varaibles.scss` file. By default, it provides four gradients as an example:
 ```
@@ -256,3 +256,9 @@ As output, the mixin generates code that includes the default color for browsers
   background: linear-gradient(90deg, #009688, transparent);
 }
 ```
+### Gradients usage
+
+There are two ways to apply gradients in NightVue:
+
+* Apply reserved classnames to HTML elements,
+* Apply a custom `@linear-gradient()` mixin.
