@@ -60,3 +60,43 @@ $colors: (
   'purple':    #682CAB
 );
 ```
+Also you have achromatic list of 12 colors, where the extreme colors are white and black, and in the interval between them - shades of gray, differing in brightness. The length of this row can be changed by editing the `$shadesNum: 10` variable in the `_varaibles.scss` file. The mixin will automatically generate the specified number of intermediate colors in the `$grays` map.
+```
+$grays: (
+  'white':     #ffffff,
+  'gray-1':    #eaeaea,
+  'gray-2':    #d5d5d5,
+  'gray-3':    #bfbfbf,
+  'gray-4':    #aaaaaa,
+  'gray-5':    #959595,
+  'gray-6':    #cccccc,
+  'gray-7':    #6a6a6a,
+  'gray-8':    #555555,
+  'gray-9':    #404040,
+  'gray-10':   #2b2b2b,
+  'black':     #000000
+);
+```
+Working with the standard color library is not always convenient and appropriate. As a rule, projects use a set of semantically named colors compiled from a library. The `$theme-colors` map lists such colors and is also located in the `_varaibles.scss` file. By default, it describes the widely used scheme of 8 colors. You can rename them, delete them or add new ones.
+```
+$theme-colors: (
+  'primary':    map-get($colors, 'purple'),
+  'secondary':  map-get($colors, 'blue'),
+  'success':    map-get($colors, 'green'),
+  'info':       map-get($colors, 'teal'),
+  'warning':    map-get($colors, 'yellow'),
+  'danger':     map-get($colors, 'red'),
+  'light':      map-get($shades, 'gray-2'),
+  'dark':       map-get($shades, 'gray-8'),
+);
+```
+Modifiers are applied to each of the colors in the library to change their brightness. Thanks to this, the color palette is noticeably expanded. This is achieved using Sass mixins to lighten or darken colors using the built-in Sass `mix()` function. The number of levels and their values can be adjusted in the $levels map in the `_varaibles.scss` file. The mixin will automatically generate the required number of levels, at each of which it will lighten or darken the base color by the specified value. The default setting is 5 steps with 5% steps.
+```
+$levels: (
+  1: 10%,
+  2: 15%,
+  3: 20%,
+  4: 25%,
+  5: 30%,
+);
+```
