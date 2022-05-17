@@ -212,9 +212,9 @@ $gradients: (
   ),
 );
 ```
-Our recommendation would be to name the gradients in this map like this: `{color1}_{color2}`, i.e., through an underscore. So, the gradient called primary_success speaks for itself. If you need to use a lightened or darkened color in the gradient, you can add the prefix `-l${level}` or `-d${level}` to the color name, respectively. For example, `primary-l3_primary` is a gradient from the primary color to the primary color, clarified by three levels. Of course, you are free to name the gradients whatever you like, this is only a recommendation.
+Our recommendation would be to name the gradients in this map like this: `{color1}_{color2}`, i.e., through an underscore. So, the gradient called `primary_success` speaks for itself. If you need to use a lightened or darkened color in the gradient, you can add the prefix `-l${level}` or `-d${level}` to the color name, respectively. For example, `primary-l3_primary` is a gradient from the primary color to the primary color, clarified by three levels. Of course, you are free to name the gradients whatever you like, this is only a recommendation.
 
-Let's take a closer look at a single gradient. To write your own, follow the following structure:
+Let's take a closer look at a single gradient. To write your own, follow the structure:
 ```
 gradientName: (
   // Gradient direction (keyword | angle)
@@ -229,10 +229,10 @@ gradientName: (
 ```
 You can substitute in the direction parameter:
 
-* Keyword: to top, to top right, to right, to bottom right, to bottom, to bottom left, to left, to left top,
-* Numeric value in deg, rad, grad, or turn.
+* **Keyword**: to top, to top right, to right, to bottom right, to bottom, to bottom left, to left, to left top,
+* **Numeric value** in deg, rad, grad, or turn.
 
-The fallback and list parameters must be filled with colors from the available $colors, $grays, or $theme-colors color maps using the built-in Sass map-get() module.
+The **fallback** and **list** parameters must be filled with colors from the available `$colors`, `$grays`, or `$theme-colors` color maps using the built-in Sass `map-get()` module.
 
 As output, the mixin generates code that includes the default color for browsers that do not support linear gradients and modern syntax. The gradients from our examples after compilation looks like this:
 ```
