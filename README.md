@@ -164,3 +164,95 @@ Finally, you can use the built-in Sass `map.get()` module to directly access the
   background-color: lighten(map-get($theme-colors, 'danger'), map-get($levels, 2));
 }
 ```
+
+## Gradients
+
+Working with linear gradients in CSS can be awkward at times. To do this, NightVue has prepared tools for you to simplify this process. Working with gradients is not much different from working with colors, which we talked about in the previous section. For details about the syntax and features of CSS gradients, see the MDN documentation.
+
+## Gradients map
+
+You have at your disposal the `$gradients` gradient map located in the `_varaibles.scss` file. By default, it provides four gradients as an example:
+```
+$gradients: (
+  primary_success: (
+    direction: 145deg,
+    fallback: map-get($theme-colors, 'primary'),
+    list: (
+      lighten(map-get($theme-colors, 'primary'), map-get($levels, 2)) 10%,
+      lighten(map-get($theme-colors, 'success'), map-get($levels, 1)) 80%
+    )
+  ),
+
+  primary-l3_primary: (
+    direction: to bottom,
+    fallback: map-get($theme-colors, 'primary'),
+    list: (
+      map-get($theme-colors, 'primary'),
+      lighten(map-get($theme-colors, 'primary'), map-get($levels, 2))
+    )
+  ),
+
+  red_yellow_blue: (
+    direction: to right,
+    fallback: map-get($colors, 'red'),
+    list: (
+      map-get($colors, 'red'),
+      map-get($colors, 'yellow'),
+      map-get($colors, 'blue')
+    )
+  ),
+
+  info_transparent: (
+    direction: 90deg,
+    fallback: map-get($theme-colors, 'info'),
+    list: (
+      map-get($theme-colors, 'info'),
+      transparent
+    )
+  ),
+);
+```
+Our recommendation would be to name the gradients in this map like this: `{color1}_{color2}`, i.e., through an underscore. So, the gradient called primary_success speaks for itself. If you need to use a lightened or darkened color in the gradient, you can add the prefix `-l${level}` or `-d${level}` to the color name, respectively. For example, `primary-l3_primary` is a gradient from the primary color to the primary color, clarified by three levels. Of course, you are free to name the gradients whatever you like, this is only a recommendation.
+
+Let's take a closer look at a single gradient. To write your own, follow the following structure:
+```
+gradientName: (
+  // Gradient direction (keyword | angle)
+  direction: String,
+
+  // Color by default for unsupported browsers
+  fallback: String,
+
+  // List of colors in the gradient, separated by a comma
+  list: ( String, String, String... )
+),
+```
+You can substitute in the direction parameter:
+
+* Keyword: to top, to top right, to right, to bottom right, to bottom, to bottom left, to left, to left top,
+* Numeric value in deg, rad, grad, or turn.
+
+The fallback and list parameters must be filled with colors from the available $colors, $grays, or $theme-colors color maps using the built-in Sass map-get() module.
+
+As output, the mixin generates code that includes the default color for browsers that do not support linear gradients and modern syntax. The gradients from our examples after compilation looks like this:
+```
+.gradient-primary_success {
+  background: #682CAB;
+  background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+}
+
+.gradient-primary-l3_primary {
+  background: #682CAB;
+  background: linear-gradient(to bottom, #682CAB, #9b65d8);
+}
+
+.gradient-red_yellow_blue {
+  background: #F44336;
+  background: linear-gradient(to right, #F44336, #FFEE58, #2196F3);
+}
+
+.gradient-info_transparent {
+  background: #009688;
+  background: linear-gradient(90deg, #009688, transparent);
+}
+```
