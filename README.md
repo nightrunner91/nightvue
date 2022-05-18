@@ -38,10 +38,23 @@ npm run lint
 npm run lint --fix
 ```
 
+# File Structure
+
 # Documentation
 
+* [Layout](#layout)
 * [Colors](#colors)
-* [Gradients](#gradients)
+* [Typography](#typography)
+* [Icons](#icons)
+* [Spacing](#spacing)
+* [Sizing](#sizing)
+* [Display](#display)
+* [Position](#position)
+* [Shadows](#shadows)
+* [Radius](#radius)
+* [Transitions](#transitions)
+* [Opacity](#opacity)
+* [Z-index](#zindex)
 
 ## Colors
 
