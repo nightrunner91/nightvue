@@ -11,6 +11,7 @@ NightVue is build for Front-end developers who don't like rewriting the built-in
 
 # What's Included? 📦
 
+**Modules:**
 * vue.js v2.6.11
 * vue-cli v.4.5.0
 * vuex v3.4.0
@@ -19,8 +20,20 @@ NightVue is build for Front-end developers who don't like rewriting the built-in
 * eslint v6.7.2
 * svg-sprite-loader v6.0.11
 * lodash v4.17.21
+* babel 10.1.0
 * vue2-touch-events v3.2.2
 * vue-waves-effect v1.0.0
+
+**Features:**
+* Hot-reload dev server
+* Well organized file structure
+* Bunch of Scss mixins and functions
+* Router layout support
+* Flexbox grid
+* Normalize.css
+* SVG sprite loader
+* Images loader
+* Fonts loader
 
 # Getting Started 🖱
 
