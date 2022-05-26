@@ -1,6 +1,30 @@
 // ====== //
 // COLORS //
 // ====== //
+
+/// Function that returns color from maps $colors, $grays, $theme-colors
+/// located in _varaibles.scss file
+///
+/// @author: nightrunner91
+/// 
+/// @docs: https://github.com/nightrunner91/nightvue#color-usage
+///
+/// @param $name:  { String }, [color name, required]
+/// @param $style: { String }, [light | dark]
+/// @param $rate:  { Number }, [1...5 (based on $levels map)]
+/// 
+/// @example:
+///   box-shadow: 1px 1px 4px color('primary');
+///   border-color: color('brown', light, 4);
+///   background-color: color('secondary');
+///   color: color('white');
+///
+/// @output
+///   box-shadow: 1px 1px 4px #682CAB;
+///   border-color: #9b8076;
+///   background-color: #2196F3;
+///   color: #ffffff;
+
 @function color($name, $style: false, $rate:false) {
   $targetMap: $colors;
   @if map-has-key($theme-colors, $name) {

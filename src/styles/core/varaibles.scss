@@ -1,6 +1,7 @@
-// ========== // 
-// TYPOGRAPHY // 
-// ========== // 
+// ========== //
+// TYPOGRAPHY //
+// ========== //
+
 $font-families: (
   base: "Onest",
   headings: "Onest",
@@ -71,9 +72,10 @@ $letter-spacings: (
 );
 
 
-// ======== // 
+// ======== //
 // HEADINGS //
-// ======== // 
+// ======== //
+
 $headings-fz: (
   h1: 4.5rem,
   h2: 2.5rem,
@@ -93,9 +95,10 @@ $headings-breakepoint: 'sm'; // on which breakpoint headings will have lowered f
 $headings-decrease: 0.75; // ratio of how lower will be font-size for headings after breakpoint
 
 
-// ======== // 
-// DISPLAYS // 
-// ======== // 
+// ======== //
+// DISPLAYS //
+// ======== //
+
 $displays-fz: (
   display-1: 74px,
   display-2: 62px,
@@ -114,8 +117,9 @@ $displays-decrease: 0.75; // ratio of how lower will be font-size for displays a
 
 
 // ======= //
-// SPACING // 
-// ======= // 
+// SPACING //
+// ======= //
+
 $spacers: (
   0: 0,
   25: 0.25rem,
@@ -132,7 +136,8 @@ $spacers: (
 
 // ====== //
 // COLORS //
-// ====== // 
+// ====== //
+
 // List of default colors
 $colors: (
   'red':       #F44336,
@@ -184,6 +189,7 @@ $levels: (
 // ========= //
 // GRADIENTS //
 // ========= //
+
 $gradients: (
   primary_success: (
     direction: 145deg,
@@ -223,9 +229,10 @@ $gradients: (
   ),
 );
 
-// ==== // 
-// GRID // 
-// ==== // 
+// ==== //
+// GRID //
+// ==== //
+
 // Base grid settings
 $num-cols:           12;
 $gutter-width:       1rem;
@@ -262,19 +269,21 @@ $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 
 
 // ===== //
-// ICONS // 
-// ===== // 
+// ICONS //
+// ===== //
 $icon-sizes: 18, 24, 36, 48, 64;
 
-// ======= // 
-// SHADOWS // 
-// ======= // 
+
+// ======= //
+// SHADOWS //
+// ======= //
 
 
 
-// =========== // 
+// =========== //
 // TRANSITIONS //
-// =========== // 
+// =========== //
+
 $transition-speed: (
   shortest: .15s,
   shorter: .2s,
