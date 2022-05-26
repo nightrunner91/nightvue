@@ -77,6 +77,7 @@ npm run lint --fix
 
 * [Layout](#layout)
 * [Colors](#colors)
+* [Gradients](#gradients)
 * [Typography](#typography)
 * [Icons](#icons)
 * [Spacing](#spacing)
@@ -309,7 +310,7 @@ For each gradient in `$gradients` map NightVue generates classname `gradient-${n
   background: linear-gradient(90deg, #009688, transparent);
 }
 ```
-On other hand you can apply gradient to selector in SCSS by using prepared mixin `@linear-gradient($args...)`. It requires only one argument in which you should pass any gradient from `$gradients` map using build-in Sass module `map-get()`. Here is what it looks like:
+On other hand you can apply gradient to selector in SCSS by using prepared mixin `@linear-gradient($args...)`. It requires only one argument in which you should pass any gradient from `$gradients` map by using build-in Sass module `map-get()`. Here is what it looks like:
 ```
 .selector-1 {
   @include linear-gradient(map-get($gradients, 'primary_success'))
