@@ -3,8 +3,8 @@
 /// @link https://github.com/necolas/normalize.css
 @import "core/normalize";
 
-/// Globals include functions.scss, mixin.scss, varaibles
-/// Include this file in Vue components if you want to use global functions
+/// Globals include global varaibles, mixin and functions
+/// Include this file in Vue components if you want to use it locally
 @import "core/globals";
 
 /// Set of usefull helpers
@@ -28,15 +28,15 @@
 @import "core/helpers/gradient";
 @import "core/helpers/layout";
 
-// Elements
-// List of elements
+/// Elements
+// List of elements will be here...
 
-// Blocks
+/// Blocks
 @import "blocks/header";
 @import "blocks/footer";
 
-// Plugins
-// Additional plugins styles
+/// Plugins
+// Additional plugins styles will be here...
 
-// Animations
+/// Animations
 @import "animations/animations";
