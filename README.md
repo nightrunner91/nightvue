@@ -272,7 +272,7 @@ $gradients: (
   ),
 );
 ```
-Our recommendation would be to name the gradients in this map like this: `{color1}_{color2}`, i.e., through an underscore. So, the gradient called `primary_success` speaks for itself. If you need to use a lightened or darkened color in the gradient, you can add the prefix `-light-${level}` or `-dark-${level}` to the color name, respectively. For example, `primary-l3_primary` is a gradient from the primary color to the primary color, clarified by three levels. Of course, you are free to name the gradients whatever you like, this is only a recommendation.
+Our recommendation would be to name the gradients in this map like this: `{color1}_{color2}`, i.e., through an underscore. So, the gradient called `primary_success` speaks for itself. If you need to use a lightened or darkened color in the gradient, you can add the prefix `-light-${level}` or `-dark-${level}` to the color name, respectively. For example, `primary-light-3_primary` is a gradient from the primary color to the primary color, clarified by three levels. Of course, you are free to name the gradients whatever you like, this is only a recommendation.
 
 Let's take a closer look at a single gradient. To write your own, follow the structure:
 ```
