@@ -58,19 +58,18 @@ npm run lint --fix
 │   ├── router
 │       index.js
 │   ├── store
-│       ├── modules
+│       └── modules
 │       index.js
 │   ├── styles
 │       ├── animations
 │       ├── blocks
 │       ├── elements
-│       ├── plugins
+│       └── plugins
 │       style.scss
 │   └── views
 │       Home.vue
 │   App.vue
 │   main.js
-└── ...
 ```
 
 # Documentation 📖
