@@ -47,7 +47,6 @@ npm run lint --fix
 
 ```
 .
-├── dist
 ├── public
 ├── src
 │   ├── assets
@@ -57,6 +56,7 @@ npm run lint --fix
 │   ├── components
 │   ├── layouts
 │   ├── router
+│       └── modules
 │       index.js
 │   ├── store
 │       └── modules
