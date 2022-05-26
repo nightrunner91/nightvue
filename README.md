@@ -1,3 +1,4 @@
+<p></p>
 <p align="center">
   <img src="src/assets/images/presentation.png" alt="Presentation" width="300" height="284">
 </p>
