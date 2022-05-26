@@ -79,7 +79,7 @@ npm run lint --fix
 * [Opacity](#opacity)
 * [Z-index](#zindex)
 
-## 🔵 Colors
+## 🔸 Colors
 
 Working with colors in NightVue will be familiar to a Booststrap user. In general, the systems are similar, but there are small differences that an experienced developer will surely determine on their own.
 
@@ -201,7 +201,7 @@ Finally, you can use the built-in Sass `map.get()` module to directly access the
 }
 ```
 
-## 🔵 Gradients
+## 🔸 Gradients
 
 Working with linear gradients in CSS can be awkward at times. To do this, NightVue has prepared tools for you to simplify this process. Working with gradients is not much different from working with colors, which we talked about in the previous section. For details about the syntax and features of CSS gradients, see the MDN documentation.
 
