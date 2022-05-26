@@ -51,7 +51,7 @@ Build your project
 ```
 npm run build
 ```
-Test and/or fix errors
+Test or fix errors
 ```
 npm run lint
 npm run lint --fix

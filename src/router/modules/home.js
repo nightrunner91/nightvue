@@ -2,7 +2,7 @@ export default [
   {
     path: '/home',
     name: 'Home',
-    component: () => import('@/layouts/AppRouterView.vue'),
+    component: () => import('../RouterView.vue'),
     children: [
       {
         path: '/',
