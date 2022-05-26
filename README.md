@@ -229,7 +229,7 @@ $gradients: (
     )
   ),
 
-  primary-l3_primary: (
+  primary-light-3_primary: (
     direction: to bottom,
     fallback: map-get($theme-colors, 'primary'),
     list: (
@@ -258,7 +258,7 @@ $gradients: (
   ),
 );
 ```
-Our recommendation would be to name the gradients in this map like this: `{color1}_{color2}`, i.e., through an underscore. So, the gradient called `primary_success` speaks for itself. If you need to use a lightened or darkened color in the gradient, you can add the prefix `-l${level}` or `-d${level}` to the color name, respectively. For example, `primary-l3_primary` is a gradient from the primary color to the primary color, clarified by three levels. Of course, you are free to name the gradients whatever you like, this is only a recommendation.
+Our recommendation would be to name the gradients in this map like this: `{color1}_{color2}`, i.e., through an underscore. So, the gradient called `primary_success` speaks for itself. If you need to use a lightened or darkened color in the gradient, you can add the prefix `-light-${level}` or `-dark-${level}` to the color name, respectively. For example, `primary-l3_primary` is a gradient from the primary color to the primary color, clarified by three levels. Of course, you are free to name the gradients whatever you like, this is only a recommendation.
 
 Let's take a closer look at a single gradient. To write your own, follow the structure:
 ```
@@ -280,31 +280,50 @@ You can pass in the direction parameter:
 
 The **fallback** and **list** parameters must be filled with colors from the available `$colors`, `$grays`, or `$theme-colors` color maps using the built-in Sass `map-get()` module.
 
-As output, the mixin generates code that includes the default color for browsers that do not support linear gradients and modern syntax. The gradients from our examples after compilation looks like this:
-```
-.gradient-primary_success {
-  background: #682CAB;
-  background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
-}
+As output, the mixin generates code that includes the default color for browsers that do not support linear gradients and modern syntax.
 
-.gradient-primary-l3_primary {
-  background: #682CAB;
-  background: linear-gradient(to bottom, #682CAB, #9b65d8);
-}
-
-.gradient-red_yellow_blue {
-  background: #F44336;
-  background: linear-gradient(to right, #F44336, #FFEE58, #2196F3);
-}
-
-.gradient-info_transparent {
-  background: #009688;
-  background: linear-gradient(90deg, #009688, transparent);
-}
-```
 ### Gradients usage
 
 There are two ways to apply gradients in NightVue:
 
 * Apply reserved classnames to HTML elements,
 * Apply a custom `@linear-gradient()` mixin.
+
+For each gradient in `$gradients` map NightVue generates classname `gradient-${name}`. You can apply this classname to element you want and this will give this element selected styles. Here are generated classnames from examples above:
+
+```
+.gradient-primary_success {
+  background: #682cab;
+  background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+}
+.gradient-primary-light-3_primary {
+  background: #682cab;
+  background: linear-gradient(180deg, #682cab, #9b65d8);
+}
+.gradient-red_yellow_blue {
+  background: #f44336;
+  background: linear-gradient(90deg, #f44336, #ffee58, #2196f3);
+}
+.gradient-info_transparent {
+  background: #009688;
+  background: linear-gradient(90deg, #009688, transparent);
+}
+```
+On other hand you can apply gradient to selector in SCSS by using prepared mixin `@linear-gradient($args...)`. It requires only one argument in which you should pass any gradient from `$gradients` map using build-in Sass module `map-get()`. Here is what it looks like:
+```
+.selector-1 {
+  @include linear-gradient(map-get($gradients, 'primary_success'))
+}
+
+.selector-2 {
+  @include linear-gradient(map-get($gradients, 'primary-light-3_primary'))
+}
+
+.selector-3 {
+  @include linear-gradient(map-get($gradients, 'red_yellow_blue'))
+}
+
+.selector-4 {
+  @include linear-gradient(map-get($gradients, 'info_transparent'))
+}
+```
