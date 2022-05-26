@@ -14,8 +14,8 @@ export const eventBus = new Vue()
 
 // Import and regitser components
 import appLayout from '@/layouts/AppLayout'
-import appHeader from '@/core/components/Header'
-import appFooter from '@/core/components/Footer'
+import appHeader from '@/components/Header'
+import appFooter from '@/components/Footer'
 import SvgIcon from '@/components/SvgIcon'
 
 import Waves from 'vue-waves-effect'

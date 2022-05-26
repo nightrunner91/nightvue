@@ -50,14 +50,24 @@ npm run lint --fix
 ├── public
 ├── src
 │   ├── assets
+│       ├── fonts
+│       ├── icons
+│       └── images
 │   ├── components
-│   ├── core
-│   ├── icons
 │   ├── layouts
 │   ├── router
+│       index.js
 │   ├── store
+│       ├── modules
+│       index.js
 │   ├── styles
+│       ├── animations
+│       ├── blocks
+│       ├── elements
+│       ├── plugins
+│       style.scss
 │   └── views
+│       Home.vue
 │   App.vue
 │   main.js
 └── ...
