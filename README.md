@@ -2,18 +2,18 @@
   <img src="src/assets/images/presentation.png" alt="Presentation" width="300" height="284">
 </p>
 
-# Introduction
+# Introduction 👋
 
 NightVue is a development framework for [Vue.js 2.x](https://ru.vuejs.org/v2/guide/). Its main feature is the absence of popular integrated components (buttons, forms, cards, dropdowns, modal windows, etc.) and the minimum number of preset styles. While many other frameworks offer ready-to-use UI solutions, NightVue gives you the maximum freedom to develop your own web interfaces. In fact, it is a set of useful tools for developers who like to do everything themselves. The ideological basis of the framework is the most useful utilities from [Bootstrap 4.x](https://getbootstrap.com/docs/4.6/getting-started/introduction/), many of which have been improved. NightVue uses best practices from [Material Design 2](https://material.io/) throughout. The framework is powered by [Vue CLI 4.x](https://cli.vuejs.org/), one of the most convenient tools for developing with Vue.js.
 
 NightVue is build for Front-end developers who don't like rewriting the built-in styling solutions of third-party frameworks and plugins. Those who prefer to develop "from scratch". NightVue provides much more freedom to write your own code than many other similar frameworks, as you will soon see. For those who need framework with ready-to-use UI solutions for quick start, we would recomend to use popular solutions like [BootstrapVue](https://bootstrap-vue.org/), [Vuetify](https://vuetifyjs.com/en/), [Vue Material](https://www.creative-tim.com/vuematerial/), or whatever you like. In any case, we advise you to go over the detailed documentation prepared to get acquainted with the functionality of our framework.
 
-# What's Included?
+# What's Included? 📦
 
 * vue.js v2.6.11
 * vue-cli v.4.5.0
 * vuex v3.4.0
-* vue Router v2.6.11
+* vue-router v2.6.11
 * axios v0.24.0
 * eslint v6.7.2
 * svg-sprite-loader v6.0.11
@@ -21,7 +21,7 @@ NightVue is build for Front-end developers who don't like rewriting the built-in
 * vue2-touch-events v3.2.2
 * vue-waves-effect v1.0.0
 
-# Getting Started
+# Getting Started 🖱
 
 Clone repo and install dependencies
 ```
@@ -42,7 +42,28 @@ npm run lint
 npm run lint --fix
 ```
 
-# Documentation
+# File Structure 📂
+
+```
+.
+├── dist
+├── public
+├── src
+│   ├── assets
+│   ├── components
+│   ├── core
+│   ├── icons
+│   ├── layouts
+│   ├── router
+│   ├── store
+│   ├── styles
+│   └── views
+│   App.vue
+│   main.js
+└── ...
+```
+
+# Documentation 📖
 
 * [Layout](#layout)
 * [Colors](#colors)

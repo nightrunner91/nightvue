@@ -1,11 +1,8 @@
 <template>
   <div>
-    <h1>Lorem</h1>
-    <h2>Lorem</h2>
-    <h3>Lorem</h3>
-    <h4>Lorem</h4>
-    <h5>Lorem</h5>
-    <h6>Lorem</h6>
+    <svg-icon
+      :icon="'link'"
+      class="fill-dark cursor-pointer" />
   </div>
 </template>
 

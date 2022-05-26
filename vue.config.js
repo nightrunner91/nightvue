@@ -8,7 +8,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  publicPath: '/app/',
+  publicPath: '/',
   devServer: {
     port: 1991,
   },
@@ -26,7 +26,7 @@ module.exports = {
       .rule('svg')
       .exclude.add(resolve('src/assets/icons'))
       .end()
-   
+
     config.module
       .rule('icons')
       .test(/\.svg$/)

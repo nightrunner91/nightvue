@@ -9,7 +9,7 @@ const routes = [
   {
     path: '/cabinet',
     redirect: '/cabinet/home',
-    name: 'Cabinet',
+    name: 'Home',
     component: () => import('../layouts/AppRouterView.vue'),
     children: [
       {

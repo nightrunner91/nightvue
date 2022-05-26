@@ -16,6 +16,7 @@ export const eventBus = new Vue()
 import appLayout from '@/layouts/AppLayout'
 import appHeader from '@/core/components/Header'
 import appFooter from '@/core/components/Footer'
+import SvgIcon from '@/components/SvgIcon'
 
 import Waves from 'vue-waves-effect'
 import 'vue-waves-effect/dist/vueWavesEffect.css'
@@ -23,6 +24,7 @@ import 'vue-waves-effect/dist/vueWavesEffect.css'
 Vue.component('app-layout', appLayout)
 Vue.component('app-header', appHeader)
 Vue.component('app-footer', appFooter)
+Vue.component('svg-icon', SvgIcon)
 
 Vue.use(Waves)
 Vue.use(Vue2TouchEvents)
