@@ -31,9 +31,6 @@ npm run lint
 npm run lint --fix
 ```
 
-<<<<<<< Updated upstream
-# File Structure
-=======
 # What's included?
 
 * Vue.js v2.6.11
@@ -45,7 +42,6 @@ npm run lint --fix
 * lodash v4.17.21
 * vue2-touch-events v3.2.2
 * vue-waves-effect v1.0.0
->>>>>>> Stashed changes
 
 # Documentation
 
