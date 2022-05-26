@@ -1,35 +1,42 @@
-// Core
+/// This will reset base browser styles
+/// It is crucial in each project nowadays
+/// @link https://github.com/necolas/normalize.css
 @import "core/normalize";
+
+/// Globals include functions.scss, mixin.scss, varaibles
+/// Include this file in Vue components if you want to use global functions
 @import "core/globals";
 
-@import "core/grid";
-@import "core/colors";
-@import "core/scrollbar";
-@import "core/spacing";
-@import "core/transitions";
-@import "core/radius";
-@import "core/typography";
-@import "core/fonts";
-@import "core/position";
-@import "core/display";
-@import "core/sizing";
-@import "core/icon";
-@import "core/opacity";
-@import "core/zindex";
-@import "core/helpers";
-@import "core/shadows";
-@import "core/gradient";
-@import "core/layout";
+/// Set of usefull helpers
+/// @link https://github.com/nightrunner91/nightvue#documentation-
+@import "core/helpers/grid";
+@import "core/helpers/colors";
+@import "core/helpers/scrollbar";
+@import "core/helpers/spacing";
+@import "core/helpers/transitions";
+@import "core/helpers/radius";
+@import "core/helpers/typography";
+@import "core/helpers/fonts";
+@import "core/helpers/position";
+@import "core/helpers/display";
+@import "core/helpers/sizing";
+@import "core/helpers/icon";
+@import "core/helpers/opacity";
+@import "core/helpers/zindex";
+@import "core/helpers/helpers";
+@import "core/helpers/shadows";
+@import "core/helpers/gradient";
+@import "core/helpers/layout";
 
 // Elements
-
+// List of elements
 
 // Blocks
 @import "blocks/header";
 @import "blocks/footer";
 
 // Plugins
-
+// Additional plugins styles
 
 // Animations
-@import "animations/animation";
+@import "animations/animations";

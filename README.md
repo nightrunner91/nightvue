@@ -77,6 +77,13 @@ npm run lint --fix
 │   ├── styles
 │       ├── animations
 │       ├── blocks
+│       ├── core
+│           └── helpers
+│           normalize.scss
+│           functions.scss
+│           globals.scss
+│           mixins.scss
+│           varaibles.scss
 │       ├── elements
 │       └── plugins
 │       style.scss
