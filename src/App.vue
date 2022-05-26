@@ -15,7 +15,7 @@ export default {
   components: {
     AppLayout,
   },
-  name: 'Home',
+  name: 'App',
   data() {
     return {
 
