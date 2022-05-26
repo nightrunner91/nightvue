@@ -27,8 +27,9 @@ NightVue is build for Front-end developers who don't like rewriting the built-in
 **Features:**
 * Hot-reload dev server
 * Well organized file structure
+* ESLint validator
 * Bunch of Scss mixins and functions
-* Router layout support
+* Router layouts support
 * Flexbox grid
 * Normalize.css
 * SVG sprite loader
