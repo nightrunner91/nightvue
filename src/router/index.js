@@ -1,28 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// Modules
+import home from './modules/home'
+
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', name: 'Home', redirect: '/cabinet' },
+  { path: '/', name: 'App', redirect: '/home' },
+
+  ...home,
 
   {
-    path: '/cabinet',
-    redirect: '/cabinet/dashboard',
-    name: 'Cabinet',
-    component: () => import('@/layouts/AppRouterView.vue'),
-    children: [
-      {
-        path: '/',
-        name: 'Dashboard',
-        component: () => import('@/views/Home.vue'),
-        meta: {
-          layout: 'AppLayoutDefault',
-          auth: true,
-          mobile: true,
-        },
-      },
-    ],
+    path: '*',
+    redirect: 'error-404',
   },
 ]
 
