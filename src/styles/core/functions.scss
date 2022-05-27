@@ -1,3 +1,45 @@
+@function spacer($val1, $val2: false, $val3: false, $val4: false) {
+  /// Function returns specified spacer value from $spacers map
+  /// located in _varaibles.scss file
+  ///
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  ///
+  /// @param $val1: { Number | String }, [spacer value, required]
+  /// @param $val2: { Number | String }, [spacer value]
+  /// @param $val3: { Number | String }, [spacer value]
+  /// @param $val4: { Number | String }, [spacer value]
+  ///
+  /// If you pass one $val it will return spacer value from $spacers map
+  /// If you pass two params it will return X and Y spacer values
+  /// If you pass four params it will return top, right, bottom and left spacer values
+  /// Possible variants of params by default are: 0, 25, 50, 75, 1, 2, 3, 4, 5 and auto
+  /// 
+  /// @example
+  ///   padding: spacer(2);
+  ///   padding-right: spacer(1);
+  ///   margin: spacer(3, auto);
+  ///   margin: spacer(50, auto, 2, 0);
+  ///
+  /// @output
+  ///   padding: 2rem;
+  ///   padding-right: 1rem;
+  ///   margin: 3rem auto;
+  ///   margin: .5rem auto 2rem 0;
+
+  @if ($val2 and $val4 == false) {
+    @return map-get($spacers, $val1) map-get($spacers, $val2);
+  }
+  @else if ($val2 and $val4) {
+    @return map-get($spacers, $val1) map-get($spacers, $val2) map-get($spacers, $val3) map-get($spacers, $val4);
+  }
+  @else {
+    @return map-get($spacers, $val1)
+  }
+};
+
+
 @function color($name, $style: false, $rate:false) {
   /// Function returns color from maps $colors, $grays, $theme-colors maps
   /// located in _varaibles.scss file
@@ -7,8 +49,8 @@
   /// @link https://github.com/nightrunner91/nightvue
   ///
   /// @param $name:  { String }, [color name, required]
-  /// @param $style: { String }, [light | dark]
-  /// @param $rate:  { Number }, [1...5 (based on $levels map)]
+  /// @param $style: { String }, [color style: light | dark]
+  /// @param $rate:  { Number }, [color rate: 1...5 (based on $levels map)]
   /// 
   /// @example
   ///   box-shadow: 1px 1px 4px color('primary');
@@ -43,12 +85,12 @@
   } @else {
     @return $color
   }
-}
+};
 
 
 @function radius($type) {
   @return map-get($radiuses, $type);
-}
+};
 
 
 @function shadow($name) {
@@ -58,4 +100,4 @@
   }
 
   @return map-get($targetMap, $name)
-}
+};

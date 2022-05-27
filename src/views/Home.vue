@@ -1,6 +1,8 @@
 <template>
   <div>
-
+    <div class="selector">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, assumenda reiciendis quas est fugit iure dolor ipsa voluptatum officiis molestias?
+    </div>
   </div>
 </template>
 

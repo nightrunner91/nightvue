@@ -1,12 +1,17 @@
-// ===================== // 
-// BASIC PAGE TYPOGRAPHY //
-// ===================== // 
+// ============================ // 
+// ====== GLOBAL SETTINGS ===== //
+// ============================ // 
 
 $base-fz: 16px; // ❗ CRUCIAL VALUE! A lot of things depends on it. Be aware.
 $base-lh: map-get($line-heights, 50);
 $base-fw: map-get($font-weights, 400);
 $base-mg: map-get($spacers, 1);
 $small-fz: 0.875; // ratio of how lower will be font-size for <small> tag
+
+
+// ======================== // 
+// ====== BODY STYLES ===== //
+// ======================== // 
 
 body {
   overflow-x: hidden;
@@ -21,6 +26,11 @@ body {
   &.body--locked { overflow-y: hidden }
 }
 
+
+// ================================ // 
+// ====== HEADINGS & DISPLAYS ===== //
+// ================================ //
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   display: block;
@@ -29,8 +39,41 @@ h1, h2, h3, h4, h5, h6,
   font-family: map-get($font-families, headings), sans-serif;
   font-weight: $headings-fw;
   line-height: $headings-lh;
-  color: color('gray-9')
+  color: color('gray-9');
 }
+
+@each $heading, $size in $headings-fz {
+  #{$heading},
+  .#{$heading} {
+    font-size: $size;
+
+    @if ($headings-breake) {
+      @media screen and (max-width: map-get($breakpoints, $headings-breakepoint)) {
+        font-size: $size * $headings-decrease
+      }
+    }
+  }
+}
+
+@each $display, $size in $displays-fz {
+  .#{$display} {
+    font-size: $size;
+    font-family: map-get($font-families, displays), sans-serif;
+    font-weight: $displays-fw;
+    line-height: $displays-lh;
+
+    @if ($displays-breake) {
+      @media screen and (max-width: map-get($breakpoints, $displays-breakepoint)) {
+        font-size: $size * $displays-decrease
+      }
+    }
+  }
+}
+
+
+// ======================== // 
+// ====== TEXT STYLES ===== //
+// ======================== //
 
 p,
 ul,
@@ -64,13 +107,13 @@ mark {
 }
 
 code, kbd, samp, pre {
-  @extend .small;
+  @include small();
   
   margin-bottom: $base-mg;
-  border-radius: radius('base');
   padding: .2em .5em;
+  border-radius: radius('base');
+  background-color: color('gray-1');
   white-space: nowrap;
-  background: color('gray-1');
   color: color('green');
 }
 
@@ -84,34 +127,6 @@ hr {
   border-bottom: 1px solid rgba(black, .15);
 }
 
-@each $heading, $size in $headings-fz {
-  #{$heading},
-  .#{$heading} {
-    font-size: $size;
-
-    @if ($headings-breake) {
-      @media screen and (max-width: map-get($breakpoints, $headings-breakepoint)) {
-        font-size: $size * $headings-decrease
-      }
-    }
-  }
-}
-
-@each $display, $size in $displays-fz {
-  .#{$display} {
-    font-size: $size;
-    font-family: map-get($font-families, displays), sans-serif;
-    font-weight: $displays-fw;
-    line-height: $displays-lh;
-
-    @if ($displays-breake) {
-      @media screen and (max-width: map-get($breakpoints, $displays-breakepoint)) {
-        font-size: $size * $displays-decrease
-      }
-    }
-  }
-}
-
 @mixin textStyles($breakpoint:null) {
   @each $lh, $value in $line-heights {
     .line-height#{$breakpoint}-#{$lh} { line-height: $value !important; }
@@ -119,20 +134,20 @@ hr {
   @each $align, $value in $text-aligns {
     .text#{$breakpoint}-#{$align} { text-align: $value !important; }
   }
-  @each $weight, $value in $font-weights {
-    .font-weight#{$breakpoint}-#{$weight} { font-weight: $value !important; }
-  }
-  @each $transform, $value in $text-transforms {
-    .text#{$breakpoint}-#{$transform} { text-transform: $value !important; }
-  }
-  @each $style, $value in $font-styles {
-    .font#{$breakpoint}-#{$style} { font-style: $value !important; }
-  }
   @each $decoration, $value in $text-decorations {
     .text#{$breakpoint}-#{$decoration} { text-decoration: $value !important; }
   }
   @each $wrap, $value in $text-wraps {
     .text#{$breakpoint}-#{$wrap} { white-space: $value !important; }
+  }
+  @each $transform, $value in $text-transforms {
+    .text#{$breakpoint}-#{$transform} { text-transform: $value !important; }
+  }
+  @each $weight, $value in $font-weights {
+    .font-weight#{$breakpoint}-#{$weight} { font-weight: $value !important; }
+  }
+  @each $style, $value in $font-styles {
+    .font#{$breakpoint}-#{$style} { font-style: $value !important; }
   }
   @each $spacing, $value in $letter-spacings {
     .spacing#{$breakpoint}-#{$spacing} { letter-spacing: $value !important; }
@@ -144,19 +159,6 @@ hr {
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
     @include textStyles('-' + $breakpoint);
-  }
-}
-
-.text-truncate {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.text-dotted {
-  &:after {
-    content: '…'
   }
 }
 

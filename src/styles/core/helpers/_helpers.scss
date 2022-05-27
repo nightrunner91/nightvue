@@ -18,16 +18,26 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 }
 
 
-// ======================== //
-// ===== Misc classes ===== //
-// ======================== // 
+// ============================== //
+// ===== Usefull classnames ===== //
+// ============================== //
 
 .no-select { user-select: none }
 .no-overflow { overflow: hidden }
 .no-events  { pointer-events: none }
 
-@mixin visibility($state) {
-  visibility: $state;
+.text-truncate {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
+.text-dotted {
+  &:after {
+    content: '…'
+  }
+}
+
 .visible { visibility: visible; }
 .invisible { visibility: hidden; }

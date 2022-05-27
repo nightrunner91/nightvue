@@ -21,7 +21,7 @@
 
   background: $fallback;
   background: linear-gradient($direction, $list);
-}
+};
 
 
 @mixin small() {
@@ -42,7 +42,7 @@
 
   font-size: $base-fz * $small-fz;
   line-height: $base-lh * $small-fz;
-}
+};
 
 
 @mixin animation($name, $duration, $delay, $count, $timing, $mode) {
@@ -53,7 +53,7 @@
   animation-delay: $delay;
   animation-iteration-count: $count;
   animation-direction: $mode;
-}
+};
 
 
 @mixin icon-size($d1, $d2:false) {
@@ -72,14 +72,14 @@
     min-height: $d1 + px !important;
     background-size: $d1 + px $d1 + px !important;
   }
-}
+};
 
 
 @mixin transition($property, $speed, $timing, $delay:0s) {
   transition: $property map-get($transition-speed, $speed) map-get($transition-timings, $timing) $delay
-}
+};
 
 
 @mixin complex-transition($args...) {
   transition: $args;
-}
+};
