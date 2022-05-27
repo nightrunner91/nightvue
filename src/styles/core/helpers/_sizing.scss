@@ -1,49 +1,23 @@
-$sizing-type: 'percentages'; // 'percentages' | 'sizes'
-
-$sizing-percentages: 100;
-$sizing-sizes: 25, 50, 75, 100;
-
 @mixin sizings($breakpoint:null) {
-  @if ($sizing-type == 'percentages') {
-    .w#{$breakpoint}-auto { width: auto !important }
-    .h#{$breakpoint}-auto { height: auto !important }
+  .w#{$breakpoint}-auto { width: auto !important }
+  .h#{$breakpoint}-auto { height: auto !important }
 
-    $i: 0;
-    @while $i <= $sizing-percentages {
-      .w#{$breakpoint}-#{$i} { width: unquote($i + '%') !important }
-      .maxw#{$breakpoint}-#{$i} { max-width: unquote($i + '%') !important }
-      .minw#{$breakpoint}-#{$i} { min-width: unquote($i + '%') !important }
-      .h#{$breakpoint}-#{$i} { height: unquote($i + '%') !important }
-      .maxh#{$breakpoint}-#{$i} { max-height: unquote($i + '%') !important }
-      .minh#{$breakpoint}-#{$i} { min-height: unquote($i + '%') !important }
+  $i: 0;
+  @while $i <= 100 {
+    .w#{$breakpoint}-#{$i} { width: unquote($i + '%') !important }
+    .maxw#{$breakpoint}-#{$i} { max-width: unquote($i + '%') !important }
+    .minw#{$breakpoint}-#{$i} { min-width: unquote($i + '%') !important }
+    .h#{$breakpoint}-#{$i} { height: unquote($i + '%') !important }
+    .maxh#{$breakpoint}-#{$i} { max-height: unquote($i + '%') !important }
+    .minh#{$breakpoint}-#{$i} { min-height: unquote($i + '%') !important }
 
-      .vw#{$breakpoint}-#{$i} { width: unquote($i + 'vw') !important }
-      .maxvw#{$breakpoint}-#{$i} { max-width: unquote($i + 'vw') !important }
-      .minvw#{$breakpoint}-#{$i} { min-width: unquote($i + 'vw') !important }
-      .vh#{$breakpoint}-#{$i} { height: unquote($i + 'vh') !important }
-      .maxvh#{$breakpoint}-#{$i} { max-height: unquote($i + 'vh') !important }
-      .minvh#{$breakpoint}-#{$i} { min-height: unquote($i + 'vh') !important }
-      $i: $i + 1;
-    }
-  } @else if ($sizing-type == 'sizes') {
-    .w#{$breakpoint}-auto { width: auto !important }
-    .h#{$breakpoint}-auto { height: auto !important }
-    
-    @each $percentage in $sizing-sizes {
-      .w#{$breakpoint}-#{$percentage} { width: unquote($percentage + '%') !important }
-      .maxw#{$breakpoint}-#{$percentage} { max-width: unquote($percentage + '%') !important }
-      .minw#{$breakpoint}-#{$percentage} { min-width: unquote($percentage + '%') !important }
-      .h#{$breakpoint}-#{$percentage} { height: unquote($percentage + '%') !important }
-      .maxh#{$breakpoint}-#{$percentage} { max-height: unquote($percentage + '%') !important }
-      .minh#{$breakpoint}-#{$percentage} { min-height: unquote($percentage + '%') !important }
-
-      .vw#{$breakpoint}-#{$percentage} { width: unquote($percentage + 'vw') !important }
-      .maxvw#{$breakpoint}-#{$percentage} { max-width: unquote($percentage + 'vw') !important }
-      .minvw#{$breakpoint}-#{$percentage} { min-width: unquote($percentage + 'vw') !important }
-      .vh#{$breakpoint}-#{$percentage} { height: unquote($percentage + 'vh') !important }
-      .maxvh#{$breakpoint}-#{$percentage} { max-height: unquote($percentage + 'vh') !important }
-      .minvh#{$breakpoint}-#{$percentage} { min-height: unquote($percentage + 'vh') !important }
-    }
+    .vw#{$breakpoint}-#{$i} { width: unquote($i + 'vw') !important }
+    .maxvw#{$breakpoint}-#{$i} { max-width: unquote($i + 'vw') !important }
+    .minvw#{$breakpoint}-#{$i} { min-width: unquote($i + 'vw') !important }
+    .vh#{$breakpoint}-#{$i} { height: unquote($i + 'vh') !important }
+    .maxvh#{$breakpoint}-#{$i} { max-height: unquote($i + 'vh') !important }
+    .minvh#{$breakpoint}-#{$i} { min-height: unquote($i + 'vh') !important }
+    $i: $i + 1;
   }
 }
 

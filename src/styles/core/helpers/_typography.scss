@@ -91,14 +91,14 @@ mark {
 }
 
 code, kbd, samp, pre {
-  @include radius(base);
   @extend .small;
   
   margin-bottom: $base-mg;
+  border-radius: radius('base');
   padding: .2em .5em;
   white-space: nowrap;
   background: color('gray-1');
-  color: color('green')
+  color: color('green');
 }
 
 hr {
@@ -109,33 +109,6 @@ hr {
   margin-bottom: $base-mg;
   border: none;
   border-bottom: 1px solid rgba(black, .15);
-}
-
-a {
-  @extend .d-inline-block;
-  @extend .position-relative;
-  @include transition(all, base, ease);
-
-  color: color('primary');
-  
-  &::before {
-    @extend .pseudoelem;
-    @include transition(opacity, base, standard);
-
-    bottom: .1em;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed rgba(map-get($theme-colors, primary), .5);
-  }
-
-  &:hover {
-    color: color('primary', light, 3);
-
-    &::before {
-      opacity: 0;
-    }
-  }
 }
 
 // ================== // 

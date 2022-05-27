@@ -6,8 +6,8 @@ $radiuses: (
   'zero': 0
 );
 
-@mixin radius($type) {
-  border-radius: map-get($radiuses, $type);
+@function radius($type) {
+  @return map-get($radiuses, $type);
 }
 
 @mixin makeRadius($breakpoint:null) {
