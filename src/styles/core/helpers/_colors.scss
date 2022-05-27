@@ -1,10 +1,28 @@
+/// This code will generate classnames from $colors, $grays and $theme-colors maps
+/// located in _varaibles.scss file
+///
+/// Each color will have unique classname with background-color, color and fill
+/// Beside that for each color in $colors and $theme-colors maps will be generated
+/// classnames with suffixes -light-${level} and -dark-${level} with brightened and darkened colors
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://github.com/nightrunner91/nightvue
+/// 
+/// @output
+///   .bg-red { background-color: #F44336 }
+///   .bg-gray-5 { background-color: #959595 }
+///   .bg-primary { background-color: #682CAB }
+///   .clr-secondary-light-2 { color: #42a6f5 }
+///   .fill-secondary-dark-4 { fill: #1971b6 }
+
 // Generate classnames from $colors map
 @each $name, $code in $colors {
   .bg-#{$name} { background-color: $code !important }
   .clr-#{$name} { color: $code !important }
   .fill-#{$name} { fill: $code !important }
 
-  // Adjust colors lightning and darkness based on $levels map values
+  // Adjust colors brighteness and darkness based on $levels map values
   @each $level, $rate in $levels {
     .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
     .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }
@@ -28,7 +46,7 @@
   .clr-#{$name} { color: $code !important }
   .fill-#{$name} { fill: $code !important }
 
-  // Adjust colors lightning and darkness based on $levels map values
+  // Adjust colors brighteness and darkness based on $levels map values
   @each $level, $rate in $levels {
     .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
     .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }

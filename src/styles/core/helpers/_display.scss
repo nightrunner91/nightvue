@@ -1,3 +1,26 @@
+/// This code will generate classnames for flex usage
+/// Each classname support $breakpoints from _varaibles.scss file
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://github.com/nightrunner91/nightvue
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/flex
+/// @link https://www.w3schools.com/css/css3_flexbox.asp
+/// 
+/// @output
+///   .d-flex { display: flex }
+///   .d-none { display: none }
+///   .flex-column { flex-direction: column }
+///   .justify-content-end { justify-content: flex-end }
+///   .flex-grow-1 { flex-grow: 1 }
+///
+///   .align-items-center { align-items: center }
+///   .align-items-sm-start {
+//       @media screen and (min-width: 768px) {
+///        align-items: start;
+///      }
+///    }
+
 $displays: (block, inline, inline-block, flex, inline-flex, none);
 $directions: (row, row-reverse, column, column-reverse);
 $justifies: (start, end, center, between, around);
@@ -9,27 +32,22 @@ $grows: (0, 1);
   @each $display, $type in $displays {
     .d#{$breakpoint}-#{$display} { display: $display !important }
   }
-
   @each $direction in $directions {
     .flex#{$breakpoint}-#{$direction} { flex-direction: $direction !important }
   }
-
   @each $justify in $justifies {
     .justify-content#{$breakpoint}-#{$justify} {
       justify-content: if($justify == between or $justify == around, space-#{$justify}, $justify) !important
     }
   }
-
   @each $align in $aligns {
     .align-items#{$breakpoint}-#{$align} { align-items: $align !important }
     .align-self#{$breakpoint}-#{$align} { align-self: $align !important }
     .align-content#{$breakpoint}-#{$align} { align-content: $align !important }
   }
-
   @each $wrap in $wraps {
     .flex#{$breakpoint}-#{$wrap} { flex-wrap: $wrap !important }
   }
-
   @each $grow in $grows {
     .flex#{$breakpoint}-grow-#{$grow} { flex-grow: $grow !important; }
     .flex#{$breakpoint}-shrink-#{$grow} { flex-shrink: $grow !important; }
@@ -42,4 +60,11 @@ $grows: (0, 1);
   @media screen and (min-width: #{$size}) {
     @include displays('-' + $breakpoint);
   }
+}
+
+// Very usefull classname, when you just need to align item in center and forget about it ;)
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

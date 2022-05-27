@@ -1,5 +1,4 @@
-// Container settings
-.container  {
+.container {
   margin: 0 auto;
   padding: 0 $gutter-width;
   width: 100%;
@@ -10,7 +9,7 @@
   }
 }
 
-.row  {
+.row {
   display: flex;
   flex-wrap: wrap;
   margin-left: ($gutter-width / -2);

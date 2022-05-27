@@ -272,9 +272,9 @@ $lg-dw: "screen and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
 $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 
 
-// ================= //
-// ===== ICONS ===== //
-// ================= //
+// ====================== //
+// ===== ICON SIZES ===== //
+// ====================== //
 
 $icon-sizes: 18, 24, 36, 48, 64;
 
