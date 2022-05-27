@@ -1,14 +1,14 @@
 /// This will reset base browser styles
 /// It is crucial in each project nowadays
+/// You can update it if you want, for the moment it's actual for May 2022
 /// @link https://github.com/necolas/normalize.css
 @import "core/normalize";
 
-/// Globals include global varaibles, mixin and functions
-/// Include this file in Vue components if you want to use it locally
+/// Globals include global varaibles, mixins and functions
+/// Include this file in Vue components if you want to use them locally
 @import "core/globals";
 
-/// Set of usefull helpers
-/// @link https://github.com/nightrunner91/nightvue#documentation-
+/// Set of usefull helpers and code generators
 @import "core/helpers/grid";
 @import "core/helpers/colors";
 @import "core/helpers/scrollbar";
@@ -29,14 +29,15 @@
 @import "core/helpers/layout";
 
 /// Elements
-// List of elements will be here...
+@import "elements/button";
 
 /// Blocks
 @import "blocks/header";
 @import "blocks/footer";
 
 /// Plugins
-// Additional plugins styles will be here...
+
 
 /// Animations
+/// This part must be loaded at the very end
 @import "animations/animations";

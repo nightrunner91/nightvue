@@ -9,7 +9,15 @@
   /// @param $args: { Function } [map-get function to access $gradients map]
   /// 
   /// @example
-  ///   @include linear-gradient(map-get($gradients, 'primary_success'))
+  ///   @include linear-gradient(map-get($gradients, 'primary_success'));
+  ///
+  /// @output
+  ///   background: #682cab;
+  ///   background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+  ///
+  /// @example
+  ///   $storedGradient: map-get($gradients, 'primary_success');
+  ///   @include linear-gradient($storedGradient);
   ///
   /// @output
   ///   background: #682cab;
@@ -25,7 +33,7 @@
 
 
 @mixin small() {
-  /// Small mixin that includes  small font-size styles
+  /// Small mixin that injects small font-size styles
   /// See _varaibles.scss file for params $base-fz, $base-lh and $small-fz
   /// By default they are: 16px, 1.5, 0.875
   ///
