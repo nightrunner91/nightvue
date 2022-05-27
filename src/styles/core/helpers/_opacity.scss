@@ -1,3 +1,27 @@
+/// This code will generate opacity classnames from 0 to 100
+/// This classnames supports breakpoints from $breakpoints map from _varaibles.scss file
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://github.com/nightrunner91/nightvue
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/opacity
+/// 
+/// @output
+///   .opacity-0 { opacity: 0 }
+///   .opacity-1 { opacity: 0.01 }
+///   .opacity-2 { opacity: 0.02 }
+///   .opacity-3 { opacity: 0.03 }
+///   ...
+///   .opacity-50 { opacity: 0.5 }
+///   ...
+///   opacity-100 { opacity: 1 }
+///
+///   opacity-lg-40 {
+///     @media screen and (min-width: 1280px) {
+///       opacity: 0.4
+///     }
+///   }
+
 @mixin opacity($breakpoint:null) {
   $i: 0;
   @while $i <= 100 {
