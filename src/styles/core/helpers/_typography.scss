@@ -1,34 +1,7 @@
-@each $heading, $size in $headings-fz {
-  #{$heading},
-  .#{$heading} {
-    font-size: $size;
-
-    @if ($headings-breake) {
-      @media screen and (max-width: map-get($breakpoints, $headings-breakepoint)) {
-        font-size: $size * $headings-decrease
-      }
-    }
-  }
-}
-
-@each $display, $size in $displays-fz {
-  .#{$display} {
-    font-size: $size;
-    font-family: map-get($font-families, displays), sans-serif;
-    font-weight: $displays-fw;
-    line-height: $displays-lh;
-
-    @if ($displays-breake) {
-      @media screen and (max-width: map-get($breakpoints, $displays-breakepoint)) {
-        font-size: $size * $displays-decrease
-      }
-    }
-  }
-}
-
 // ===================== // 
 // BASIC PAGE TYPOGRAPHY //
 // ===================== // 
+
 $base-fz: 16px; // ❗ CRUCIAL VALUE! A lot of things depends on it. Be aware.
 $base-lh: map-get($line-heights, 50);
 $base-fw: map-get($font-weights, 400);
@@ -111,9 +84,34 @@ hr {
   border-bottom: 1px solid rgba(black, .15);
 }
 
-// ================== // 
-// CUSTOM TEXT STYLES // 
-// ================== //
+@each $heading, $size in $headings-fz {
+  #{$heading},
+  .#{$heading} {
+    font-size: $size;
+
+    @if ($headings-breake) {
+      @media screen and (max-width: map-get($breakpoints, $headings-breakepoint)) {
+        font-size: $size * $headings-decrease
+      }
+    }
+  }
+}
+
+@each $display, $size in $displays-fz {
+  .#{$display} {
+    font-size: $size;
+    font-family: map-get($font-families, displays), sans-serif;
+    font-weight: $displays-fw;
+    line-height: $displays-lh;
+
+    @if ($displays-breake) {
+      @media screen and (max-width: map-get($breakpoints, $displays-breakepoint)) {
+        font-size: $size * $displays-decrease
+      }
+    }
+  }
+}
+
 @mixin textStyles($breakpoint:null) {
   @each $lh, $value in $line-heights {
     .line-height#{$breakpoint}-#{$lh} { line-height: $value !important; }
@@ -162,9 +160,6 @@ hr {
   }
 }
 
-// ============= // 
-// SELECT STYLES // 
-// ============= // 
 @mixin selection($background, $color) {
   ::-moz-selection {
     background-color: color($background);

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <svg-icon
-      :icon="'link'"
-      class="fill-dark cursor-pointer" />
+
   </div>
 </template>
 

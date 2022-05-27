@@ -1,6 +1,24 @@
-// ========== //
-// TYPOGRAPHY //
-// ========== //
+// =================== //
+// ===== SPACING ===== //
+// =================== //
+
+$spacers: (
+  0: 0,
+  25: 0.25rem,
+  50: 0.5rem,
+  75: 0.75rem,
+  1: 1rem,
+  2: 2rem,
+  3: 3rem,
+  4: 4rem,
+  5: 5rem,
+  auto: auto
+);
+
+
+// ====================== //
+// ===== TYPOGRAPHY ===== //
+// ====================== //
 
 $font-families: (
   base: "Onest",
@@ -71,10 +89,21 @@ $letter-spacings: (
   wider: .5em,
 );
 
-
-// ======== //
-// HEADINGS //
-// ======== //
+$displays-fz: (
+  display-1: 74px,
+  display-2: 62px,
+  display-3: 48px,
+  display-4: 34px,
+);
+$displays-lh: map-get($line-heights, 25);
+$displays-fw: map-get($font-weights, 500);
+$displays-margins: (
+  top: 1.5em,
+  bottom: 1em,
+);
+$displays-breake: true; // should or not displays be lowered on specific breakpoint
+$displays-breakepoint: 'sm'; // on which breakpoint displays will have lowered font-size
+$displays-decrease: 0.75; // ratio of how lower will be font-size for displays after breakpoint
 
 $headings-fz: (
   h1: 4.5rem,
@@ -95,48 +124,9 @@ $headings-breakepoint: 'sm'; // on which breakpoint headings will have lowered f
 $headings-decrease: 0.75; // ratio of how lower will be font-size for headings after breakpoint
 
 
-// ======== //
-// DISPLAYS //
-// ======== //
-
-$displays-fz: (
-  display-1: 74px,
-  display-2: 62px,
-  display-3: 48px,
-  display-4: 34px,
-);
-$displays-lh: map-get($line-heights, 25);
-$displays-fw: map-get($font-weights, 500);
-$displays-margins: (
-  top: 1.5em,
-  bottom: 1em,
-);
-$displays-breake: true; // should or not displays be lowered on specific breakpoint
-$displays-breakepoint: 'sm'; // on which breakpoint displays will have lowered font-size
-$displays-decrease: 0.75; // ratio of how lower will be font-size for displays after breakpoint
-
-
-// ======= //
-// SPACING //
-// ======= //
-
-$spacers: (
-  0: 0,
-  25: 0.25rem,
-  50: 0.5rem,
-  75: 0.75rem,
-  1: 1rem,
-  2: 2rem,
-  3: 3rem,
-  4: 4rem,
-  5: 5rem,
-  auto: auto
-);
-
-
-// ====== //
-// COLORS //
-// ====== //
+// ================== //
+// ===== COLORS ===== //
+// ================== //
 
 // List of default colors
 $colors: (
@@ -186,9 +176,10 @@ $levels: (
   5: 30%,
 );
 
-// ========= //
-// GRADIENTS //
-// ========= //
+
+// ===================== //
+// ===== GRADIENTS ===== //
+// ===================== //
 
 $gradients: (
   primary_success: (
@@ -229,9 +220,22 @@ $gradients: (
   ),
 );
 
-// ==== //
-// GRID //
-// ==== //
+// ========================= //
+// ===== BORDER-RADIUS ===== //
+// ========================= //
+
+$radiuses: (
+  'small': 4px,
+  'base': 8px,
+  'large': 20px,
+  'circle': 100%,
+  'zero': 0
+);
+
+
+// ================ //
+// ===== GRID ===== //
+// ================ //
 
 // Base grid settings
 $num-cols:           12;
@@ -268,21 +272,40 @@ $lg-dw: "screen and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
 $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 
 
-// ===== //
-// ICONS //
-// ===== //
+// ================= //
+// ===== ICONS ===== //
+// ================= //
+
 $icon-sizes: 18, 24, 36, 48, 64;
 
 
-// ======= //
-// SHADOWS //
-// ======= //
+// =================== //
+// ===== SHADOWS ===== //
+// =================== //
+
+/// List of shadows defined by user
+$shadows: (
+  none: none,
+  small: 1px 1px 3px black,
+  base: 3px 3px 6px map-get($theme-colors, 'primary'),
+  large: (4px 4px 8px rgba(black, .5), 6px 7px 24px rgba(map-get($theme-colors, 'warning'), .75)),
+);
+
+/// List of shadows based on Material methodology
+/// @link https://material.io/design/environment/light-shadows.html
+$material-shadows-support: true; 
+$material-shadows: (
+  1: (0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)),
+  2: (0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)),
+  3: (0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)),
+  4: (0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)),
+  5: (0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)),
+);
 
 
-
-// =========== //
-// TRANSITIONS //
-// =========== //
+// ======================= //
+// ===== TRANSITIONS ===== //
+// ======================= //
 
 $transition-speed: (
   shortest: .15s,
@@ -295,19 +318,22 @@ $transition-speed: (
 );
 
 $transition-timings: (
-  // "Standard" easings 👉 https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions
+  /// "Standard" easings 
+  /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions
   linear: cubic-bezier(0, 0, 1, 1),
   ease: cubic-bezier(0.25, 0.1, 0.25, 1),
   ease-in: cubic-bezier(0.42, 0, 1, 1),
   ease-out: cubic-bezier(0,0,0.58,1),
   ease-in-out: cubic-bezier(0.42, 0, 0.58, 1),
 
-  // Material easings 👉 https://material.io/design/motion/speed.html#easing
+  /// Material easings
+  /// @link https://material.io/design/motion/speed.html#easing
   standard: cubic-bezier(0.4, 0, 0.2, 1), // speed up quickly and slow down gradually, in order to emphasize the end of the transition
   emphasized: cubic-bezier(0.0, 0, 0.2, 1), // speed up quickly and slow down very gradually, placing extra emphasis on the end of the transition
   decelerated: cubic-bezier(0.0, 0.0, 0.2, 1), // transitions begin at peak velocity (the fastest point in an element's movement) and end at rest
   accelerated: cubic-bezier(0.4, 0.0, 1, 1), // transition in which the element starts at rest and ends at peak velocity
 
-  // Custom easings (here you can add new ones)
+  /// Custom easings (here you can add new ones)
   sharp: cubic-bezier(0.4, 0, 0.6, 1) // the sharp curve is used for objects that may return to the screen at any time
 );
+

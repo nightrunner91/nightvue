@@ -1,15 +1,3 @@
-$radiuses: (
-  'small': 4px,
-  'base': 8px,
-  'large': 20px,
-  'circle': 100%,
-  'zero': 0
-);
-
-@function radius($type) {
-  @return map-get($radiuses, $type);
-}
-
 @mixin makeRadius($breakpoint:null) {
   @each $name, $size in $radiuses {
     .radius#{$breakpoint}-#{$name} { border-radius: $size !important }

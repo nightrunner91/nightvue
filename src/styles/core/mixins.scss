@@ -1,24 +1,20 @@
-// ========= //
-// GRADIENTS //
-// ========= //
-
-/// Mixin generates code that includes the default color for browsers 
-/// that do not support linear gradients and modern syntax
-///
-/// @author: nightrunner91
-/// 
-/// @docs: https://github.com/nightrunner91/nightvue#gradients
-///
-/// @param $args: { Function } [map-get function to access $gradients map]
-/// 
-/// @example:
-///   @include linear-gradient(map-get($gradients, 'primary_success'))
-///
-/// @output
-///   background: #682cab;
-///   background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
-
 @mixin linear-gradient($args...) {
+  /// Mixin generates code that includes the default color for browsers 
+  /// that do not support linear gradients and modern syntax
+  ///
+  /// @author nightrunner91
+  /// 
+  /// @link: https://github.com/nightrunner91/nightvue
+  ///
+  /// @param $args: { Function } [map-get function to access $gradients map]
+  /// 
+  /// @example
+  ///   @include linear-gradient(map-get($gradients, 'primary_success'))
+  ///
+  /// @output
+  ///   background: #682cab;
+  ///   background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+
   $direction: nth(nth(nth($args, 1), 1), 2);
   $fallback:  nth(nth(nth($args, 1), 2), 2);
   $list:      nth(nth(nth($args, 1), 3), 2);
@@ -27,6 +23,26 @@
   background: linear-gradient($direction, $list);
 }
 
+
+@mixin small() {
+  /// Small mixin that includes  small font-size styles
+  /// See _varaibles.scss file for params $base-fz, $base-lh and $small-fz
+  /// By default they are: 16px, 1.5, 0.875
+  ///
+  /// @author nightrunner91
+  ///
+  /// @link https://github.com/nightrunner91/nightvue
+  /// 
+  /// @example
+  ///   @include small();
+  ///
+  /// @output
+  ///   font-size: 14px;
+  ///   line-height: 1.3125;
+
+  font-size: $base-fz * $small-fz;
+  line-height: $base-lh * $small-fz;
+}
 
 
 @mixin animation($name, $duration, $delay, $count, $timing, $mode) {
@@ -40,32 +56,21 @@
 }
 
 
+@mixin icon-size($d1, $d2:false) {
+  width: $d1 + px !important;
+  max-width: $d1 + px !important;
+  min-width: $d1 + px !important;
 
-@mixin shadow($name) {
-  $targetMap: $shadows;
-  @if map-has-key($material-shadows, $name) {
-    $targetMap: $material-shadows;
-  }
-
-  box-shadow: map-get($targetMap, $name)
-}
-
-
-@mixin icon-size($dimension1, $dimesnion2:false) {
-  width: $dimension1 + px !important;
-  max-width: $dimension1 + px !important;
-  min-width: $dimension1 + px !important;
-
-  @if ($dimesnion2) {
-    height: $dimesnion2 + px !important;
-    max-height: $dimesnion2 + px !important;
-    min-height: $dimesnion2 + px !important;
-    background-size: $dimension1 + px $dimension2 + px !important;
+  @if ($d2) {
+    height: $d2 + px !important;
+    max-height: $d2 + px !important;
+    min-height: $d2 + px !important;
+    background-size: $d1 + px $dimension2 + px !important;
   } @else {
-    height: $dimension1 + px !important;
-    max-height: $dimension1 + px !important;
-    min-height: $dimension1 + px !important;
-    background-size: $dimension1 + px $dimension1 + px !important;
+    height: $d1 + px !important;
+    max-height: $d1 + px !important;
+    min-height: $d1 + px !important;
+    background-size: $d1 + px $d1 + px !important;
   }
 }
 
