@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="selector fill-secondary-dark-4 align-items-sm-start">
+    <div class="selector fill-secondary-dark-4 align-items-sm-start opacity-lg-40">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, assumenda reiciendis quas est fugit iure dolor ipsa voluptatum officiis molestias?
     </div>
   </div>
