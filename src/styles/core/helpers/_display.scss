@@ -15,11 +15,12 @@
 ///   .flex-grow-1 { flex-grow: 1 }
 ///
 ///   .align-items-center { align-items: center }
-///   .align-items-sm-start {
-//       @media screen and (min-width: 768px) {
+///
+///   @media screen and (min-width: 768px) {
+///     .align-items-sm-start {
 ///        align-items: start;
 ///      }
-///    }
+///   }
 
 $displays: (block, inline, inline-block, flex, inline-flex, none);
 $directions: (row, row-reverse, column, column-reverse);

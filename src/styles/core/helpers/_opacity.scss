@@ -16,9 +16,9 @@
 ///   ...
 ///   .opacity-100 { opacity: 1 }
 ///
-///   .opacity-lg-40 {
-///     @media screen and (min-width: 1280px) {
-///       opacity: 0.4
+///   @media screen and (min-width: 1280px) {
+///     .opacity-lg-40 {
+///         opacity: 0.4
 ///     }
 ///   }
 

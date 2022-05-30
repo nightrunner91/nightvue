@@ -1,3 +1,33 @@
+/// This code will generate icon size classnames based on $icon-sizes list in _varaibles.scss file
+/// This classnames supports breakpoints from $breakpoints map located in _varaibles.scss file
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://github.com/nightrunner91/nightvue
+/// 
+/// @output
+///   .icon-size-18 {
+///     width: 18px !important;
+///     max-width: 18px !important;
+///     min-width: 18px !important;
+///     height: 18px !important;
+///     max-height: 18px !important;
+///     min-height: 18px !important;
+///     background-size: 18px 18px !important;
+///   }
+///
+///   @media screen and (min-width: 768px) {
+///     .icon-size-sm-24 {
+///       width: 24px !important;
+///       max-width: 24px !important;
+///       min-width: 24px !important;
+///       height: 24px !important;
+///       max-height: 24px !important;
+///       min-height: 24px !important;
+///       background-size: 24px 24px !important;
+///     }
+///   }
+
 @mixin icons-sizes($breakpoint:null) {
   @each $size in $icon-sizes {
     .icon-size#{$breakpoint}-#{$size} {
