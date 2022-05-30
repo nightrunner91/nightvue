@@ -181,6 +181,26 @@ $levels: (
 // ===== GRADIENTS ===== //
 // ===================== //
 
+/// @param direction: { String }, [keyword or angle]
+/// Keyword: to top, to top right, to right, to bottom right, to bottom, to bottom left, to left, to left top,
+/// Numeric value in deg, rad, grad, or turn.
+///
+/// @param fallback: { String }, [color by default for unsupported browsers]
+///
+/// @param list: { Array }, [list of colors in gradient]
+///
+/// @example
+///   gradientName: (
+///     // Gradient direction (keyword | angle)
+///     direction: { String },
+
+///     // Color by default for unsupported browsers
+///     fallback: { String },
+
+///     // List of colors in the gradient, separated by a comma
+///     list: ( { String }, { String }, { String }... )
+///   ),
+
 $gradients: (
   primary_success: (
     direction: 145deg,
