@@ -53,6 +53,19 @@
 };
 
 
+@mixin pseudoelem() {
+  /// Often you need to add &:before or &:after for decartion purposes
+  /// Just for that you have this small mixin to simplify your work
+  ///
+  /// @example
+  ///   @include pseudoelem();
+
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+
 @mixin animation($name, $duration, $delay, $count, $timing, $mode) {
   animation-name: $name;
   animation-duration: $duration;

@@ -8,16 +8,6 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 }
 
 
-// =========================================== //
-// ===== Most usable before, after state ===== //
-// =========================================== // 
-.pseudoelem { 
-  content: '';
-  display: block;
-  position: absolute;
-}
-
-
 // ============================== //
 // ===== Usefull classnames ===== //
 // ============================== //
