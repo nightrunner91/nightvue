@@ -144,7 +144,7 @@ $colors: (
 
 // List of gray colors
 $grays: (); // Here we will store our colors
-$graysNum: 10; // Gray colors amount
+$graysNum: 10; // Gray colors amount (how many colors from #fff to #000)
 
 // Generate map list of grey colors
 $grays: map-merge($grays, ('white' : white));
@@ -181,25 +181,31 @@ $levels: (
 // ===== GRADIENTS ===== //
 // ===================== //
 
-/// @param direction: { String }, [keyword or angle]
-/// Keyword: to top, to top right, to right, to bottom right, to bottom, to bottom left, to left, to left top,
-/// Numeric value in deg, rad, grad, or turn.
-///
-/// @param fallback: { String }, [color by default for unsupported browsers]
-///
-/// @param list: { Array }, [list of colors in gradient]
+/// This is list of all linear-gradients used in project
+/// To add new one follow structure from this example:
 ///
 /// @example
 ///   gradientName: (
-///     // Gradient direction (keyword | angle)
 ///     direction: { String },
-
-///     // Color by default for unsupported browsers
 ///     fallback: { String },
-
-///     // List of colors in the gradient, separated by a comma
-///     list: ( { String }, { String }, { String }... )
-///   ),
+///     list: ( { String }, { String }, { String } ... )
+///   )
+/// 
+/// @param direction: { String }, [keyword or angle]
+///   Keyword: to top, to top right, to right, to bottom right, to bottom, 
+///            to bottom left, to left, to left top,
+///   Angle value in: deg, rad, grad, or turn.
+///
+/// @param fallback: { String }, [color by default for unsupported browsers]
+///
+/// @param list: { Array }, [list of colors in gradient, separated by a comma]
+///
+/// @output
+///   as an example example, gradient 'primary-success' will render this code:
+///   {
+///     background: #682CAB;
+///     background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+///   }
 
 $gradients: (
   primary_success: (

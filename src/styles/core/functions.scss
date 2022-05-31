@@ -39,7 +39,6 @@
   }
 };
 
-
 @function color($name, $style: false, $rate:false) {
   /// Function returns color from maps $colors, $grays, $theme-colors maps
   /// located in _varaibles.scss file
@@ -87,11 +86,9 @@
   }
 };
 
-
 @function radius($type) {
   @return map-get($radiuses, $type);
 };
-
 
 @function shadow($name) {
   $targetMap: $shadows;
