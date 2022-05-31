@@ -2,7 +2,7 @@
   <div>
     <div class="selector fill-secondary-dark-4 align-items-sm-start opacity-lg-40">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, assumenda reiciendis quas est fugit iure dolor ipsa voluptatum officiis molestias?
-      <div class="ololo icon-size-sm-24">
+      <div class="ololo icon-size-sm-24 icon-size-36">
         1
       </div>
     </div>

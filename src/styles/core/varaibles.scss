@@ -296,7 +296,7 @@ $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 // ===== ICON SIZES ===== //
 // ====================== //
 
-$icon-sizes: 18, 24, 36, 48, 64;
+$icon-sizes: (18, 24, 36, 48, 64);
 
 
 // =================== //

@@ -82,6 +82,42 @@
 
 
 @mixin icon-size($d1, $d2:false) {
+  /// This mixin apply specific width, height and background-size
+  /// If you apply this mixin to selector you can be pretty sure it will have
+  /// passed dimensions no matter what and will not be compressed or stretched
+  /// It is most usefull for SVG icons inside flex container
+  ///
+  /// @author nightrunner91
+  ///
+  /// @link https://github.com/nightrunner91/nightvue
+  ///
+  /// @param $d1: { Number }, [required, dimension X (width)]
+  /// @param $d2: { Number }, [dimension Y (height)]
+  /// 
+  /// @example
+  ///   @include icon-size(24);
+  ///
+  /// @output
+  ///   width: 24px !important;
+  ///   max-width: 24px !important;
+  ///   min-width: 24px !important;
+  ///   height: 24px !important;
+  ///   max-height: 24px !important;
+  ///   min-height: 24px !important;
+  ///   background-size: 24px 24px !important;
+  ///
+  /// @example
+  ///   @include icon-size(18, 34);
+  ///
+  /// @output
+  ///   width: 18px !important;
+  ///   max-width: 18px !important;
+  ///   min-width: 18px !important;
+  ///   height: 34px !important;
+  ///   max-height: 34px !important;
+  ///   min-height: 34px !important;
+  ///   background-size: 18px 34px !important;
+
   width: $d1 + px !important;
   max-width: $d1 + px !important;
   min-width: $d1 + px !important;
