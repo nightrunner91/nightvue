@@ -121,11 +121,65 @@
   }
 };
 
-@mixin transition($property, $speed, $timing, $delay:0s) {
-  transition: $property map-get($transition-speed, $speed) map-get($transition-timings, $timing) $delay
+@mixin transition($property, $speed:base, $timing:ease, $delay:0s) {
+  /// Mixin applies transition from $transition-speed and $transition-timings
+  /// maps located in _varaibles.scss file
+  ///
+  /// @author nightrunner91
+  ///
+  /// @link https://github.com/nightrunner91/nightvue
+  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+  /// @link https://www.w3schools.com/css/css3_transitions.asp
+  /// @link https://caniuse.com/?search=transition
+  ///
+  /// @param $property: { String }, [transition-property, required]
+  /// @param $speed: { String }, [transition-speed, default 'base' => .3s]
+  /// @param $timing: { String }, [transition-timing-function, default 'ease']
+  /// @param $delay: { Number }, [transition-delay, default 0s]
+  ///
+  /// @example
+  ///   @include transition(transform);
+  ///   @include transition(opacity, short, ease-in);
+  ///   @include transition(background-color, slow, emphasized);
+  ///   @include transition(color, lazy, linear, 1s);
+  ///
+  /// @output
+  ///   transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  ///   transition: opacity 0.25s cubic-bezier(0.42, 0, 1, 1);
+  ///   transition: background-color 0.375s cubic-bezier(0, 0, 0.2, 1);
+  ///   transition: color 0.75s cubic-bezier(0, 0, 1, 1) 1s;
+
+  $delayCond: if($delay != 0s, $delay, null);
+
+  transition: $property map-get($transition-speed, $speed) map-get($transition-timings, $timing) $delayCond
 };
 
 @mixin complex-transition($args...) {
+  /// Mixin that can apply many transition properties to selector
+  /// It uses transition() function which returns needed transition properties
+  /// from $transition-speed and $transition-timings maps located in _varaibles.scss file
+  /// See also functions.scss file for transition() function.
+  /// It actualy works almost the same as @transition mixin above
+  ///
+  /// @author nightrunner91
+  ///
+  /// @link https://github.com/nightrunner91/nightvue
+  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+  /// @link https://www.w3schools.com/css/css3_transitions.asp
+  /// @link https://caniuse.com/?search=transition
+  ///
+  /// @param $args: { Array }, [list of properties with params, required]
+  ///
+  /// @example
+  ///   @include complex-transition(
+  ///     transition(opacity, short, ease-in),
+  ///     transition(background-color, slow, emphasized),
+  ///     transition(color, lazy, linear, 1s),
+  ///   );
+  ///
+  /// @output
+  ///   transition: opacity 0.25s cubic-bezier(0.42, 0, 1, 1), background-color 0.375s cubic-bezier(0, 0, 0.2, 1), color 0.75s cubic-bezier(0, 0, 1, 1) 1s;
+
   transition: $args;
 };
 

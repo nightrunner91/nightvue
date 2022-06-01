@@ -195,13 +195,11 @@ $levels: (
 ///   Keyword: to top, to top right, to right, to bottom right, to bottom, 
 ///            to bottom left, to left, to left top,
 ///   Angle value in: deg, rad, grad, or turn.
-///
 /// @param fallback: { String }, [color by default for unsupported browsers]
-///
 /// @param list: { Array }, [list of colors in gradient, separated by a comma]
 ///
 /// @output
-///   as an example example, gradient 'primary-success' will render this code:
+///   for example, gradient 'primary-success' will look like this:
 ///   {
 ///     background: #682CAB;
 ///     background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
@@ -344,7 +342,7 @@ $transition-speed: (
 );
 
 $transition-timings: (
-  /// "Standard" easings 
+  /// "Standard" and most usefull easings
   /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions
   linear: cubic-bezier(0, 0, 1, 1),
   ease: cubic-bezier(0.25, 0.1, 0.25, 1),
@@ -352,7 +350,7 @@ $transition-timings: (
   ease-out: cubic-bezier(0,0,0.58,1),
   ease-in-out: cubic-bezier(0.42, 0, 0.58, 1),
 
-  /// Material easings
+  /// Material Design easings list
   /// @link https://material.io/design/motion/speed.html#easing
   standard: cubic-bezier(0.4, 0, 0.2, 1), // speed up quickly and slow down gradually, in order to emphasize the end of the transition
   emphasized: cubic-bezier(0.0, 0, 0.2, 1), // speed up quickly and slow down very gradually, placing extra emphasis on the end of the transition
@@ -362,4 +360,3 @@ $transition-timings: (
   /// Custom easings (here you can add new ones)
   sharp: cubic-bezier(0.4, 0, 0.6, 1) // the sharp curve is used for objects that may return to the screen at any time
 );
-

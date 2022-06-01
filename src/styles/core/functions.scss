@@ -98,3 +98,9 @@
 
   @return map-get($targetMap, $name)
 };
+
+@function transition($property, $speed:base, $timing:ease, $delay:0s) {
+  $delayCond: if($delay != 0s, $delay, null);
+
+  @return $property map-get($transition-speed, $speed) map-get($transition-timings, $timing) $delayCond
+};
