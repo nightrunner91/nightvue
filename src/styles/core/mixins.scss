@@ -183,6 +183,37 @@
   transition: $args;
 };
 
+@mixin text-truncate($width) {
+  /// Mixin applies truncated text effect to selector
+  ///
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  /// @link https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
+  /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
+  /// @link https://www.w3schools.com/csSref/css3_pr_text-overflow.asp
+  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/white-space
+  /// @link https://www.w3schools.com/cssref/pr_text_white-space.asp
+  ///
+  /// @param $width: { Number } [maximum width of text, px | %]
+  /// 
+  /// @example
+  ///   @include text-truncate(150px);
+  ///
+  /// @output
+  ///   display: inline-block;
+  ///   overflow: hidden;
+  ///   text-overflow: ellipsis;
+  ///   white-space: nowrap;
+  ///   max-width: 150px;
+
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: $width;
+};
+
 @mixin animation($name, $duration, $delay, $count, $timing, $mode) {
   animation-name: $name;
   animation-duration: $duration;
