@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="selector">
+    <div class="selector gradient-primary-light-3_primary">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, assumenda reiciendis quas est fugit iure dolor ipsa voluptatum officiis molestias?
     </div>
   </div>

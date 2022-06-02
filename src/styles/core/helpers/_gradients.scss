@@ -1,3 +1,27 @@
+/// This code generates classnames from $gradients map
+/// located in _varaibles.scss file
+/// Each classname includes the default color for browsers 
+/// that do not support linear gradients and modern syntax
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://github.com/nightrunner91/nightvue
+/// @link https://caniuse.com/?search=linear-gradient
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient
+/// @link https://www.w3schools.com/css/css3_gradients.asp
+/// @link https://www.colorzilla.com/gradient-editor/
+///
+/// @output
+///   .gradient-primary_success {
+///     background: #682cab;
+///     background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+///   }
+///
+///   .gradient-primary-light-3_primary {
+///     background: #682CAB;
+///     background: linear-gradient(to bottom, #682CAB, #9b65d8);
+///   }
+
 @each $gradient, $value in $gradients {
   .gradient-#{$gradient} { @include linear-gradient($value) }
 }
