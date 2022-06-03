@@ -176,28 +176,20 @@ $levels: (
 // ===================== //
 
 /// This is list of all linear-gradients used in project
-/// To add new one follow structure from this example:
+/// 
+/// @param direction: { String }, [keyword or angle]
+/// @param fallback:  { String }, [color by default for unsupported browsers]
+/// @param list:      { Array },  [list of colors in gradient, separated by a comma]
+///
+/// Keywords: to top, to top right, to right, to bottom right, to bottom, to bottom left, to left, to left top
+/// Angle value in: deg, rad, grad, or turn.
 ///
 /// @example
 ///   gradientName: (
 ///     direction: { String },
 ///     fallback: { String },
-///     list: ( { String }, { String }, { String } ... )
+///     list: ( { String }, { String }, { String }... )
 ///   )
-/// 
-/// @param direction: { String }, [keyword or angle]
-///   Keyword: to top, to top right, to right, to bottom right, to bottom, 
-///            to bottom left, to left, to left top,
-///   Angle value in: deg, rad, grad, or turn.
-/// @param fallback: { String }, [color by default for unsupported browsers]
-/// @param list: { Array }, [list of colors in gradient, separated by a comma]
-///
-/// @output
-///   for example, gradient 'primary-success' will look like this:
-///   {
-///     background: #682CAB;
-///     background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
-///   }
 
 $gradients: (
   primary_success: (

@@ -7,7 +7,6 @@
   /// @link https://github.com/nightrunner91/nightvue
   /// @link https://caniuse.com/?search=linear-gradient
   /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient
-  /// @link https://www.w3schools.com/css/css3_gradients.asp
   /// @link https://www.colorzilla.com/gradient-editor/
   ///
   /// @param $args: { Function } [map-get function to access $gradients map]
@@ -122,20 +121,18 @@
 };
 
 @mixin transition($property, $speed:base, $timing:ease, $delay:0s) {
-  /// Mixin applies transition from $transition-speed and $transition-timings
-  /// maps located in _varaibles.scss file
+  /// Mixin applies transition from $transition-speed and $transition-timings maps
   ///
   /// @author nightrunner91
   ///
   /// @link https://github.com/nightrunner91/nightvue
   /// @link https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
-  /// @link https://www.w3schools.com/css/css3_transitions.asp
   /// @link https://caniuse.com/?search=transition
   ///
   /// @param $property: { String }, [transition-property, required]
-  /// @param $speed: { String }, [transition-speed, default 'base' => .3s]
-  /// @param $timing: { String }, [transition-timing-function, default 'ease']
-  /// @param $delay: { Number }, [transition-delay, default 0s]
+  /// @param $speed:    { String }, [transition-speed, default 'base' => .3s]
+  /// @param $timing:   { String }, [transition-timing-function, default 'ease']
+  /// @param $delay:    { Number }, [transition-delay, default 0s]
   ///
   /// @example
   ///   @include transition(transform);
@@ -157,7 +154,7 @@
 @mixin complex-transition($args...) {
   /// Mixin that can apply many transition properties to selector
   /// It uses transition() function which returns needed transition properties
-  /// from $transition-speed and $transition-timings maps located in _varaibles.scss file
+  /// from $transition-speed and $transition-timings maps
   /// See also functions.scss file for transition() function.
   /// It actualy works almost the same as @transition mixin above
   ///
@@ -165,7 +162,6 @@
   ///
   /// @link https://github.com/nightrunner91/nightvue
   /// @link https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
-  /// @link https://www.w3schools.com/css/css3_transitions.asp
   /// @link https://caniuse.com/?search=transition
   ///
   /// @param $args: { Array }, [list of properties with params, required]
@@ -191,9 +187,7 @@
   /// @link https://github.com/nightrunner91/nightvue
   /// @link https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
   /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
-  /// @link https://www.w3schools.com/csSref/css3_pr_text-overflow.asp
   /// @link https://developer.mozilla.org/ru/docs/Web/CSS/white-space
-  /// @link https://www.w3schools.com/cssref/pr_text_white-space.asp
   ///
   /// @param $width: { Number } [maximum width of text, px | %]
   /// 
@@ -214,12 +208,37 @@
   max-width: $width;
 };
 
-@mixin animation($name, $duration, $delay, $count, $timing, $mode) {
+@mixin animation($name, $duration, $delay:0s, $count:1, $direction:normal, $timing:ease, $mode:forwards) {
+  /// Mixin applies animation to selector with passed params
+  ///
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Animations/Using_CSS_animations
+  ///
+  /// @param $name:      { String }           [animation name]
+  /// @param $duration:  { Number }           [animation duration, s | ms]
+  /// @param $delay:     { Number }           [animation delsy, s | ms, default: 0s]
+  /// @param $count:     { Number | String }  [animation-iteration-count, Number | infinite, default: 1]
+  /// @param $direction: { String }           [animation-direction, normal | reverse | alternate | alternate-reverse, default: normal]
+  /// @param $timing:    { String }           [easing type for animation, default: ease]
+  /// @param $mode:      { String }           [animation-fill-mode, forwards | backwards | both, dwfault: forwards]
+  /// 
+  /// @example
+  ///   @include animation('');
+  ///
+  /// @output
+  ///   display: inline-block;
+  ///   overflow: hidden;
+  ///   text-overflow: ellipsis;
+  ///   white-space: nowrap;
+  ///   max-width: 150px;
+
   animation-name: $name;
   animation-duration: $duration;
-  animation-timing-function: $timing;
-  animation-fill-mode: forwards;
   animation-delay: $delay;
   animation-iteration-count: $count;
-  animation-direction: $mode;
+  animation-direction: $direction;
+  animation-timing-function: $timing;
+  animation-fill-mode: $mode;
 };

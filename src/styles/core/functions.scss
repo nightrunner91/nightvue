@@ -1,6 +1,5 @@
 @function spacer($val1, $val2: false, $val3: false, $val4: false) {
   /// Function returns specified spacer value from $spacers map
-  /// located in _varaibles.scss file
   ///
   /// @author nightrunner91
   /// 
@@ -40,8 +39,7 @@
 };
 
 @function color($name, $style: false, $rate:false) {
-  /// Function returns color from maps $colors, $grays, $theme-colors
-  /// located in _varaibles.scss file
+  /// Function returns color from maps $colors, $grays and $theme-colors
   ///
   /// @author nightrunner91
   /// 
