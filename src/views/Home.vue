@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="selector gradient-primary-light-3_primary">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, assumenda reiciendis quas est fugit iure dolor ipsa voluptatum officiis molestias?
-    </div>
+  <div class="flex-center minvh-100 minvw-100">
+    <div class="icon-size-48 bg-primary selector"></div>
   </div>
 </template>
 

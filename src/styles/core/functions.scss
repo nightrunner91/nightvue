@@ -97,8 +97,79 @@
   @return map-get($targetMap, $name)
 };
 
+@function transition-speed($name) {
+  @return map-get($transition-speed, $name);
+};
+
+@function transition-timing($name) {
+  @return map-get($transition-timings, $name);
+};
+
 @function transition($property, $speed:base, $timing:ease, $delay:0s) {
   $delayCond: if($delay != 0s, $delay, null);
 
-  @return $property map-get($transition-speed, $speed) map-get($transition-timings, $timing) $delayCond
+  @return $property transition-speed($speed) transition-timing($timing) $delayCond
+};
+
+@function replace-in-list($list, $old-value, $new-value, $recursive: false) {
+  /// This function replace value from list with another value
+  ///
+  /// @author Kitty
+  /// 
+  /// @link https://kittygiraudel.com/2013/08/08/advanced-sass-list-functions/
+  ///
+  /// @example
+  ///   $list: a, b, r, a, c a, d a, b, r, a;
+  ///   $new-list: replace($list, a, u); // u, b, r, u, c a, d a, b, r, u;
+  ///   $new-list: replace($list, a, u, true); // u, b, r, u, c u, d u, b, r, u;
+
+  $result: ();
+
+  @for $i from 1 through length($list) {
+    @if type-of(nth($list, $i)) == list and $recursive {
+      $result: append(
+        $result,
+        replace(nth($list, $i), $old-value, $new-value, $recursive)
+      );
+    } @else {
+      @if nth($list, $i) == $old-value {
+        $result: append($result, $new-value);
+      } @else {
+        $result: append($result, nth($list, $i));
+      }
+    }
+  }
+
+  @return $result;
+}
+
+@function to-string($list, $glue: '', $is-nested: false) {
+  /// Function converts SCSS map to String
+  ///
+  /// @author Kitty
+  /// 
+  /// @link https://kittygiraudel.com/2013/08/08/advanced-sass-list-functions/
+  ///
+  /// @example
+  ///   $list: a, b, c d e, f, g, h;
+  ///   $new-list: to-string($list); // abcdefgh
+  ///   $new-list: to-string($list, '-'); // a-b-c-d-e-f-g-h
+
+  $result: null;
+
+  @for $i from 1 through length($list) {
+    $e: nth($list, $i);
+
+    @if type-of($e) == list {
+      $result: $result#{to-string($e, $glue, true)};
+    } @else {
+      $result: if(
+        $i != length($list) or $is-nested,
+        $result#{$e}#{$glue},
+        $result#{$e}
+      );
+    }
+  }
+
+  @return $result;
 };
