@@ -101,9 +101,6 @@ $displays-margins: (
   top: 1.5em,
   bottom: 1em,
 );
-$displays-breake: true; // should or not displays be lowered on specific breakpoint
-$displays-breakepoint: 'sm'; // on which breakpoint displays will have lowered font-size
-$displays-decrease: 0.75; // ratio of how lower will be font-size for displays after breakpoint
 
 $headings-fz: (
   h1: 4.5rem,
@@ -119,9 +116,6 @@ $headings-margins: (
   top: 1.5em,
   bottom: 0.5em,
 );
-$headings-breake: true; // should or not headings be lowered on specific breakpoint
-$headings-breakepoint: 'sm'; // on which breakpoint headings will have lowered font-size
-$headings-decrease: 0.75; // ratio of how lower will be font-size for headings after breakpoint
 
 
 // ================== //
