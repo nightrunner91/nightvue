@@ -1,5 +1,4 @@
 /// This code generates classnames from $gradients map
-/// located in _varaibles.scss file
 /// Each classname includes the default color for browsers 
 /// that do not support linear gradients and modern syntax
 /// 
@@ -23,5 +22,5 @@
 ///   }
 
 @each $gradient, $value in $gradients {
-  .gradient-#{$gradient} { @include linear-gradient($value) }
+  .gradient-#{$gradient} { @include linear-gradient(nth($gradient, 1)); }
 }

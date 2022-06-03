@@ -1,4 +1,4 @@
-@mixin linear-gradient($args...) {
+@mixin linear-gradient($name) {
   /// Mixin generates code that includes the default color for browsers 
   /// that do not support linear gradients and modern syntax
   ///
@@ -9,29 +9,27 @@
   /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient
   /// @link https://www.colorzilla.com/gradient-editor/
   ///
-  /// @param $args: { Function } [map-get function to access $gradients map]
+  /// @param $name: { String } [name of gradient in $gradients map]
   /// 
   /// @example
-  ///   @include linear-gradient(map-get($gradients, 'primary_success'));
-  ///
-  /// @output
-  ///   background: #682cab;
-  ///   background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
-  ///
-  /// @example
-  ///   $storedGradient: map-get($gradients, 'primary_success');
-  ///   @include linear-gradient($storedGradient);
+  ///   @include linear-gradient('primary_success');
   ///
   /// @output
   ///   background: #682cab;
   ///   background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
 
-  $direction: nth(nth(nth($args, 1), 1), 2);
-  $fallback:  nth(nth(nth($args, 1), 2), 2);
-  $list:      nth(nth(nth($args, 1), 3), 2);
+  @if map-has-key($gradients, quote($name)) {
+    $target: map-get($gradients, $name);
 
-  background: $fallback;
-  background: linear-gradient($direction, $list);
+    $direction: nth(nth($target, 1), 2);
+    $fallback:  nth(nth($target, 2), 2);
+    $list:      nth(nth($target, 3), 2);
+
+    background: $fallback;
+    background: linear-gradient($direction, $list);
+  } @else {
+    @debug 'No such gradient, check $gradients map in _varaibles.scss file'
+  }
 };
 
 @mixin small() {
