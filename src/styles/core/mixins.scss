@@ -179,6 +179,8 @@
 
 @mixin animation($name, $duration, $delay:0s, $count:1, $direction:normal, $timing:ease-in, $mode:forwards, $state:running) {
   /// Mixin applies animation to selector with passed params
+  /// It will generate shorted syntax for animation (animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode и animation-play-state)
+  /// Output also will have -webkit prefix
   ///
   /// @author nightrunner91
   /// 
@@ -217,7 +219,6 @@
   /// @output
   ///   animation: spin 0.375s cubic-bezier(0, 0, 0.2, 1) 1s infinite reverse forwards paused;
 
-  // animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode и animation-play-state
   $animation: (
     $name,
     $duration,
