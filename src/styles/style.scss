@@ -1,14 +1,31 @@
+// ===================== //
+// ===== Normalize ===== //
+// ===================== //
+
 /// This will reset base browser styles
 /// It is crucial in each project nowadays
-/// You can update it if you want, for the moment it's actual for May 2022
 /// @link https://github.com/necolas/normalize.css
+/// You can update it if you want, for the moment it's actual for May 2022
 @import "core/normalize";
 
-/// Globals include global varaibles, mixins and functions
+
+// =================== //
+// ===== Globals ===== //
+// =================== //
+
+/// THis file includes global varaibles, functions and mixins
+/// @link https://sass-lang.com/documentation/variables
+/// @link https://sass-lang.com/documentation/at-rules/function
+/// @link https://sass-lang.com/documentation/at-rules/mixin
 /// Include this file in Vue components if you want to use them locally
 @import "core/globals";
 
-/// Set of usefull helpers and code generators
+
+// =============================== //
+// ===== Helpers & Genrators ===== //
+// =============================== //
+
+/// This is set of usefull helpers and code generators
 @import "core/helpers/grid";
 @import "core/helpers/colors";
 @import "core/helpers/scrollbar";
@@ -23,21 +40,45 @@
 @import "core/helpers/icon";
 @import "core/helpers/opacity";
 @import "core/helpers/zindex";
-@import "core/helpers/helpers";
+@import "core/helpers/utilities";
 @import "core/helpers/shadows";
 @import "core/helpers/gradients";
 @import "core/helpers/layout";
 
+
+// =============================== //
+// ===== Elements & Sections ===== //
+// =============================== //
+
+/// We highly recomend to use BEM methodology to separate blocks and elements
+/// @link https://en.bem.info/methodology/
+/// This will surely will help you keep your project in order
+/// At least give it a chance if it hasn't been used before
+///
+/// 📂 Elements folder must contain globally reusable small elements like:
+///     buttons, dropdowns, inputs, avatars, modals, alerts, etc...
+///
+/// 📂 Sections folder must be used to store styles for "big" parts of project like:
+///    header, footer, article, hero, etc...
+
 /// Elements
 @import "elements/button";
 
-/// Blocks
-@import "blocks/header";
-@import "blocks/footer";
-
-/// Plugins
+/// Sections
+@import "sections/header";
+@import "sections/footer";
 
 
-/// Animations
-/// This part must be loaded at the very end
+// ============================= //
+// ===== 3rd party plugins ===== //
+// ============================= //
+
+/// Import here styles of plugins you are using in your project
+
+
+// ================================== //
+// ===== Animations / Keyframes ===== //
+// ================================== //
+
+/// Animations be loaded at the very end of SCSS document
 @import "animations/animations";
