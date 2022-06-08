@@ -1,0 +1,34 @@
+@mixin textStyles($breakpoint:null) {
+  @each $lh, $value in $line-heights {
+    .line-height#{$breakpoint}-#{$lh} { line-height: $value !important; }
+  }
+  @each $align, $value in $text-aligns {
+    .text#{$breakpoint}-#{$align} { text-align: $value !important; }
+  }
+  @each $decoration, $value in $text-decorations {
+    .text#{$breakpoint}-#{$decoration} { text-decoration: $value !important; }
+  }
+  @each $wrap, $value in $text-wraps {
+    .text#{$breakpoint}-#{$wrap} { white-space: $value !important; }
+  }
+  @each $transform, $value in $text-transforms {
+    .text#{$breakpoint}-#{$transform} { text-transform: $value !important; }
+  }
+  @each $weight, $value in $font-weights {
+    .font-weight#{$breakpoint}-#{$weight} { font-weight: $value !important; }
+  }
+  @each $style, $value in $font-styles {
+    .font#{$breakpoint}-#{$style} { font-style: $value !important; }
+  }
+  @each $spacing, $value in $letter-spacings {
+    .spacing#{$breakpoint}-#{$spacing} { letter-spacing: $value !important; }
+  }
+}
+
+@include textStyles();
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}) {
+    @include textStyles('-' + $breakpoint);
+  }
+}

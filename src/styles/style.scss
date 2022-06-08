@@ -27,12 +27,14 @@
 /// This is set of usefull helpers and code generators
 @import "core/helpers/grid";
 @import "core/helpers/colors";
+@import "core/helpers/gradients";
 @import "core/helpers/scrollbar";
+@import "core/helpers/layout";
 @import "core/helpers/spacing";
-@import "core/helpers/transitions";
 @import "core/helpers/radius";
 @import "core/helpers/typography";
 @import "core/helpers/fonts";
+@import "core/helpers/text";
 @import "core/helpers/position";
 @import "core/helpers/display";
 @import "core/helpers/sizing";
@@ -42,8 +44,7 @@
 @import "core/helpers/utilities";
 @import "core/helpers/shadows";
 @import "core/helpers/rotation";
-@import "core/helpers/gradients";
-@import "core/helpers/layout";
+@import "core/helpers/transitions";
 
 
 // ================================= //
