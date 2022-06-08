@@ -85,6 +85,24 @@
 };
 
 @function radius($type) {
+  /// Function returns specified border-radius value from $radiuses map
+  ///
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  ///
+  /// @param $type: { String }, [border-radius name, required]
+  /// 
+  /// @example
+  ///   border-radius: radius('small');
+  ///   border-radius: radius('circle');
+  ///   border-top-left-radius: radius('zero');
+  ///
+  /// @output
+  ///   border-radius: 4px;
+  ///   border-radius: 100%;
+  ///   border-top-left-radius: 0;
+
   @return map-get($radiuses, $type);
 };
 

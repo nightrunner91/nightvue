@@ -1,3 +1,26 @@
+/// This code will generate classnames with specific border-radius value
+/// Each classname supports $breakpoints
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://github.com/nightrunner91/nightvue
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/border-radius
+///
+/// @output
+///   .radius-small { border-radius: 4px }
+///   .radius-tl-small { border-top-left-radius: 4px }
+///   .radius-t-small {
+///     border-top-left-radius: 4px;
+///     border-top-right-radius: 4px;
+///   }
+///
+///   @media screen and (min-width: 768px) {
+///     .radius-b-sm-large {
+///        border-bottom-left-radius: 20px;
+///        border-bottom-right-radius: 20px;
+///      }
+///   }
+
 @mixin makeRadius($breakpoint:null) {
   @each $name, $size in $radiuses {
     .radius#{$breakpoint}-#{$name} { border-radius: $size !important }
