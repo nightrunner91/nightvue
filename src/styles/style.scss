@@ -5,7 +5,6 @@
 /// This will reset base browser styles
 /// It is crucial in each project nowadays
 /// @link https://github.com/necolas/normalize.css
-/// You can update it if you want, for the moment it's actual for May 2022
 @import "core/normalize";
 
 
@@ -13,17 +12,17 @@
 // ===== Globals ===== //
 // =================== //
 
-/// THis file includes global varaibles, functions and mixins
+/// This file includes global varaibles, functions and mixins
 /// @link https://sass-lang.com/documentation/variables
 /// @link https://sass-lang.com/documentation/at-rules/function
 /// @link https://sass-lang.com/documentation/at-rules/mixin
-/// Include this file in Vue components if you want to use them locally
+/// Include this file in Vue component <style> if you want to use it locally
 @import "core/globals";
 
 
-// =============================== //
-// ===== Helpers & Genrators ===== //
-// =============================== //
+// ================================ //
+// ===== Helpers & Generators ===== //
+// ================================ //
 
 /// This is set of usefull helpers and code generators
 @import "core/helpers/grid";
@@ -70,6 +69,9 @@
 // ============================= //
 
 /// Import here styles of plugins you are using in your project
+/// @import carousel from '@carousel'
+/// @import modal from '@cool-modal'
+/// etc...
 
 
 // ================================== //

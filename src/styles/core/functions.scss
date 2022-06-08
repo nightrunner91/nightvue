@@ -107,12 +107,7 @@
 };
 
 @function shadow($name) {
-  $targetMap: $shadows;
-  @if map-has-key($material-shadows, $name) {
-    $targetMap: $material-shadows;
-  }
-
-  @return map-get($targetMap, $name)
+  @return map-get($shadows, $name)
 };
 
 @function transition-speed($name) {
