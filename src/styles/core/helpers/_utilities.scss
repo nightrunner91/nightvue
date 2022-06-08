@@ -4,7 +4,7 @@
 $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 
 @each $cursor in $cursors {
-  .cursor-#{$cursor} { cursor: $cursor !important; }
+  .cursor-#{$cursor} { cursor: $cursor !important }
 }
 
 
@@ -12,9 +12,9 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 // ===== Usefull classnames ===== //
 // ============================== //
 
-.no-select { user-select: none }
-.no-overflow { overflow: hidden }
-.no-events  { pointer-events: none }
+.no-select { user-select: none !important }
+.no-overflow { overflow: hidden !important }
+.no-events  { pointer-events: none !important }
 
 .text-truncate {
   display: inline-block;
@@ -29,5 +29,5 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
   }
 }
 
-.visible { visibility: visible; }
-.invisible { visibility: hidden; }
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
