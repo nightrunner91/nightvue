@@ -1,17 +1,3 @@
-@mixin makeShadows {
-  @each $shadow, $value in $shadows {
-    .shadow-#{$shadow} { box-shadow: $value !important; }
-  }
-}
-
-@include makeShadows();
-
-@mixin makeMaterialShadows {
-  @each $shadow, $value in $material-shadows {
-    .material-shadow-#{$shadow} { box-shadow: $value !important; }
-  }
-}
-
-@if $material-shadows-support {
-  @include makeMaterialShadows()
+@each $shadow, $value in $shadows {
+  .shadow-#{$shadow} { box-shadow: $value !important; }
 }
