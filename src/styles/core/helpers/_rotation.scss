@@ -1,0 +1,30 @@
+/// This code generates classnames with specific rotation values
+/// transform: rotate() is one of the most usable transformation
+/// it is used to rotate an element with a spesific angle
+/// 
+/// @author nightrunner91
+///
+/// @link https://github.com/nightrunner91/nightvue
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
+/// 
+/// @output
+///   .rotate-minus-270 { transform: rotate(-270deg) }
+///   .rotate-minus-180 { transform: rotate(-180deg) }
+///   .rotate-minus-90 { transform: rotate(-90deg) }
+///   .rotate-0 { transform: rotate(0deg) }
+///   .rotate-plus-90 { transform: rotate(90deg) }
+///   .rotate-plus-180 { transform: rotate(180deg) }
+///   .rotate-plus-270 { transform: rotate(270deg) }
+///   .rotate-plus-360 { transform: rotate(360deg) }
+
+$rotations: -270, -180, -90, 0, 90, 180, 270, 360;
+
+@each $rotation in $rotations {
+  @if $rotation > 0 {
+    .rotate-plus-#{$rotation} { transform: rotate($rotation + deg) !important;  }
+  } @else if $rotation < 0 {
+    .rotate-minus#{$rotation} { transform: rotate($rotation + deg) !important; }
+  } @else {
+    .rotate-0 { transform: rotate(0deg) !important; }
+  }
+}
