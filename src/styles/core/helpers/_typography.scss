@@ -120,6 +120,12 @@ hr {
 // ====== TEXT SELECTION ===== //
 // =========================== //
 
+/// This code will define styles of text selection across all website
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/::selection
+///
+/// @example
+///   @include selection('black', 'white');
+
 @mixin selection($background, $color) {
   ::-moz-selection {
     background-color: color($background);
