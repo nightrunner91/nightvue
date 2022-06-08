@@ -3,15 +3,15 @@
 // =================== //
 
 $spacers: (
-  0: 0,
-  25: 0.25rem,
-  50: 0.5rem,
-  75: 0.75rem,
-  1: 1rem,
-  2: 2rem,
-  3: 3rem,
-  4: 4rem,
-  5: 5rem,
+  0:    0,
+  25:   .25rem,
+  50:   .5rem,
+  75:   .75rem,
+  1:    1rem,
+  2:    2rem,
+  3:    3rem,
+  4:    4rem,
+  5:    5rem,
   auto: auto
 );
 
@@ -21,29 +21,29 @@ $spacers: (
 // ====================== //
 
 $font-families: (
-  base: "Onest",
-  headings: "Onest",
-  displays: "Onest"
+  base:      "Onest",
+  headings:  "Onest",
+  displays:  "Onest"
 );
 
 $line-heights: (
-  1: 1,
+  1:  1,
   25: 1.25,
   50: 1.5,
   75: 1.75,
-  2: 2,
+  2:  2,
 );
 
 $text-aligns: (
-  left: left, 
-  center: center, 
-  right: right, 
+  left:    left, 
+  center:  center, 
+  right:   right, 
   justify: justify
 );
 
 $font-weights: (
   lighter: lighter, 
-  bolder: bolder, 
+  bolder:  bolder, 
 
   100: 100, // thin
   200: 200, // extra light
@@ -57,36 +57,36 @@ $font-weights: (
 );
 
 $text-transforms: (
-  lowercase: lowercase, 
-  uppercase: uppercase, 
+  lowercase:  lowercase, 
+  uppercase:  uppercase, 
   capitalize: capitalize
 );
 
 $font-styles: (
-  normal: normal, 
-  italic: italic, 
+  normal:  normal, 
+  italic:  italic, 
   oblique: oblique
 );
 
 $text-decorations: (
-  underline: underline, 
+  underline:    underline, 
   line-through: line-through, 
-  none: none
+  none:         none
 );
 
 $text-wraps: (
-  normal: normal,
-  nowrap: nowrap,
-  pre: pre,
+  normal:   normal,
+  nowrap:   nowrap,
+  pre:      pre,
   pre-line: pre-line,
   pre-wrap: pre-wrap
 );
 
 $letter-spacings: (
-  normal: normal,
-  tight: -0.05em,
-  wide: .1em,
-  wider: .5em,
+  normal:  normal,
+  tight:   -0.05em,
+  wide:   .1em,
+  wider:  .5em,
 );
 
 $displays-fz: (
@@ -248,11 +248,11 @@ $gradients: (
 // ========================= //
 
 $radiuses: (
-  'small': 4px,
-  'base': 8px,
-  'large': 20px,
-  'circle': 100%,
-  'zero': 0
+  'small':   4px,
+  'base':    8px,
+  'large':   20px,
+  'circle':  100%,
+  'zero':    0
 );
 
 
@@ -308,10 +308,10 @@ $icon-sizes: (18, 24, 36, 48, 64);
 
 /// List of shadows defined by user
 $shadows: (
-  none: none,
-  small: 1px 1px 3px black,
-  base: 3px 3px 6px map-get($theme-colors, 'primary'),
-  large: (4px 4px 8px rgba(black, .5), 6px 7px 24px rgba(map-get($theme-colors, 'warning'), .75)),
+  none:   none,
+  small:  1px 1px 3px black,
+  base:   3px 3px 6px map-get($theme-colors, 'primary'),
+  large:  (4px 4px 8px rgba(black, .5), 6px 7px 24px rgba(map-get($theme-colors, 'warning'), .75)),
 );
 
 /// List of shadows based on Material methodology
@@ -332,30 +332,30 @@ $material-shadows: (
 
 $transition-speed: (
   shortest: .15s,
-  shorter: .2s,
-  short: .25s,
-  base: .3s,
-  slow: .375s,
-  slower: .5s,
-  lazy: .75s,
+  shorter:  .2s,
+  short:    .25s,
+  base:     .3s,
+  slow:     .375s,
+  slower:   .5s,
+  lazy:     .75s,
 );
 
 $transition-timings: (
   /// "Standard" and most usefull easings
   /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions
-  linear: cubic-bezier(0, 0, 1, 1),
-  ease: cubic-bezier(0.25, 0.1, 0.25, 1),
-  ease-in: cubic-bezier(0.42, 0, 1, 1),
-  ease-out: cubic-bezier(0,0,0.58,1),
-  ease-in-out: cubic-bezier(0.42, 0, 0.58, 1),
+  linear:       cubic-bezier(0, 0, 1, 1),
+  ease:         cubic-bezier(0.25, 0.1, 0.25, 1),
+  ease-in:      cubic-bezier(0.42, 0, 1, 1),
+  ease-out:     cubic-bezier(0,0,0.58,1),
+  ease-in-out:  cubic-bezier(0.42, 0, 0.58, 1),
 
   /// Material Design easings list
   /// @link https://material.io/design/motion/speed.html#easing
-  standard: cubic-bezier(0.4, 0, 0.2, 1), // speed up quickly and slow down gradually, in order to emphasize the end of the transition
-  emphasized: cubic-bezier(0.0, 0, 0.2, 1), // speed up quickly and slow down very gradually, placing extra emphasis on the end of the transition
-  decelerated: cubic-bezier(0.0, 0.0, 0.2, 1), // transitions begin at peak velocity (the fastest point in an element's movement) and end at rest
-  accelerated: cubic-bezier(0.4, 0.0, 1, 1), // transition in which the element starts at rest and ends at peak velocity
+  standard:     cubic-bezier(0.4, 0, 0.2, 1), // speed up quickly and slow down gradually, in order to emphasize the end of the transition
+  emphasized:   cubic-bezier(0.0, 0, 0.2, 1), // speed up quickly and slow down very gradually, placing extra emphasis on the end of the transition
+  decelerated:  cubic-bezier(0.0, 0.0, 0.2, 1), // transitions begin at peak velocity (the fastest point in an element's movement) and end at rest
+  accelerated:  cubic-bezier(0.4, 0.0, 1, 1), // transition in which the element starts at rest and ends at peak velocity
 
   /// Custom easings (here you can add new ones)
-  sharp: cubic-bezier(0.4, 0, 0.6, 1) // the sharp curve is used for objects that may return to the screen at any time
+  sharp:        cubic-bezier(0.4, 0, 0.6, 1) // the sharp curve is used for objects that may return to the screen at any time
 );
