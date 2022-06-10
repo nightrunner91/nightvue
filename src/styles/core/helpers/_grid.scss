@@ -1,3 +1,8 @@
+/// This code generates classnames for container, rows and cols
+/// By default Nightvue grid has maximum width of 1280px
+/// When screen width reaches this value grid becomes responsive
+/// You can apply .container--full classname to make responsive grid straightaway
+
 .container {
   margin: 0 auto;
   padding: 0 $gutter-width;

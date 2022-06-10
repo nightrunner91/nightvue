@@ -290,7 +290,7 @@ $xl-up: "screen and (min-width: #{map-get($breakpoints, 'xl') + 'px'})" !default
 // Queries based on max-width
 $xs-dw: "screen and (max-width: #{map-get($breakpoints, 'xs') - 1px})" !default;
 $sm-dw: "screen and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
-$md-dw: "screen and (max-width: #{map-get($breakpoints, 'md') - 1px}" !default;
+$md-dw: "screen and (max-width: #{map-get($breakpoints, 'md') - 1px})" !default;
 $lg-dw: "screen and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
 $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 
