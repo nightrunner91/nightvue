@@ -1,4 +1,4 @@
-/// This code will generate classnames from $colors, $grays and $theme-colors maps
+/// This code generates classnames from $colors, $grays and $theme-colors maps
 /// Each color will have unique classname with background-color, color and fill
 /// For each color in $colors and $theme-colors maps will be generated
 /// classnames with suffixes -light-${level} and -dark-${level} with brightened and darkened colors
