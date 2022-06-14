@@ -14,11 +14,12 @@ export default {
 
     // Dublicated in styles/core/_grid.scss
     breakpoints: {
-      'xs': 576,
-      'sm': 768,
-      'md': 1024,
-      'lg': 1280,
-      'xl': 1600,
+      xs: 0,
+      sm: 576,
+      md: 768,
+      lg: 992,
+      xl: 1200,
+      xxl: 1400
     },
   },
   mutations: {

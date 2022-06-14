@@ -1,6 +1,9 @@
 <template>
-  <div class="flex-center minvh-100 minvw-100">
-    <div class="icon-size-48 bg-primary selector rotate-minus-90 radius-circle shadow-level-1"></div>
+  <div class="container">
+    <div class="row">
+      <div class="selector-1">1</div>
+      <div class="selector-2">2</div>
+    </div>
   </div>
 </template>
 

@@ -1,54 +1,16 @@
 /// This code generates classnames for container, rows and cols
-/// By default Nightvue grid has maximum width of 1280px
-/// When screen width reaches this value grid becomes responsive
-/// You can apply .container--full classname to make responsive grid straightaway
 
 .container {
-  margin: 0 auto;
-  padding: 0 $gutter-width;
-  width: 100%;
-  max-width: $container-width;
-
-  &--full {
-    max-width: initial;
-  }
+  @include container();
+  &--full { max-width: 100%; }
 }
+.row { @include row() }
+.col { @include col() }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: ($gutter-width / -2);
-  margin-right: ($gutter-width / -2);
-}
-
-.col {
-  position: relative;
-  flex-basis: 100%;
-  padding: 0 ($gutter-width / 2);
-  margin: 0;
-  max-width: 100%;
-  -ms-flex-preferred-size: 100%;
-}
-
-@mixin makeGrid($breakpoint:null) {
-  $i: 0;
-  @while $i <= $num-cols {
-    $perc: if($i > 0, unquote((100 / ($num-cols / $i)) + "%"), 0%);
-    .col#{$breakpoint}-#{$i} {
-      flex-basis: $perc;
-      max-width: $perc;
-      -ms-flex-preferred-size: $perc;
-    }
-    .offset#{$breakpoint}-#{$i} { margin-left: $perc }
-    .order#{$breakpoint}-#{$i} { order: #{$i} }
-    $i: $i + 1;
-  }
-}
-
-@include makeGrid();
+@include grid();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include makeGrid('-' + $breakpoint)
+    @include grid('-' + $breakpoint)
   }
 };

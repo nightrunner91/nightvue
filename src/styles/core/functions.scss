@@ -270,3 +270,7 @@
 
   @return $result;
 };
+
+@function percent($perc, $from) {
+  @return if($perc > 0, unquote((100 / ($from / $perc)) + "%"), 0%);
+}

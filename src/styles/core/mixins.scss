@@ -119,68 +119,68 @@
 };
 
 @mixin animation($name, $duration, $delay:0s, $count:1, $direction:normal, $timing:ease-in, $mode:forwards, $state:running) {
-  /// Mixin applies animation to selector with passed params
-  /// It will generate shorted syntax for animation (animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode и animation-play-state)
-  /// Output also will have -webkit prefix
-  ///
-  /// @author nightrunner91
-  /// 
-  /// @link https://github.com/nightrunner91/nightvue
-  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Animations/
-  ///
-  /// @param $name:      { String } [animation name]
-  /// @param $duration:  { Number | String} [s | ms | system speed]
-  /// @param $delay:     { Number } [s | ms, default: 0s]
-  /// @param $count:     { Number | String } [Number | infinite, default: 1]
-  /// @param $direction: { String } [normal | reverse | alternate | alternate-reverse, default: normal]
-  /// @param $timing:    { String } [easing type | system easing, default: ease-in]
-  /// @param $mode:      { String } [forwards | backwards | both, default: forwards]
-  /// @param $state:     { String } [running | paused | default: running]
-  /// 
-  /// @example
-  ///   @include animation(
-  ///     $name: spin,
-  ///     $duration: 2s
-  ///   );
-  ///
-  /// @output
-  ///   animation: spin 2s cubic-bezier(0.42, 0, 1, 1) 0s 1 normal forwards;
-  ///
-  /// @example
-  ///   @include animation(
-  ///     $name: spin,
-  ///     $duration: slow,
-  ///     $delay: 1s,
-  ///     $count: infinite,
-  ///     $direction: reverse,
-  ///     $timing: emphasized
-  ///     $state: paused
-  ///   );
-  ///
-  /// @output
-  ///   animation: spin 0.375s cubic-bezier(0, 0, 0.2, 1) 1s infinite reverse forwards paused;
+    /// Mixin applies animation to selector with passed params
+    /// It will generate shorted syntax for animation (animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode и animation-play-state)
+    /// Output also will have -webkit prefix
+    ///
+    /// @author nightrunner91
+    /// 
+    /// @link https://github.com/nightrunner91/nightvue
+    /// @link https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Animations/
+    ///
+    /// @param $name:      { String } [animation name]
+    /// @param $duration:  { Number | String} [s | ms | system speed]
+    /// @param $delay:     { Number } [s | ms, default: 0s]
+    /// @param $count:     { Number | String } [Number | infinite, default: 1]
+    /// @param $direction: { String } [normal | reverse | alternate | alternate-reverse, default: normal]
+    /// @param $timing:    { String } [easing type | system easing, default: ease-in]
+    /// @param $mode:      { String } [forwards | backwards | both, default: forwards]
+    /// @param $state:     { String } [running | paused | default: running]
+    /// 
+    /// @example
+    ///   @include animation(
+    ///     $name: spin,
+    ///     $duration: 2s
+    ///   );
+    ///
+    /// @output
+    ///   animation: spin 2s cubic-bezier(0.42, 0, 1, 1) 0s 1 normal forwards;
+    ///
+    /// @example
+    ///   @include animation(
+    ///     $name: spin,
+    ///     $duration: slow,
+    ///     $delay: 1s,
+    ///     $count: infinite,
+    ///     $direction: reverse,
+    ///     $timing: emphasized
+    ///     $state: paused
+    ///   );
+    ///
+    /// @output
+    ///   animation: spin 0.375s cubic-bezier(0, 0, 0.2, 1) 1s infinite reverse forwards paused;
 
-  $animation: (
-    $name,
-    $duration,
-    $timing,
-    $delay,
-    $count,
-    $direction,
-    $mode,
-    $state
-  );
+    $animation: (
+      $name,
+      $duration,
+      $timing,
+      $delay,
+      $count,
+      $direction,
+      $mode,
+      $state
+    );
 
-  @if map-has-key($transition-speed, $duration) {
-    $animation: replace-in-list($animation, $duration, transition-speed($duration))
-  }
+    @if map-has-key($transition-speed, $duration) {
+      $animation: replace-in-list($animation, $duration, transition-speed($duration))
+    }
 
-  @if map-has-key($transition-timings, $timing) {
-    $animation: replace-in-list($animation, $timing, transition-timing($timing))
-  }
+    @if map-has-key($transition-timings, $timing) {
+      $animation: replace-in-list($animation, $timing, transition-timing($timing))
+    }
 
-  -webkit-animation: to-string($animation, ' ');
-  animation: to-string($animation, ' ');
+    -webkit-animation: to-string($animation, ' ');
+    animation: to-string($animation, ' ');
 };
 
 @mixin text-truncate($width) {
@@ -211,3 +211,142 @@
   white-space: nowrap;
   max-width: $width;
 };
+
+@mixin container() {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
+  width: 100%;
+
+  @each $breakpoint, $size in $breakpoints {
+    @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      max-width: map-get($containers, $breakpoint)
+    }
+  }
+}
+
+@mixin row() {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: ($gutter-width / -2);
+  margin-right: ($gutter-width / -2);
+}
+
+@mixin col-width($cols) {
+  $perc: percent($cols, $num-cols);
+  
+  flex-basis: $perc;
+  max-width: $perc;
+  -ms-flex-preferred-size: $perc;
+}
+
+@mixin col($cols:$num-cols, $xs:$num-cols, $sm:$num-cols, $md:$num-cols, $lg:$num-cols, $xl:$num-cols) {
+  @if (
+    $cols > $num-cols
+    or $xs > $num-cols
+    or $sm > $num-cols
+    or $md > $num-cols
+    or $lg > $num-cols
+    or $xl > $num-cols) {
+    @error 'Passed value must be lower or equal to $num-cols varaible!'
+  };
+
+  padding-left: $gutter-width / 2;
+  padding-right: $gutter-width / 2;
+
+  @if $cols < $num-cols {
+    @include col-width($cols)
+  }
+  @else {
+    @include col-width($num-cols)
+  };
+
+  @if $xs < $num-cols {
+    @media #{$xs-up} { @include col-width($xs) }
+  };
+  @if $sm < $num-cols {
+    @media #{$sm-up} { @include col-width($sm) }
+  };
+  @if $md < $num-cols {
+    @media #{$md-up} { @include col-width($md) }
+  };
+  @if $lg < $num-cols {
+    @media #{$lg-up} { @include col-width($lg) }
+  };
+  @if $xl < $num-cols {
+    @media #{$xl-up} { @include col-width($xl) }
+  };
+}
+
+@mixin offset($cols:$num-cols, $xs:$num-cols, $sm:$num-cols, $md:$num-cols, $lg:$num-cols, $xl:$num-cols) {
+  @if (
+    $cols > $num-cols
+    or $xs > $num-cols
+    or $sm > $num-cols
+    or $md > $num-cols
+    or $lg > $num-cols
+    or $xl > $num-cols) {
+    @error 'Passed value must be lower or equal to $num-cols varaible!'
+  };
+
+  @if $cols < $num-cols {
+    margin-left: percent($cols, $num-cols)
+  };
+  @if $xs < $num-cols {
+    @media #{$xs-up} { margin-left: percent($xs, $num-cols) }
+  };
+  @if $sm < $num-cols {
+    @media #{$sm-up} { margin-left: percent($sm, $num-cols) }
+  };
+  @if $md < $num-cols {
+    @media #{$md-up} { margin-left: percent($md, $num-cols) }
+  };
+  @if $lg < $num-cols {
+    @media #{$lg-up} { margin-left: percent($lg, $num-cols) }
+  };
+  @if $xl < $num-cols {
+    @media #{$xl-up} { margin-left: percent($xl, $num-cols) }
+  };
+}
+
+@mixin order($order:$num-cols, $xs:$num-cols, $sm:$num-cols, $md:$num-cols, $lg:$num-cols, $xl:$num-cols) {
+  @if (
+    $order > $num-cols
+    or $xs > $num-cols
+    or $sm > $num-cols
+    or $md > $num-cols
+    or $lg > $num-cols
+    or $xl > $num-cols) {
+    @error 'Passed value must be lower or equal to $num-cols varaible!'
+  };
+
+  @if $order < $num-cols { order: $order };
+  @if $xs < $num-cols { @media #{$xs-up} { order: $xs } };
+  @if $sm < $num-cols { @media #{$sm-up} { order: $sm } };
+  @if $md < $num-cols { @media #{$md-up} { order: $md } };
+  @if $lg < $num-cols { @media #{$lg-up} { order: $lg } };
+  @if $xl < $num-cols { @media #{$xl-up} { order: $xl } };
+}
+
+@mixin grid($breakpoint:null) {
+  $i: 1;
+  @while $i <= $num-cols {
+    .col#{$breakpoint}-#{$i}    { @include col-width($i) }
+    .offset#{$breakpoint}-#{$i} { margin-left: percent($i, $num-cols) }
+    .order#{$breakpoint}-#{$i}  { order: #{$i} }
+    $i: $i + 1;
+  }
+}
+
+.selector-1 {
+  @include col($lg: 6);
+  @include offset($lg: 1);
+  @include order(1, $lg: 2);
+}
+
+.selector-2 {
+  @include col($lg: 4);
+  @include offset(0, $lg: 1);
+  @include order(2, $lg: 1);
+}
