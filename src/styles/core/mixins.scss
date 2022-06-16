@@ -213,6 +213,16 @@
 };
 
 @mixin container() {
+  /// Mixin applies container styles to selector
+  /// It will apply both standart container settings and breakpoint settings
+  /// 
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  /// 
+  /// @example
+  ///   @include container()
+
   margin-left: auto;
   margin-right: auto;
   padding-left: $gutter-width;
@@ -231,7 +241,7 @@
   flex-wrap: wrap;
   margin-left: ($gutter-width / -2);
   margin-right: ($gutter-width / -2);
-}
+};
 
 @mixin col-width($cols) {
   $perc: percent($cols, $num-cols);
@@ -239,104 +249,95 @@
   flex-basis: $perc;
   max-width: $perc;
   -ms-flex-preferred-size: $perc;
-}
+};
 
-@mixin col($cols:$num-cols, $xs:$num-cols, $sm:$num-cols, $md:$num-cols, $lg:$num-cols, $xl:$num-cols) {
+@mixin col(
+  $cols: $num-cols, 
+  $xs: $num-cols, 
+  $sm: $num-cols, 
+  $md: $num-cols, 
+  $lg: $num-cols, 
+  $xl: $num-cols) {
   @if (
-    $cols > $num-cols
-    or $xs > $num-cols
-    or $sm > $num-cols
-    or $md > $num-cols
-    or $lg > $num-cols
-    or $xl > $num-cols) {
-    @error 'Passed value must be lower or equal to $num-cols varaible!'
+    ($cols > $num-cols or $cols == 0) or 
+    ($xs > $num-cols or $xs == 0) or 
+    ($sm > $num-cols or $sm == 0) or 
+    ($md > $num-cols or $md == 0) or 
+    ($lg > $num-cols or $lg == 0) or 
+    ($xl > $num-cols or $xl == 0)) {
+    @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)'
   };
 
   padding-left: $gutter-width / 2;
   padding-right: $gutter-width / 2;
 
-  @if $cols < $num-cols {
-    @include col-width($cols)
-  }
-  @else {
-    @include col-width($num-cols)
-  };
+  @include col-width($cols);
 
-  @if $xs < $num-cols {
-    @media #{$xs-up} { @include col-width($xs) }
-  };
-  @if $sm < $num-cols {
-    @media #{$sm-up} { @include col-width($sm) }
-  };
-  @if $md < $num-cols {
-    @media #{$md-up} { @include col-width($md) }
-  };
-  @if $lg < $num-cols {
-    @media #{$lg-up} { @include col-width($lg) }
-  };
-  @if $xl < $num-cols {
-    @media #{$xl-up} { @include col-width($xl) }
-  };
+  @media #{$xs-up} { @include col-width($xs) };
+  @media #{$sm-up} { @include col-width($sm) };
+  @media #{$md-up} { @include col-width($md) };
+  @media #{$lg-up} { @include col-width($lg) };
+  @media #{$xl-up} { @include col-width($xl) };
 }
 
-@mixin offset($cols:$num-cols, $xs:$num-cols, $sm:$num-cols, $md:$num-cols, $lg:$num-cols, $xl:$num-cols) {
+@mixin offset(
+  $cols: $num-cols, 
+  $xs: $num-cols, 
+  $sm: $num-cols, 
+  $md: $num-cols, 
+  $lg: $num-cols, 
+  $xl: $num-cols) {
   @if (
-    $cols > $num-cols
-    or $xs > $num-cols
-    or $sm > $num-cols
-    or $md > $num-cols
-    or $lg > $num-cols
-    or $xl > $num-cols) {
-    @error 'Passed value must be lower or equal to $num-cols varaible!'
+    ($cols > $num-cols or $cols == 0) or 
+    ($xs > $num-cols or $xs == 0) or 
+    ($sm > $num-cols or $sm == 0) or 
+    ($md > $num-cols or $md == 0) or 
+    ($lg > $num-cols or $lg == 0) or 
+    ($xl > $num-cols or $xl == 0)) {
+    @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)'
   };
 
-  @if $cols < $num-cols {
-    margin-left: percent($cols, $num-cols)
-  };
-  @if $xs < $num-cols {
-    @media #{$xs-up} { margin-left: percent($xs, $num-cols) }
-  };
-  @if $sm < $num-cols {
-    @media #{$sm-up} { margin-left: percent($sm, $num-cols) }
-  };
-  @if $md < $num-cols {
-    @media #{$md-up} { margin-left: percent($md, $num-cols) }
-  };
-  @if $lg < $num-cols {
-    @media #{$lg-up} { margin-left: percent($lg, $num-cols) }
-  };
-  @if $xl < $num-cols {
-    @media #{$xl-up} { margin-left: percent($xl, $num-cols) }
-  };
-}
+  margin-left: percent($cols, $num-cols);
 
-@mixin order($order:$num-cols, $xs:$num-cols, $sm:$num-cols, $md:$num-cols, $lg:$num-cols, $xl:$num-cols) {
+  @media #{$xs-up} { margin-left: percent($xs, $num-cols) };
+  @media #{$sm-up} { margin-left: percent($sm, $num-cols) };
+  @media #{$md-up} { margin-left: percent($md, $num-cols) };
+  @media #{$lg-up} { margin-left: percent($lg, $num-cols) };
+  @media #{$xl-up} { margin-left: percent($xl, $num-cols) };
+};
+
+@mixin order(
+  $cols: $num-cols, 
+  $xs: $num-cols, 
+  $sm: $num-cols, 
+  $md: $num-cols, 
+  $lg: $num-cols, 
+  $xl: $num-cols) {
   @if (
-    $order > $num-cols
-    or $xs > $num-cols
-    or $sm > $num-cols
-    or $md > $num-cols
-    or $lg > $num-cols
-    or $xl > $num-cols) {
-    @error 'Passed value must be lower or equal to $num-cols varaible!'
+    ($cols > $num-cols or $cols == 0) or 
+    ($xs > $num-cols or $xs == 0) or 
+    ($sm > $num-cols or $sm == 0) or 
+    ($md > $num-cols or $md == 0) or 
+    ($lg > $num-cols or $lg == 0) or 
+    ($xl > $num-cols or $xl == 0)) {
+    @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)'
   };
 
-  @if $order < $num-cols { order: $order };
-  @if $xs < $num-cols { @media #{$xs-up} { order: $xs } };
-  @if $sm < $num-cols { @media #{$sm-up} { order: $sm } };
-  @if $md < $num-cols { @media #{$md-up} { order: $md } };
-  @if $lg < $num-cols { @media #{$lg-up} { order: $lg } };
-  @if $xl < $num-cols { @media #{$xl-up} { order: $xl } };
+  order: $cols;
+
+  @media #{$xs-up} { order: $xs };
+  @media #{$sm-up} { order: $sm };
+  @media #{$md-up} { order: $md };
+  @media #{$lg-up} { order: $lg };
+  @media #{$xl-up} { order: $xl };
 }
 
-@mixin grid($breakpoint:null) {
-  $i: 1;
-  @while $i <= $num-cols {
-    .col#{$breakpoint}-#{$i}    { @include col-width($i) }
-    .offset#{$breakpoint}-#{$i} { margin-left: percent($i, $num-cols) }
-    .order#{$breakpoint}-#{$i}  { order: #{$i} }
-    $i: $i + 1;
-  }
+.parent {
+  @include container()
+}
+
+.line {
+  @include row()
 }
 
 .selector-1 {
@@ -346,7 +347,7 @@
 }
 
 .selector-2 {
-  @include col($lg: 4);
-  @include offset(0, $lg: 1);
+  @include col($lg: 6);
+  @include offset(1, $lg: 1);
   @include order(2, $lg: 1);
 }

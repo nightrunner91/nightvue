@@ -272,5 +272,26 @@
 };
 
 @function percent($perc, $from) {
+  /// Function returns percent from given values
+  /// 
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  /// 
+  /// @param $perc: { Number }, [percentфпу value, required]
+  /// @param $from: { Number }, [number from which to calculate, required]
+  /// 
+  /// @example
+  ///   width: percent(10, 100);
+  ///   width: percent(18, 24);
+  ///   width: percent(4, 12);
+  ///   width: percent(0, 37);
+  /// 
+  /// @output
+  ///   width: 10%;
+  ///   width: 75%;
+  ///   width: 33.33333%;
+  ///   width: 0%;
+
   @return if($perc > 0, unquote((100 / ($from / $perc)) + "%"), 0%);
 }
