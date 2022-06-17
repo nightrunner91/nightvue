@@ -2,7 +2,6 @@
   <div class="parent">
     <div class="line">
       <div class="selector-1">1</div>
-      <div class="selector-2">2</div>
     </div>
     <div class="foo"></div>
   </div>

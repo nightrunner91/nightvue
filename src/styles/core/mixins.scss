@@ -258,26 +258,59 @@
   $md: $num-cols, 
   $lg: $num-cols, 
   $xl: $num-cols) {
-  @if (
-    ($cols > $num-cols or $cols == 0) or 
-    ($xs > $num-cols or $xs == 0) or 
-    ($sm > $num-cols or $sm == 0) or 
-    ($md > $num-cols or $md == 0) or 
-    ($lg > $num-cols or $lg == 0) or 
-    ($xl > $num-cols or $xl == 0)) {
-    @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)'
-  };
+    /// Mixin applies column styles (paddings and width) to selector
+    /// If you don't pass any params mixin will apply just padding-left and padding right
+    /// based on $gutter-width varaible
+    /// To apply width properties you can pass number from 1 to 12 for each breakpoint
+    /// 
+    /// @author nightrunner91
+    /// 
+    /// @link https://github.com/nightrunner91/nightvue
+    /// 
+    /// @param $cols: { Number } [number of columns by default, 1...12, default 12]
+    /// @param $xs:   { Number } [number of columns for $xs breakpoint, 1...12, default 12]
+    /// @param $sm:   { Number } [number of columns for $sm breakpoint, 1...12, default 12]
+    /// @param $md:   { Number } [number of columns for $md breakpoint, 1...12, default 12]
+    /// @param $lg:   { Number } [number of columns for $lg breakpoint, 1...12, default 12]
+    /// @param $xl:   { Number } [number of columns for $xl breakpoint, 1...12, default 12]
+    /// 
+    /// @example
+    ///   @include col();
+    ///   @include col(12);
+    ///   @include col(10, $md: 8);
+    ///   @include col(10, $md: 8);
+    /// 
+    padding-left: $gutter-width / 2;
+    padding-right: $gutter-width / 2;
 
-  padding-left: $gutter-width / 2;
-  padding-right: $gutter-width / 2;
-
-  @include col-width($cols);
-
-  @media #{$xs-up} { @include col-width($xs) };
-  @media #{$sm-up} { @include col-width($sm) };
-  @media #{$md-up} { @include col-width($md) };
-  @media #{$lg-up} { @include col-width($lg) };
-  @media #{$xl-up} { @include col-width($xl) };
+    @if (
+      $cols > $num-cols or $cols <= 0 or 
+      $xs > $num-cols or $xs <= 0 or 
+      $sm > $num-cols or $sm <= 0 or 
+      $md > $num-cols or $md <= 0 or 
+      $lg > $num-cols or $lg <= 0 or 
+      $xl > $num-cols or $xl <= 0) {
+      @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)';
+    } @else {
+      @if ($cols < $num-cols and $cols > 0) {
+        @include col-width($cols);
+      };
+      @if ($xs < $num-cols and $xs > 0) {
+        @media #{$xs-up} {  @include col-width($xs) };
+      }
+      @if ($sm < $num-cols and $sm > 0) {
+        @media #{$sm-up} { @include col-width($sm) };
+      }
+      @if ($md < $num-cols and $md > 0) {
+        @media #{$md-up} { @include col-width($md) };
+      }
+      @if ($lg < $num-cols and $lg > 0) {
+        @media #{$lg-up} { @include col-width($lg) };
+      }
+      @if ($xl < $num-cols and $xl > 0) {
+        @media #{$xl-up} { @include col-width($xl) };
+      }
+    }
 }
 
 @mixin offset(
@@ -287,23 +320,35 @@
   $md: $num-cols, 
   $lg: $num-cols, 
   $xl: $num-cols) {
-  @if (
-    ($cols > $num-cols or $cols == 0) or 
-    ($xs > $num-cols or $xs == 0) or 
-    ($sm > $num-cols or $sm == 0) or 
-    ($md > $num-cols or $md == 0) or 
-    ($lg > $num-cols or $lg == 0) or 
-    ($xl > $num-cols or $xl == 0)) {
-    @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)'
-  };
 
-  margin-left: percent($cols, $num-cols);
-
-  @media #{$xs-up} { margin-left: percent($xs, $num-cols) };
-  @media #{$sm-up} { margin-left: percent($sm, $num-cols) };
-  @media #{$md-up} { margin-left: percent($md, $num-cols) };
-  @media #{$lg-up} { margin-left: percent($lg, $num-cols) };
-  @media #{$xl-up} { margin-left: percent($xl, $num-cols) };
+    @if (
+      $cols > $num-cols or $cols <= 0 or 
+      $xs > $num-cols or $xs <= 0 or 
+      $sm > $num-cols or $sm <= 0 or 
+      $md > $num-cols or $md <= 0 or 
+      $lg > $num-cols or $lg <= 0 or 
+      $xl > $num-cols or $xl <= 0) {
+      @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)';
+    } @else {
+      @if ($cols < $num-cols and $cols > 0) {
+        margin-left: percent($cols, $num-cols);
+      };
+      @if ($xs < $num-cols and $xs > 0) {
+        @media #{$xs-up} { margin-left: percent($xs, $num-cols) };
+      }
+      @if ($sm < $num-cols and $sm > 0) {
+        @media #{$sm-up} { margin-left: percent($sm, $num-cols) };
+      }
+      @if ($md < $num-cols and $md > 0) {
+        @media #{$md-up} { margin-left: percent($md, $num-cols) };
+      }
+      @if ($lg < $num-cols and $lg > 0) {
+        @media #{$lg-up} { margin-left: percent($lg, $num-cols) };
+      }
+      @if ($xl < $num-cols and $xl > 0) {
+        @media #{$xl-up} { margin-left: percent($xl, $num-cols) };
+      }
+    }
 };
 
 @mixin order(
@@ -313,23 +358,35 @@
   $md: $num-cols, 
   $lg: $num-cols, 
   $xl: $num-cols) {
-  @if (
-    ($cols > $num-cols or $cols == 0) or 
-    ($xs > $num-cols or $xs == 0) or 
-    ($sm > $num-cols or $sm == 0) or 
-    ($md > $num-cols or $md == 0) or 
-    ($lg > $num-cols or $lg == 0) or 
-    ($xl > $num-cols or $xl == 0)) {
-    @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)'
-  };
 
-  order: $cols;
-
-  @media #{$xs-up} { order: $xs };
-  @media #{$sm-up} { order: $sm };
-  @media #{$md-up} { order: $md };
-  @media #{$lg-up} { order: $lg };
-  @media #{$xl-up} { order: $xl };
+    @if (
+      $cols > $num-cols or $cols <= 0 or 
+      $xs > $num-cols or $xs <= 0 or 
+      $sm > $num-cols or $sm <= 0 or 
+      $md > $num-cols or $md <= 0 or 
+      $lg > $num-cols or $lg <= 0 or 
+      $xl > $num-cols or $xl <= 0) {
+      @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)';
+    } @else {
+      @if ($cols < $num-cols and $cols > 0) {
+        order: $cols;
+      };
+      @if ($xs < $num-cols and $xs > 0) {
+        @media #{$xs-up} { order: $xs };
+      }
+      @if ($sm < $num-cols and $sm > 0) {
+        @media #{$sm-up} { order: $sm };
+      }
+      @if ($md < $num-cols and $md > 0) {
+        @media #{$md-up} { order: $md };
+      }
+      @if ($lg < $num-cols and $lg > 0) {
+        @media #{$lg-up} { order: $lg };
+      }
+      @if ($xl < $num-cols and $xl > 0) {
+        @media #{$xl-up} { order: $xl };
+      }
+    }
 }
 
 .parent {
@@ -341,13 +398,11 @@
 }
 
 .selector-1 {
-  @include col($lg: 6);
-  @include offset($lg: 1);
-  @include order(1, $lg: 2);
-}
-
-.selector-2 {
-  @include col($lg: 6);
-  @include offset(1, $lg: 1);
-  @include order(2, $lg: 1);
+  @include col(10, $xs: 4, $sm: 8, $md: 7, $lg: 6, $xl: 6);
+  @include offset($xl: 1);
+  @include order(1, $md: 2, $lg: 3);
+  
+  padding: spacer(1, 50);
+  background-color: color('primary');
+  color: color('white');
 }
