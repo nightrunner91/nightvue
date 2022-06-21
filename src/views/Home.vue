@@ -1,10 +1,5 @@
 <template>
-  <div class="parent">
-    <div class="line">
-      <div class="selector-1">1</div>
-    </div>
-    <div class="foo"></div>
-  </div>
+  <div></div>
 </template>
 
 <script>
