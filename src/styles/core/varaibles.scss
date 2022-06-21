@@ -260,11 +260,16 @@ $radiuses: (
 // ===== Grid ===== //
 // ================ //
 
-// Base grid settings
+/// Base grid settings
 $num-cols:      12;
 $gutter-width:  1rem;
 
-// Breakpoints are dublicated in store/modules/config.js
+$grid-type: 'combined';
+/// 👉 boxed      => on each $breakpoint container will have fixed max-width based on $containers map
+/// 👉 combined   => container will have max-width of LAST value from $containers map, then will be 100%
+/// 👉 responsive => container will ALWAYS have 100% width
+
+/// Breakpoints are dublicated in 'store/modules/config.js'
 $breakpoints: (
   xs: 576px,
   sm: 768px,
@@ -273,6 +278,7 @@ $breakpoints: (
   xl: 1400px
 );
 
+/// Containers max-widths (if you are using 'boxed' or 'combined' type)
 $containers: (
   xs: 540px,
   sm: 720px,

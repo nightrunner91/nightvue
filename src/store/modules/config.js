@@ -12,14 +12,13 @@ export default {
     },
     windowScroll: 0,
 
-    // Dublicated in styles/core/_grid.scss
+    // Dublicated in 'styles/core/_varaibles.scss'
     breakpoints: {
-      xs: 0,
-      sm: 576,
-      md: 768,
-      lg: 992,
-      xl: 1200,
-      xxl: 1400
+      xs: 576,
+      sm: 768,
+      md: 992,
+      lg: 1200,
+      xl: 1400
     },
   },
   mutations: {

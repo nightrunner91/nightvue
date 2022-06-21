@@ -227,11 +227,19 @@
   margin-right: auto;
   padding-left: $gutter-width;
   padding-right: $gutter-width;
-  width: 100%;
+  max-width: 100%;
 
-  @each $breakpoint, $size in $breakpoints {
-    @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
-      max-width: map-get($containers, $breakpoint)
+  @if $grid-type == 'boxed' {
+    @each $breakpoint, $size in $breakpoints {
+      @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+        max-width: map-get($containers, $breakpoint)
+      }
+    }
+  } @else if $grid-type == 'combined' {
+    $last-breakpoint: nth(nth($breakpoints, length($breakpoints)), 1);
+
+    @media screen and (min-width: #{map-get($breakpoints, $last-breakpoint)}) {
+      max-width: map-get($containers, $last-breakpoint)
     }
   }
 }
@@ -320,7 +328,6 @@
   $md: $num-cols, 
   $lg: $num-cols, 
   $xl: $num-cols) {
-
     @if (
       $cols > $num-cols or $cols <= 0 or 
       $xs > $num-cols or $xs <= 0 or 
@@ -358,7 +365,6 @@
   $md: $num-cols, 
   $lg: $num-cols, 
   $xl: $num-cols) {
-
     @if (
       $cols > $num-cols or $cols <= 0 or 
       $xs > $num-cols or $xs <= 0 or 
