@@ -1,11 +1,6 @@
 /// This code generates classnames for container, rows and cols
 
-.container {
-  @include container();
-
-  &--full { max-width: 100%; }
-}
-
+.container { @include container() }
 .row { @include row() }
 .col { @include col() }
 

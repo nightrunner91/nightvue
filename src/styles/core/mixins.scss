@@ -212,30 +212,34 @@
   max-width: $width;
 };
 
-@mixin container() {
+@mixin container($type:'combined', $gutter:$gutter-width) {
   /// Mixin applies container styles to selector
-  /// It will apply both standart container settings and breakpoint settings
   /// 
   /// @author nightrunner91
   /// 
   /// @link https://github.com/nightrunner91/nightvue
   /// 
+  /// @param $type:   { String }, [boxed | combined | full, default: combined]
+  /// @param $gutter: { Number }, [defines left and right paddings, default: 1rem]
+  /// 
   /// @example
-  ///   @include container()
+  ///   @include container();
+  ///   @include container('full');
+  ///   @include container($type: 'boxed', $gutter: 2rem);
 
   margin-left: auto;
   margin-right: auto;
-  padding-left: $gutter-width;
-  padding-right: $gutter-width;
+  padding-left: $gutter;
+  padding-right: $gutter;
   max-width: 100%;
 
-  @if $grid-type == 'boxed' {
+  @if $type == 'boxed' {
     @each $breakpoint, $size in $breakpoints {
       @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
         max-width: map-get($containers, $breakpoint)
       }
     }
-  } @else if $grid-type == 'combined' {
+  } @else if $type == 'combined' {
     $last-breakpoint: nth(nth($breakpoints, length($breakpoints)), 1);
 
     @media screen and (min-width: #{map-get($breakpoints, $last-breakpoint)}) {
@@ -244,18 +248,47 @@
   }
 }
 
-@mixin row() {
+@mixin row($gutter:$gutter-width) {
+  /// Mixin applies row styles to selector
+  /// 
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  /// 
+  /// @param $gutter: { Number }, [defines left and right negative margins, default: 1rem / -2]
+  /// 
+  /// @example
+  ///   @include row();
+  ///   @include row(0);
+  ///   @include row($gutter: 2rem);
+
   display: flex;
   flex-wrap: wrap;
-  margin-left: ($gutter-width / -2);
-  margin-right: ($gutter-width / -2);
+  margin-left: ($gutter / -2);
+  margin-right: ($gutter / -2);
 };
 
 @mixin col-width($cols) {
+  /// Mixin applies percentage width to selector
+  /// Mostly usable to calculate columns width on specific breakpoints
+  /// See @col mixin below for details
+  /// 
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/flex-basis
+  /// 
+  /// @param $cols: { Number }, [number of columns to calculate, 1...12 based on $num-cols]
+  /// 
+  /// @example 
+  ///   @include col-width(1);
+  ///   @include col-width(5);
+  ///   @include col-width(12);
+
   $perc: percent($cols, $num-cols);
   
-  flex-basis: $perc;
   max-width: $perc;
+  flex-basis: $perc;
   -ms-flex-preferred-size: $perc;
 };
 
@@ -286,8 +319,9 @@
     ///   @include col();
     ///   @include col(12);
     ///   @include col(10, $md: 8);
-    ///   @include col(10, $md: 8);
-    /// 
+    ///   @include col(10, $md: 8, $lg: 6, $xs: 12);
+    ///   @include col(12, 10, 10, 8, 6, 9);
+
     padding-left: $gutter-width / 2;
     padding-right: $gutter-width / 2;
 
@@ -301,25 +335,25 @@
       @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)';
     } @else {
       @if ($cols < $num-cols and $cols > 0) {
-        @include col-width($cols);
-      };
+        @include col-width($cols)
+      }
       @if ($xs < $num-cols and $xs > 0) {
-        @media #{$xs-up} {  @include col-width($xs) };
+        @media #{$xs-up} {  @include col-width($xs) }
       }
       @if ($sm < $num-cols and $sm > 0) {
-        @media #{$sm-up} { @include col-width($sm) };
+        @media #{$sm-up} { @include col-width($sm) }
       }
       @if ($md < $num-cols and $md > 0) {
-        @media #{$md-up} { @include col-width($md) };
+        @media #{$md-up} { @include col-width($md) }
       }
       @if ($lg < $num-cols and $lg > 0) {
-        @media #{$lg-up} { @include col-width($lg) };
+        @media #{$lg-up} { @include col-width($lg) }
       }
       @if ($xl < $num-cols and $xl > 0) {
-        @media #{$xl-up} { @include col-width($xl) };
+        @media #{$xl-up} { @include col-width($xl) }
       }
     }
-}
+};
 
 @mixin offset(
   $cols: $num-cols, 
@@ -328,32 +362,54 @@
   $md: $num-cols, 
   $lg: $num-cols, 
   $xl: $num-cols) {
+    /// Mixin applies offset to selector (margin-left value)
+    /// To apply this margin you can pass number from 0 to 12 for each breakpoint
+    /// If you don't pass any params, mixin won't apply any styles
+    /// 
+    /// @author nightrunner91
+    /// 
+    /// @link https://github.com/nightrunner91/nightvue
+    /// 
+    /// @param $cols: { Number } [number of columns by default, 1...12, default 12]
+    /// @param $xs:   { Number } [number of columns for $xs breakpoint, 1...12, default 12]
+    /// @param $sm:   { Number } [number of columns for $sm breakpoint, 1...12, default 12]
+    /// @param $md:   { Number } [number of columns for $md breakpoint, 1...12, default 12]
+    /// @param $lg:   { Number } [number of columns for $lg breakpoint, 1...12, default 12]
+    /// @param $xl:   { Number } [number of columns for $xl breakpoint, 1...12, default 12]
+    /// 
+    /// @example
+    ///   @include offset(6);
+    ///   @include offset(0, $sm: 4);
+    ///   @include offset(10, $md: 8);
+    ///   @include offset(10, $md: 8, $lg: 6, $xs: 12);
+    ///   @include offset($sm: 1, $lg: 4, $xl: 0);
+
     @if (
-      $cols > $num-cols or $cols <= 0 or 
-      $xs > $num-cols or $xs <= 0 or 
-      $sm > $num-cols or $sm <= 0 or 
-      $md > $num-cols or $md <= 0 or 
-      $lg > $num-cols or $lg <= 0 or 
-      $xl > $num-cols or $xl <= 0) {
-      @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)';
+      $cols > $num-cols or $cols < 0 or 
+      $xs > $num-cols or $xs < 0 or 
+      $sm > $num-cols or $sm < 0 or 
+      $md > $num-cols or $md < 0 or 
+      $lg > $num-cols or $lg < 0 or 
+      $xl > $num-cols or $xl < 0) {
+      @error 'Passed value must be between 0 and $num-cols inclusively (12 by default)';
     } @else {
-      @if ($cols < $num-cols and $cols > 0) {
-        margin-left: percent($cols, $num-cols);
-      };
-      @if ($xs < $num-cols and $xs > 0) {
-        @media #{$xs-up} { margin-left: percent($xs, $num-cols) };
+      @if ($cols < $num-cols and $cols >= 0) {
+        margin-left: percent($cols, $num-cols)
       }
-      @if ($sm < $num-cols and $sm > 0) {
-        @media #{$sm-up} { margin-left: percent($sm, $num-cols) };
+      @if ($xs < $num-cols and $xs >= 0) {
+        @media #{$xs-up} { margin-left: percent($xs, $num-cols) }
       }
-      @if ($md < $num-cols and $md > 0) {
-        @media #{$md-up} { margin-left: percent($md, $num-cols) };
+      @if ($sm < $num-cols and $sm >= 0) {
+        @media #{$sm-up} { margin-left: percent($sm, $num-cols) }
       }
-      @if ($lg < $num-cols and $lg > 0) {
-        @media #{$lg-up} { margin-left: percent($lg, $num-cols) };
+      @if ($md < $num-cols and $md >= 0) {
+        @media #{$md-up} { margin-left: percent($md, $num-cols) }
       }
-      @if ($xl < $num-cols and $xl > 0) {
-        @media #{$xl-up} { margin-left: percent($xl, $num-cols) };
+      @if ($lg < $num-cols and $lg >= 0) {
+        @media #{$lg-up} { margin-left: percent($lg, $num-cols) }
+      }
+      @if ($xl < $num-cols and $xl >= 0) {
+        @media #{$xl-up} { margin-left: percent($xl, $num-cols) }
       }
     }
 };
@@ -365,6 +421,29 @@
   $md: $num-cols, 
   $lg: $num-cols, 
   $xl: $num-cols) {
+    /// Mixin applies flex order to selector
+    /// To apply this you can pass number from 0 to 12 for each breakpoint
+    /// If you don't pass any params, mixin won't apply any styles
+    /// 
+    /// @author nightrunner91
+    /// 
+    /// @link https://github.com/nightrunner91/nightvue
+    /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items
+    /// @link https://css-tricks.com/almanac/properties/o/order/
+    /// 
+    /// @param $cols: { Number } [number of columns by default, 1...12, default 12]
+    /// @param $xs:   { Number } [number of columns for $xs breakpoint, 1...12, default 12]
+    /// @param $sm:   { Number } [number of columns for $sm breakpoint, 1...12, default 12]
+    /// @param $md:   { Number } [number of columns for $md breakpoint, 1...12, default 12]
+    /// @param $lg:   { Number } [number of columns for $lg breakpoint, 1...12, default 12]
+    /// @param $xl:   { Number } [number of columns for $xl breakpoint, 1...12, default 12]
+    /// 
+    /// @example
+    ///   @include order(2);
+    ///   @include order(0, $sm: 1);
+    ///   @include order(1, $md: 2, $lg: 3, $xs: 12);
+    ///   @include order($sm: 12, $lg: 4, $xl: 3);
+
     @if (
       $cols > $num-cols or $cols <= 0 or 
       $xs > $num-cols or $xs <= 0 or 
@@ -372,43 +451,25 @@
       $md > $num-cols or $md <= 0 or 
       $lg > $num-cols or $lg <= 0 or 
       $xl > $num-cols or $xl <= 0) {
-      @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)';
+      @error 'Passed value must be between 0 and $num-cols inclusively (12 by default)';
     } @else {
       @if ($cols < $num-cols and $cols > 0) {
-        order: $cols;
-      };
+        order: $cols
+      }
       @if ($xs < $num-cols and $xs > 0) {
-        @media #{$xs-up} { order: $xs };
+        @media #{$xs-up} { order: $xs }
       }
       @if ($sm < $num-cols and $sm > 0) {
-        @media #{$sm-up} { order: $sm };
+        @media #{$sm-up} { order: $sm }
       }
       @if ($md < $num-cols and $md > 0) {
-        @media #{$md-up} { order: $md };
+        @media #{$md-up} { order: $md }
       }
       @if ($lg < $num-cols and $lg > 0) {
-        @media #{$lg-up} { order: $lg };
+        @media #{$lg-up} { order: $lg }
       }
       @if ($xl < $num-cols and $xl > 0) {
-        @media #{$xl-up} { order: $xl };
+        @media #{$xl-up} { order: $xl }
       }
     }
-}
-
-.parent {
-  @include container()
-}
-
-.line {
-  @include row()
-}
-
-.selector-1 {
-  @include col(10, $xs: 4, $sm: 8, $md: 7, $lg: 6, $xl: 6);
-  @include offset($xl: 1);
-  @include order(1, $md: 2, $lg: 3);
-  
-  padding: spacer(1, 50);
-  background-color: color('primary');
-  color: color('white');
-}
+};
