@@ -31,7 +31,14 @@ $aligns: (start, end, center, baseline, stretch);
 $wraps: (nowrap, wrap, wrap-reverse);
 $grows: (0, 1);
 
-@mixin displays($breakpoint: null) {
+// Very usefull classname, when you just need to align item in center and forget about it ;)
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin make-displays($breakpoint: null) {
   @each $display, $type in $displays {
     .d#{$breakpoint}-#{$display} { display: $display !important }
   }
@@ -57,17 +64,10 @@ $grows: (0, 1);
   }
 }
 
-@include displays();
+@include make-displays();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include displays('-' + $breakpoint);
+    @include make-displays('-' + $breakpoint);
   }
-}
-
-// Very usefull classname, when you just need to align item in center and forget about it ;)
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
