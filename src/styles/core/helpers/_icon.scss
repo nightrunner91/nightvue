@@ -43,3 +43,9 @@
     @include icons-sizes('-' + $breakpoint)
   }
 };
+
+// Hide svg sprite
+.svg-sprite {
+  display: none !important;
+  visibility: hidden !important;
+}

@@ -374,7 +374,7 @@ template {
   display: none;
 }
 
-/* Additional styles (Nightrunner)
+/* Additional styles (by @Nightrunner)
    ========================================================================== */
 
 // Remove tap color on Android
@@ -391,12 +391,6 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-// Hide svg sprite no matter what
-.svg-sprite {
-  display: none !important;
-  visibility: hidden !important;
-}
-
 // Hide text decoration and add cursor on links
 a {
   text-decoration: none;
@@ -404,12 +398,10 @@ a {
 }
 
 // Define what is strong and em FOR SURE
-strong,
-.strong {
+strong {
   font-weight: 700
 }
 
-em,
-.italic {
+em {
   font-style: italic
 }

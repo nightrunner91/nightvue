@@ -1,124 +1,12 @@
-@mixin linear-gradient($name) {
-  /// Mixin generates code that includes the default color for browsers 
-  /// that do not support linear gradients and modern syntax
-  ///
-  /// @author nightrunner91
-  /// 
-  /// @link https://github.com/nightrunner91/nightvue
-  /// @link https://caniuse.com/?search=linear-gradient
-  /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient
-  /// @link https://www.colorzilla.com/gradient-editor/
-  ///
-  /// @param $name: { String } [name of gradient in $gradients map]
-  /// 
-  /// @example
-  ///   @include linear-gradient('primary_success');
-  ///
-  /// @output
-  ///   background: #682cab;
-  ///   background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
-
-  @if map-has-key($gradients, quote($name)) {
-    $target: map-get($gradients, $name);
-
-    $direction: nth(nth($target, 1), 2);
-    $fallback:  nth(nth($target, 2), 2);
-    $list:      nth(nth($target, 3), 2);
-
-    background: $fallback;
-    background: linear-gradient($direction, $list);
-  } @else {
-    @debug 'No such gradient, check $gradients map in _varaibles.scss file'
-  }
-};
-
-@mixin small() {
-  /// Small mixin that injects small font-size styles
-  /// See _varaibles.scss file for params $base-fz, $base-lh and $small-fz
-  /// By default they are: 16px, 1.5, 0.875
-  ///
-  /// @author nightrunner91
-  ///
-  /// @link https://github.com/nightrunner91/nightvue
-  /// 
-  /// @example
-  ///   @include small();
-  ///
-  /// @output
-  ///   font-size: 14px;
-  ///   line-height: 1.3125;
-
-  font-size: $base-fz * $small-fz;
-  line-height: $base-lh * $small-fz;
-};
-
-@mixin pseudoelem() {
-  /// Often you need to add &:before or &:after for decoration purposes
-  /// Just for that you have this small mixin to simplify your work
-  ///
-  /// @example
-  ///   @include pseudoelem();
-
-  content: '';
-  display: block;
-  position: absolute;
-}
-
-@mixin icon-size($d1, $d2:false) {
-  /// This mixin apply specific width, height and background-size
-  /// If you apply this mixin to selector you can be pretty sure it will have
-  /// passed dimensions no matter what and will not be compressed or stretched
-  /// It is most usefull for SVG icons inside flex container
-  ///
-  /// @author nightrunner91
-  ///
-  /// @link https://github.com/nightrunner91/nightvue
-  ///
-  /// @param $d1: { Number }, [required, dimension X (width)]
-  /// @param $d2: { Number }, [dimension Y (height)]
-  /// 
-  /// @example
-  ///   @include icon-size(24);
-  ///
-  /// @output
-  ///   width: 24px !important;
-  ///   max-width: 24px !important;
-  ///   min-width: 24px !important;
-  ///   height: 24px !important;
-  ///   max-height: 24px !important;
-  ///   min-height: 24px !important;
-  ///   background-size: 24px 24px !important;
-  ///
-  /// @example
-  ///   @include icon-size(18, 34);
-  ///
-  /// @output
-  ///   width: 18px !important;
-  ///   max-width: 18px !important;
-  ///   min-width: 18px !important;
-  ///   height: 34px !important;
-  ///   max-height: 34px !important;
-  ///   min-height: 34px !important;
-  ///   background-size: 18px 34px !important;
-
-  width: $d1 + px !important;
-  max-width: $d1 + px !important;
-  min-width: $d1 + px !important;
-
-  @if ($d2) {
-    height: $d2 + px !important;
-    max-height: $d2 + px !important;
-    min-height: $d2 + px !important;
-    background-size: $d1 + px $dimension2 + px !important;
-  } @else {
-    height: $d1 + px !important;
-    max-height: $d1 + px !important;
-    min-height: $d1 + px !important;
-    background-size: $d1 + px $d1 + px !important;
-  }
-};
-
-@mixin animation($name, $duration, $delay:0s, $count:1, $direction:normal, $timing:ease-in, $mode:forwards, $state:running) {
+@mixin animation(
+  $name,
+  $duration,
+  $delay: 0s,
+  $count: 1,
+  $direction: normal,
+  $timing: ease-in,
+  $mode: forwards,
+  $state: running) {
     /// Mixin applies animation to selector with passed params
     /// It will generate shorted syntax for animation (animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode и animation-play-state)
     /// Output also will have -webkit prefix
@@ -183,33 +71,93 @@
     animation: to-string($animation, ' ');
 };
 
-@mixin text-truncate($width) {
-  /// Mixin applies truncated text effect to selector
+@mixin font-face(
+  $font-name,
+  $font-file,
+  $font-weight: 400, 
+  $font-style: normal, 
+  $support-required: 'modern') {
+  /// Mixin that imports fonts to your project
+  /// 
+  /// @author David Pollet
+  /// 
+  /// @link https://codepen.io/davidpollet/pen/ORyYap/?js-preprocessor=babel
+  /// @link https://css-tricks.com/snippets/css/using-font-face/
+  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/@font-face
+  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/font-style
+  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/font-weight
+  /// @link https://fonts.google.com/
+  /// 
+  /// @param $font-name:        { String }, [name of font, be sure to save your font files in so-called folder]
+  /// @param $font-file:        { String }, [file name, for example : 'RobotoBold']
+  /// @param $font-weight:      { Number }, [font-weight, 100...900, default: 400]
+  /// @param $font-style:       { String }, [font-style, default: normal]
+  /// @param $support-required: { String }, [additional formats that must be included, oldie | recent | modern]
+  /// 
+  /// @example
+  ///   @include font-face('Roboto', 'RobotoRegular');
+  ///   @include font-face('Roboto', 'RobotoBold', 700, normal, 'recent');
+  ///   @include font-face('Montserrat', 'MontserratBoldItalic', 700, italic, 'recent');
+
+  @font-face {
+    font-family: $font-name;
+    font-style : $font-style;
+    font-weight: $font-weight;
+
+    @if $support-required == 'oldie' {
+      src: url('./assets/fonts/#{$font-name}/#{$font-file}.eot');
+      src: url('./assets/fonts/#{$font-name}/#{$font-file}.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/#{$font-name}/#{$font-file}.woff2') format('woff2'),
+      url('./assets/fonts/#{$font-name}/#{$font-file}.woff') format('woff'),
+      url('./assets/fonts/#{$font-name}/#{$font-file}.ttf') format('truetype');
+    }
+    @if $support-required == 'recent' {
+      src: url('./assets/fonts/#{$font-name}/#{$font-file}.woff2') format('woff2'),
+      url('./assets/fonts/#{$font-name}/#{$font-file}.woff') format('woff'),
+      url('./assets/fonts/#{$font-name}/#{$font-file}.ttf') format('truetype');
+    }
+    @if $support-required == 'modern' {
+      src: url('./assets/fonts/#{$font-name}/#{$font-file}.woff2') format('woff2'),
+      url('./assets/fonts/#{$font-name}/#{$font-file}.woff') format('woff');
+    }
+  }
+  @if $support-required != 'oldie' and $support-required != 'recent' and $support-required != 'modern' {
+    @error 'Invalid support-required value. Must be "oldie"==>IE8 and above/ Android native browser 4+/ Safari 4.3 OR "recent"==>IE9+/ Android native browser 4.0+/ Safari 4.3+ OR "modern"==>IE9+/ Android native browser 4.4+/ Safari 5.1+';
+  }
+};
+
+@mixin linear-gradient($name) {
+  /// Mixin generates code that includes the default color for browsers 
+  /// that do not support linear gradients and modern syntax
   ///
   /// @author nightrunner91
   /// 
   /// @link https://github.com/nightrunner91/nightvue
-  /// @link https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
-  /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
-  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/white-space
+  /// @link https://caniuse.com/?search=linear-gradient
+  /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient
+  /// @link https://www.colorzilla.com/gradient-editor/
   ///
-  /// @param $width: { Number } [maximum width of text, px | %]
+  /// @param $name: { String } [name of gradient in $gradients map]
   /// 
   /// @example
-  ///   @include text-truncate(150px);
+  ///   @include linear-gradient('primary_success');
   ///
   /// @output
-  ///   display: inline-block;
-  ///   overflow: hidden;
-  ///   text-overflow: ellipsis;
-  ///   white-space: nowrap;
-  ///   max-width: 150px;
+  ///   background: #682cab;
+  ///   background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
 
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: $width;
+  @if map-has-key($gradients, quote($name)) {
+    $target: map-get($gradients, $name);
+
+    $direction: nth(nth($target, 1), 2);
+    $fallback:  nth(nth($target, 2), 2);
+    $list:      nth(nth($target, 3), 2);
+
+    background: $fallback;
+    background: linear-gradient($direction, $list);
+  } @else {
+    @debug 'No such gradient, check $gradients map in _varaibles.scss file'
+  }
 };
 
 @mixin container($type:'combined', $gutter:$gutter-width) {
@@ -246,7 +194,7 @@
       max-width: map-get($containers, $last-breakpoint)
     }
   }
-}
+};
 
 @mixin row($gutter:$gutter-width) {
   /// Mixin applies row styles to selector
@@ -422,7 +370,7 @@
   $lg: $num-cols, 
   $xl: $num-cols) {
     /// Mixin applies flex order to selector
-    /// To apply this you can pass number from 0 to 12 for each breakpoint
+    /// To apply this you can pass number from 1 to 12 for each breakpoint
     /// If you don't pass any params, mixin won't apply any styles
     /// 
     /// @author nightrunner91
@@ -440,7 +388,7 @@
     /// 
     /// @example
     ///   @include order(2);
-    ///   @include order(0, $sm: 1);
+    ///   @include order(1, $sm: 1);
     ///   @include order(1, $md: 2, $lg: 3, $xs: 12);
     ///   @include order($sm: 12, $lg: 4, $xl: 3);
 
@@ -472,4 +420,119 @@
         @media #{$xl-up} { order: $xl }
       }
     }
+};
+
+@mixin small() {
+  /// Small mixin that injects small font-size styles
+  /// See _varaibles.scss file for params $base-fz, $base-lh and $small-fz
+  /// By default they are: 16px, 1.5, 0.875
+  ///
+  /// @author nightrunner91
+  ///
+  /// @link https://github.com/nightrunner91/nightvue
+  /// 
+  /// @example
+  ///   @include small();
+  ///
+  /// @output
+  ///   font-size: 14px;
+  ///   line-height: 1.3125;
+
+  font-size: $base-fz * $small-fz;
+  line-height: $base-lh * $small-fz;
+};
+
+@mixin pseudoelem() {
+  /// Often you need to add &:before or &:after for decoration purposes
+  /// Just for that you have this small mixin to simplify your work
+  ///
+  /// @example
+  ///   @include pseudoelem();
+
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+@mixin icon-size($d1, $d2:false) {
+  /// This mixin apply specific width, height and background-size
+  /// If you apply this mixin to selector you can be pretty sure it will have
+  /// passed dimensions no matter what and will not be compressed or stretched
+  /// It is most usefull for SVG icons inside flex container
+  ///
+  /// @author nightrunner91
+  ///
+  /// @link https://github.com/nightrunner91/nightvue
+  ///
+  /// @param $d1: { Number }, [required, dimension X (width)]
+  /// @param $d2: { Number }, [dimension Y (height)]
+  /// 
+  /// @example
+  ///   @include icon-size(24);
+  ///
+  /// @output
+  ///   width: 24px !important;
+  ///   max-width: 24px !important;
+  ///   min-width: 24px !important;
+  ///   height: 24px !important;
+  ///   max-height: 24px !important;
+  ///   min-height: 24px !important;
+  ///   background-size: 24px 24px !important;
+  ///
+  /// @example
+  ///   @include icon-size(18, 34);
+  ///
+  /// @output
+  ///   width: 18px !important;
+  ///   max-width: 18px !important;
+  ///   min-width: 18px !important;
+  ///   height: 34px !important;
+  ///   max-height: 34px !important;
+  ///   min-height: 34px !important;
+  ///   background-size: 18px 34px !important;
+
+  width: $d1 + px !important;
+  max-width: $d1 + px !important;
+  min-width: $d1 + px !important;
+
+  @if ($d2) {
+    height: $d2 + px !important;
+    max-height: $d2 + px !important;
+    min-height: $d2 + px !important;
+    background-size: $d1 + px $dimension2 + px !important;
+  } @else {
+    height: $d1 + px !important;
+    max-height: $d1 + px !important;
+    min-height: $d1 + px !important;
+    background-size: $d1 + px $d1 + px !important;
+  }
+};
+
+@mixin text-truncate($width) {
+  /// Mixin applies truncated text effect to selector
+  ///
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  /// @link https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/
+  /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
+  /// @link https://developer.mozilla.org/ru/docs/Web/CSS/white-space
+  ///
+  /// @param $width: { Number } [maximum width of text, px | %]
+  /// 
+  /// @example
+  ///   @include text-truncate(150px);
+  ///
+  /// @output
+  ///   display: inline-block;
+  ///   overflow: hidden;
+  ///   text-overflow: ellipsis;
+  ///   white-space: nowrap;
+  ///   max-width: 150px;
+
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: $width;
 };
