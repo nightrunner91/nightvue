@@ -77,6 +77,27 @@ blockquote {
   line-height: $base-lh;
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+strong, .strong {
+  font-weight: 700
+}
+
+em, .em {
+  font-style: italic
+}
+
+small, .small {
+  @include small();
+}
+
+mark, .mark {
+  background-color: rgba(black, 0.75);
+}
+
 ul,
 ol {
   &.list-unstyled {
@@ -84,21 +105,11 @@ ol {
   }
 }
 
-small,
-.small {
-  font-size: $base-fz * $small-fz;
-  line-height: $base-lh * $small-fz;
-}
-
-mark {
-  background-color: rgba(black, 0.75);
-}
-
 code, kbd, samp, pre {
   @include small();
   
   margin-bottom: $base-mg;
-  padding: .2em .5em;
+  padding: spacer(25, 50);
   border-radius: radius('base');
   background-color: color('gray-1');
   white-space: nowrap;
