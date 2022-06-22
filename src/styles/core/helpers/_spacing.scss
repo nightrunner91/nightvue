@@ -23,7 +23,7 @@
 ///      }
 ///   }
 
-@mixin makeSpacers($breakpoint: null) {
+@mixin make-spacers($breakpoint: null) {
   @each $name, $indent in $spacers {
     @if $name != 'auto' {
       .p#{$breakpoint}-#{$name} { padding: $indent !important }
@@ -57,10 +57,10 @@
   }
 }
 
-@include makeSpacers();
+@include make-spacers();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include makeSpacers('-' + $breakpoint)
+    @include make-spacers('-' + $breakpoint)
   }
 }

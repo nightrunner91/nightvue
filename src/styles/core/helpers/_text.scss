@@ -1,4 +1,4 @@
-@mixin textStyles($breakpoint:null) {
+@mixin make-text($breakpoint:null) {
   @each $lh, $value in $line-heights {
     .line-height#{$breakpoint}-#{$lh} { line-height: $value !important; }
   }
@@ -25,10 +25,10 @@
   }
 }
 
-@include textStyles();
+@include make-text();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include textStyles('-' + $breakpoint);
+    @include make-text('-' + $breakpoint);
   }
 }

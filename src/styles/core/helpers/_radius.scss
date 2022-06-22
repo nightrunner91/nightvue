@@ -21,7 +21,7 @@
 ///      }
 ///   }
 
-@mixin makeRadius($breakpoint:null) {
+@mixin make-radius($breakpoint:null) {
   @each $name, $size in $radiuses {
     .radius#{$breakpoint}-#{$name} { border-radius: $size !important }
 
@@ -49,10 +49,10 @@
   }
 }
 
-@include makeRadius();
+@include make-radius();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include makeRadius('-' + $breakpoint);
+    @include make-radius('-' + $breakpoint);
   }
 }

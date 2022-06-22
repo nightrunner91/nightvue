@@ -28,7 +28,7 @@
 ///     }
 ///   }
 
-@mixin icons-sizes($breakpoint:null) {
+@mixin make-icons($breakpoint:null) {
   @each $size in $icon-sizes {
     .icon-size#{$breakpoint}-#{$size} {
       @include icon-size($size)
@@ -36,10 +36,10 @@
   }
 }
 
-@include icons-sizes();
+@include make-icons();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include icons-sizes('-' + $breakpoint)
+    @include make-icons('-' + $breakpoint)
   }
 };

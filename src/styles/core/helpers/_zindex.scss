@@ -1,7 +1,7 @@
 $zindex-start: -1;
 $zindex-end: 100;
 
-@mixin zIndexes($breakpoint:null) {
+@mixin make-zindex($breakpoint:null) {
   $i: $zindex-start;
   @while $i <= $zindex-end {
     @if ($i >= 0) {
@@ -13,10 +13,10 @@ $zindex-end: 100;
   }
 }
 
-@include zIndexes();
+@include make-zindex();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include zIndexes('-' + $breakpoint)
+    @include make-zindex('-' + $breakpoint)
   }
 };

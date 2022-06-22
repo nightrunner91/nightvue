@@ -22,7 +22,7 @@
 ///     }
 ///   }
 
-@mixin opacity($breakpoint:null) {
+@mixin make-opacity($breakpoint:null) {
   $i: 0;
   @while $i <= 100 {
     .opacity#{$breakpoint}-#{$i} { opacity: $i / 100 !important }
@@ -30,10 +30,10 @@
   }
 }
 
-@include opacity();
+@include make-opacity();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include opacity('-' + $breakpoint)
+    @include make-opacity('-' + $breakpoint)
   }
 };
