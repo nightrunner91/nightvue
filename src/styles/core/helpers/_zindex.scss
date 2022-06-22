@@ -1,12 +1,32 @@
+/// This code generates classnames for z-index usage in HTML
+/// Min and max levels you can define in $zindex-start and $zindex-end varaibles
+/// By default they are -1 and 50
+/// Each classname supports $breakpoints
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://github.com/nightrunner91/nightvue
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/z-index
+///
+/// @output
+///   .z-minus-1 { z-index: -1 }
+///   .z-0 { z-index: 0 }
+///   .z-plus-1 { z-index: 1 }
+///   .z-plus-2 { z-index: 2 }
+///   .z-plus-3 { z-index: 3 }
+///   .z-plus-4 { z-index: 4 }
+
 $zindex-start: -1;
-$zindex-end: 100;
+$zindex-end: 50;
 
 @mixin make-zindex($breakpoint:null) {
   $i: $zindex-start;
   @while $i <= $zindex-end {
-    @if ($i >= 0) {
+    @if ($i > 0) {
       .z#{$breakpoint}-plus-#{$i} { z-index: $i }
-    } @else {
+    } @else if ($i == 0 ){
+      .z#{$breakpoint}-#{$i} { z-index: $i }
+    } @else if ($i < 0 ){
       .z#{$breakpoint}-minus#{$i} { z-index: $i }
     }
     $i: $i + 1;
