@@ -15,6 +15,12 @@
 ///   .z-plus-2 { z-index: 2 }
 ///   .z-plus-3 { z-index: 3 }
 ///   .z-plus-4 { z-index: 4 }
+/// 
+///   @media screen and (min-width: 1280px) {
+///     .z-lg-plus-32 {
+///        z-index: 32
+///     }
+///   }
 
 $zindex-start: -1;
 $zindex-end: 50;
