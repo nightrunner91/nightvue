@@ -29,11 +29,11 @@ $zindex-end: 50;
   $i: $zindex-start;
   @while $i <= $zindex-end {
     @if ($i > 0) {
-      .z#{$breakpoint}-plus-#{$i} { z-index: $i }
+      .z#{$breakpoint}-plus-#{$i} { z-index: $i !important }
     } @else if ($i == 0 ){
-      .z#{$breakpoint}-#{$i} { z-index: $i }
+      .z#{$breakpoint}-#{$i} { z-index: $i !important }
     } @else if ($i < 0 ){
-      .z#{$breakpoint}-minus#{$i} { z-index: $i }
+      .z#{$breakpoint}-minus#{$i} { z-index: $i !important }
     }
     $i: $i + 1;
   }
