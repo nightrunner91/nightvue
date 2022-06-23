@@ -99,7 +99,7 @@ npm run lint --fix
 
 [ Coming Soon. Be sure. ]
 
-__ Although NightVue don't have documentation now, each file has it's own docs. Dive in /src folder to see it. __
+_Although NightVue don't have documentation now, each file has it's own docs. Dive in /src folder to see it._
 
 # To-do list Q3 2022 - Q1 2023 ✅
 
