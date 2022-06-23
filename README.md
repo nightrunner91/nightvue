@@ -94,3 +94,11 @@ npm run lint --fix
 │   App.vue
 │   main.js
 ```
+
+# To-do list for Q3 2022 - Q1 2023 ✅
+
+- [ ] Migrate to Vue.js 3.x
+- [ ] Migrate to VueCli 5.x
+- [ ] Write documentation in README file
+- [ ] Create landing page with presenation and documentation
+- [ ] Release package on npmjs.com
