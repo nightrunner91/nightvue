@@ -106,5 +106,5 @@ _Although NightVue don't have documentation now, each file has it's own docs. Di
 - [ ] Migrate to Vue.js 3.x
 - [ ] Migrate to Vue CLI 5.x
 - [ ] Write documentation in README file
-- [ ] Create landing page with presenation and documentation
+- [ ] Create landing page with presentation and documentation
 - [ ] Release package on npmjs.com
