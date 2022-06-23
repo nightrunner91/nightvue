@@ -95,10 +95,16 @@ npm run lint --fix
 │   main.js
 ```
 
-# To-do list for Q3 2022 - Q1 2023 ✅
+# Documentation 📚
+
+[ Coming Soon. Be sure. ]
+
+__ Although NightVue don't have documentation now, each file has it's own docs. Dive in /src folder to see it. __
+
+# To-do list Q3 2022 - Q1 2023 ✅
 
 - [ ] Migrate to Vue.js 3.x
-- [ ] Migrate to VueCli 5.x
+- [ ] Migrate to Vue CLI 5.x
 - [ ] Write documentation in README file
 - [ ] Create landing page with presenation and documentation
 - [ ] Release package on npmjs.com
