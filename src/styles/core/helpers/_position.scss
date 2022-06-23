@@ -1,4 +1,31 @@
-$positions: relative, absolute, static, fixed, static;
+/// This code generates classnames for positioning
+/// This classnames supports breakpoints from $breakpoints map
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://github.com/nightrunner91/nightvue
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/position
+/// 
+/// @output
+///   .position-relative { position: relative }
+///   .position-absolute { position: absolute }
+///   .position-static { position: static }
+///   .position-fixed { position: fixed }
+///   .position-static { position: static }
+///
+///   @media screen and (min-width: 1280px) {
+///     .position-lg-absolute {
+///        position: absolute
+///     }
+///   }
+
+$positions: (
+  relative,
+  absolute,
+  static,
+  fixed,
+  static
+);
 
 @mixin make-position($breakpoint:null) {
   @each $position in $positions {

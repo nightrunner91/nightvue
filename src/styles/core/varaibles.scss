@@ -89,19 +89,6 @@ $letter-spacings: (
   wider:  .5em,
 );
 
-$displays-fz: (
-  display-1: 74px,
-  display-2: 62px,
-  display-3: 48px,
-  display-4: 34px,
-);
-$displays-lh: map-get($line-heights, 25);
-$displays-fw: map-get($font-weights, 500);
-$displays-margins: (
-  top: 1.5em,
-  bottom: 1em,
-);
-
 $headings-fz: (
   h1: 4.5rem,
   h2: 2.5rem,
@@ -115,6 +102,19 @@ $headings-fw: map-get($font-weights, 500);
 $headings-margins: (
   top: 1.5em,
   bottom: 0.5em,
+);
+
+$displays-fz: (
+  display-1: 74px,
+  display-2: 62px,
+  display-3: 48px,
+  display-4: 34px,
+);
+$displays-lh: map-get($line-heights, 25);
+$displays-fw: map-get($font-weights, 500);
+$displays-margins: (
+  top: 1.5em,
+  bottom: 1em,
 );
 
 
@@ -312,7 +312,13 @@ $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 // ===== Icons Sizes ===== //
 // ======================= //
 
-$icon-sizes: (18, 24, 36, 48, 64);
+$icon-sizes: (
+  18,
+  24,
+  36,
+  48,
+  64
+);
 
 
 // =================== //
@@ -358,11 +364,11 @@ $transition-timings: (
 
   /// Material Design easings list
   /// @link https://material.io/design/motion/speed.html#easing
-  standard:     cubic-bezier(0.4, 0, 0.2, 1), // speed up quickly and slow down gradually, in order to emphasize the end of the transition
-  emphasized:   cubic-bezier(0.0, 0, 0.2, 1), // speed up quickly and slow down very gradually, placing extra emphasis on the end of the transition
+  standard:     cubic-bezier(0.4, 0, 0.2, 1),   // speed up quickly and slow down gradually, in order to emphasize the end of the transition
+  emphasized:   cubic-bezier(0.0, 0, 0.2, 1),   // speed up quickly and slow down very gradually, placing extra emphasis on the end of the transition
   decelerated:  cubic-bezier(0.0, 0.0, 0.2, 1), // transitions begin at peak velocity (the fastest point in an element's movement) and end at rest
-  accelerated:  cubic-bezier(0.4, 0.0, 1, 1), // transition in which the element starts at rest and ends at peak velocity
+  accelerated:  cubic-bezier(0.4, 0.0, 1, 1),   // transition in which the element starts at rest and ends at peak velocity
 
   /// Custom easings (here you can add new ones)
-  sharp:        cubic-bezier(0.4, 0, 0.6, 1) // the sharp curve is used for objects that may return to the screen at any time
+  sharp:        cubic-bezier(0.4, 0, 0.6, 1)  // the sharp curve is used for objects that may return to the screen at any time
 );

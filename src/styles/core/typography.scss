@@ -1,3 +1,19 @@
+// ================== //
+// ====== FONTS ===== //
+// ================== //
+
+/// Include your fonts here, at the very beginning of CSS document
+/// NightVue uses mixin @font-face to import font-families (see mixins.scss file)
+/// Make sure to store your fonts in 'src/assets/fonts' folder
+/// Each font must be saved in a folder with the same name as font itself
+/// See how we stored and imported Onest font from 'src/assets/fonts/Onest' folder
+
+@include font-face('Onest', 'OnestRegular', 400, normal, 'recent');
+@include font-face('Onest', 'OnestMedium', 500, normal, 'recent');
+@include font-face('Onest', 'OnestBold', 700, normal, 'recent');
+@include font-face('Onest', 'OnestBlack', 900, normal, 'recent');
+
+
 // ============================ //
 // ====== GLOBAL SETTINGS ===== //
 // ============================ //
@@ -6,7 +22,7 @@ $base-fz: 16px; // ❗ CRUCIAL VALUE! A lot of things depends on it. Be aware.
 $base-lh: map-get($line-heights, 50);
 $base-fw: map-get($font-weights, 400);
 $base-mg: map-get($spacers, 1);
-$small-fz: 0.875; // ratio of how lower will be font-size for <small> tag
+$small-fz: 0.875; // ratio of how lower will be font-size for <small> tag and .small classname
 
 
 // ======================== //

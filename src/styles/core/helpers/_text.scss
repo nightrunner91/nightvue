@@ -1,6 +1,26 @@
+/// This code generates utility classnames for text based on maps in "Typography" section
+/// See varaibles.scss file for more details
+/// Each of this classnames supports breakpoints from $breakpoints map
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://github.com/nightrunner91/nightvue
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/font-family
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/line-height
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/text-align
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/text-decoration
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/white-space
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/text-transform
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/font-weight
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/font-style
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/letter-spacing
+
 @mixin make-text($breakpoint:null) {
-  @each $lh, $value in $line-heights {
-    .line-height#{$breakpoint}-#{$lh} { line-height: $value !important; }
+  @each $family, $value in $font-families {
+    .font#{$breakpoint}-#{$family} { font-family: $value !important; }
+  }
+  @each $line-height, $value in $line-heights {
+    .line-height#{$breakpoint}-#{$line-height} { line-height: $value !important; }
   }
   @each $align, $value in $text-aligns {
     .text#{$breakpoint}-#{$align} { text-align: $value !important; }

@@ -1,5 +1,5 @@
 // ======================== //
-// ===== Cursor types ===== //
+// ===== Cursor Types ===== //
 // ======================== // 
 $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 
@@ -9,7 +9,7 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 
 
 // ============================== //
-// ===== Usefull classnames ===== //
+// ===== Usefull Classnames ===== //
 // ============================== //
 
 .no-select { user-select: none !important }
@@ -31,3 +31,16 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 
 .visible { visibility: visible !important; }
 .invisible { visibility: hidden !important; }
+
+
+// ============================== //
+// ===== Scrollbar Settings ===== //
+// ============================== //
+
+/// Here you can custmize default scrollbar view
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
+
+::-webkit-scrollbar             { width: 8px }
+::-webkit-scrollbar-track       { background: white }
+::-webkit-scrollbar-thumb       { background: lighten(black, 15%) }
+::-webkit-scrollbar-thumb:hover { background: black }

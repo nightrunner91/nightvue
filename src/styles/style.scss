@@ -19,30 +19,30 @@
 /// Include this file in Vue component <style> if you want to use it locally
 @import "core/globals";
 
+/// Start with most basic and core stuff like fonts, headngs, text, etc...
+@import "core/typography";
+
 
 // ================================ //
 // ===== Helpers & Generators ===== //
 // ================================ //
 
 /// This is set of usefull helpers and code generators
-@import "core/helpers/fonts";
-@import "core/helpers/typography";
-@import "core/helpers/scrollbar";
-@import "core/helpers/grid";
 @import "core/helpers/position";
 @import "core/helpers/display";
+@import "core/helpers/grid";
+@import "core/helpers/text";
+@import "core/helpers/icons";
 @import "core/helpers/colors";
 @import "core/helpers/gradients";
 @import "core/helpers/spacing";
 @import "core/helpers/sizing";
 @import "core/helpers/radius";
-@import "core/helpers/text";
-@import "core/helpers/icon";
+@import "core/helpers/shadows";
+@import "core/helpers/rotations";
 @import "core/helpers/opacity";
 @import "core/helpers/zindex";
 @import "core/helpers/utilities";
-@import "core/helpers/shadows";
-@import "core/helpers/rotations";
 @import "core/helpers/transitions";
 
 

@@ -1,3 +1,31 @@
+/// This code generates utility classnames to apply different
+/// transition speed and timings to HTML elements
+/// See $transition-speed and $transition-timings maps located in varaibles.scss
+/// 
+/// @author nightrunner91
+/// 
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/transition-duration
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/transition-timing-function
+/// 
+/// @output
+///   .speed-shortest { transition-duration: .15s }
+///   .speed-shorter { transition-duration: .2s }
+///   .speed-short { transition-duration: .25s }
+///   .speed-base { transition-duration: .3s }
+///   .speed-slow { transition-duration: .375s }
+///   .speed-slower { transition-duration: .5s }
+///   .speed-lazy { transition-duration: .75s }
+/// 
+///   .timing-linear { transition-timing-function: cubic-bezier(0, 0, 1, 1) }
+///   .timing-ease { transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) }
+///   .timing-ease-in { transition-timing-function: cubic-bezier(0.42, 0, 1, 1) }
+///   .timing-ease-out { transition-timing-function: cubic-bezier(0,0,0.58,1) }
+///   .timing-ease-in-out { transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1) }
+///   .timing-standard { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) }
+///   .timing-emphasized { transition-timing-function: cubic-bezier(0.0, 0, 0.2, 1) }
+///   .timing-decelerated { transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1) }
+///   .timing-sharp { transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1) }
+
 @each $speed, $value in $transition-speed {
   .speed-#{$speed} {
     transition-duration: $value !important
