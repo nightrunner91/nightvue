@@ -101,7 +101,7 @@ npm run lint --fix
 
 _Although NightVue don't have documentation now, each file has it's own docs. Dive in /src folder to see it._
 
-# To-do list Q3 2022 - Q1 2023 ✅
+# To-do list Q3 2022 - Q4 2022 ✅
 
 - [ ] Migrate to Vue.js 3.x
 - [ ] Migrate to Vue CLI 5.x
