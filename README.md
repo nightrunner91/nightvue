@@ -77,16 +77,17 @@ npm run lint --fix
 │       index.js
 │   ├── styles
 │       ├── animations
-│       ├── blocks
+│       ├── components
 │       ├── core
 │           └── helpers
-│           normalize.scss
 │           functions.scss
 │           globals.scss
 │           mixins.scss
+│           normalize.scss
+│           typography.scss
 │           varaibles.scss
-│       ├── elements
-│       └── plugins
+│       ├── plugins
+│       └── sections
 │       style.scss
 │   └── views
 │       Home.vue
