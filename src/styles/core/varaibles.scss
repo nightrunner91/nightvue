@@ -124,32 +124,33 @@ $displays-margins: (
 
 // List of default colors
 $colors: (
-  'red':       #F44336,
-  'pink':      #EC407A,
-  'orange':    #FF9800,
-  'yellow':    #FFEE58,
-  'green':     #47b05b,
-  'brown':     #795548,
-  'teal':      #009688,
-  'cyan':      #00BCD4,
-  'blue':      #2196F3,
-  'purple':    #682CAB,
+  'red':      #F44336,
+  'pink':     #EC407A,
+  'orange':   #FF9800,
+  'yellow':   #FFEE58,
+  'green':    #47b05b,
+  'brown':    #795548,
+  'teal':     #009688,
+  'cyan':     #00BCD4,
+  'blue':     #2196F3,
+  'purple':   #682CAB,
 );
 
 // List of gray colors
-$grays: (); // Here we will store our colors
-$graysNum: 10; // Gray colors amount (how many colors from #fff to #000)
+$grays: (
+  'gray-1':  gray($level: 1, $from: 10),
+  'gray-2':  gray($level: 2, $from: 10),
+  'gray-3':  gray($level: 3, $from: 10),
+  'gray-4':  gray($level: 4, $from: 10),
+  'gray-5':  gray($level: 5, $from: 10),
+  'gray-6':  gray($level: 6, $from: 10),
+  'gray-7':  gray($level: 7, $from: 10),
+  'gray-8':  gray($level: 8, $from: 10),
+  'gray-9':  gray($level: 9, $from: 10),
+  'gray-10': gray($level: 10, $from: 10),
+);
 
-// Generate map list of grey colors
-$grays: map-merge($grays, ('white' : white));
-@for $i from 1 through $graysNum {
-  $percent: 100 / ($graysNum + 2) * $i * 1%; // Evaluate percent 
-  $newGray: ('gray-#{$i}' : mix(black, white, $percent)); // Prepare temporary map
-  $grays: map-merge($grays, $newGray); // Add this map to original $grays map
-}
-$grays: map-merge($grays, ('black' : black));
-
-// Pick up theme colors
+// List of theme colors picked from two maps above
 $theme-colors: (
   'primary':    map-get($colors, 'purple'),
   'secondary':  map-get($colors, 'blue'),

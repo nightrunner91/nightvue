@@ -75,12 +75,42 @@
     $level: map-get($levels, $rate);
 
     @if $style == 'light' {
-      @return mix(white, $color, $level)
+      @return mix(white, $color, $level);
     } @else if $style == 'dark' {
-      @return mix(black, $color, $level)
+      @return mix(black, $color, $level);
     }
   } @else {
     @return $color
+  }
+};
+
+@function gray($level, $from:10) {
+  /// Function returns mixed white and black color based on passed params
+  /// This function is mainly used for compiling an achromatic list of colors
+  /// located in $grays map but you can use it like in examples below
+  /// 
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  /// @link https://www.color-meanings.com/chromatic-achromatic-colors/
+  /// 
+  /// @param $level: { Number }, [level of gray color in list between #fff and #000]
+  /// @param $from:  { Number }, [total gray colors in list between #fff and #000, default: 10]
+  /// 
+  /// @example
+  ///   .selector { color: gray(1); }
+  ///   .selector { color: gray(3, 5); }
+  ///   .selector { color: gray($level: 12, $from: 50); }
+  /// 
+  /// @output
+  ///   .selector { color: #eaeaea; }
+  ///   .selector { color: #929292; }
+  ///   .selector { color: #c4c4c4; }
+
+  @if $level > $from {
+    @error '$level must be greater than $from!';
+  } @else {
+    @return mix(black, white, 100 / ($from + 2) * $level * 1%);
   }
 };
 

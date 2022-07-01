@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Onest Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, laborum.</h1>
+    <h1 class="selector">Onest Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, laborum.</h1>
   </div>
 </template>
 
