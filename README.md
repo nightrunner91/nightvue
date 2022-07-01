@@ -114,7 +114,31 @@ npm run lint --fix
 
 ## Colors
 
+```
+$colors: (
+  'red':       #F44336,
+  'pink':      #EC407A,
+  'orange':    #FF9800,
+  'yellow':    #FFEE58,
+  'green':     #47b05b,
+  'brown':     #795548,
+  'teal':      #009688,
+  'cyan':      #00BCD4,
+  'blue':      #2196F3,
+  'purple':    #682CAB,
+);
 
+$theme-colors: (
+  'primary':    map-get($colors, 'purple'),
+  'secondary':  map-get($colors, 'blue'),
+  'success':    map-get($colors, 'green'),
+  'info':       map-get($colors, 'teal'),
+  'warning':    map-get($colors, 'yellow'),
+  'danger':     map-get($colors, 'red'),
+  'light':      map-get($grays, 'gray-2'),
+  'dark':       map-get($grays, 'gray-8'),
+);
+```
 
 # To-do list Q3-Q4 2022 ✅
 
