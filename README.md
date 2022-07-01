@@ -116,7 +116,15 @@ npm run lint --fix
 
 ## Grid
 
-NightVue grid system is quite similar to Bootstrap 5.x. Nonetheless we are using entirely different approach to build mixins and functions. Base grid settings are stored in [varaibles.scss](src/styles/core/varaibles.scss) file.
+NightVue grid system is quite similar to Bootstrap 5.x, but we are using entirely different approach to build mixins and functions. Just like Bootstrap, our grid system uses a series of containers, rows, and cols to layout and align content and in gereal shares the same principles. It’s built with flexbox and is fully responsive. Nonetheless we must mention some features and differences. 
+
+There are 3 types of containers in NightVue:
+
+* **boxed** - on each `$breakpoint` container will have fixed `max-width` based on `$containers` map
+* **combined** - container will have `max-width` of *last* value from `$containers` map, then will have 100%
+* **full** - container will *always* have 100% width
+
+Base grid settings are stored in [varaibles.scss](src/styles/core/varaibles.scss) file.
 ```
 $num-cols:      12;
 $gutter-width:  1rem;
@@ -140,10 +148,6 @@ $containers: (
   xl: 1320px
 );
 ```
-There are 3 types of containers in NightVue:
-* **boxed** - on each `$breakpoint` container will have fixed `max-width` based on `$containers` map
-* **combined** - container will have `max-width` of *last* value from `$containers` map, then will have 100%
-* **full** - container will *always* have 100% width
 
 ## Colors
 
