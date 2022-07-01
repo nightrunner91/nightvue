@@ -267,7 +267,7 @@ $gutter-width:  1rem;
 
 $grid-type: 'combined';
 /// 👉 boxed      => on each $breakpoint container will have fixed max-width based on $containers map
-/// 👉 combined   => container will have max-width of LAST value from $containers map, then will be 100%
+/// 👉 combined   => container will have max-width of LAST value from $containers map, then will have 100%
 /// 👉 full       => container will ALWAYS have 100% width
 
 /// Breakpoints are dublicated in 'store/modules/config.js'

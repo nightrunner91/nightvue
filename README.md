@@ -142,8 +142,8 @@ $containers: (
 ```
 There are 3 types of containers in NightVue:
 * **boxed** - on each `$breakpoint` container will have fixed `max-width` based on `$containers` map
-* **combined** - container will have `max-width` of *last* value from `$containers` map, then will be 100%
-* **full** - ontainer will *always* have 100% width
+* **combined** - container will have `max-width` of *last* value from `$containers` map, then will have 100%
+* **full** - container will *always* have 100% width
 
 ## Colors
 
