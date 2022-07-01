@@ -98,7 +98,7 @@ npm run lint --fix
 # Documentation 📚
 
 * [Layout](#layout)
-* [Colors](#colors)
+* [Colors](#Colors)
 * [Gradients](#gradients)
 * [Typography](#typography)
 * [Icons](#icons)
