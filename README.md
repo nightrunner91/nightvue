@@ -158,6 +158,17 @@ $theme-colors: (
   'dark':       map-get($grays, 'gray-8'),
 );
 ```
+In map `$levels` you can define levels of lightening and darkening of each color in `$colors` and `$theme-colors` maps. By default this map has 5 steps:
+```
+$levels: (
+  1: 10%,
+  2: 15%,
+  3: 20%,
+  4: 25%,
+  5: 30%,
+);
+```
+NightVue automatically generates classnames from Sass maps above. Each color will have unique classname with `background-color`, `color` and `fill` styles. For each color in `$colors` and `$theme-colors` maps will be generated classnames with suffixes `-light-${level}` and `-dark-${level}` with brightened and darkened colors.
 
 # To-do list Q3-Q4 2022 ✅
 
