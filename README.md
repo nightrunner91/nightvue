@@ -114,6 +114,12 @@ npm run lint --fix
 
 ## Colors
 
+NightVue uses Sass maps to store project colors. This maps will help you quickly and easily loop over a list of colors and their hex values.
+
+* `$colors` map includes all available 'basic' colors in project
+* `$grays` map includes achromatic list (shades of gray between `#fff` and `#000`)
+* `$theme-colors` map includes semantically named colors composed from maps above
+
 ```
 $colors: (
   'red':       #F44336,
@@ -126,6 +132,19 @@ $colors: (
   'cyan':      #00BCD4,
   'blue':      #2196F3,
   'purple':    #682CAB,
+);
+
+$grays: (
+  'gray-1':  gray($level: 1, $from: 10),
+  'gray-2':  gray($level: 2, $from: 10),
+  'gray-3':  gray($level: 3, $from: 10),
+  'gray-4':  gray($level: 4, $from: 10),
+  'gray-5':  gray($level: 5, $from: 10),
+  'gray-6':  gray($level: 6, $from: 10),
+  'gray-7':  gray($level: 7, $from: 10),
+  'gray-8':  gray($level: 8, $from: 10),
+  'gray-9':  gray($level: 9, $from: 10),
+  'gray-10': gray($level: 10, $from: 10),
 );
 
 $theme-colors: (
