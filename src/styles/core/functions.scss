@@ -54,12 +54,14 @@
   ///   border-color: color('brown', light, 4);
   ///   background-color: color('secondary');
   ///   color: color('white');
+  ///   fill: color('gray-4');
   ///
   /// @output
   ///   box-shadow: 1px 1px 4px #682CAB;
   ///   border-color: #9b8076;
   ///   background-color: #2196F3;
   ///   color: #ffffff;
+  ///   fill: #aaaaaa;
 
   $targetMap: $colors;
   @if map-has-key($theme-colors, $name) {

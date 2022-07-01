@@ -189,6 +189,9 @@ background-color: color('secondary');
 
 color: color('white');
 // => color: #ffffff;
+
+fill: color('gray-4');
+// => fill: #aaaaaa;
 ```
 
 # To-do list Q3-Q4 2022 ✅
