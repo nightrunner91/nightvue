@@ -169,6 +169,15 @@ $levels: (
 );
 ```
 NightVue automatically generates classnames from Sass maps above. Each color will have unique classname with `background-color`, `color` and `fill` styles. For each color in `$colors` and `$theme-colors` maps will be generated classnames with suffixes `-light-${level}` and `-dark-${level}` with brightened and darkened colors.
+```
+.bg-red { background-color: #F44336 }
+.bg-gray-5 { background-color: #959595 }
+.bg-primary { background-color: #682CAB }
+.clr-secondary-light-2 { color: #42a6f5 }
+.fill-secondary-dark-4 { fill: #1971b6 }
+
+etc...
+```
 
 # To-do list Q3-Q4 2022 ✅
 
