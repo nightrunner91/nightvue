@@ -178,7 +178,7 @@ NightVue automatically generates classnames from Sass maps above. Each color hav
 .clr-secondary-light-2 { color: #42a6f5 }
 .fill-secondary-dark-4 { fill: #1971b6 }
 ```
-If you need to apply colors in Sass files you can use `color($name, $style: false, $rate:false)` function. It returns hex value of color by its `$name`. Additionally you can pass `$style` and `$rate` params to determine level of brightness or darkness of color. Here are some examples of usage in Scss:
+If you need to apply colors in Sass files you can use `color($name, $style: false, $rate:false)` function. It returns hex value of color by its `$name`. Additionally you can pass `$style` and `$rate` arguments to determine level of brightness or darkness of color. Here are some examples of usage in Scss:
 ```
 box-shadow: 1px 1px 4px color('primary');
 // => box-shadow: 1px 1px 4px #682CAB;
