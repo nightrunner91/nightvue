@@ -97,9 +97,24 @@ npm run lint --fix
 
 # Documentation 📚
 
-[ Coming Soon. Be sure. ]
+* [Layout](#layout)
+* [Colors](#colors)
+* [Gradients](#gradients)
+* [Typography](#typography)
+* [Icons](#icons)
+* [Spacing](#spacing)
+* [Sizing](#sizing)
+* [Display](#display)
+* [Position](#position)
+* [Shadows](#shadows)
+* [Radius](#radius)
+* [Transitions](#transitions)
+* [Opacity](#opacity)
+* [Z-index](#zindex)
 
-_Although NightVue don't have documentation now, each file has it's own docs. Dive in /src folder to see it._
+## Colors
+
+
 
 # To-do list Q3-Q4 2022 ✅
 
