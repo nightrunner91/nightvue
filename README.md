@@ -97,20 +97,22 @@ npm run lint --fix
 
 # Documentation 📚
 
-* [Layout](#layout)
+* [Position](#Position)
+* [Display](#Display)
+* [Grid](#Grid)
+* [Typography](#Typography)
 * [Colors](#Colors)
-* [Gradients](#gradients)
-* [Typography](#typography)
-* [Icons](#icons)
-* [Spacing](#spacing)
-* [Sizing](#sizing)
-* [Display](#display)
-* [Position](#position)
-* [Shadows](#shadows)
-* [Radius](#radius)
-* [Transitions](#transitions)
-* [Opacity](#opacity)
-* [Z-index](#zindex)
+* [Gradients](#Gradients)
+* [Icons](#Icons)
+* [Spacing](#Spacing)
+* [Sizing](#Sizing)
+* [Radius](#Radius)
+* [Shadows](#Shadows)
+* [Rotations](#Rotations)
+* [Opacity](#Opacity)
+* [Z-index](#Z-index)
+* [Utilities](#Utilities)
+* [Transitions](#Transitions)
 
 ## Colors
 
