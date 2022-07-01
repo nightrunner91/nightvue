@@ -114,6 +114,37 @@ npm run lint --fix
 * [Utilities](#Utilities)
 * [Transitions](#Transitions)
 
+## Grid
+
+NightVue grid system is quite similar to Bootstrap 5.x. Nonetheless we are using entirely different approach to build mixins and functions. Base grid settings are stored in [varaibles.scss](src/styles/core/varaibles.scss) file.
+```
+$num-cols:      12;
+$gutter-width:  1rem;
+$grid-type:     'combined';
+
+// Breakpoints are dublicated in 'store/modules/config.js'
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1400px
+);
+
+// Containers max-widths (if you are using 'boxed' or 'combined' type)
+$containers: (
+  xs: 540px,
+  sm: 720px,
+  md: 960px,
+  lg: 1140px,
+  xl: 1320px
+);
+```
+There are 3 types of containers in NightVue:
+* **boxed** - on each `$breakpoint` container will have fixed `max-width` based on `$containers` map
+* **combined** - container will have `max-width` of *last* value from `$containers` map, then will be 100%
+* **full** - ontainer will *always* have 100% width
+
 ## Colors
 
 NightVue uses Sass maps to store project colors. This maps will help you quickly and easily loop over a list of colors and their hex values.
