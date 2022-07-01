@@ -193,7 +193,7 @@ color: color('white');
 fill: color('gray-4');
 // => fill: #aaaaaa;
 ```
-You may have noticed that we use `gray()` function in `$grays` map to generate shades of gray. Keep in mind that this function receives two arguments `$level` and `$from`. Last one *must be equal to length of list* in order to generate correct achromatic list of colors. Argument `$level` is level of gray color in this list. In order to simplify take a look at already generated list of color:
+You may have noticed that we use `gray()` function in `$grays` map to generate shades of gray. Keep in mind that this function receives two arguments `$level` and `$from`. Last one **must be equal to length of list** in order to generate correct achromatic list of colors. Argument `$level` is level of gray color in this list. In order to simplify take a look at already generated list:
 ```
 "gray-1":  #eaeaea, 
 "gray-2":  #d5d5d5,
@@ -206,7 +206,17 @@ You may have noticed that we use `gray()` function in `$grays` map to generate s
 "gray-9":  #404040,
 "gray-10": #2b2b2b
 ```
-So when you call `gray(3, 10)` function returns third color in this list (`#bfbfbf`). 
+So when you call `gray(3, 10)` function returns third color in this list (`#bfbfbf`). Also you can pass different color level and total length of list. Here are some examples:
+```
+color: gray($level: 12, $from: 50);
+// => color: #c4c4c4;
+
+color: gray($level: 4, $from: 4);
+// => color: #555555;
+
+color: gray(7, 24);
+// => color: #bababa;
+```
 
 # To-do list Q3-Q4 2022 ✅
 
