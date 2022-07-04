@@ -146,7 +146,7 @@ There are 3 types of containers in NightVue:
 * **combined** - container will have `max-width` of *last* value from `$containers` map, then will have 100%
 * **full** - container will *always* have 100% width
 
-Base grid settings are stored in [varaibles.scss](src/styles/core/varaibles.scss) file.
+Base grid settings are stored in [varaibles.scss](src/styles/core/varaibles.scss) file:
 ```
 $num-cols:      12;
 $gutter-width:  1rem;
@@ -237,7 +237,7 @@ If you need to apply order to column use `order-${breakpoint}-${value}` classnam
 
 Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will make Vue templates noticeably cleaner and at the same time help keep all the styles in one place.
 
-To convert any selector to container type just apply `@container()` mixin to it.
+To convert any selector to container type just apply `@container()` mixin to it:
 ```
 @include container();
 @include container('full');
@@ -245,13 +245,13 @@ To convert any selector to container type just apply `@container()` mixin to it.
 ```
 From now on this selector will have same properties as `.container` class. Notice that you can define `$type` and `$gutter`.
 
-Just like with container you can convert any selector to `.row`. Simply apply `@row()` mixin to it. Additionally you can pass `$gutter` value. It will apply alternate negative left and right margins.
+Just like with container you can convert any selector to `.row`. Simply apply `@row()` mixin to it. Additionally you can pass `$gutter` value. It will apply alternate negative left and right margins:
 ```
 @include row();
 @include row(0);
 @include row($gutter: 2rem);
 ```
-To apply column styles use `@col()` mixin. If you don't pass any params mixin will apply only `padding-left` and `padding right` based on `$gutter-width` varaible. To apply width properties you can pass number from 1 to 12 for each breakpoint.
+To apply column styles use `@col()` mixin. If you don't pass any params mixin will apply only `padding-left` and `padding right` based on `$gutter-width` varaible. To apply width properties you can pass number from 1 to 12 for each breakpoint:
 ```
 @include col();
 @include col(12);
@@ -259,7 +259,7 @@ To apply column styles use `@col()` mixin. If you don't pass any params mixin wi
 @include col(10, $md: 8, $lg: 6, $xs: 12);
 @include col(12, 10, 10, 8, 6, 9);
 ```
-If you need to apply offset to column use `@offset()` mixin. It will add `margin-left` property to selector. You can pass number from 0 to 12 for each breakpoint. Note that if you don't pass any params, mixin won't apply any styles.
+If you need to apply offset to column use `@offset()` mixin. It will add `margin-left` property to selector. You can pass number from 0 to 12 for each breakpoint. Note that if you don't pass any params, mixin won't apply any styles:
 ```
 @include offset(6);
 @include offset(0, $sm: 4);
@@ -267,7 +267,7 @@ If you need to apply offset to column use `@offset()` mixin. It will add `margin
 @include offset(10, $md: 8, $lg: 6, $xs: 12);
 @include offset($sm: 1, $lg: 4, $xl: 0);
 ```
-In case you need to apply order to column use `@order` mixin. It will apply `order` property from 1 to 12 to selector.
+In case you need to apply order to column use `@order` mixin. It will apply `order` property from 1 to 12 to selector:
 ```
 @include order(2);
 @include order(1, $sm: 4);
@@ -318,7 +318,7 @@ Here are some examples of usage in SCSS document:
 
 ## Typography
 
-Typography settings are located in [varaibles.scss](src/styles/core/varaibles.scss) file.
+Typography settings are located in [varaibles.scss](src/styles/core/varaibles.scss) file:
 ```
 $font-families: (
   base:      "Onest",
@@ -425,7 +425,7 @@ $base-fw: map-get($font-weights, 400);
 $base-mg: map-get($spacers, 1);
 $small-fz: 0.875;
 ```
-The place where this settings are applied is [typography.scss](src/styles/core/typography.scss) file. Here are declared global settings, styles for headings, displays, body text, lists, and more. Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `'src/assets/fonts'` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). This is how we stored and imported it, use this as an example to import your own fonts.
+The place where this settings are applied is [typography.scss](src/styles/core/typography.scss) file. Here are declared global settings, styles for headings, displays, body text, lists, and more. Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `'src/assets/fonts'` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). This is how we stored and imported it, use this as an example to import your own fonts:
 ```
 // Font files location:
 
@@ -668,7 +668,7 @@ color: gray(7, 24);
 
 ## Transitions
 
-NightVue provides set of most usable transition timings in web. They are stored in `$transition-timings` map located in [varaibles.scss](src/styles/core/varaibles.scss) file.
+NightVue provides set of most usable transition timings in web. They are stored in `$transition-timings` map located in [varaibles.scss](src/styles/core/varaibles.scss) file:
 ```
 $transition-timings: (
   linear:       cubic-bezier(0, 0, 1, 1),
@@ -701,7 +701,7 @@ $transition-speed: (
   lazy:     .75s,
 );
 ```
-NightVue generates classnames based on this maps to use them in HTML.
+NightVue generates classnames based on this maps to use them in HTML:
 ```
 .timing-linear { transition-timing-function: cubic-bezier(0, 0, 1, 1) }
 .timing-ease { transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) }
