@@ -138,6 +138,7 @@ $colors: (
 
 // List of gray colors
 $grays: (
+  'white':   #ffffff,
   'gray-1':  gray($level: 1, $from: 10),
   'gray-2':  gray($level: 2, $from: 10),
   'gray-3':  gray($level: 3, $from: 10),
@@ -148,6 +149,7 @@ $grays: (
   'gray-8':  gray($level: 8, $from: 10),
   'gray-9':  gray($level: 9, $from: 10),
   'gray-10': gray($level: 10, $from: 10),
+  'black':   #000000,
 );
 
 // List of theme colors picked from two maps above

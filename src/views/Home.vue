@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="selector col col-5 offset-md-2 offset-lg-0">Onest Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, laborum.</h1>
+    <h1 class="selector col col-5 offset-md-2 offset-lg-0 clr-black">Onest Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, laborum.</h1>
     <pre>
       {{ windowSize }}
     </pre>
