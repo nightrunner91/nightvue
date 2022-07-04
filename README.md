@@ -436,17 +436,25 @@ NightVue uses the same logic as [Bootstrap spacing system](https://getbootstrap.
 The classnames are named using the format `{$property}-{$breakpoint}-{$side}-{$size}`.
 
 Where `$property` is one of:
-* `m` - for classes that set margin
-* `p` - for classes that set padding
+* `m` - for classnames that set margin
+* `p` - for classnames that set padding
+
+Where `$breakpoint` is one of:
+* `xs` - 576px,
+* `sm` - 768px,
+* `md` - 992px,
+* `lg` - 1200px,
+* `xl` - 1400px
+* blank - if you want to set a margin and padding on all breakpoint
 
 Where `$side` is one of:
-* `t` - for classes that set margin-top or padding-top
-* `b` - for classes that set margin-bottom or padding-bottom
-* `l` - for classes that set margin-left or padding-left
-* `r` - for classes that set margin-right or padding-right
-* `x` - for classes that set both *-left and *-right
-* `y` - for classes that set both *-top and *-bottom
-* blank - for classes that set a margin or padding on all 4 sides of the element
+* `t` - for classnames that set margin-top or padding-top
+* `b` - for classnames that set margin-bottom or padding-bottom
+* `l` - for classnames that set margin-left or padding-left
+* `r` - for classnames that set margin-right or padding-right
+* `x` - for classnames that set both *-left and *-right
+* `y` - for classnames that set both *-top and *-bottom
+* blank - for classnames that set a margin or padding on all 4 sides of the element
 
 Where `$size` is one of spacing sizes defined in [varaibles.scss](src/styles/core/varaibles.scss) file:
 ```
