@@ -233,6 +233,20 @@ If you need to apply order to column use `order-${breakpoint}-${value}` classnam
 ```
 Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will make Vue templates noticeably cleaner and at the same time help keep all the styles in one place.
 
+To convert any selector to container type just apply `@container()` mixin to it.
+```
+@include container();
+@include container('full');
+@include container($type: 'boxed', $gutter: 2rem);
+```
+From now on this selector will have same properties as `.container` class. Notice that you can define `$type` and `$gutter`.
+
+Just like with container you can convert any selector to `.row`. Simply apply `@row()` mixin to it. Additionally you can pass `$gutter` value. It will apply alternate negative left and right margins.
+```
+@include row();
+@include row(0);
+@include row($gutter: 2rem);
+```
 To apply column styles use `@col()` mixin. If you don't pass any params mixin will apply only `padding-left` and `padding right` based on `$gutter-width` varaible. To apply width properties you can pass number from 1 to 12 for each breakpoint.
 ```
 @include col();
