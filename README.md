@@ -190,7 +190,7 @@ computed: {
   },
 }
 ```
-You can apply grid styles both in HTML and SCSS.
+### HTML grid usage
 
 To apply column width in HTML you can use prepared classnames `col-${breakpoint}-${value}`:
 ```
@@ -231,6 +231,9 @@ If you need to apply order to column use `order-${breakpoint}-${value}` classnam
   </div>
 </div>
 ```
+
+### Sass grid mixins
+
 Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will make Vue templates noticeably cleaner and at the same time help keep all the styles in one place.
 
 To convert any selector to container type just apply `@container()` mixin to it.
@@ -270,6 +273,9 @@ In case you need to apply order to column use `@order` mixin. It will apply `ord
 @include order(1, $md: 2, $lg: 3, $xs: 12);
 @include order($sm: 12, $lg: 4, $xl: 3);
 ```
+
+### Media queries
+
 NightVue provides set of handy [media queries](https://developer.mozilla.org/ru/docs/Web/CSS/Media_Queries/Using_media_queries) based on `$breakpoints`. You can use queries based on `min-width` and `max-width`:
 ```
 // min-width queries
@@ -302,7 +308,7 @@ Here are some examples of usage in SCSS document:
 .selector { @media #{$lg-dw} { ... } } // styles below 1139px
 
 .selector { @media #{$sm-md} { ... } } // styles between 720px and 959px
-.selector { @media #{$md-lg} { ... } } // styles between 920px amd 1139px
+.selector { @media #{$md-lg} { ... } } // styles between 920px and 1139px
 ```
 
 ## Colors
