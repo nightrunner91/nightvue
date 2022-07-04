@@ -235,9 +235,9 @@ If you need to apply order to column use `order-${breakpoint}-${value}` classnam
 
 ### Sass grid mixins
 
-Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will make Vue templates noticeably cleaner and at the same time help keep all the styles in one place.
+Although HTML method is very familiar to most developers, we highly recomend to use Sass mixins to build grid directly in SCSS files. This will make Vue templates noticeably cleaner and at the same time help keep all the styles in one place.
 
-To convert any selector to container type just apply `@container()` mixin to it:
+To convert any selector to container just apply `@container()` mixin to it:
 ```
 @include container();
 @include container('full');
@@ -267,7 +267,7 @@ If you need to apply offset to column use `@offset()` mixin. It will add `margin
 @include offset(10, $md: 8, $lg: 6, $xs: 12);
 @include offset($sm: 1, $lg: 4, $xl: 0);
 ```
-In case you need to apply order to column use `@order` mixin. It will apply `order` property from 1 to 12 to selector:
+In case you need to apply order to column use `@order()` mixin. It will apply `order` property from 1 to 12 to selector:
 ```
 @include order(2);
 @include order(1, $sm: 4);
@@ -280,36 +280,36 @@ In case you need to apply order to column use `@order` mixin. It will apply `ord
 NightVue provides set of handy [media queries](https://developer.mozilla.org/ru/docs/Web/CSS/Media_Queries/Using_media_queries) based on `$breakpoints`. You can use queries based on `min-width` and `max-width`:
 ```
 // min-width queries
-$xs-up; // > 540px
-$sm-up; // > 720px
-$md-up; // > 960px
-$lg-up; // > 1140px
-$xl-up; // > 1320px
+$xs-up; // > 576px
+$sm-up; // > 768px
+$md-up; // > 992px
+$lg-up; // > 1200px
+$xl-up; // > 1400px
 
 // max-width queries
-$xs-dw; // < 539px
-$sm-dw; // < 719px
-$md-dw; // < 959px
-$lg-dw; // < 1139px
-$xl-dw; // < 1319px
+$xs-dw; // < 578px
+$sm-dw; // < 767px
+$md-dw; // < 991px
+$lg-dw; // < 1199px
+$xl-dw; // < 1399px
 ```
-Or queries *between* breakpoints:
+Or queries between breakpoints:
 ```
-$xs-sm; // 540px … 719px
-$sm-md; // 720px … 959px
-$md-lg; // 960px … 1139px
-$lg-xl; // 1140px … 1319px
+$xs-sm; // 576px … 767px
+$sm-md; // 768px … 991px
+$md-lg; // 992px … 1199px
+$lg-xl; // 1200px … 1399px
 ```
-Here are some examples of usage in SCSS document:
+Here are some examples of usage:
 ```
-.selector { @media #{$sm-up} { ... } } // styles above 720px
-.selector { @media #{$md-up} { ... } } // styles above 960px
+.selector { @media #{$sm-up} { ... } } // styles applies above 768px
+.selector { @media #{$md-up} { ... } } // styles applies above 992px
 
-.selector { @media #{$xl-dw} { ... } } // styles below 1319px
-.selector { @media #{$lg-dw} { ... } } // styles below 1139px
+.selector { @media #{$xl-dw} { ... } } // styles applies below 1399px
+.selector { @media #{$lg-dw} { ... } } // styles applies below 1199px
 
-.selector { @media #{$sm-md} { ... } } // styles between 720px and 959px
-.selector { @media #{$md-lg} { ... } } // styles between 920px and 1139px
+.selector { @media #{$sm-md} { ... } } // styles applies between 768px … 991px
+.selector { @media #{$md-lg} { ... } } // styles applies between 992px … 1199px
 ```
 
 ## Layout
