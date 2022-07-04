@@ -27,6 +27,13 @@ export default {
     },
 
     windowSize() {
+      /// Returns current window width and height
+      ///
+      /// @example
+      ///   {"width": 768, "height": 493 }
+      ///   {"width": 1043, "height": 764 }
+      ///   {"width": 1920, "height": 812 }
+
       return this.$store.state.config.windowSize
     },
   },
@@ -53,6 +60,8 @@ export default {
         width: width,
         height: height
       })
+
+      this.$store.commit('config/SAVE_CURRENT_BREAKPOINT', width)
     },
 
     watchWindowScroll() {
