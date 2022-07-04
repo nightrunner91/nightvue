@@ -17,7 +17,7 @@ NightVue is build for Front-end developers who don't like rewriting the built-in
 * vuex v3.4.0
 * vue-router v2.6.11
 * axios v0.24.0
-* eslint v6.7.2
+* eslint v6.8.0
 * svg-sprite-loader v6.0.11
 * lodash v4.17.21
 * babel 10.1.0
@@ -102,6 +102,9 @@ Let's take a quick look to the crucial parts of framework.
 * `src/layouts` folder includes different layout types for your project. Vue.js doesn't provide this functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/). We will talk about this later.
 * `src/router` folder includes [Vue Router](https://router.vuejs.org/) files.
 * `src/store` folder includes [Vuex](https://vuex.vuejs.org/) files.
+* `src/styles` folder includes stylesheets, Sass functions and mixins, usefull utilities. To keep styles well organized we separate global and local styles in different folders.
+  * `src/styles/animations` folder includes `@keyframes`
+  * `src/styles/components` folder includes styles for reusable components like buttons, dropdowns, inputs, avatars, modals, alerts, etc.
 
 # Documentation 📚
 
@@ -218,7 +221,7 @@ If you need to apply order to column use `order-${breakpoint}-${value}` classnam
   </div>
 </div>
 ```
-Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will make it noticeably cleaner and easier to write and read Vue templates and at the same time help keep all the styles in one place.
+Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will help to write Vue templates noticeably cleaner, at the same time help keep all the styles in one place.
 
 ## Colors
 
