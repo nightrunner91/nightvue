@@ -59,6 +59,7 @@ npm run lint --fix
 
 # File Structure 📂
 
+This is default NightVue file structure. We followed to the principle of modularity and extensibility during the development of the framework and recommend that you follow it.
 ```
 .
 ├── public
@@ -94,6 +95,10 @@ npm run lint --fix
 │   App.vue
 │   main.js
 ```
+Let's take a quick look to the crucial parts of framework.
+
+* `src/assets` folder includes any types of assets you are using in your project, such as icons, fonts, images, files etc. NightVue uses set of Webpack and Sass loaders to easy serve and manage them
+* `src/components` folder includes [reusable Vue components](https://vuejs.org/guide/essentials/component-basics.html). By default this folder already includes Header, Footer and SvgIcon components as examples
 
 # Documentation 📚
 
