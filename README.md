@@ -318,7 +318,105 @@ Here are some examples of usage in SCSS document:
 
 ## Typography
 
-[ 🚧 *this part of the documentation is in progress* ]
+Typography settings are located in [varaibles.scss](src/styles/core/varaibles.scss) file.
+```
+$font-families: (
+  base:      "Onest",
+  headings:  "Onest",
+  displays:  "Onest"
+);
+
+$line-heights: (
+  1:  1,
+  25: 1.25,
+  50: 1.5,
+  75: 1.75,
+  2:  2,
+);
+
+$text-aligns: (
+  left:    left, 
+  center:  center, 
+  right:   right, 
+  justify: justify
+);
+
+$font-weights: (
+  lighter: lighter, 
+  bolder:  bolder, 
+
+  100: 100, // thin
+  200: 200, // extra light
+  300: 300, // light
+  400: 400, // normal
+  500: 500, // medium
+  600: 600, // semi bold
+  700: 700, // bold
+  800: 800, // extra bold
+  900: 900, // black
+);
+
+$text-transforms: (
+  lowercase:  lowercase, 
+  uppercase:  uppercase, 
+  capitalize: capitalize
+);
+
+$font-styles: (
+  normal:  normal, 
+  italic:  italic, 
+  oblique: oblique
+);
+
+$text-decorations: (
+  underline:    underline, 
+  line-through: line-through, 
+  none:         none
+);
+
+$text-wraps: (
+  normal:   normal,
+  nowrap:   nowrap,
+  pre:      pre,
+  pre-line: pre-line,
+  pre-wrap: pre-wrap
+);
+
+$letter-spacings: (
+  normal:  normal,
+  tight:   -0.05em,
+  wide:   .1em,
+  wider:  .5em,
+);
+
+$headings-fz: (
+  h1: 4.5rem,
+  h2: 2.5rem,
+  h3: 1.75rem,
+  h4: 1.25rem,
+  h5: 1rem,
+  h6: 0.875rem,
+);
+$headings-lh: map-get($line-heights, 25);
+$headings-fw: map-get($font-weights, 500);
+$headings-margins: (
+  top: 1.5em,
+  bottom: 0.5em,
+);
+
+$displays-fz: (
+  display-1: 74px,
+  display-2: 62px,
+  display-3: 48px,
+  display-4: 34px,
+);
+$displays-lh: map-get($line-heights, 25);
+$displays-fw: map-get($font-weights, 500);
+$displays-margins: (
+  top: 1.5em,
+  bottom: 1em,
+);
+```
 
 ## Position
 
