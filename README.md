@@ -116,7 +116,7 @@ npm run lint --fix
 
 ## Grid
 
-NightVue grid system is quite similar to Bootstrap 5.x, but we are using entirely different approach to build mixins and functions. Just like Bootstrap, our grid system uses a series of containers, rows, and cols to layout and align content and in gereal shares the same principles. It’s built with flexbox and is fully responsive. Nonetheless we must mention some features and differences. 
+NightVue grid system is quite similar to Bootstrap, but we are using entirely different approach to build mixins and functions. Our grid system is built with flexbox and is fully responsive. It uses a series of containers, rows, and cols to align content and in general shares the same principles. Nonetheless we must mention some features and differences. 
 
 There are 3 types of containers in NightVue:
 
