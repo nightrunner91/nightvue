@@ -391,8 +391,7 @@ color: gray(7, 24);
 
 # To-do list Q3-Q4 2022 ✅
 
+- [ ] Write documentation
 - [ ] Migrate to Vue.js 3.x
 - [ ] Migrate to Vue CLI 5.x
-- [ ] Write documentation in README file
-- [ ] Create landing page with presentation and documentation
 - [ ] Release package on npmjs.com
