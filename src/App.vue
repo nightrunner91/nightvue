@@ -22,10 +22,6 @@ export default {
     }
   },
   computed: {
-    windowScroll() {
-      return this.$store.state.config.windowScroll
-    },
-
     windowSize() {
       /// Returns current window width and height
       ///
@@ -35,6 +31,23 @@ export default {
       ///   {"width": 1920, "height": 812 }
 
       return this.$store.state.config.windowSize
+    },
+
+    currentBreakpoint() {
+      /// Returns current 'morphological' breakpoint value based on window width
+      ///
+      /// @example
+      ///   'xs' | 'sm' | 'md' | 'lg' | 'xl'
+
+      return this.$store.state.config.currentBreakpoint
+    },
+
+    windowScroll() {
+      /// Returns current scroll position
+      ///
+      /// @link https://developer.mozilla.org/ru/docs/Web/API/Window/scrollY
+
+      return this.$store.state.config.windowScroll
     },
   },
   created() {
