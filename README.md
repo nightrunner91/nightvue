@@ -169,7 +169,7 @@ computed: {
   },
 }
 ```
-You can apply grid styles both in HTML and SCSS. In HTML you can use prepared classnames based on `$breakpoints` values.
+You can apply grid styles both in HTML and SCSS. In HTML you can use prepared classnames `col-${breakpoint}-${value}`:
 ```
 <div class="container">
   <div class="row">
@@ -180,6 +180,19 @@ You can apply grid styles both in HTML and SCSS. In HTML you can use prepared cl
       8 on 'md' breakpoint
       6 on 'lg' breakpoint
       4 on 'xl' breakpoint
+    </div>
+  </div>
+</div>
+```
+If you need to apply offset to column use `offset-${breakpoint}-${value}` classnames like this:
+```
+<div class="container">
+  <div class="row">
+    <div class="col col-4 offset-xs-4 offset-sm-5 offset-md-8 offset-lg-0">
+      offset 4 columns on 'xs' breakpoint
+      offset 5 columns on 'sm' breakpoint
+      offset 8 columns on 'md' breakpoint
+      don't do any offset on 'lg' breakpoint
     </div>
   </div>
 </div>
