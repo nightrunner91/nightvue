@@ -81,12 +81,12 @@ This is default NightVue file structure. We followed to the principles of modula
 │       ├── components
 │       ├── core
 │           └── helpers
-│           functions.scss
+│           _functions.scss
+│           _mixins.scss
+│           _varaibles.scss
 │           globals.scss
-│           mixins.scss
 │           normalize.scss
 │           typography.scss
-│           varaibles.scss
 │       ├── plugins
 │       └── sections
 │       style.scss
