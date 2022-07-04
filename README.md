@@ -668,8 +668,9 @@ color: gray(7, 24);
 
 ## Transitions
 
-NightVue provides set of most usable transition timings in web. 
+NightVue provides set of most usable transition timings in web. They are stored in `$transition-timings` map located in [varaibles.scss](src/styles/core/varaibles.scss) file.
 ```
+$transition-timings: (
   linear:       cubic-bezier(0, 0, 1, 1),
   ease:         cubic-bezier(0.25, 0.1, 0.25, 1),
   ease-in:      cubic-bezier(0.42, 0, 1, 1),
@@ -684,11 +685,11 @@ NightVue provides set of most usable transition timings in web.
   sharp:        cubic-bezier(0.4, 0, 0.6, 1) 
 );
 ```
-* First group are "standard" easing functions, that are already well described in [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions). 
-* Second group are easings from [Material Design 2 guidelines](https://material.io/design/motion/speed.html#easing). They have some similarities with previous group, although they are developed to be more "eye catchy" and each one serves some purpose.
-* Third group is where you can add your own easings. We added there "sharp" easing. This curve may be used for objects that may return to the screen at any time in fast way. Try [https://cubic-bezier.com/](https://cubic-bezier.com/) - it's a cool tool to create your own easings.
+* First group are "standard" easing functions, that are already well described in [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions)
+* Second group are easings from [Material Design 2 guidelines](https://material.io/design/motion/speed.html#easing). They have some similarities with previous group, although they are developed to be more "eye catchy" and each one serves some purpose
+* Third group is where you can add your own easings. We added there "sharp" easing. This curve may be used for objects that may return to the screen at any time in fast way. Try [https://cubic-bezier.com/](https://cubic-bezier.com/) - it's a cool tool to create your own easings
 
-Besides timing functions there is set of transitions speed:
+Besides timing functions there is set of transition speed:
 ```
 $transition-speed: (
   shortest: .15s,
