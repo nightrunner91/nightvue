@@ -119,14 +119,15 @@ Finally, `App.vue` is root file of project and `main.js` is the file where you i
 # Documentation 📚
 
 * [Grid](#Grid)
+* [Layout](#Layout)
+* [Typography](#Typography)
 * [Position](#Position)
 * [Display](#Display)
-* [Typography](#Typography)
+* [Spacing](#Spacing)
+* [Sizing](#Sizing)
 * [Colors](#Colors)
 * [Gradients](#Gradients)
 * [Icons](#Icons)
-* [Spacing](#Spacing)
-* [Sizing](#Sizing)
 * [Radius](#Radius)
 * [Shadows](#Shadows)
 * [Rotations](#Rotations)
@@ -310,6 +311,10 @@ Here are some examples of usage in SCSS document:
 .selector { @media #{$sm-md} { ... } } // styles between 720px and 959px
 .selector { @media #{$md-lg} { ... } } // styles between 920px and 1139px
 ```
+
+## Layout
+
+[ 🚧 *this part of the documentation is in progress* ]
 
 ## Colors
 
