@@ -365,6 +365,7 @@ $transition-speed: (
 $transition-timings: (
   /// "Standard" and most usefull easings
   /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions
+  /// @link https://cubic-bezier.com/
   linear:       cubic-bezier(0, 0, 1, 1),
   ease:         cubic-bezier(0.25, 0.1, 0.25, 1),
   ease-in:      cubic-bezier(0.42, 0, 1, 1),

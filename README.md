@@ -668,7 +668,59 @@ color: gray(7, 24);
 
 ## Transitions
 
-[ 🚧 *this part of the documentation is in progress* ]
+NightVue provides set of most usable transition timings in web. 
+```
+  linear:       cubic-bezier(0, 0, 1, 1),
+  ease:         cubic-bezier(0.25, 0.1, 0.25, 1),
+  ease-in:      cubic-bezier(0.42, 0, 1, 1),
+  ease-out:     cubic-bezier(0,0,0.58,1),
+  ease-in-out:  cubic-bezier(0.42, 0, 0.58, 1),
+
+  standard:     cubic-bezier(0.4, 0, 0.2, 1),
+  emphasized:   cubic-bezier(0.0, 0, 0.2, 1),
+  decelerated:  cubic-bezier(0.0, 0.0, 0.2, 1),
+  accelerated:  cubic-bezier(0.4, 0.0, 1, 1),
+
+  sharp:        cubic-bezier(0.4, 0, 0.6, 1) 
+);
+```
+* First group are "standard" easing functions, that are already well described in [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function#easing_functions). 
+* Second group are easings from [Material Design 2 guidelines](https://material.io/design/motion/speed.html#easing). They have some similarities with previous group, although they are developed to be more "eye catchy" and each one serves some purpose.
+* Third group is where you can add your own easings. We added there "sharp" easing. This curve may be used for objects that may return to the screen at any time in fast way. Try [https://cubic-bezier.com/](https://cubic-bezier.com/) - it's a cool tool to create your own easings.
+
+Besides timing functions there is set of transitions speed:
+```
+$transition-speed: (
+  shortest: .15s,
+  shorter:  .2s,
+  short:    .25s,
+  base:     .3s,
+  slow:     .375s,
+  slower:   .5s,
+  lazy:     .75s,
+);
+```
+NightVue generates classnames based on this maps to use them in HTML.
+```
+.timing-linear { transition-timing-function: cubic-bezier(0, 0, 1, 1) }
+.timing-ease { transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) }
+.timing-ease-in { transition-timing-function: cubic-bezier(0.42, 0, 1, 1) }
+.timing-ease-out { transition-timing-function: cubic-bezier(0,0,0.58,1) }
+.timing-ease-in-out { transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1) }
+.timing-standard { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) }
+.timing-emphasized { transition-timing-function: cubic-bezier(0.0, 0, 0.2, 1) }
+.timing-decelerated { transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1) }
+.timing-sharp { transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1) }
+
+.speed-shortest { transition-duration: .15s }
+.speed-shorter { transition-duration: .2s }
+.speed-short { transition-duration: .25s }
+.speed-base { transition-duration: .3s }
+.speed-slow { transition-duration: .375s }
+.speed-slower { transition-duration: .5s }
+.speed-lazy { transition-duration: .75s }
+```
+But we recomend to apply transitions in SCSS files. To do that use `transition()` and `complex-transition()` functions.
 
 # To-do list Q3-Q4 2022 ✅
 
