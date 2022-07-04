@@ -427,14 +427,14 @@ $small-fz: 0.875;
 ```
 The place where this settings are applied is [typography.scss](src/styles/core/typography.scss) file. Here are declared global settings, styles for headings, displays, body text, lists, and more. Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `'src/assets/fonts'` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). This is how we stored and imported it, use this as an example to import your own fonts.
 ```
-Font files location:
+// Font files location:
 
 ├── src
 │   ├── assets
 │       ├── fonts
 │           └── Onest
 
-Import font using @font-face mixin:
+// Import font using @font-face mixin:
 
 @include font-face('Onest', 'OnestRegular', 400, normal, 'recent');
 @include font-face('Onest', 'OnestMedium', 500, normal, 'recent');
