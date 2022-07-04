@@ -417,6 +417,30 @@ $displays-margins: (
   bottom: 1em,
 );
 ```
+And [typography.scss](src/styles/core/typography.scss) file is the place where this settings aplies, including global settings, headings, body text, lists, and more. Crucial varaibles are:
+```
+$base-fz: 16px;
+$base-lh: map-get($line-heights, 50);
+$base-fw: map-get($font-weights, 400);
+$base-mg: map-get($spacers, 1);
+$small-fz: 0.875; // ratio of how lower will be font-size for <small> tag and .small classname
+```
+Also in this file you can import fonts by using `@font-face` mixin. Make sure to store your fonts in 'src/assets/fonts' folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). See example of how we stored and imported it
+```
+Font files location:
+
+├── src
+│   ├── assets
+│       ├── fonts
+│           └── Onest
+
+Import font using @font-face mixin:
+
+@include font-face('Onest', 'OnestRegular', 400, normal, 'recent');
+@include font-face('Onest', 'OnestMedium', 500, normal, 'recent');
+@include font-face('Onest', 'OnestBold', 700, normal, 'recent');
+@include font-face('Onest', 'OnestBlack', 900, normal, 'recent');
+```
 
 ## Position
 
