@@ -169,6 +169,12 @@ $displays-margins: (
   bottom: 1em,
 );
 
+$base-fz: 16px; // ❗ CRUCIAL VALUE! A lot of things depends on it. Be aware.
+$base-lh: map-get($line-heights, 50);
+$base-fw: map-get($font-weights, 400);
+$base-mg: map-get($spacers, 1);
+$small-fz: 0.875; // ratio of how lower will be font-size for <small> tag and .small classname
+
 
 // ================== //
 // ===== Colors ===== //

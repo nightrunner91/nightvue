@@ -295,10 +295,10 @@ $xl-dw; // < 1319px
 ```
 Or queries *between* breakpoints:
 ```
-$xs-sm; // 540px ↔ 719px
-$sm-md; // 720px ↔ 959px
-$md-lg; // 960px ↔ 1139px
-$lg-xl; // 1140px ↔ 1319px
+$xs-sm; // 540px … 719px
+$sm-md; // 720px … 959px
+$md-lg; // 960px … 1139px
+$lg-xl; // 1140px … 1319px
 ```
 Here are some examples of usage in SCSS document:
 ```
