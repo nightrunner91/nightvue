@@ -176,12 +176,12 @@ To apply column width in HTML you can use prepared classnames `col-${breakpoint}
 <div class="container">
   <div class="row">
     <div class="col col-12 col-xs-10 col-sm-11 col-md-8 col-lg-6 col-xl-4">
-      12 by default
-      10 on 'xs' breakpoint
-      11 on 'sm' breakpoint
-      8 on 'md' breakpoint
-      6 on 'lg' breakpoint
-      4 on 'xl' breakpoint
+      width 12 by default
+      width 10 on 'xs' breakpoint
+      width 11 on 'sm' breakpoint
+      width 8 on 'md' breakpoint
+      width 6 on 'lg' breakpoint
+      width 4 on 'xl' breakpoint
     </div>
   </div>
 </div>
@@ -195,6 +195,17 @@ If you need to apply offset to column use `offset-${breakpoint}-${value}` classn
       offset 5 columns on 'sm' breakpoint
       offset 8 columns on 'md' breakpoint
       don't do any offset on 'lg' breakpoint
+    </div>
+  </div>
+</div>
+```
+If you need to apply order to column use `order-${breakpoint}-${value}` classnames like this:
+```
+<div class="container">
+  <div class="row">
+    <div class="col col-6 order-xs-1 order-md-5">
+      order 1 on 'xs' breakpoint
+      order 5 on 'md' breakpoint
     </div>
   </div>
 </div>

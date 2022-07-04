@@ -8,11 +8,13 @@
 .col       { @include col() }
 
 @mixin make-grid($breakpoint:null) {
-  $i: 1;
+  $i: 0;
   @while $i <= $num-cols {
-    .col#{$breakpoint}-#{$i}    { @include col-width($i) }
+    @if ($i > 0) {
+      .col#{$breakpoint}-#{$i}    { @include col-width($i) }
+      .order#{$breakpoint}-#{$i}  { order: $i }
+    }
     .offset#{$breakpoint}-#{$i} { margin-left: percent($i, $num-cols) }
-    .order#{$breakpoint}-#{$i}  { order: $i }
     $i: $i + 1;
   }
 }
