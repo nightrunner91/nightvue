@@ -149,33 +149,22 @@ $containers: (
 );
 ```
 Remember that `$breakpoints` are dublicated in Vuex store in [config.js](src/store/modules/config.js) file. NightVue watches for [window resize event](https://developer.mozilla.org/ru/docs/Web/API/Window/resize_event) to update global Vuex store varaibles in real-time. It also constantly tracks current [scroll position](https://developer.mozilla.org/ru/docs/Web/API/Window/scrollY). You can read these values with computed properties `windowSize()`, `currentBreakpoint()` and `windowScroll()`.
+
+* `windowSize()` returns current window `width` and `height`
+* `currentBreakpoint()` returns current 'morphological' breakpoint value based on window width ('xs' | 'sm' | 'md' | 'lg' | 'xl')
+* `windowScroll()` returns current scroll position
+
 ```
 computed: {
   windowSize() {
-    /// Returns current window width and height
-    ///
-    /// @example
-    ///   {"width": 768, "height": 493 }
-    ///   {"width": 1043, "height": 764 }
-    ///   {"width": 1920, "height": 812 }
-
     return this.$store.state.config.windowSize
   },
 
   currentBreakpoint() {
-    /// Returns current 'morphological' breakpoint value based on window width
-    ///
-    /// @example
-    ///   'xs' | 'sm' | 'md' | 'lg' | 'xl'
-
     return this.$store.state.config.currentBreakpoint
   }
 
   windowScroll() {
-    /// Returns current scroll position
-    ///
-    /// @link https://developer.mozilla.org/ru/docs/Web/API/Window/scrollY
-
     return this.$store.state.config.windowScroll
   },
 }
