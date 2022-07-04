@@ -241,13 +241,20 @@ To apply column styles use `@col()` mixin. If you don't pass any params mixin wi
 @include col(10, $md: 8, $lg: 6, $xs: 12);
 @include col(12, 10, 10, 8, 6, 9);
 ```
-If you need to apply offset to column use `@offset()` mixin. It will add `margin-left` propert to selector. You can pass number from 0 to 12 for each breakpoint. Note that if you don't pass any params, mixin won't apply any styles.
+If you need to apply offset to column use `@offset()` mixin. It will add `margin-left` property to selector. You can pass number from 0 to 12 for each breakpoint. Note that if you don't pass any params, mixin won't apply any styles.
 ```
 @include offset(6);
 @include offset(0, $sm: 4);
 @include offset(10, $md: 8);
 @include offset(10, $md: 8, $lg: 6, $xs: 12);
 @include offset($sm: 1, $lg: 4, $xl: 0);
+```
+In case you need to apply order to column use `@order` mixin. It will apply `order` property from 1 to 12 to selector.
+```
+@include order(2);
+@include order(1, $sm: 4);
+@include order(1, $md: 2, $lg: 3, $xs: 12);
+@include order($sm: 12, $lg: 4, $xl: 3);
 ```
 
 ## Colors

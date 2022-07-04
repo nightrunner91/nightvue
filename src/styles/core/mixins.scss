@@ -399,7 +399,7 @@
       $md > $num-cols or $md <= 0 or 
       $lg > $num-cols or $lg <= 0 or 
       $xl > $num-cols or $xl <= 0) {
-      @error 'Passed value must be between 0 and $num-cols inclusively (12 by default)';
+      @error 'Passed value must be between 1 and $num-cols inclusively (12 by default)';
     } @else {
       @if ($cols < $num-cols and $cols > 0) {
         order: $cols
