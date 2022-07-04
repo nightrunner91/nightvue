@@ -270,6 +270,40 @@ In case you need to apply order to column use `@order` mixin. It will apply `ord
 @include order(1, $md: 2, $lg: 3, $xs: 12);
 @include order($sm: 12, $lg: 4, $xl: 3);
 ```
+NightVue provides set of handy [media queries](https://developer.mozilla.org/ru/docs/Web/CSS/Media_Queries/Using_media_queries) based on `$breakpoints`. You can use queries based on `min-width` and `max-width`:
+```
+// min-width queries
+$xs-up; // > 540px
+$sm-up; // > 720px
+$md-up; // > 960px
+$lg-up; // > 1140px
+$xl-up; // > 1320px
+
+// max-width queries
+$xs-dw; // < 539px
+$sm-dw; // < 719px
+$md-dw; // < 959px
+$lg-dw; // < 1139px
+$xl-dw; // < 1319px
+```
+Or queries *between* breakpoints:
+```
+$xs-sm; // 540px ↔ 719px
+$sm-md; // 720px ↔ 959px
+$md-lg; // 960px ↔ 1139px
+$lg-xl; // 1140px ↔ 1319px
+```
+Here are some examples of usage in SCSS document:
+```
+.selector { @media #{$sm-up} { ... } } // styles above 720px
+.selector { @media #{$md-up} { ... } } // styles above 960px
+
+.selector { @media #{$xl-dw} { ... } } // styles below 1319px
+.selector { @media #{$lg-dw} { ... } } // styles below 1139px
+
+.selector { @media #{$sm-md} { ... } } // styles between 720px and 959px
+.selector { @media #{$md-lg} { ... } } // styles between 920px amd 1139px
+```
 
 ## Colors
 
@@ -387,6 +421,13 @@ color: gray($level: 4, $from: 4);
 
 color: gray(7, 24);
 // => color: #bababa;
+```
+
+## Spacing
+
+Default spacing sizes are defined in [varaibles.scss](src/styles/core/varaibles.scss) file.
+```
+
 ```
 
 # To-do list Q3-Q4 2022 ✅
