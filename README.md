@@ -440,11 +440,11 @@ Where `$property` is one of:
 * `p` - for classnames that set padding
 
 Where `$breakpoint` is one of:
-* `xs` - 576px
-* `sm` - 768px
-* `md` - 992px
-* `lg` - 1200px
-* `xl` - 1400px
+* `xs` - for classnames that set property on XS breakpoint > 576px
+* `sm` - for classnames that set property on SM breakpoint > 768px
+* `md` - for classnames that set property on MD breakpoint > 992px
+* `lg` - for classnames that set property on LG breakpoint > 1200px
+* `xl` - for classnames that set property on XL breakpoint > 1400px
 * blank - if you want to set a margin and padding on all breakpoint
 
 Where `$side` is one of:
