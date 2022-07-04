@@ -723,6 +723,34 @@ NightVue generates classnames based on this maps to use them in HTML:
 ```
 But we recomend to apply transitions in SCSS files. To do that use `transition()` and `complex-transition()` functions.
 
+Function `transition()` returns transition based on `$property`, `$speed`, `$timings` and `$delay` params. Only first one param is required, others are by default `base => .3s`, `ease` and `0s`. Function searches params in `$transition-speed` and `$transition-timings` maps, but you could pass whatever you want. We advice you to pass predefined `$speed` and `$timing` values tho. Here are some examples of usage:
+```
+transition: transition(transform);
+// => transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+transition: transition(opacity, short, ease-in);
+// => transition: opacity 0.25s cubic-bezier(0.42, 0, 1, 1);
+
+transition: transition(background-color, slow, emphasized);
+// => transition: background-color 0.375s cubic-bezier(0, 0, 0.2, 1);
+
+transition: transition(color, lazy, linear, 1s);
+// => transition: color 0.75s cubic-bezier(0, 0, 1, 1) 1s;
+
+transition: transition(box-shadow, 2s, cubic-bezier(.08,1.04,.82,-0.73));
+// => transition: box-shadow 2s cubic-bezier(.08,1.04,.82,-0.73);
+```
+If you need to apply many transitions at once we recomend to use `complex-transition()` function. It does basically the same as previous one, but you can write many transitions in clear and fancy way like this:
+```
+transition: complex-transition(
+  transition(opacity, short, ease-in),
+  transition(background-color, slow, emphasized),
+  transition(color, lazy, linear, 1s),
+);
+
+// => transition: opacity 0.25s cubic-bezier(0.42, 0, 1, 1), background-color 0.375s cubic-bezier(0, 0, 0.2, 1), color 0.75s cubic-bezier(0, 0, 1, 1) 1s;
+```
+
 # To-do list Q3-Q4 2022 ✅
 
 - [ ] Write documentation
