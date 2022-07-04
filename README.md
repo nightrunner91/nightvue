@@ -28,7 +28,7 @@ NightVue is build for Front-end developers who don't like rewriting the built-in
 * Hot-reload dev server
 * Well organized file structure
 * ESLint validator
-* Bunch of Scss mixins and functions
+* Bunch of SCSS mixins and functions
 * Router layouts support
 * Flexbox grid
 * Normalize.css
@@ -116,7 +116,7 @@ npm run lint --fix
 
 ## Grid
 
-NightVue grid system is quite similar to Bootstrap, but we are using entirely different approach to build mixins and functions. Our grid system is built with flexbox and is fully responsive. If you are not familiar with flex we recomend to read this [article](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background). NightVue grid uses a series of containers, rows, and cols to align content and in general shares the same principles as Bootstrap. Nonetheless we must mention some features and differences. 
+NightVue grid system is quite similar to [Bootstrap grid](https://getbootstrap.com/docs/4.0/layout/grid/), but we are using entirely different approach to build mixins and functions. Our grid system is built with flexbox and is fully responsive. If you are not familiar with flex we recomend to read this [article](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background). NightVue grid uses a series of containers, rows, and cols to align content and in general shares the same principles as Bootstrap. Nonetheless we must mention some features and differences. 
 
 There are 3 types of containers in NightVue:
 
@@ -169,7 +169,21 @@ computed: {
   },
 }
 ```
-
+You can apply grid styles both in HTML and SCSS. In HTML you can use prepared classnames based on `$breakpoints` values.
+```
+<div class="container">
+  <div class="row">
+    <div class="col col-12 col-xs-10 col-sm-11 col-md-8 col-lg-6 col-xl-4">
+      12 by default
+      10 on 'xs' breakpoint
+      11 on 'sm' breakpoint
+      8 on 'md' breakpoint
+      6 on 'lg' breakpoint
+      4 on 'xl' breakpoint
+    </div>
+  </div>
+</div>
+```
 
 ## Colors
 
@@ -235,7 +249,7 @@ NightVue automatically generates classnames from Sass maps above. Each color hav
 .clr-secondary-light-2 { color: #42a6f5 }
 .fill-secondary-dark-4 { fill: #1971b6 }
 ```
-If you need to apply colors in Sass files you can use `color($name, $style: false, $rate:false)` function. It returns hex value of color by its `$name`. Additionally you can pass `$style` and `$rate` arguments to determine level of brightness or darkness of color. Here are some examples of usage in Scss:
+If you need to apply colors in Sass files you can use `color($name, $style: false, $rate:false)` function. It returns hex value of color by its `$name`. Additionally you can pass `$style` and `$rate` arguments to determine level of brightness or darkness of color. Here are some examples of usage in SCSS:
 ```
 box-shadow: 1px 1px 4px color('primary');
 // => box-shadow: 1px 1px 4px #682CAB;
