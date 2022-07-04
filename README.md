@@ -450,10 +450,6 @@ The place where this settings are applied is [typography.scss](src/styles/core/t
 
 [ 🚧 *this part of the documentation is in progress* ]
 
-## Display
-
-[ 🚧 *this part of the documentation is in progress* ]
-
 ## Spacing
 
 NightVue uses the same logic as [Bootstrap spacing system](https://getbootstrap.com/docs/4.0/utilities/spacing/) to generate responsive margin and padding utility classnames.
