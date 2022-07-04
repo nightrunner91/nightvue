@@ -103,7 +103,7 @@ Let's take a quick look to the crucial parts of framework.
 * `src/router` folder includes [Vue Router](https://router.vuejs.org/) files.
 * `src/store` folder includes [Vuex](https://vuex.vuejs.org/) files.
 * `src/styles` folder includes stylesheets, Sass functions and mixins, usefull utilities. To keep styles well organized we separate global and local styles in different folders.
-  * `src/styles/animations` folder includes `@keyframes`
+  * `src/styles/animations` folder includes [@keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
   * `src/styles/components` folder includes styles for reusable components like buttons, dropdowns, inputs, avatars, modals, alerts, etc.
   * `src/styles/core` folder includes crucial Sass mixins, functions and code generators to work with.
     * `src/styles/core/helpers` - the folder includes SCSS files that generate classnames to use in HTML (grid, spacers, text styles, colors etc.)
