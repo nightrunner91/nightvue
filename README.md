@@ -270,11 +270,21 @@ $levels: (
 ```
 NightVue automatically generates classnames from Sass maps above. Each color have unique classname with `background-color`, `color` and `fill` styles. Additionally for each color NightVue generates classnames with brightened and darkened color variations. This classnames have suffixes `-light-${level}` and `-dark-${level}` respectively. Here are some examples:
 ```
+/// Classnames which applies background-color:
 .bg-red { background-color: #F44336 }
 .bg-gray-5 { background-color: #959595 }
 .bg-primary { background-color: #682CAB }
+.bg-primary-light-1 { background-color: #7741b3 }
+
+/// Classnames which applies text color
+.clr-danger { color: #F44336 }
 .clr-secondary-light-2 { color: #42a6f5 }
-.fill-secondary-dark-4 { fill: #1971b6 }
+.clr-secondary-dark-4 { color: #1971b6 }
+
+/// Classnames which applies SVG fill color
+.fill-white { fill: #ffffff }
+.fill-dark { fill: #555555 }
+.fill-success-dark-2 { fill: #3c964d }
 ```
 If you need to apply colors in Sass files you can use `color($name, $style: false, $rate:false)` function. It returns hex value of color by its `$name`. Additionally you can pass `$style` and `$rate` arguments to determine level of brightness or darkness of color. Here are some examples of usage in SCSS:
 ```
