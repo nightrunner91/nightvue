@@ -425,7 +425,7 @@ $base-fw: map-get($font-weights, 400);
 $base-mg: map-get($spacers, 1);
 $small-fz: 0.875;
 ```
-[typography.scss](src/styles/core/typography.scss) file is the place where this settings are applied, including global settings, headings, body text, lists, and more. In this file you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `'src/assets/fonts'` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). This is how we stored and imported it, use this as example to import your own fonts.
+The place where this settings are applied is [typography.scss](src/styles/core/typography.scss) file. Here are declared global settings, styles for headings, displays, body text, lists, and more. Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `'src/assets/fonts'` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). This is how we stored and imported it, use this as example to import your own fonts.
 ```
 Font files location:
 
