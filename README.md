@@ -17,7 +17,7 @@ NightVue is build for Front-end developers who don't like rewriting the built-in
 * vuex v3.4.0
 * vue-router v2.6.11
 * axios v0.24.0
-* eslint v6.8.0
+* eslint v6.7.2
 * svg-sprite-loader v6.0.11
 * lodash v4.17.21
 * babel 10.1.0
@@ -232,6 +232,15 @@ If you need to apply order to column use `order-${breakpoint}-${value}` classnam
 </div>
 ```
 Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will make Vue templates noticeably cleaner and at the same time help keep all the styles in one place.
+
+To apply column styles use `@col()` mixin. If you don't pass any params mixin will apply just padding-left and padding right based on `$gutter-width` varaible. To apply width properties you can pass number from 1 to 12 for each breakpoint.
+```
+@include col();
+@include col(12);
+@include col(10, $md: 8);
+@include col(10, $md: 8, $lg: 6, $xs: 12);
+@include col(12, 10, 10, 8, 6, 9);
+```
 
 ## Colors
 
