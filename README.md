@@ -59,7 +59,7 @@ npm run lint --fix
 
 # File Structure 📂
 
-This is default NightVue file structure. We followed to the principle of modularity and extensibility during the development and recommend that you follow it aswell.
+This is default NightVue file structure. We followed to the principles of modularity and extensibility during the development and recommend that you follow them aswell.
 ```
 .
 ├── public
@@ -105,12 +105,17 @@ Let's take a quick look to the crucial parts of framework.
 * `src/styles` folder includes stylesheets, Sass functions and mixins, usefull utilities. To keep styles well organized we separate global and local styles in different folders.
   * `src/styles/animations` folder includes `@keyframes`
   * `src/styles/components` folder includes styles for reusable components like buttons, dropdowns, inputs, avatars, modals, alerts, etc.
+  * `src/styles/core` folder includes crucial Sass mixins, functions and code generators to work with.
+    * `src/styles/core/helpers` - the folder includes SCSS files that generate classnames to use in HTML (grid, spacers, text styles, colors etc.)
+    * `src/styles/core/globals.scss` - this is key file that imports all available **functions**, **mixins** and **varaibles** from so-called files at the same folder.
+    * `src/styles/core/typography.scss` file describes all text styles (headings, displays, paragraphs, default body font etc)
+    * `src/styles/core/normalize.scss` makes browsers render all elements more consistently and in line with modern standards. It is basicly slightly modified SCSS version of widely used [Normalize.css](https://necolas.github.io/normalize.css/)
 
 # Documentation 📚
 
+* [Grid](#Grid)
 * [Position](#Position)
 * [Display](#Display)
-* [Grid](#Grid)
 * [Typography](#Typography)
 * [Colors](#Colors)
 * [Gradients](#Gradients)
@@ -221,7 +226,7 @@ If you need to apply order to column use `order-${breakpoint}-${value}` classnam
   </div>
 </div>
 ```
-Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will help to write Vue templates noticeably cleaner, at the same time help keep all the styles in one place.
+Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will make Vue templates noticeably cleaner and at the same time help keep all the styles in one place.
 
 ## Colors
 
