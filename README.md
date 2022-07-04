@@ -169,7 +169,9 @@ computed: {
   },
 }
 ```
-You can apply grid styles both in HTML and SCSS. In HTML you can use prepared classnames `col-${breakpoint}-${value}`:
+You can apply grid styles both in HTML and SCSS.
+
+To apply column width in HTML you can use prepared classnames `col-${breakpoint}-${value}`:
 ```
 <div class="container">
   <div class="row">
