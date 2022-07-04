@@ -463,6 +463,25 @@ $spacers: (
   auto: auto
 );
 ```
+In case you prefer SCSS method to define spacers use `spacer()` function for that.
+
+* If you pass one param it will return spacer value
+* If you pass two params it will return X and Y spacer values
+* If you pass four params it will return top, right, bottom and left spacer values
+
+```
+padding: spacer(2);
+// => padding: 2rem;
+
+padding-right: spacer(1);
+// => padding-right: 1rem;
+
+margin: spacer(3, auto);
+// => margin: 3rem auto;
+
+margin: spacer(50, auto, 2, 0);
+// => margin: .5rem auto 2rem 0;
+```
 
 # To-do list Q3-Q4 2022 ✅
 
