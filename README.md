@@ -151,7 +151,7 @@ $containers: (
 Remember that `$breakpoints` are dublicated in Vuex store in [config.js](src/store/modules/config.js) file. NightVue watches for [window resize event](https://developer.mozilla.org/ru/docs/Web/API/Window/resize_event) to update global Vuex store varaibles in real-time. It also constantly tracks current [scroll position](https://developer.mozilla.org/ru/docs/Web/API/Window/scrollY). You can read these values with computed properties `windowSize()`, `currentBreakpoint()` and `windowScroll()`.
 
 * `windowSize()` returns current window `width` and `height`
-* `currentBreakpoint()` returns current 'morphological' breakpoint value based on window width. By defaults there might be: **'xs', 'sm', 'md', 'lg'** and **'xl'**
+* `currentBreakpoint()` returns current "morphological" breakpoint value based on window width. By defaults there might be: **'xs', 'sm', 'md', 'lg'** and **'xl'**
 * `windowScroll()` returns current scroll position
 
 ```
@@ -210,6 +210,7 @@ If you need to apply order to column use `order-${breakpoint}-${value}` classnam
   </div>
 </div>
 ```
+Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will make it noticeably cleaner and easier to write and read Vue templates and at the same time help keep all the styles in one place.
 
 ## Colors
 
