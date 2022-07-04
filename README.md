@@ -233,13 +233,21 @@ If you need to apply order to column use `order-${breakpoint}-${value}` classnam
 ```
 Although this method is very familiar to most developers, we highly recomend to use Sass mixins to build grid right in SCSS files. This will make Vue templates noticeably cleaner and at the same time help keep all the styles in one place.
 
-To apply column styles use `@col()` mixin. If you don't pass any params mixin will apply just padding-left and padding right based on `$gutter-width` varaible. To apply width properties you can pass number from 1 to 12 for each breakpoint.
+To apply column styles use `@col()` mixin. If you don't pass any params mixin will apply only `padding-left` and `padding right` based on `$gutter-width` varaible. To apply width properties you can pass number from 1 to 12 for each breakpoint.
 ```
 @include col();
 @include col(12);
 @include col(10, $md: 8);
 @include col(10, $md: 8, $lg: 6, $xs: 12);
 @include col(12, 10, 10, 8, 6, 9);
+```
+If you need to apply offset to column use `@offset()` mixin. It will add `margin-left` propert to selector. You can pass number from 0 to 12 for each breakpoint. Note that if you don't pass any params, mixin won't apply any styles.
+```
+@include offset(6);
+@include offset(0, $sm: 4);
+@include offset(10, $md: 8);
+@include offset(10, $md: 8, $lg: 6, $xs: 12);
+@include offset($sm: 1, $lg: 4, $xl: 0);
 ```
 
 ## Colors
