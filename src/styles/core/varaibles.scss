@@ -1,3 +1,55 @@
+// ================ //
+// ===== Grid ===== //
+// ================ //
+
+/// Base grid settings
+$num-cols:      12;
+$gutter-width:  1rem;
+
+$grid-type: 'combined';
+/// 👉 boxed      => on each $breakpoint container will have fixed max-width based on $containers map
+/// 👉 combined   => container will have max-width of LAST value from $containers map, then will have 100%
+/// 👉 full       => container will ALWAYS have 100% width
+
+/// Breakpoints are dublicated in 'store/modules/config.js'
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1400px
+);
+
+/// Containers max-widths (if you are using 'boxed' or 'combined' type)
+$containers: (
+  xs: 540px,
+  sm: 720px,
+  md: 960px,
+  lg: 1140px,
+  xl: 1320px
+);
+
+// Queries between breakpoints
+$xs-sm: "screen and (min-width: #{map-get($breakpoints, 'xs')}) and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
+$sm-md: "screen and (min-width: #{map-get($breakpoints, 'sm')}) and (max-width: #{map-get($breakpoints, 'md') - 1px})" !default;
+$md-lg: "screen and (min-width: #{map-get($breakpoints, 'md')}) and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
+$lg-xl: "screen and (min-width: #{map-get($breakpoints, 'lg')}) and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
+
+// Queries based on min-width
+$xs-up: "screen and (min-width: #{map-get($breakpoints, 'xs')})" !default;
+$sm-up: "screen and (min-width: #{map-get($breakpoints, 'sm')})" !default;
+$md-up: "screen and (min-width: #{map-get($breakpoints, 'md')})" !default;
+$lg-up: "screen and (min-width: #{map-get($breakpoints, 'lg')})" !default;
+$xl-up: "screen and (min-width: #{map-get($breakpoints, 'xl')})" !default;
+
+// Queries based on max-width
+$xs-dw: "screen and (max-width: #{map-get($breakpoints, 'xs') - 1px})" !default;
+$sm-dw: "screen and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
+$md-dw: "screen and (max-width: #{map-get($breakpoints, 'md') - 1px})" !default;
+$lg-dw: "screen and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
+$xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
+
+
 // =================== //
 // ===== Spacing ===== //
 // =================== //
@@ -257,58 +309,6 @@ $radiuses: (
   'circle':  100%,
   'zero':    0
 );
-
-
-// ================ //
-// ===== Grid ===== //
-// ================ //
-
-/// Base grid settings
-$num-cols:      12;
-$gutter-width:  1rem;
-
-$grid-type: 'combined';
-/// 👉 boxed      => on each $breakpoint container will have fixed max-width based on $containers map
-/// 👉 combined   => container will have max-width of LAST value from $containers map, then will have 100%
-/// 👉 full       => container will ALWAYS have 100% width
-
-/// Breakpoints are dublicated in 'store/modules/config.js'
-$breakpoints: (
-  xs: 576px,
-  sm: 768px,
-  md: 992px,
-  lg: 1200px,
-  xl: 1400px
-);
-
-/// Containers max-widths (if you are using 'boxed' or 'combined' type)
-$containers: (
-  xs: 540px,
-  sm: 720px,
-  md: 960px,
-  lg: 1140px,
-  xl: 1320px
-);
-
-// Queries between breakpoints
-$xs-sm: "screen and (min-width: #{map-get($breakpoints, 'xs')}) and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
-$sm-md: "screen and (min-width: #{map-get($breakpoints, 'sm')}) and (max-width: #{map-get($breakpoints, 'md') - 1px})" !default;
-$md-lg: "screen and (min-width: #{map-get($breakpoints, 'md')}) and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
-$lg-xl: "screen and (min-width: #{map-get($breakpoints, 'lg')}) and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
-
-// Queries based on min-width
-$xs-up: "screen and (min-width: #{map-get($breakpoints, 'xs')})" !default;
-$sm-up: "screen and (min-width: #{map-get($breakpoints, 'sm')})" !default;
-$md-up: "screen and (min-width: #{map-get($breakpoints, 'md')})" !default;
-$lg-up: "screen and (min-width: #{map-get($breakpoints, 'lg')})" !default;
-$xl-up: "screen and (min-width: #{map-get($breakpoints, 'xl')})" !default;
-
-// Queries based on max-width
-$xs-dw: "screen and (max-width: #{map-get($breakpoints, 'xs') - 1px})" !default;
-$sm-dw: "screen and (max-width: #{map-get($breakpoints, 'sm') - 1px})" !default;
-$md-dw: "screen and (max-width: #{map-get($breakpoints, 'md') - 1px})" !default;
-$lg-dw: "screen and (max-width: #{map-get($breakpoints, 'lg') - 1px})" !default;
-$xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 
 
 // ======================= //

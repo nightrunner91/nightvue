@@ -431,9 +431,37 @@ color: gray(7, 24);
 
 ## Spacing
 
-Default spacing sizes are defined in [varaibles.scss](src/styles/core/varaibles.scss) file.
-```
+NightVue uses the same logic as [Bootstrap spacing system](https://getbootstrap.com/docs/4.0/utilities/spacing/) to generate responsive margin and padding utility classnames.
 
+The classnames are named using the format `{$property}-{$breakpoint}-{$side}-{$size}`.
+
+Where `$property` is one of:
+* `m` - for classes that set margin
+* `p` - for classes that set padding
+
+Where `$side` is one of:
+* `t` - for classes that set margin-top or padding-top
+* `b` - for classes that set margin-bottom or padding-bottom
+* `l` - for classes that set margin-left or padding-left
+* `r` - for classes that set margin-right or padding-right
+* `x` - for classes that set both *-left and *-right
+* `y` - for classes that set both *-top and *-bottom
+* blank - for classes that set a margin or padding on all 4 sides of the element
+
+Where `$size` is one of spacing sizes defined in [varaibles.scss](src/styles/core/varaibles.scss) file:
+```
+$spacers: (
+  0:    0,
+  25:   .25rem,
+  50:   .5rem,
+  75:   .75rem,
+  1:    1rem,
+  2:    2rem,
+  3:    3rem,
+  4:    4rem,
+  5:    5rem,
+  auto: auto
+);
 ```
 
 # To-do list Q3-Q4 2022 ✅
