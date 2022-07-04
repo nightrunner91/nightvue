@@ -100,8 +100,8 @@ Let's take a quick look to the crucial parts of framework.
 * `src/assets` folder includes any types of assets you are using in your project, such as icons, fonts, images, files etc. NightVue uses set of Webpack and Sass loaders to easy serve and manage them
 * `src/components` folder includes [reusable Vue components](https://vuejs.org/guide/essentials/component-basics.html). By default this folder already includes Header, Footer and SvgIcon components as examples
 * `src/layouts` folder includes different layout types for your project. Vue.js doesn't provide this functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/). We will talk about this later.
-* `src/router` foluder includes [Vue Router](https://router.vuejs.org/) files.
-* `src/store` foluder includes [Vuex](https://vuex.vuejs.org/) files.
+* `src/router` folder includes [Vue Router](https://router.vuejs.org/) files.
+* `src/store` folder includes [Vuex](https://vuex.vuejs.org/) files.
 
 # Documentation 📚
 
