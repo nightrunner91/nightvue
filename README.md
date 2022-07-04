@@ -316,6 +316,88 @@ Here are some examples of usage in SCSS document:
 
 [ 🚧 *this part of the documentation is in progress* ]
 
+## Typography
+
+[ 🚧 *this part of the documentation is in progress* ]
+
+## Position
+
+[ 🚧 *this part of the documentation is in progress* ]
+
+## Display
+
+[ 🚧 *this part of the documentation is in progress* ]
+
+## Display
+
+[ 🚧 *this part of the documentation is in progress* ]
+
+## Spacing
+
+NightVue uses the same logic as [Bootstrap spacing system](https://getbootstrap.com/docs/4.0/utilities/spacing/) to generate responsive margin and padding utility classnames.
+
+The classnames are named using the format `{$property}-{$breakpoint}-{$side}-{$size}`.
+
+Where `$property` is one of:
+* `m` - for classnames that set margin
+* `p` - for classnames that set padding
+
+Where `$breakpoint` is one of:
+* `xs` - for classnames that set property on XS breakpoint > 576px
+* `sm` - for classnames that set property on SM breakpoint > 768px
+* `md` - for classnames that set property on MD breakpoint > 992px
+* `lg` - for classnames that set property on LG breakpoint > 1200px
+* `xl` - for classnames that set property on XL breakpoint > 1400px
+* blank - if you want to set a margin and padding on all breakpoint
+
+Where `$side` is one of:
+* `t` - for classnames that set margin-top or padding-top
+* `b` - for classnames that set margin-bottom or padding-bottom
+* `l` - for classnames that set margin-left or padding-left
+* `r` - for classnames that set margin-right or padding-right
+* `x` - for classnames that set both *-left and *-right
+* `y` - for classnames that set both *-top and *-bottom
+* blank - for classnames that set a margin or padding on all 4 sides of the element
+
+Where `$size` is one of spacing sizes defined in [varaibles.scss](src/styles/core/varaibles.scss) file:
+```
+$spacers: (
+  0:    0,
+  25:   .25rem,
+  50:   .5rem,
+  75:   .75rem,
+  1:    1rem,
+  2:    2rem,
+  3:    3rem,
+  4:    4rem,
+  5:    5rem,
+  auto: auto
+);
+```
+In case you prefer SCSS method to define spacers use `spacer()` function for that.
+
+* If you pass one param it will return spacer value
+* If you pass two params it will return X and Y spacer values
+* If you pass four params it will return top, right, bottom and left spacer values
+
+```
+padding: spacer(2);
+// => padding: 2rem;
+
+padding-right: spacer(1);
+// => padding-right: 1rem;
+
+margin: spacer(3, auto);
+// => margin: 3rem auto;
+
+margin: spacer(50, auto, 2, 0);
+// => margin: .5rem auto 2rem 0;
+```
+
+## Sizing
+
+[ 🚧 *this part of the documentation is in progress* ]
+
 ## Colors
 
 NightVue uses Sass maps to store project colors. This maps will help you quickly and easily loop over a list of colors and their hex values.
@@ -434,67 +516,41 @@ color: gray(7, 24);
 // => color: #bababa;
 ```
 
-## Spacing
+## Gradients
 
-NightVue uses the same logic as [Bootstrap spacing system](https://getbootstrap.com/docs/4.0/utilities/spacing/) to generate responsive margin and padding utility classnames.
+[ 🚧 *this part of the documentation is in progress* ]
 
-The classnames are named using the format `{$property}-{$breakpoint}-{$side}-{$size}`.
+## Icons
 
-Where `$property` is one of:
-* `m` - for classnames that set margin
-* `p` - for classnames that set padding
+[ 🚧 *this part of the documentation is in progress* ]
 
-Where `$breakpoint` is one of:
-* `xs` - for classnames that set property on XS breakpoint > 576px
-* `sm` - for classnames that set property on SM breakpoint > 768px
-* `md` - for classnames that set property on MD breakpoint > 992px
-* `lg` - for classnames that set property on LG breakpoint > 1200px
-* `xl` - for classnames that set property on XL breakpoint > 1400px
-* blank - if you want to set a margin and padding on all breakpoint
+## Radius
 
-Where `$side` is one of:
-* `t` - for classnames that set margin-top or padding-top
-* `b` - for classnames that set margin-bottom or padding-bottom
-* `l` - for classnames that set margin-left or padding-left
-* `r` - for classnames that set margin-right or padding-right
-* `x` - for classnames that set both *-left and *-right
-* `y` - for classnames that set both *-top and *-bottom
-* blank - for classnames that set a margin or padding on all 4 sides of the element
+[ 🚧 *this part of the documentation is in progress* ]
 
-Where `$size` is one of spacing sizes defined in [varaibles.scss](src/styles/core/varaibles.scss) file:
-```
-$spacers: (
-  0:    0,
-  25:   .25rem,
-  50:   .5rem,
-  75:   .75rem,
-  1:    1rem,
-  2:    2rem,
-  3:    3rem,
-  4:    4rem,
-  5:    5rem,
-  auto: auto
-);
-```
-In case you prefer SCSS method to define spacers use `spacer()` function for that.
+## Shadows
 
-* If you pass one param it will return spacer value
-* If you pass two params it will return X and Y spacer values
-* If you pass four params it will return top, right, bottom and left spacer values
+[ 🚧 *this part of the documentation is in progress* ]
 
-```
-padding: spacer(2);
-// => padding: 2rem;
+## Rotations
 
-padding-right: spacer(1);
-// => padding-right: 1rem;
+[ 🚧 *this part of the documentation is in progress* ]
 
-margin: spacer(3, auto);
-// => margin: 3rem auto;
+## Opacity
 
-margin: spacer(50, auto, 2, 0);
-// => margin: .5rem auto 2rem 0;
-```
+[ 🚧 *this part of the documentation is in progress* ]
+
+## Z-index
+
+[ 🚧 *this part of the documentation is in progress* ]
+
+## Utilities
+
+[ 🚧 *this part of the documentation is in progress* ]
+
+## Transitions
+
+[ 🚧 *this part of the documentation is in progress* ]
 
 # To-do list Q3-Q4 2022 ✅
 
