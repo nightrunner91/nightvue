@@ -114,8 +114,8 @@ Let's take a look at the crucial parts of framework.
   * `src/styles/animations` folder includes [@keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
   * `src/styles/components` folder includes styles for reusable components like buttons, dropdowns, inputs, avatars, modals, alerts, etc.
   * `src/styles/core` folder includes crucial Sass mixins, functions and code generators to work with
-    * `src/styles/core/helpers` - the folder includes SCSS files that generate classnames to use in HTML (grid, spacers, text styles, colors etc.)
-    * `src/styles/core/globals.scss` - this is key file where we import all available **functions**, **mixins** and **varaibles** from so-called files at the same folder
+    * `src/styles/core/helpers` - the folder includes SCSS files that generates utility classnames to use in HTML (grid, spacers, text styles, colors etc.)
+    * `src/styles/core/globals.scss` - this is key file where we import all **functions**, **mixins** and **varaibles** from so-called files at the same directory
     * `src/styles/core/typography.scss` file describes all text styles (headings, displays, paragraphs, fonts etc)
     * `src/styles/core/normalize.scss` makes browsers render all elements more consistently and in line with modern standards. It is basicly slightly modified SCSS version of widely used [Normalize.css](https://necolas.github.io/normalize.css/)
   * `src/styles/plugins` folder includes 3rd party plugins styles and is empty by default
