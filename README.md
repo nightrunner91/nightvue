@@ -324,7 +324,7 @@ Here are some examples of usage:
 
 Vue.js doesn't provide layout functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/), which is realy great. We also combined this method with [Vue Router transitions](https://router.vuejs.org/guide/advanced/transitions.html) to create smooth, dynamic and easy expandible layout system.
 
-Key file in this system is [AppLayout.vue](src/layouts/AppLayout.vue). Here we created dynamic component to which we apply different layout types using `is` attribute. Learn more about it in [Vue documentation](https://vuejs.org/api/built-in-special-attributes.html#is).
+Key file in this system is [AppLayout.vue](src/layouts/AppLayout.vue). Here we created dynamic component to which we apply different layout types using `is` attribute:
 ```
 <component
   :is="layout"
@@ -335,7 +335,7 @@ Key file in this system is [AppLayout.vue](src/layouts/AppLayout.vue). Here we c
 ```
 NightVue offers 2 types of layouts:
 
-* **default** - widely used `<header></header>` ⇒ `<main></main>` ⇒ `<footer></footer>` layout
+* **default** - widely used `<header></header>` → `<main></main>` → `<footer></footer>` layout
 * **full** - plain page without any additional elements, just a simple `<div></div>`
 
 These templates are stored in [AppLayoutDefault.vue](src/layouts/AppLayoutDefault.vue) and [AppLayoutFull.vue](src/layouts/AppLayoutFull.vue) files respectively:
@@ -358,7 +358,7 @@ These templates are stored in [AppLayoutDefault.vue](src/layouts/AppLayoutDefaul
   </div>
 </template>
 ```
-You can modify them or create your own layout by creating new Vue file named in such manner as default ones. Don't forget to add new layouts in computed property of core file. This classnames will apply to root `<div class="layout"></div>` element.
+You can modify them or create your own layout by creating new Vue file named in such manner as default ones. Don't forget to add new layouts in computed property of core file. This classnames will apply to root element:
 ```
 layoutClassnames() {
   const layout = this.$route.meta.layout || defaultLayout
@@ -367,6 +367,26 @@ layoutClassnames() {
   if (layout === 'AppLayoutDefault') return 'layout--default'
 
   return null
+},
+```
+Pay your attention to computed property `layout()`. It returns current page layout type using [Vue Router meta fields](https://router.vuejs.org/guide/advanced/meta.html):
+```
+const defaultLayout = 'AppLayoutDefault'
+
+layout() {
+  const layout = this.$route.meta.layout || defaultLayout
+  return () => import(`@/layouts/${layout}.vue`)
+},
+```
+When you add new page to Router, define it's layout using `meta.layout` param. If you don't provide any type, NightVue will apply default layout to this page:
+```
+{
+  path: '/',
+  name: 'Home',
+  component: () => import('@/views/Home.vue'),
+  meta: {
+    layout: 'AppLayoutDefault',
+  },
 },
 ```
 

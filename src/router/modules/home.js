@@ -9,9 +9,7 @@ export default [
         name: 'Home',
         component: () => import('@/views/Home.vue'),
         meta: {
-          layout: 'AppLayoutDefault',
-          auth: true,
-          mobile: true,
+          layout: 'AppLayoutDefault'
         },
       },
     ],
