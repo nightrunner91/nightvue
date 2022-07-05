@@ -587,7 +587,7 @@ Each classname supports breakpoints. You can use template `${property}-${breakpo
 ```
 @media screen and (min-width: 768px) {
   .font-weight-sm-500 {
-      font-weight: 500 !important;
+      font-weight: 500 ;
   }
 }
 ```
@@ -742,24 +742,37 @@ $levels: (
   5: 30%,
 );
 ```
-NightVue automatically generates classnames from maps `$grays` and `$theme-colors` above. Each color have unique classname with `background-color`, `color` and `fill` styles. Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations. This classnames have suffixes `-light-${level}`, `-dark-${level}`, `-sat-${level}` and `-desat-${level}` respectively. Here are some examples:
+NightVue automatically generates classnames from maps `$grays` and `$theme-colors` above. Each color have unique classname with `background-color`, `color` and `fill` styles and uses template `${property}-${color}`:
 ```
-// Classnames which applies background-color:
-.bg-gray-5 { background-color: #959595 }
-.bg-primary { background-color: #682CAB }
-.bg-primary-light-1 { background-color: #7741b3 }
+.bg-white { background-color: #ffffff }
+.bg-black { background-color: #000000 }
 
-// Classnames which applies text color
-.clr-danger { color: #F44336 }
+.bg-gray-1 { background-color: #eaeaea }
+.bg-gray-2 { background-color: #d5d5d5 }
+.bg-gray-3 { background-color: #bfbfbf }
+…
+.bg-gray-10 { background-color: #2b2b2b }
+
+.bg-primary { background-color: #682CAB }
+
+.clr-success { color: #47b05b }
+
+.fill-warning { fill: #FFEE58 }
+```
+Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations. This classnames have suffixes `-light-${level}`, `-dark-${level}`, `-sat-${level}` and `-desat-${level}` respectively. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#mix) functions for that. They help to create smooth and steady color pallete from each color in library.
+
+Here are some examples:
+```
+.bg-primary-light-1 { background-color: #7741b3 }
+.bg-primary-sat-5 { background-color: #671fb8 }
+
 .clr-secondary-light-2 { color: #42a6f5 }
 .clr-secondary-dark-4 { color: #1971b6 }
 
-// Classnames which applies SVG fill color
-.fill-white { fill: #ffffff }
-.fill-dark { fill: #555555 }
 .fill-success-dark-2 { fill: #3c964d }
+.fill-danger-desat-3 { fill: #e15349 }
 ```
-If you need to apply colors in Sass files you can use `color($name, $style, $rate)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$rate` to determine level of brightness or darkness of color. Here are some examples of usage in SCSS:
+If you need to apply colors in Sass files you can use `color($name, $style, $rate)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$rate` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
 ```
 box-shadow: 1px 1px 4px color('primary');
 // => box-shadow: 1px 1px 4px #682CAB;

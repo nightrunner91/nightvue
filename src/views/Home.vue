@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column justify-content-center align-items-center vw-100 vh-100">
+  <div class="bg-gray-1 fill-warning d-flex flex-column justify-content-center align-items-center vw-100 vh-100">
     <div class="flex-center my-2">
       <div class="bg-primary-dark-5 icon-size-48"></div>
       <div class="bg-primary-dark-4 icon-size-48"></div>
