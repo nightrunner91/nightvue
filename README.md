@@ -325,7 +325,7 @@ Here are some examples of usage:
 
 ## Typography
 
-Typography maps and settings are located in [varaibles.scss](src/styles/core/varaibles.scss) file:
+Typography maps are located in [varaibles.scss](src/styles/core/varaibles.scss) file:
 ```
 $font-families: (
   base:      "Onest",
@@ -395,7 +395,9 @@ $letter-spacings: (
   wide:   .1em,
   wider:  .5em,
 );
-
+```
+Important part are settings for headings, displays and base body text styles:
+```
 $headings-fz: (
   h1: 4.5rem,
   h2: 2.5rem,
@@ -441,11 +443,12 @@ For each Sass map NightVue generates set of utility classnames to use in HTML.
 .line-height-50 { line-height: 1.5 }
 .line-height-75 { line-height: 1.75 }
 .line-height-2 { line-height: 2 }
-.text-left { text-align: left }
 
+.text-left { text-align: left }
 .text-center { text-align: center }
 .text-right { text-align: right }
 .text-justify { text-align: justify }
+
 .text-underline { text-decoration: underline }
 .text-line-through { text-decoration: line-through }
 .text-none { text-decoration: none }
@@ -489,7 +492,7 @@ Each classname supports `${breakpoint}`. For example this `font-weight` will app
   }
 }
 ```
-In [typography.scss](src/styles/core/typography.scss) file are declared styles for headings, displays, body text, lists, and more.
+In [typography.scss](src/styles/core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
 
 Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). This is how we stored and imported it, use this as an example to import your own fonts:
 ```
