@@ -26,23 +26,3 @@
     @include make-grid('-' + $breakpoint)
   }
 };
-
-/// This is simple setup for smooth transiiton between router pages
-/// It uses fade-in / fade-out transition by default
-/// 
-/// @link https://router.vuejs.org/guide/advanced/transitions.html
-/// @link https://learnvue.co/2021/01/4-awesome-examples-of-vue-router-transitions/
-/// @link https://www.digitalocean.com/community/tutorials/vuejs-vue-routing-transitions
-
-.layout {
-  &.page-enter,
-  &.page-leave-to {
-    .main {
-      opacity: 0;
-    }
-  }
-}
-
-.main {
-  transition: transition(opacity, lazy);
-}

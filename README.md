@@ -126,8 +126,8 @@ Finally, `App.vue` is the root file and `main.js` is the file where you import c
 
 # Documentation 📚
 
-* [Grid](#grid)
 * [Layout](#layout)
+* [Grid](#grid)
 * [Typography](#typography)
 * [Position](#position)
 * [Display](#display)
@@ -143,6 +143,106 @@ Finally, `App.vue` is the root file and `main.js` is the file where you import c
 * [Z-index](#z-index)
 * [Utilities](#utilities)
 * [Transitions](#transitions)
+
+## Layout
+
+Vue.js doesn't provide layout functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/), which is realy great. We also combined this method with [Vue Router transitions](https://router.vuejs.org/guide/advanced/transitions.html) to create smooth, dynamic and easy expandible layout system.
+
+Key file in this system is [AppLayout.vue](src/layouts/AppLayout.vue). Here we created dynamic component to which we apply different layout types using `is` attribute:
+```
+<component
+  :is="layout"
+  class="layout"
+  :class="[layoutClassnames]">
+  <slot />
+</component>
+```
+NightVue offers 2 types of layouts:
+
+* **default** - widely used `<header></header>` → `<main></main>` → `<footer></footer>` layout
+* **full** - plain page without any additional elements, just a simple `<div></div>`
+
+These templates are stored in [AppLayoutDefault.vue](src/layouts/AppLayoutDefault.vue) and [AppLayoutFull.vue](src/layouts/AppLayoutFull.vue) files respectively:
+
+```
+<template>
+  <div>
+    <app-header />
+    <main class="main position-relative">
+      <slot />
+    </main>
+    <app-footer />
+  </div>
+</template>
+```
+```
+<template>
+  <div class="minvh-100">
+    <slot />
+  </div>
+</template>
+```
+You can modify them or create your own layout. To do this create new Vue file named in such manner as default ones and don't forget to add new layouts in computed property of core file. This classnames will apply to root element:
+```
+layoutClassnames() {
+  const layout = this.$route.meta.layout || defaultLayout
+
+  if (layout === 'AppLayoutFull') return 'layout--full'
+  if (layout === 'AppLayoutDefault') return 'layout--default'
+
+  return null
+},
+```
+Pay your attention to computed property `layout()`. It returns current page layout type using [Vue Router meta fields](https://router.vuejs.org/guide/advanced/meta.html):
+```
+const defaultLayout = 'AppLayoutDefault'
+
+layout() {
+  const layout = this.$route.meta.layout || defaultLayout
+  return () => import(`@/layouts/${layout}.vue`)
+},
+```
+When you add new page to Router, define it's layout using `meta.layout` param. If you don't provide any type, NightVue will apply default layout to this page:
+```
+{
+  path: '/',
+  name: 'Home',
+  component: () => import('@/views/Home.vue'),
+  meta: {
+    layout: 'AppLayoutDefault',
+  },
+},
+```
+Now let's make things a bit more fancy. We wrapped root dynamic component in `<transition></transition>` to add smooth [transition between pages](https://router.vuejs.org/guide/advanced/transitions.html#transitions):
+```
+<transition
+  appear
+  name="page"
+  mode="out-in">
+  <component
+    :is="layout"
+    class="layout"
+    :class="[layoutClassnames]">
+    <slot />
+  </component>
+</transition>
+```
+NightVue uses simple fade-out → fade-in transition effect by default. Here is small SCSS snippet to work with:
+```
+.layout {
+  &.page-enter,
+  &.page-leave-to {
+    .main {
+      opacity: 0;
+    }
+  }
+}
+
+.main {
+  transition: transition(opacity, lazy);
+}
+```
+You can learn more about transition classnames [here](https://vuejs.org/guide/built-ins/transition.html#transition) and create your own. Also check this [tutorial](https://learnvue.co/tutorials/vue-router-transitions) with examples of Vue Router transitions.
 
 ## Grid
 
@@ -319,106 +419,6 @@ Here are some examples of usage:
 .selector { @media #{$sm-md} { ... } } // styles applies between 768px … 991px
 .selector { @media #{$md-lg} { ... } } // styles applies between 992px … 1199px
 ```
-
-## Layout
-
-Vue.js doesn't provide layout functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/), which is realy great. We also combined this method with [Vue Router transitions](https://router.vuejs.org/guide/advanced/transitions.html) to create smooth, dynamic and easy expandible layout system.
-
-Key file in this system is [AppLayout.vue](src/layouts/AppLayout.vue). Here we created dynamic component to which we apply different layout types using `is` attribute:
-```
-<component
-  :is="layout"
-  class="layout"
-  :class="[layoutClassnames]">
-  <slot />
-</component>
-```
-NightVue offers 2 types of layouts:
-
-* **default** - widely used `<header></header>` → `<main></main>` → `<footer></footer>` layout
-* **full** - plain page without any additional elements, just a simple `<div></div>`
-
-These templates are stored in [AppLayoutDefault.vue](src/layouts/AppLayoutDefault.vue) and [AppLayoutFull.vue](src/layouts/AppLayoutFull.vue) files respectively:
-
-```
-<template>
-  <div>
-    <app-header />
-    <main class="main position-relative">
-      <slot />
-    </main>
-    <app-footer />
-  </div>
-</template>
-```
-```
-<template>
-  <div class="minvh-100">
-    <slot />
-  </div>
-</template>
-```
-You can modify them or create your own layout. To do this create new Vue file named in such manner as default ones and don't forget to add new layouts in computed property of core file. This classnames will apply to root element:
-```
-layoutClassnames() {
-  const layout = this.$route.meta.layout || defaultLayout
-
-  if (layout === 'AppLayoutFull') return 'layout--full'
-  if (layout === 'AppLayoutDefault') return 'layout--default'
-
-  return null
-},
-```
-Pay your attention to computed property `layout()`. It returns current page layout type using [Vue Router meta fields](https://router.vuejs.org/guide/advanced/meta.html):
-```
-const defaultLayout = 'AppLayoutDefault'
-
-layout() {
-  const layout = this.$route.meta.layout || defaultLayout
-  return () => import(`@/layouts/${layout}.vue`)
-},
-```
-When you add new page to Router, define it's layout using `meta.layout` param. If you don't provide any type, NightVue will apply default layout to this page:
-```
-{
-  path: '/',
-  name: 'Home',
-  component: () => import('@/views/Home.vue'),
-  meta: {
-    layout: 'AppLayoutDefault',
-  },
-},
-```
-Now let's make things a bit more fancy. We wrapped root dynamic component in `<transition></transition>` to add smooth [transition between pages](https://router.vuejs.org/guide/advanced/transitions.html#transitions):
-```
-<transition
-  appear
-  name="page"
-  mode="out-in">
-  <component
-    :is="layout"
-    class="layout"
-    :class="[layoutClassnames]">
-    <slot />
-  </component>
-</transition>
-```
-NightVue uses simple fade-out → fade-in transition effect by default. Here is small SCSS snippet to work with:
-```
-.layout {
-  &.page-enter,
-  &.page-leave-to {
-    .main {
-      opacity: 0;
-    }
-  }
-}
-
-.main {
-  transition: transition(opacity, lazy);
-}
-```
-You can learn more about transition classnames [here](https://vuejs.org/guide/built-ins/transition.html#transition) and create your own. Also check this [tutorial](https://learnvue.co/tutorials/vue-router-transitions) with examples of Vue Router transitions.
 
 ## Typography
 
