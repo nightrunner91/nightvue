@@ -154,7 +154,7 @@ There are 3 types of containers in NightVue:
 * **combined** - container will have `max-width` of *last* value from `$containers` map, then will have 100%
 * **full** - container will *always* have 100% width
 
-Base grid settings are stored in [varaibles.scss](src/styles/core/varaibles.scss) file:
+Base grid settings are stored in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
 ```
 $num-cols:      12;
 $gutter-width:  1rem;
@@ -326,7 +326,7 @@ Vue.js doesn't provide layout functionality by default, but people found [the wa
 
 ## Typography
 
-Typography maps are located in [varaibles.scss](src/styles/core/varaibles.scss) file:
+Typography maps are located in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
 ```
 $font-families: (
   base:      "Onest",
@@ -547,7 +547,7 @@ Where `$side` is one of:
 * `y` - for classnames that set both *-top and *-bottom
 * blank - for classnames that set a margin or padding on all 4 sides of the element
 
-Where `$size` is one of spacing sizes defined in [varaibles.scss](src/styles/core/varaibles.scss) file:
+Where `$size` is one of spacing sizes defined in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
 ```
 $spacers: (
   0:    0,
@@ -738,7 +738,7 @@ color: gray(7, 24);
 
 ## Transitions
 
-NightVue provides set of most usable transition timings in web. They are stored in `$transition-timings` map located in [varaibles.scss](src/styles/core/varaibles.scss) file:
+NightVue provides set of most usable transition timings in web. They are stored in `$transition-timings` map located in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
 ```
 $transition-timings: (
   linear:       cubic-bezier(0, 0, 1, 1),
