@@ -484,7 +484,7 @@ For each Sass map NightVue generates set of utility classnames to use in HTML.
 .spacing-wide { letter-spacing: 0.1em }
 .spacing-wider { letter-spacing: 0.5em }
 ```
-Each classname supports `${breakpoint}`. For example this `font-weight` will apply only on `sm` breakpoint:
+Each classname supports breakpoints. You can use template `${property}-${breakpoint}-{$value}` to easy change text styles across different breakpoints. For example this `font-weight` will apply only on `sm` display:
 ```
 @media screen and (min-width: 768px) {
   .font-weight-sm-500 {
@@ -494,7 +494,7 @@ Each classname supports `${breakpoint}`. For example this `font-weight` will app
 ```
 In [typography.scss](src/styles/core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
 
-Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). This is how we stored and imported it, use this as an example to import your own fonts:
+Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to import your own fonts:
 ```
 // Font files location:
 
