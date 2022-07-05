@@ -33,7 +33,6 @@ export default {
 
       if (layout === 'AppLayoutFull') return 'layout--full'
       if (layout === 'AppLayoutDefault') return 'layout--default'
-      if (layout === 'AppLayoutWizard') return 'layout--wizard'
 
       return null
     },

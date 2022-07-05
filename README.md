@@ -324,6 +324,52 @@ Here are some examples of usage:
 
 Vue.js doesn't provide layout functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/), which is realy great. We also combined this method with [Vue Router transitions](https://router.vuejs.org/guide/advanced/transitions.html) to create smooth, dynamic and easy expandible layout system.
 
+Key file in this system is [AppLayout.vue](src/layouts/AppLayout.vue). Here we created dynamic component to which we apply different layout types using `is` attribute. Learn more about it in [Vue documentation](https://vuejs.org/api/built-in-special-attributes.html#is).
+```
+<component
+  :is="layout"
+  class="layout"
+  :class="[layoutClassnames]">
+  <slot />
+</component>
+```
+NightVue offers 2 types of layouts:
+
+* **default** - widely used `<header></header>` => `<main></main>` => `<footer></footer>` layout
+* **full** - plain page without any additional elements, just a simple `<div></div>`
+
+These templates are stored in [AppLayoutDefault.vue](src/layouts/AppLayoutDefault.vue) and [AppLayoutFull.vue](src/layouts/AppLayoutFull.vue) files respectively:
+
+```
+<template>
+  <div>
+    <app-header />
+    <main class="main position-relative">
+      <slot />
+    </main>
+    <app-footer />
+  </div>
+</template>
+```
+```
+<template>
+  <div class="minvh-100">
+    <slot />
+  </div>
+</template>
+```
+You can modify them or create your own layout by creating new Vue file named in such manner as default ones. Don't forget to add new layouts in computed property of core file. This classnames will apply to root `<div class="layout"></div>` element.
+```
+layoutClassnames() {
+  const layout = this.$route.meta.layout || defaultLayout
+
+  if (layout === 'AppLayoutFull') return 'layout--full'
+  if (layout === 'AppLayoutDefault') return 'layout--default'
+
+  return null
+},
+```
+
 ## Typography
 
 Typography maps are located in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
