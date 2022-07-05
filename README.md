@@ -484,7 +484,7 @@ For each Sass map NightVue generates set of utility classnames to use in HTML.
 .spacing-wide { letter-spacing: 0.1em }
 .spacing-wider { letter-spacing: 0.5em }
 ```
-Each classname supports breakpoints. You can use template `${property}-${breakpoint}-{$value}` to easy change text styles across different breakpoints. For example this `font-weight` will apply only on `sm` display:
+Each classname supports breakpoints. You can use template `${property}-${breakpoint}-{$value}` to easy change text styles across different breakpoints. For example this `font-weight` will apply only on `sm` breakpoint:
 ```
 @media screen and (min-width: 768px) {
   .font-weight-sm-500 {
