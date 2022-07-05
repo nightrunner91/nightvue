@@ -325,7 +325,7 @@ Here are some examples of usage:
 
 ## Typography
 
-Typography settings are located in [varaibles.scss](src/styles/core/varaibles.scss) file:
+Typography maps and settings are located in [varaibles.scss](src/styles/core/varaibles.scss) file:
 ```
 $font-families: (
   base:      "Onest",
@@ -423,16 +423,75 @@ $displays-margins: (
   top: 1.5em,
   bottom: 1em,
 );
-```
-Crucial varaibles are:
-```
+
 $base-fz: 16px;
 $base-lh: map-get($line-heights, 50);
 $base-fw: map-get($font-weights, 400);
 $base-mg: map-get($spacers, 1);
 $small-fz: 0.875;
 ```
-The place where this settings are applied is [typography.scss](src/styles/core/typography.scss) file. Here are declared global settings, styles for headings, displays, body text, lists, and more. Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `'src/assets/fonts'` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). This is how we stored and imported it, use this as an example to import your own fonts:
+For each Sass map NightVue generates set of utility classnames to use in HTML.
+```
+.font-base { font-family: "Onest" }
+.font-headings { font-family: "Onest" }
+.font-displays { font-family: "Onest" }
+
+.line-height-1 { line-height: 1 }
+.line-height-25 { line-height: 1.25 }
+.line-height-50 { line-height: 1.5 }
+.line-height-75 { line-height: 1.75 }
+.line-height-2 { line-height: 2 }
+.text-left { text-align: left }
+
+.text-center { text-align: center }
+.text-right { text-align: right }
+.text-justify { text-align: justify }
+.text-underline { text-decoration: underline }
+.text-line-through { text-decoration: line-through }
+.text-none { text-decoration: none }
+
+.text-normal { white-space: normal }
+.text-nowrap { white-space: nowrap }
+.text-pre { white-space: pre }
+.text-pre-line { white-space: pre-line }
+.text-pre-wrap { white-space: pre-wrap }
+
+.text-lowercase { text-transform: lowercase }
+.text-uppercase { text-transform: uppercase }
+.text-capitalize { text-transform: capitalize }
+
+.font-weight-lighter { font-weight: lighter }
+.font-weight-bolder { font-weight: bolder }
+.font-weight-100 { font-weight: 100 }
+.font-weight-200 { font-weight: 200 }
+.font-weight-300 { font-weight: 300 }
+.font-weight-400 { font-weight: 400 }
+.font-weight-500 { font-weight: 500 }
+.font-weight-600 { font-weight: 600 }
+.font-weight-700 { font-weight: 700 }
+.font-weight-800 { font-weight: 800 }
+.font-weight-900 { font-weight: 900 }
+
+.font-normal { font-style: normal }
+.font-italic { font-style: italic }
+.font-oblique { font-style: oblique }
+
+.spacing-normal { letter-spacing: normal }
+.spacing-tight { letter-spacing: -0.05em }
+.spacing-wide { letter-spacing: 0.1em }
+.spacing-wider { letter-spacing: 0.5em }
+```
+Each classname supports `${breakpoint}`. For example this `font-weight` will apply only on `sm` breakpoint:
+```
+@media screen and (min-width: 768px) {
+  .font-weight-sm-500 {
+      font-weight: 500 !important;
+  }
+}
+```
+In [typography.scss](src/styles/core/typography.scss) file are declared styles for headings, displays, body text, lists, and more.
+
+Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `'src/assets/fonts'` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest font](https://onest.md/en). This is how we stored and imported it, use this as an example to import your own fonts:
 ```
 // Font files location:
 
