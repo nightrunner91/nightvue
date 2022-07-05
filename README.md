@@ -27,8 +27,8 @@ NightVue is build for Front-end developers who don't like rewriting the built-in
 **Features:**
 * Hot-reload dev server
 * Well organized file structure
+* Bunch of Sass mixins and functions
 * ESLint validator
-* Bunch of SCSS mixins and functions
 * Router layouts support
 * Flexbox grid
 * Normalize.css
@@ -69,10 +69,17 @@ This is default NightVue file structure. We followed to the principles of modula
 │       ├── icons
 │       └── images
 │   ├── components
+│       ├── Footer
+│       ├── Header
+│       └── SvgIcon
 │   ├── layouts
+│       AppLayout.vue
+│       AppLayoutDefault.vue
+│       AppLayoutFull.vue
 │   ├── router
 │       └── modules
 │       index.js
+│       RouterView.vue
 │   ├── store
 │       └── modules
 │       index.js
@@ -95,26 +102,26 @@ This is default NightVue file structure. We followed to the principles of modula
 │   App.vue
 │   main.js
 ```
-Let's take a quick look to the crucial parts of framework.
+Let's take a look at the crucial parts of framework.
 
 * `src/assets` folder includes any types of assets you are using in your project, such as icons, fonts, images, files etc. NightVue uses set of Webpack and Sass loaders to easy serve and manage them
-* `src/components` folder includes [reusable Vue components](https://vuejs.org/guide/essentials/component-basics.html). By default this folder already includes Header, Footer and SvgIcon components as examples
-* `src/layouts` folder includes different layout types for your project. Vue.js doesn't provide this functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/). We will talk about this later.
-* `src/router` folder includes [Vue Router](https://router.vuejs.org/) files.
-* `src/store` folder includes [Vuex](https://vuex.vuejs.org/) files.
-* `src/styles` folder includes stylesheets, Sass functions and mixins, usefull utilities. To keep styles well organized we separate global and local styles in different folders.
+* `src/components` folder includes [reusable Vue components](https://vuejs.org/guide/essentials/component-basics.html). By default this folder already includes **Header**, **Footer** and **SvgIcon** components as examples
+* `src/layouts` folder includes different layout types for your project. Vue.js doesn't provide this functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/). We will talk about this later
+* `src/router` folder includes [Vue Router](https://router.vuejs.org/) files
+* `src/store` folder includes [Vuex](https://vuex.vuejs.org/) files
+* `src/styles` folder includes stylesheets, Sass functions and mixins, usefull utilities.
   * `src/styles/animations` folder includes [@keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
   * `src/styles/components` folder includes styles for reusable components like buttons, dropdowns, inputs, avatars, modals, alerts, etc.
-  * `src/styles/core` folder includes crucial Sass mixins, functions and code generators to work with.
+  * `src/styles/core` folder includes crucial Sass mixins, functions and code generators to work with
     * `src/styles/core/helpers` - the folder includes SCSS files that generate classnames to use in HTML (grid, spacers, text styles, colors etc.)
-    * `src/styles/core/globals.scss` - this is key file that imports all available **functions**, **mixins** and **varaibles** from so-called files at the same folder.
+    * `src/styles/core/globals.scss` - this is key file where we import all available **functions**, **mixins** and **varaibles** from so-called files at the same folder
     * `src/styles/core/typography.scss` file describes all text styles (headings, displays, paragraphs, fonts etc)
     * `src/styles/core/normalize.scss` makes browsers render all elements more consistently and in line with modern standards. It is basicly slightly modified SCSS version of widely used [Normalize.css](https://necolas.github.io/normalize.css/)
   * `src/styles/plugins` folder includes 3rd party plugins styles and is empty by default
   * `src/styles/sections` folder includes styles for "big" and unique parts like: header, footer, article, hero, etc.
-* `src/views` folder includes Vue pages you are using in your project. By default it's only Home.vue page
+* `src/views` folder includes Vue pages you are using in your project. By default it's only **Home.vue** page
 
-Finally, `App.vue` is root file of project and `main.js` is the file where you import components, directives, plugins etc.
+Finally, `App.vue` is the root file and `main.js` is the file where you import components, directives, plugins etc.
 
 # Documentation 📚
 
