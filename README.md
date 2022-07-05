@@ -30,6 +30,7 @@ NightVue is build for Front-end developers who don't like rewriting the built-in
 * Bunch of Sass mixins and functions
 * ESLint validator
 * Router layouts support
+* Router pages transition
 * Flexbox grid
 * Normalize.css
 * SVG sprite loader
@@ -106,7 +107,7 @@ Let's take a look at the crucial parts of framework.
 
 * `src/assets` folder includes any types of assets you are using in your project, such as icons, fonts, images, files etc. NightVue uses set of Webpack and Sass loaders to easy serve and manage them
 * `src/components` folder includes [reusable Vue components](https://vuejs.org/guide/essentials/component-basics.html). By default this folder already includes **Header**, **Footer** and **SvgIcon** components as examples
-* `src/layouts` folder includes different layout types for your project. Vue.js doesn't provide this functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/). We will talk about this later
+* `src/layouts` folder includes different layout types for your project
 * `src/router` folder includes [Vue Router](https://router.vuejs.org/) files
 * `src/store` folder includes [Vuex](https://vuex.vuejs.org/) files
 * `src/styles` folder includes stylesheets, Sass functions and mixins, usefull utilities.
@@ -321,7 +322,7 @@ Here are some examples of usage:
 
 ## Layout
 
-[ 🚧 *this part of the documentation is in progress* ]
+Vue.js doesn't provide layout functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/), which is realy great. We also combined this method with [Vue Router transitions](https://router.vuejs.org/guide/advanced/transitions.html) to create smooth, dynamic and easy expandible layout system.
 
 ## Typography
 

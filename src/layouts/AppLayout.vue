@@ -6,14 +6,13 @@
     <component
       :is="layout"
       class="layout"
-      :class="[layoutClassnames, scrollPosition > 0 && layoutIsScrollable ? 'layout--scrolled' : '']">
+      :class="[layoutClassnames]">
       <slot />
     </component>
   </transition>
 </template>
 
 <script>
-import debounce from 'lodash/debounce'
 const defaultLayout = 'AppLayoutFull'
 
 export default {
@@ -38,26 +37,6 @@ export default {
 
       return null
     },
-
-    layoutIsScrollable() {
-      const layout = this.$route.meta.layout || defaultLayout
-
-      return layout === 'AppLayoutDefault'
-    },
-  },
-  methods: {
-    handleScroll() {
-      this.scrollPosition = window.scrollY
-    },
-  },
-  created() {
-    window.addEventListener('scroll', debounce(this.handleScroll, 100))
-  },
-  mounted() {
-
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.handleScroll)
   },
 }
 </script>
