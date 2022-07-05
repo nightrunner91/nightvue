@@ -17,43 +17,43 @@
 ///   .clr-secondary-light-2 { color: #42a6f5 }
 ///   .fill-secondary-dark-4 { fill: #1971b6 }
 
-// Generate classnames from $colors map
-@each $name, $code in $colors {
-  .bg-#{$name} { background-color: $code !important }
-  .clr-#{$name} { color: $code !important }
-  .fill-#{$name} { fill: $code !important }
-
-  // Adjust colors brighteness and darkness based on $levels map values
-  @each $level, $rate in $levels {
-    .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
-    .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }
-    .clr-#{$name}-light-#{$level} { color: mix(white, $code, $rate) !important }
-    .clr-#{$name}-dark-#{$level} { color: mix(black, $code, $rate) !important }
-    .fill-#{$name}-light-#{$level} { fill: mix(white, $code, $rate) !important }
-    .fill-#{$name}-dark-#{$level} { fill: mix(black, $code, $rate) !important }
-  }
-}
-
-// Generate classnames from $grays map
+/// Generate classnames from $grays map
 @each $name, $code in $grays {
   .bg-#{$name} { background-color: $code !important }
   .clr-#{$name} { color: $code !important }
   .fill-#{$name} { fill: $code !important }
 }
 
-// Generate classnames from $theme-colors map
+/// Generate classnames from $theme-colors map
 @each $name, $code in $theme-colors {
   .bg-#{$name} { background-color: $code !important }
   .clr-#{$name} { color: $code !important }
   .fill-#{$name} { fill: $code !important }
 
-  // Adjust colors brighteness and darkness based on $levels map values
+  /// Adjust colors mix and scale levels based on $levels map to generate new color variations
+  /// NightVue uses modern approach to do that
+  /// We are not using lighten(), darken(), saturate() and desaturate() functions
+  /// Instead we make new colors using mix() and scale() functions
+  /// @link https://sass-lang.com/documentation/modules/color#lighten
+  /// @link https://sass-lang.com/documentation/modules/color#darken
+  /// @link https://sass-lang.com/documentation/modules/color#saturate
+  /// @link https://sass-lang.com/documentation/modules/color#desaturate
+  /// @link https://sass-lang.com/documentation/modules/color#mix
+  /// @link https://sass-lang.com/documentation/modules/color#scale
   @each $level, $rate in $levels {
     .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
     .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }
+    .bg-#{$name}-sat-#{$level} { background-color: scale-color($code, $saturation: $rate) !important }
+    .bg-#{$name}-desat-#{$level} { background-color: scale-color($code, $saturation: -$rate) !important  }
+    
     .clr-#{$name}-light-#{$level} { color: mix(white, $code, $rate) !important }
     .clr-#{$name}-dark-#{$level} { color: mix(black, $code, $rate) !important }
+    .clr-#{$name}-sat-#{$level} { color: scale-color($code, $saturation: $rate) !important }
+    .clr-#{$name}-desat-#{$level} { color: scale-color($code, $saturation: -$rate) !important  }
+    
     .fill-#{$name}-light-#{$level} { fill: mix(white, $code, $rate) !important }
     .fill-#{$name}-dark-#{$level} { fill: mix(black, $code, $rate) !important }
+    .fill-#{$name}-sat-#{$level} { fill: scale-color($code, $saturation: $rate) !important }
+    .fill-#{$name}-desat-#{$level} { fill: scale-color($code, $saturation: -$rate) !important  }
   }
 }

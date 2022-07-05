@@ -688,7 +688,7 @@ margin: spacer(50, auto, 2, 0);
 
 NightVue uses Sass maps to store project colors. This maps will help you quickly and easily loop over a list of colors and their hex values.
 
-* `$colors` map includes all available 'basic' colors in project
+* `$colors` map includes all available "basic" colors in project
 * `$grays` map includes achromatic list (shades of gray between `#fff` and `#000`)
 * `$theme-colors` map includes semantically named colors composed from maps above
 
@@ -742,20 +742,19 @@ $levels: (
   5: 30%,
 );
 ```
-NightVue automatically generates classnames from Sass maps above. Each color have unique classname with `background-color`, `color` and `fill` styles. Additionally for each color NightVue generates classnames with brightened and darkened color variations. This classnames have suffixes `-light-${level}` and `-dark-${level}` respectively. Here are some examples:
+NightVue automatically generates classnames from maps `$grays` and `$theme-colors` above. Each color have unique classname with `background-color`, `color` and `fill` styles. Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations. This classnames have suffixes `-light-${level}`, `-dark-${level}`, `-sat-${level}` and `-desat-${level}` respectively. Here are some examples:
 ```
-/// Classnames which applies background-color:
-.bg-red { background-color: #F44336 }
+// Classnames which applies background-color:
 .bg-gray-5 { background-color: #959595 }
 .bg-primary { background-color: #682CAB }
 .bg-primary-light-1 { background-color: #7741b3 }
 
-/// Classnames which applies text color
+// Classnames which applies text color
 .clr-danger { color: #F44336 }
 .clr-secondary-light-2 { color: #42a6f5 }
 .clr-secondary-dark-4 { color: #1971b6 }
 
-/// Classnames which applies SVG fill color
+// Classnames which applies SVG fill color
 .fill-white { fill: #ffffff }
 .fill-dark { fill: #555555 }
 .fill-success-dark-2 { fill: #3c964d }

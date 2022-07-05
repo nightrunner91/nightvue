@@ -1,15 +1,31 @@
 <template>
-  <div>
-    <h1 class="selector col col-5 offset-md-2 offset-lg-0 clr-black">Onest Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, laborum.</h1>
-    <pre>
-      {{ windowSize }}
-    </pre>
-    <pre>
-      {{ windowScroll }}
-    </pre>
-    <pre>
-      {{ currentBreakpoint }}
-    </pre>
+  <div class="d-flex flex-column justify-content-center align-items-center vw-100 vh-100">
+    <div class="flex-center my-2">
+      <div class="bg-primary-dark-5 icon-size-48"></div>
+      <div class="bg-primary-dark-4 icon-size-48"></div>
+      <div class="bg-primary-dark-3 icon-size-48"></div>
+      <div class="bg-primary-dark-2 icon-size-48"></div>
+      <div class="bg-primary-dark-1 icon-size-48"></div>
+      <div class="bg-primary icon-size-48"></div>
+      <div class="bg-primary-light-1 icon-size-48"></div>
+      <div class="bg-primary-light-2 icon-size-48"></div>
+      <div class="bg-primary-light-3 icon-size-48"></div>
+      <div class="bg-primary-light-4 icon-size-48"></div>
+      <div class="bg-primary-light-5 icon-size-48"></div>
+    </div>
+    <div class="flex-center my-2">
+      <div class="bg-primary-desat-5 icon-size-48"></div>
+      <div class="bg-primary-desat-4 icon-size-48"></div>
+      <div class="bg-primary-desat-3 icon-size-48"></div>
+      <div class="bg-primary-desat-2 icon-size-48"></div>
+      <div class="bg-primary-desat-1 icon-size-48"></div>
+      <div class="bg-primary icon-size-48"></div>
+      <div class="bg-primary-sat-1 icon-size-48"></div>
+      <div class="bg-primary-sat-2 icon-size-48"></div>
+      <div class="bg-primary-sat-3 icon-size-48"></div>
+      <div class="bg-primary-sat-4 icon-size-48"></div>
+      <div class="bg-primary-sat-5 icon-size-48"></div>
+    </div>
   </div>
 </template>
 
