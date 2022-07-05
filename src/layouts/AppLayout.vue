@@ -17,11 +17,6 @@ const defaultLayout = 'AppLayoutDefault'
 
 export default {
   name: "AppLayout",
-  data() {
-    return {
-      scrollPosition: 0,
-    }
-  },
   computed: {
     layout() {
       const layout = this.$route.meta.layout || defaultLayout

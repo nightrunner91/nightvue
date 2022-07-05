@@ -358,7 +358,7 @@ These templates are stored in [AppLayoutDefault.vue](src/layouts/AppLayoutDefaul
   </div>
 </template>
 ```
-You can modify them or create your own layout by creating new Vue file named in such manner as default ones. Don't forget to add new layouts in computed property of core file. This classnames will apply to root element:
+You can modify them or create your own layout. To do this create new Vue file named in such manner as default ones and don't forget to add new layouts in computed property of core file. This classnames will apply to root element:
 ```
 layoutClassnames() {
   const layout = this.$route.meta.layout || defaultLayout
@@ -389,6 +389,36 @@ When you add new page to Router, define it's layout using `meta.layout` param. I
   },
 },
 ```
+Now let's make things a bit more fancy. We wrapped root dynamic component in `<transition></transition>` to add smooth [transition between pages](https://router.vuejs.org/guide/advanced/transitions.html#transitions):
+```
+<transition
+  appear
+  name="page"
+  mode="out-in">
+  <component
+    :is="layout"
+    class="layout"
+    :class="[layoutClassnames]">
+    <slot />
+  </component>
+</transition>
+```
+NightVue uses simple fade-out → fade-in transition effect by default. Here is small SCSS snippet to work with:
+```
+.layout {
+  &.page-enter,
+  &.page-leave-to {
+    .main {
+      opacity: 0;
+    }
+  }
+}
+
+.main {
+  transition: transition(opacity, lazy);
+}
+```
+You can learn more about transition classnames [here](https://vuejs.org/guide/built-ins/transition.html#transition) and create your own. Also check this [tutorial](https://learnvue.co/tutorials/vue-router-transitions) with examples of Vue Router transitions.
 
 ## Typography
 
