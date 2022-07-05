@@ -335,7 +335,7 @@ Key file in this system is [AppLayout.vue](src/layouts/AppLayout.vue). Here we c
 ```
 NightVue offers 2 types of layouts:
 
-* **default** - widely used `<header></header>` => `<main></main>` => `<footer></footer>` layout
+* **default** - widely used `<header></header>` ⇒ `<main></main>` ⇒ `<footer></footer>` layout
 * **full** - plain page without any additional elements, just a simple `<div></div>`
 
 These templates are stored in [AppLayoutDefault.vue](src/layouts/AppLayoutDefault.vue) and [AppLayoutFull.vue](src/layouts/AppLayoutFull.vue) files respectively:
@@ -459,7 +459,8 @@ $headings-margins: (
   top: 1.5em,
   bottom: 0.5em,
 );
-
+```
+```
 $displays-fz: (
   display-1: 74px,
   display-2: 62px,
@@ -472,7 +473,8 @@ $displays-margins: (
   top: 1.5em,
   bottom: 1em,
 );
-
+```
+```
 $base-fz: 16px;
 $base-lh: map-get($line-heights, 50);
 $base-fw: map-get($font-weights, 400);
@@ -541,7 +543,7 @@ Each classname supports breakpoints. You can use template `${property}-${breakpo
 ```
 In [typography.scss](src/styles/core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
 
-Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to import your own fonts:
+Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to add your own fonts:
 ```
 // Font files location:
 
