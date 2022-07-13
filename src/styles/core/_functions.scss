@@ -53,8 +53,9 @@
   /// 
   /// @example
   ///   box-shadow: 1px 1px 4px color('primary');
-  ///   border-color: color('brown', light, 4);
-  ///   background-color: color('secondary');
+  ///   border-color: color('secondary', light, 4);
+  ///   color: color('danger', sat, 2);
+  ///   background-color: color('warning');
   ///   color: color('white');
   ///   fill: color('gray-4');
   ///
@@ -65,10 +66,8 @@
   ///   color: #ffffff;
   ///   fill: #aaaaaa;
 
-  $targetMap: $colors;
-  @if map-has-key($theme-colors, $name) {
-    $targetMap: $theme-colors;
-  }
+  $targetMap: $theme-colors;
+
   @if map-has-key($grays, $name) {
     $targetMap: $grays;
   }

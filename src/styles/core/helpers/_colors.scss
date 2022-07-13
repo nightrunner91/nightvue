@@ -41,19 +41,19 @@
   /// @link https://sass-lang.com/documentation/modules/color#mix
   /// @link https://sass-lang.com/documentation/modules/color#scale
   @each $level, $rate in $levels {
-    .bg-#{$name}-light-#{$level} { background-color: mix(white, $code, $rate) !important }
-    .bg-#{$name}-dark-#{$level} { background-color: mix(black, $code, $rate) !important }
-    .bg-#{$name}-sat-#{$level} { background-color: scale-color($code, $saturation: $rate) !important }
-    .bg-#{$name}-desat-#{$level} { background-color: scale-color($code, $saturation: -$rate) !important  }
+    .bg-#{$name}-light-#{$level} { background-color: color($name, 'light', $level) !important }
+    .bg-#{$name}-dark-#{$level} { background-color: color($name, 'dark', $level) !important }
+    .bg-#{$name}-sat-#{$level} { background-color: color($name, 'sat', $level) !important }
+    .bg-#{$name}-desat-#{$level} { background-color: color($name, 'desat', $level) !important  }
     
-    .clr-#{$name}-light-#{$level} { color: mix(white, $code, $rate) !important }
-    .clr-#{$name}-dark-#{$level} { color: mix(black, $code, $rate) !important }
-    .clr-#{$name}-sat-#{$level} { color: scale-color($code, $saturation: $rate) !important }
-    .clr-#{$name}-desat-#{$level} { color: scale-color($code, $saturation: -$rate) !important  }
+    .clr-#{$name}-light-#{$level} { color: color($name, 'light', $level) !important }
+    .clr-#{$name}-dark-#{$level} { color: color($name, 'dark', $level) !important }
+    .clr-#{$name}-sat-#{$level} { color: color($name, 'sat', $level) !important }
+    .clr-#{$name}-desat-#{$level} { color: color($name, 'desat', $level) !important  }
     
-    .fill-#{$name}-light-#{$level} { fill: mix(white, $code, $rate) !important }
-    .fill-#{$name}-dark-#{$level} { fill: mix(black, $code, $rate) !important }
-    .fill-#{$name}-sat-#{$level} { fill: scale-color($code, $saturation: $rate) !important }
-    .fill-#{$name}-desat-#{$level} { fill: scale-color($code, $saturation: -$rate) !important  }
+    .fill-#{$name}-light-#{$level} { fill: color($name, 'light', $level) !important }
+    .fill-#{$name}-dark-#{$level} { fill: color($name, 'dark', $level) !important }
+    .fill-#{$name}-sat-#{$level} { fill: color($name, 'sat', $level) !important }
+    .fill-#{$name}-desat-#{$level} { fill: color($name, 'desat', $level) !important  }
   }
 }

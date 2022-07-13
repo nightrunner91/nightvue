@@ -531,7 +531,7 @@ $base-fw: map-get($font-weights, 400);
 $base-mg: map-get($spacers, 1);
 $small-fz: 0.875;
 ```
-For each Sass map NightVue generates set of utility classnames to use in HTML.
+For each Sass map NightVue generates set of utility classnames to use in HTML:
 ```
 .font-base { font-family: "Onest" }
 .font-headings { font-family: "Onest" }
@@ -759,28 +759,31 @@ NightVue automatically generates classnames from maps `$grays` and `$theme-color
 
 .fill-warning { fill: #FFEE58 }
 ```
-Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations. This classnames have suffixes `-light-${level}`, `-dark-${level}`, `-sat-${level}` and `-desat-${level}` respectively. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#mix) functions for that. They help to create smooth and steady color pallete from each color in library.
+Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#mix) functions for that. They help to create smooth and steady color pallete with each color from `$theme-colors` map. Generated classnames use pattern `${$property}-${style}-${level}`.
 
 Here are some examples:
 ```
-.bg-primary-light-1 { background-color: #7741b3 }
-.bg-primary-sat-5 { background-color: #671fb8 }
+.bg-primary-light-1 { background-color: #7741b3 } // lightened by 1 level primary color
+.bg-primary-sat-5 { background-color: #671fb8 }   // saturated by 5 levels primary color
 
-.clr-secondary-light-2 { color: #42a6f5 }
-.clr-secondary-dark-4 { color: #1971b6 }
+.clr-secondary-light-2 { color: #42a6f5 }         // lightened by 2 levels secondary color
+.clr-secondary-dark-4 { color: #1971b6 }          // darkened by 4 levels secondary color
 
-.fill-success-dark-2 { fill: #3c964d }
-.fill-danger-desat-3 { fill: #e15349 }
+.fill-success-dark-2 { fill: #3c964d }            // darkened by 2 levels success color
+.fill-danger-desat-3 { fill: #e15349 }            // desaturated by 3 leveles danger color
 ```
 If you need to apply colors in Sass files you can use `color($name, $style, $rate)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$rate` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
 ```
 box-shadow: 1px 1px 4px color('primary');
 // => box-shadow: 1px 1px 4px #682CAB;
 
-border-color: color('brown', light, 4);
+border-color: color('secondary', light, 4);
 // => border-color: #9b8076;
 
-background-color: color('secondary');
+color: color('danger', sat, 2);
+// => border-color: #9b8076;
+
+background-color: color('warning');
 // => background-color: #2196F3;
 
 color: color('white');
