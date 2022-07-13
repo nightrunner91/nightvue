@@ -732,7 +732,7 @@ $theme-colors: (
   'dark':       map-get($grays, 'gray-8'),
 );
 ```
-In map `$levels` you can define levels of lightening and darkening of each color in `$colors` and `$theme-colors` maps. By default this map has 5 steps:
+In map `$levels` you can define levels of lightening and saturation of each color in `$theme-colors` map. By default this map has 5 levels:
 ```
 $levels: (
   1: 10%,
