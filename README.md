@@ -759,7 +759,7 @@ NightVue automatically generates classnames from maps `$grays` and `$theme-color
 
 .fill-warning { fill: #FFEE58 }
 ```
-Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#mix) functions for that. They help to create smooth and steady color pallete with each color from `$theme-colors` map. Generated classnames use pattern `${$property}-${style}-${level}`.
+Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#mix) functions for that. They help to create smooth and steady color pallete with each color from `$theme-colors` map. Generated classnames use pattern `${property}-${style}-${level}`.
 
 Here are some examples:
 ```
