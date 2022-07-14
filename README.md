@@ -122,7 +122,7 @@ Let's take a look at the crucial parts of framework.
   * `src/styles/sections` folder includes styles for "big" and unique parts like: header, footer, article, hero, etc.
 * `src/views` folder includes Vue pages you are using in your project. By default it's only **Home.vue** page
 
-Finally, `App.vue` is the root file and `main.js` is the file where you import components, directives, plugins etc.
+Finally, `App.vue` is the root file and `main.js` is the file where you import components, directives, styles, plugins etc.
 
 # Documentation 📚
 

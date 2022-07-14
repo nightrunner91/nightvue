@@ -4,7 +4,9 @@
 
 /// This will reset base browser styles
 /// It is crucial in each project nowadays
+/// 
 /// @link https://github.com/necolas/normalize.css
+
 @import "core/normalize";
 
 
@@ -12,14 +14,31 @@
 // ===== Globals ===== //
 // =================== //
 
-/// This file includes global variables, functions and mixins
+/// This file includes NightVue global variables, functions and mixins
+/// Import this file in Vue component <style> if you want to use it locally
+/// You could also add scoped attribute to apply style to elements of the current component only
+/// 
+/// @link https://vue-loader.vuejs.org/guide/scoped-css.html
 /// @link https://sass-lang.com/documentation/variables
 /// @link https://sass-lang.com/documentation/at-rules/function
 /// @link https://sass-lang.com/documentation/at-rules/mixin
-/// Include this file in Vue component <style> if you want to use it locally
+///
+/// @example
+///   <style lang="scss" scoped>
+///     @import "@/styles/core/globals.scss";
+///   </style>
+
 @import "core/globals";
 
-/// Start with most basic and core stuff like fonts, headngs, text, etc...
+
+// ====================== //
+// ===== Typography ===== //
+// ====================== //
+
+/// This is crucial part!
+/// Start your project with most basic and core stuff like:
+/// fonts, headngs, text, lists, etc...
+
 @import "core/typography";
 
 
@@ -28,6 +47,11 @@
 // ================================ //
 
 /// This is set of usefull helpers and code generators
+/// Each one generates set of HTML classnames
+/// Learn more about it in out docs
+/// 
+/// @link https://github.com/nightrunner91/nightvue/docs#documentation-
+
 @import "core/helpers/layout";
 @import "core/helpers/grid";
 @import "core/helpers/text";

@@ -105,20 +105,20 @@
     font-weight: $font-weight;
 
     @if $support-required == 'oldie' {
-      src: url('./assets/fonts/#{$font-name}/#{$font-file}.eot');
-      src: url('./assets/fonts/#{$font-name}/#{$font-file}.eot?#iefix') format('embedded-opentype'),
-      url('./assets/fonts/#{$font-name}/#{$font-file}.woff2') format('woff2'),
-      url('./assets/fonts/#{$font-name}/#{$font-file}.woff') format('woff'),
-      url('./assets/fonts/#{$font-name}/#{$font-file}.ttf') format('truetype');
+      src: url('../assets/fonts/#{$font-name}/#{$font-file}.eot');
+      src: url('../assets/fonts/#{$font-name}/#{$font-file}.eot?#iefix') format('embedded-opentype'),
+      url('../assets/fonts/#{$font-name}/#{$font-file}.woff2') format('woff2'),
+      url('../assets/fonts/#{$font-name}/#{$font-file}.woff') format('woff'),
+      url('../assets/fonts/#{$font-name}/#{$font-file}.ttf') format('truetype');
     }
     @if $support-required == 'recent' {
-      src: url('./assets/fonts/#{$font-name}/#{$font-file}.woff2') format('woff2'),
-      url('./assets/fonts/#{$font-name}/#{$font-file}.woff') format('woff'),
-      url('./assets/fonts/#{$font-name}/#{$font-file}.ttf') format('truetype');
+      src: url('../assets/fonts/#{$font-name}/#{$font-file}.woff2') format('woff2'),
+      url('../assets/fonts/#{$font-name}/#{$font-file}.woff') format('woff'),
+      url('../assets/fonts/#{$font-name}/#{$font-file}.ttf') format('truetype');
     }
     @if $support-required == 'modern' {
-      src: url('./assets/fonts/#{$font-name}/#{$font-file}.woff2') format('woff2'),
-      url('./assets/fonts/#{$font-name}/#{$font-file}.woff') format('woff');
+      src: url('../assets/fonts/#{$font-name}/#{$font-file}.woff2') format('woff2'),
+      url('../assets/fonts/#{$font-name}/#{$font-file}.woff') format('woff');
     }
   }
   @if $support-required != 'oldie' and $support-required != 'recent' and $support-required != 'modern' {
