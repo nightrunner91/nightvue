@@ -737,7 +737,7 @@ You can also apply `${breakpoints}` to dynamically change behavior on different 
 }
 ```
 
-Don't forget that you can also apply auto sizing to element:
+Don't forget that you can also apply auto sizing to an element:
 
 ```
 .w-auto { width: auto }

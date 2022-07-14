@@ -31,7 +31,7 @@
 ///      }
 ///   }
 
-@mixin make-sizings($breakpoint:null) {
+@mixin make-sizing($breakpoint:null) {
   .w#{$breakpoint}-auto { width: auto !important }
   .h#{$breakpoint}-auto { height: auto !important }
 
@@ -54,10 +54,10 @@
   }
 }
 
-@include make-sizings();
+@include make-sizing();
 
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
-    @include make-sizings('-' + $breakpoint)
+    @include make-sizing('-' + $breakpoint)
   }
 };
