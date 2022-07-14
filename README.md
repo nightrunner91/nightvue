@@ -794,7 +794,7 @@ Generated classnames uses pattern `${property}-${color}-${style}-${level}`. Let'
 .clr-primary-desat-5 { color: #693f98 }
 ```
 
-### Sass function
+### Sass functions
 
 If you need to apply colors in SCSS files you can use `color($name, $style, $rate)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$rate` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
 ```
@@ -808,7 +808,7 @@ border-color: color('success', dark, 4);
 // => border-color: #358444;
 
 color: color('danger', sat, 2);
-// => border-color: #f64234;
+// => color: #f64234;
 
 background-color: color('warning', desat, 4);
 // => background-color: #eadd6d;

@@ -39,7 +39,8 @@
 };
 
 @function color($name, $style: false, $rate:false) {
-  /// Function returns color from maps $colors, $grays and $theme-colors
+  /// Function returns color from $grays and $theme-colors maps
+  /// You can pass optional arguments `$style` and `$rate` to determine level of brightness or saturation
   ///
   /// @author nightrunner91
   /// 
@@ -48,21 +49,24 @@
   /// @link https://sass-lang.com/documentation/modules/color#scale
   ///
   /// @param $name:  { String }, [color name, required]
-  /// @param $style: { String }, [color style: light | dark | sat | dest]
+  /// @param $style: { String }, [color style: light | dark | sat | desat]
   /// @param $rate:  { Number }, [color rate: 1...5 (based on $levels map)]
   /// 
   /// @example
   ///   box-shadow: 1px 1px 4px color('primary');
-  ///   border-color: color('secondary', light, 4);
+  ///   border-color: color('secondary', light, 2);
+  ///   border-color: color('success', dark, 4);
   ///   color: color('danger', sat, 2);
-  ///   background-color: color('warning');
+  ///   background-color: color('warning', desat, 4);
   ///   color: color('white');
   ///   fill: color('gray-4');
   ///
   /// @output
   ///   box-shadow: 1px 1px 4px #682CAB;
-  ///   border-color: #9b8076;
-  ///   background-color: #2196F3;
+  ///   border-color: #42a6f5;
+  ///   border-color: #358444;
+  ///   color: #f64234;
+  ///   background-color: #eadd6d;
   ///   color: #ffffff;
   ///   fill: #aaaaaa;
 

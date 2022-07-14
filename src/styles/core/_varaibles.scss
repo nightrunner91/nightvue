@@ -180,7 +180,7 @@ $small-fz: 0.875; // ratio of how lower will be font-size for <small> tag and .s
 // ===== Colors ===== //
 // ================== //
 
-// List of default colors
+// Library from which you can create $theme-colors below
 $colors: (
   'red':      #F44336,
   'pink':     #EC407A,
@@ -222,7 +222,7 @@ $theme-colors: (
   'dark':       map-get($grays, 'gray-8'),
 );
 
-// Levels of mix() in $colors and $theme-colors lists
+// Levels of mix() and scale()
 $levels: (
   1: 10%,
   2: 15%,

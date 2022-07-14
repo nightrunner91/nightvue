@@ -1,21 +1,23 @@
-/// This code generates classnames from $colors, $grays and $theme-colors maps
+/// This code generates classnames from $grays and $theme-colors maps
 /// Each color will have unique classname with background-color, color and fill
-/// For each color in $colors and $theme-colors maps will be generated
-/// classnames with suffixes -light-${level} and -dark-${level} with brightened and darkened colors
+/// For each color in $theme-colors map will be generated classnames with patterns:
+/// * ${property}-${color} for 'basic' colors
+/// * ${property}-${color}-${style}-${level} for brightened, darkened, saturated and desaturated color variations
 /// 
 /// @author nightrunner91
 /// 
-/// @link https://github.com/nightrunner91/nightvue
+/// @link https://github.com/nightrunner91/nightvue#colors
 /// @link https://developer.mozilla.org/ru/docs/Web/CSS/background-color
 /// @link https://developer.mozilla.org/ru/docs/Web/CSS/color
 /// @link https://developer.mozilla.org/ru/docs/Web/SVG/Tutorial/Fills_and_Strokes#using_css
 /// 
 /// @output
-///   .bg-red { background-color: #F44336 }
 ///   .bg-gray-5 { background-color: #959595 }
 ///   .bg-primary { background-color: #682CAB }
 ///   .clr-secondary-light-2 { color: #42a6f5 }
 ///   .fill-secondary-dark-4 { fill: #1971b6 }
+///   .clr-primary-sat-3 { color: #6823b4 }
+///   .clr-primary-desat-4 { color: #693c9b }
 
 /// Generate classnames from $grays map
 @each $name, $code in $grays {
@@ -32,7 +34,7 @@
 
   /// Adjust colors mix and scale levels based on $levels map to generate new color variations
   /// NightVue uses modern approach to do that
-  /// We are not using lighten(), darken(), saturate() and desaturate() functions
+  /// We don't use lighten(), darken(), saturate() and desaturate() functions
   /// Instead we make new colors using mix() and scale() functions
   /// @link https://sass-lang.com/documentation/modules/color#lighten
   /// @link https://sass-lang.com/documentation/modules/color#darken
