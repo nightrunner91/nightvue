@@ -744,35 +744,54 @@ $levels: (
 ```
 ### HTML Usage
 
-NightVue automatically generates classnames from maps `$grays` and `$theme-colors` above. Each color have unique classname with `background-color`, `color` and `fill` styles and uses template `${property}-${color}`:
+NightVue automatically generates classnames from maps `$grays` and `$theme-colors` above. Each color have unique classname with `background-color`, `color` and `fill` styles and uses template `${property}-${color}`, where `${property}` is one of:
+
+* `bg` for background-color
+* `clr` for text color
+* `fill` for SVG fill color
+
+Here are some examples:
 ```
 .bg-white { background-color: #ffffff }
-.bg-black { background-color: #000000 }
+.clr-white { color: #ffffff }
+.fill-white { fill: #ffffff }
 
 .bg-gray-1 { background-color: #eaeaea }
-.bg-gray-2 { background-color: #d5d5d5 }
-.bg-gray-3 { background-color: #bfbfbf }
-…
-.bg-gray-10 { background-color: #2b2b2b }
+.clr-gray-1 { color: #eaeaea }
+.fill-gray-1 { fill: #eaeaea }
 
 .bg-primary { background-color: #682CAB }
-
-.clr-success { color: #47b05b }
-
-.fill-warning { fill: #FFEE58 }
+.clr-primary { color: #682CAB }
+.fill-primary { fill: #682CAB }
 ```
-Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#mix) functions for that. They help to create smooth and steady color pallete with each color from `$theme-colors` map. 
+Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations from `$theme-colors` map. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#mix) functions for that. They help to create smooth and steady color pallete. 
 
-Generated classnames use pattern `${property}-${color}-${style}-${level}`. Here are some examples:
+Generated classnames uses pattern `${property}-${color}-${style}-${level}`. Let's take a look at color variations of `primary` color:
 ```
-.bg-primary-light-1 { background-color: #7741b3 } // lightened by 1 level primary color
-.bg-primary-sat-5 { background-color: #671fb8 }   // saturated by 5 levels primary color
+.clr-primary-light-1 { color: #7741b3 }
+.clr-primary-light-2 { color: #7f4cb8 }
+.clr-primary-light-3 { color: #8656bc }
+.clr-primary-light-4 { color: #8e61c0 }
+.clr-primary-light-5 { color: #956bc4 }
 
-.clr-secondary-light-2 { color: #42a6f5 }         // lightened by 2 levels secondary color
-.clr-secondary-dark-4 { color: #1971b6 }          // darkened by 4 levels secondary color
+.clr-primary-dark-1 { color: #5e289a }
+.clr-primary-dark-2 { color: #582591 }
+.clr-primary-dark-3 { color: #532389 }
+.clr-primary-dark-4 { color: #4e2180 }
+.clr-primary-dark-5 { color: #491f78 }
+```
+```
+.clr-primary-sat-1 { color: #6828af }
+.clr-primary-sat-2 { color: #6825b2 }
+.clr-primary-sat-3 { color: #6823b4 }
+.clr-primary-sat-4 { color: #6721b6 }
+.clr-primary-sat-5 { color: #671fb8 }
 
-.fill-success-dark-2 { fill: #3c964d }            // darkened by 2 levels success color
-.fill-danger-desat-3 { fill: #e15349 }            // desaturated by 3 leveles danger color
+.clr-primary-desat-1 { color: #6832a5 }
+.clr-primary-desat-2 { color: #6936a1 }
+.clr-primary-desat-3 { color: #69399e }
+.clr-primary-desat-4 { color: #693c9b }
+.clr-primary-desat-5 { color: #693f98 }
 ```
 
 ### Sass function
@@ -783,13 +802,16 @@ box-shadow: 1px 1px 4px color('primary');
 // => box-shadow: 1px 1px 4px #682CAB;
 
 border-color: color('secondary', light, 4);
-// => border-color: #9b8076;
+// => border-color: #;
+
+border-color: color('success', dark, 4);
+// => border-color: #;
 
 color: color('danger', sat, 2);
-// => border-color: #9b8076;
+// => border-color: #;
 
-background-color: color('warning');
-// => background-color: #2196F3;
+background-color: color('warning', desat, 4);
+// => background-color: #;
 
 color: color('white');
 // => color: #ffffff;
