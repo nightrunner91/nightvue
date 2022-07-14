@@ -1,71 +1,25 @@
-// ===================== //
-// ===== Normalize ===== //
-// ===================== //
-
-/// This will reset base browser styles
-/// It is crucial in each project nowadays
-/// 
-/// @link https://github.com/necolas/normalize.css
-
-@import "core/normalize";
-
-
-// =================== //
-// ===== Globals ===== //
-// =================== //
-
-/// This file includes NightVue global variables, functions and mixins
-/// Import this file in Vue component <style> if you want to use it locally
-/// You could also add scoped attribute to apply style to elements of the current component only
-/// 
-/// @link https://vue-loader.vuejs.org/guide/scoped-css.html
-/// @link https://sass-lang.com/documentation/variables
-/// @link https://sass-lang.com/documentation/at-rules/function
-/// @link https://sass-lang.com/documentation/at-rules/mixin
-///
-/// @example
-///   <style lang="scss" scoped>
-///     @import "@/styles/core/globals.scss";
-///   </style>
-
-@import "core/globals";
-
-
-// ====================== //
-// ===== Typography ===== //
-// ====================== //
-
-/// This is crucial part!
-/// Start your project with most basic and core stuff like:
-/// fonts, headngs, text, lists, etc...
-
-@import "core/typography";
-
-
-// ================================ //
-// ===== Helpers & Generators ===== //
-// ================================ //
-
-/// This is set of usefull helpers and code generators
-/// Each one generates set of HTML classnames
-/// Learn more about it in out docs
+/// This file includes all NightVue settings, styles and code generators
 /// 
 /// @link https://github.com/nightrunner91/nightvue/docs#documentation-
 
-@import "core/helpers/layout";
-@import "core/helpers/grid";
-@import "core/helpers/text";
-@import "core/helpers/position";
-@import "core/helpers/display";
-@import "core/helpers/spacing";
-@import "core/helpers/sizing";
-@import "core/helpers/colors";
-@import "core/helpers/gradients";
-@import "core/helpers/icons";
-@import "core/helpers/radius";
-@import "core/helpers/shadows";
-@import "core/helpers/rotations";
-@import "core/helpers/opacity";
-@import "core/helpers/zindex";
-@import "core/helpers/utilities";
-@import "core/helpers/transitions";
+@import "@core/normalize";
+@import "@core/globals";
+@import "@core/typography";
+
+@import "@core/helpers/layout";
+@import "@core/helpers/grid";
+@import "@core/helpers/text";
+@import "@core/helpers/position";
+@import "@core/helpers/display";
+@import "@core/helpers/spacing";
+@import "@core/helpers/sizing";
+@import "@core/helpers/colors";
+@import "@core/helpers/gradients";
+@import "@core/helpers/icons";
+@import "@core/helpers/radius";
+@import "@core/helpers/shadows";
+@import "@core/helpers/rotations";
+@import "@core/helpers/opacity";
+@import "@core/helpers/zindex";
+@import "@core/helpers/utilities";
+@import "@core/helpers/transitions";

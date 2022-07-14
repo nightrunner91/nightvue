@@ -1,0 +1,17 @@
+/// This file includes NightVue global variables, functions and mixins
+/// Import this file in Vue component <style> if you want to use it locally
+/// You could also add scoped attribute to apply style to elements of the current component only
+/// 
+/// @link https://vue-loader.vuejs.org/guide/scoped-css.html
+/// @link https://sass-lang.com/documentation/variables
+/// @link https://sass-lang.com/documentation/at-rules/function
+/// @link https://sass-lang.com/documentation/at-rules/mixin
+///
+/// @example
+///   <style lang="scss" scoped>
+///     @import "@/styles/@core/globals.scss";
+///   </style>
+
+@import "functions";
+@import "mixins";
+@import "variables";

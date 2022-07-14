@@ -85,9 +85,7 @@ This is default NightVue file structure. We followed to the principles of modula
 │       └── modules
 │       index.js
 │   ├── styles
-│       ├── animations
-│       ├── components
-│       ├── core
+|       ├── @core
 │           └── helpers
 │           _functions.scss
 │           _mixins.scss
@@ -95,7 +93,8 @@ This is default NightVue file structure. We followed to the principles of modula
 │           globals.scss
 │           normalize.scss
 │           typography.scss
-│       ├── plugins
+│       ├── animations
+│       ├── components
 │       └── sections
 │       style.scss
 │   └── views
@@ -111,17 +110,19 @@ Let's take a look at the crucial parts of framework.
 * `src/router` folder includes [Vue Router](https://router.vuejs.org/) files
 * `src/store` folder includes [Vuex](https://vuex.vuejs.org/) files
 * `src/styles` folder includes stylesheets, Sass functions and mixins, usefull utilities.
+  * `src/styles/@core` folder includes crucial NightVue Sass mixins, functions and code generators to work with
+    * `src/styles/@core/helpers` - the folder includes SCSS files that generates utility classnames to use in HTML (grid, spacers, text styles, colors etc.)
+    * `src/styles/@core/globals.scss` - this is key file where we import all **functions**, **mixins** and **variables** from so-called files at the same directory
+    * `src/styles/@core/typography.scss` file describes all text styles (headings, displays, paragraphs, fonts etc)
+    * `src/styles/@core/normalize.scss` makes browsers render all elements more consistently and in line with modern standards. It is basicly slightly modified SCSS version of widely used [Normalize.css](https://necolas.github.io/normalize.css/)
   * `src/styles/animations` folder includes [@keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
   * `src/styles/components` folder includes styles for reusable components like buttons, dropdowns, inputs, avatars, modals, alerts, etc.
-  * `src/styles/core` folder includes crucial Sass mixins, functions and code generators to work with
-    * `src/styles/core/helpers` - the folder includes SCSS files that generates utility classnames to use in HTML (grid, spacers, text styles, colors etc.)
-    * `src/styles/core/globals.scss` - this is key file where we import all **functions**, **mixins** and **variables** from so-called files at the same directory
-    * `src/styles/core/typography.scss` file describes all text styles (headings, displays, paragraphs, fonts etc)
-    * `src/styles/core/normalize.scss` makes browsers render all elements more consistently and in line with modern standards. It is basicly slightly modified SCSS version of widely used [Normalize.css](https://necolas.github.io/normalize.css/)
   * `src/styles/sections` folder includes styles for "big" and unique parts like: header, footer, article, hero, etc.
+  * `src/styles/nightvue.scss` file includes all NightVue settings, styles and code generators
+  * `src/styles/style.scss` is file where you can write your own styles
 * `src/views` folder includes Vue pages you are using in your project. By default it's only **Home.vue** page
-
-Finally, `App.vue` is the root file and `main.js` is the file where you import components, directives, styles, plugins etc.
+* `src/App.vue` is the root Vue file
+* `src/main.js` is the file where you import and register components, directives, styles, plugins etc.
 
 # Documentation 📚
 

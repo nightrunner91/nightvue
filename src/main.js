@@ -31,7 +31,7 @@ import './assets/icons'
 // ============================== //
 
 import './styles/nightvue.scss'
-import './styles/project.scss'
+import './styles/style.scss'
 import './styles/animations/_animations.css'
 
 
