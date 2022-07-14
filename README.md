@@ -96,6 +96,7 @@ This is default NightVue file structure. We followed to the principles of modula
 │       ├── animations
 │       ├── components
 │       └── sections
+│       nightvue.scss
 │       style.scss
 │   └── views
 │       Home.vue
