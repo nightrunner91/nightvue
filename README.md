@@ -683,7 +683,7 @@ margin: spacer(50, auto, 2, 0);
 
 ## Sizing
 
-NightVue sizing system is similar to Bootstrap, but it is not limited by several steps (25, 50, 75, 100 and auto). Instead you can apply each size from 0 to 100. Sizing classnames can be used to apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
+NightVue sizing system is similar to Bootstrap .Sizing classnames can be used to apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
 
 NightVue generates set of classnames which uses format `${property}-${breakpoint}-${size}`, where `${property}` is one of:
 
