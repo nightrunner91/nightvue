@@ -764,7 +764,7 @@ Here are some examples:
 .clr-primary { color: #682CAB }
 .fill-primary { fill: #682CAB }
 ```
-Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations from `$theme-colors` map. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#mix) functions for that. They help to create smooth and steady color pallete. 
+Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations from `$theme-colors` map. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#scale) functions for that. They help to create smooth and steady color pallete. 
 
 Generated classnames uses pattern `${property}-${color}-${style}-${level}`. Let's take a look at color variations of `primary` color:
 ```
@@ -796,22 +796,22 @@ Generated classnames uses pattern `${property}-${color}-${style}-${level}`. Let'
 
 ### Sass function
 
-If you need to apply colors in Sass files you can use `color($name, $style, $rate)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$rate` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
+If you need to apply colors in SCSS files you can use `color($name, $style, $rate)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$rate` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
 ```
 box-shadow: 1px 1px 4px color('primary');
 // => box-shadow: 1px 1px 4px #682CAB;
 
-border-color: color('secondary', light, 4);
-// => border-color: #;
+border-color: color('secondary', light, 2);
+// => border-color: #42a6f5;
 
 border-color: color('success', dark, 4);
-// => border-color: #;
+// => border-color: #358444;
 
 color: color('danger', sat, 2);
-// => border-color: #;
+// => border-color: #f64234;
 
 background-color: color('warning', desat, 4);
-// => background-color: #;
+// => background-color: #eadd6d;
 
 color: color('white');
 // => color: #ffffff;
