@@ -683,7 +683,33 @@ margin: spacer(50, auto, 2, 0);
 
 ## Sizing
 
-[ 🚧 *this part of the documentation is in progress* ]
+NightVue sizing system is similar to Bootstrap, but it is not limited by several steps (25, 50, 75, 100 and auto). Instead you can apply each size from 0 to 100. Sizing classnames can be used to apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
+
+NightVue generates set of classnames which uses format `${property}-${breakpoint}-${size}`, where `${property}` is one of:
+
+* `w` - for `width` in `%`
+* `vw` - for `width` in `vw`
+* `maxw` - for `max-width` in `%`
+* `maxvw` - for `max-width` in `vw`
+* `minw` - for `min-width` in `%`
+* `minvw` - for `min-width` in `vw`
+* `h` - for `height` in `%`
+* `vh` - for `height` in `vw`
+* `maxh` - for `max-height` in `%`
+* `maxvh` - for `max-height` in `vw`
+* `minh` - for `min-height` in `%`
+* `minvh` - for `min-height` in `vw`
+
+Here are generated sizing classnames based on 50 size as an example:
+
+```
+.w-50 { width: 50%; }
+.maxw-50 { max-width: 50%; }
+.maxvw-50 { max-width: 50vw; }
+.vw-50 { width: 50vw; }
+.maxvw-50 { max-width: 50vw; }
+.minvw-50 { min-width: 50vw; }
+```
 
 ## Colors
 
