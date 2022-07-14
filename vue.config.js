@@ -40,7 +40,8 @@ module.exports = {
 
   },
   css: {
-    extract: true
+    extract: true,
+    sourceMap: true,
   },
   filenameHashing: false
 }

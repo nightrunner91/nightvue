@@ -115,7 +115,7 @@ Let's take a look at the crucial parts of framework.
   * `src/styles/components` folder includes styles for reusable components like buttons, dropdowns, inputs, avatars, modals, alerts, etc.
   * `src/styles/core` folder includes crucial Sass mixins, functions and code generators to work with
     * `src/styles/core/helpers` - the folder includes SCSS files that generates utility classnames to use in HTML (grid, spacers, text styles, colors etc.)
-    * `src/styles/core/globals.scss` - this is key file where we import all **functions**, **mixins** and **varaibles** from so-called files at the same directory
+    * `src/styles/core/globals.scss` - this is key file where we import all **functions**, **mixins** and **variables** from so-called files at the same directory
     * `src/styles/core/typography.scss` file describes all text styles (headings, displays, paragraphs, fonts etc)
     * `src/styles/core/normalize.scss` makes browsers render all elements more consistently and in line with modern standards. It is basicly slightly modified SCSS version of widely used [Normalize.css](https://necolas.github.io/normalize.css/)
   * `src/styles/plugins` folder includes 3rd party plugins styles and is empty by default
@@ -278,7 +278,7 @@ $containers: (
   xl: 1320px
 );
 ```
-Remember that `$breakpoints` are dublicated in Vuex store in [config.js](src/store/modules/config.js) file. NightVue watches for [window resize event](https://developer.mozilla.org/ru/docs/Web/API/Window/resize_event) to update global Vuex store varaibles in real-time. It also constantly tracks current [scroll position](https://developer.mozilla.org/ru/docs/Web/API/Window/scrollY). You can read these values with computed properties `windowSize()`, `currentBreakpoint()` and `windowScroll()`.
+Remember that `$breakpoints` are dublicated in Vuex store in [config.js](src/store/modules/config.js) file. NightVue watches for [window resize event](https://developer.mozilla.org/ru/docs/Web/API/Window/resize_event) to update global Vuex store variables in real-time. It also constantly tracks current [scroll position](https://developer.mozilla.org/ru/docs/Web/API/Window/scrollY). You can read these values with computed properties `windowSize()`, `currentBreakpoint()` and `windowScroll()`.
 
 * `windowSize()` returns current window `width` and `height`
 * `currentBreakpoint()` returns current "morphological" breakpoint value based on window width. By defaults there might be: **'xs', 'sm', 'md', 'lg'** and **'xl'**

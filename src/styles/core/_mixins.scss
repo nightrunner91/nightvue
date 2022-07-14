@@ -156,7 +156,7 @@
     background: $fallback;
     background: linear-gradient($direction, $list);
   } @else {
-    @debug 'No such gradient, check $gradients map in varaibles.scss file'
+    @debug 'No such gradient, check $gradients map in variables.scss file'
   }
 };
 
@@ -424,7 +424,7 @@
 
 @mixin small() {
   /// Small mixin that injects small font-size styles
-  /// See varaibles.scss file for params $base-fz, $base-lh and $small-fz
+  /// See variables.scss file for params $base-fz, $base-lh and $small-fz
   /// By default they are: 16px, 1.5, 0.875
   ///
   /// @author nightrunner91

@@ -13,7 +13,7 @@ export default {
     currentBreakpoint: undefined,
     windowScroll: 0,
 
-    // Dublicated in 'styles/core/_varaibles.scss'
+    // Dublicated in 'styles/core/_variables.scss'
     breakpoints: {
       xs: 576,
       sm: 768,
