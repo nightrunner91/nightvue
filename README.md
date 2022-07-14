@@ -703,12 +703,49 @@ NightVue generates set of classnames which uses format `${property}-${breakpoint
 Here are generated sizing classnames based on 50 size as an example:
 
 ```
-.w-50 { width: 50%; }
-.maxw-50 { max-width: 50%; }
-.maxvw-50 { max-width: 50vw; }
-.vw-50 { width: 50vw; }
-.maxvw-50 { max-width: 50vw; }
-.minvw-50 { min-width: 50vw; }
+.w-50 { width: 50% }
+.vw-50 { width: 50vw }
+.maxw-50 { max-width: 50% }
+.maxvw-50 { max-width: 50vw }
+.minw-50 { min-width: 50% }
+.minvw-50 { min-width: 50vw }
+
+.wh-50 { height: 50% }
+.vh-50 { height: 50vw }
+.maxh-50 { max-height: 50% }
+.maxvh-50 { max-height: 50vw }
+.minh-50 { min-height: 50% }
+.minvh-50 { min-height: 50vw }
+```
+
+You can also apply `${breakpoints}` to dynamically change behavior on different screen sizes. For example, this `min-width` style will apply only below 768px (**sm** breakpoint):
+
+```
+<div class="minw-sm-50 minw-72">
+  I have min-width 50% below 768px and 72% above
+</div>
+```
+```
+@media screen and (min-width: 768px) {
+  .minw-sm-50 {
+    min-width: 50%;
+  }
+}
+
+.minw-sm-72 {
+  min-width: 72%;
+}
+```
+
+Don't forget that you can also apply auto sizing to element:
+
+```
+.w-auto { width: auto }
+.vw-auto { width: auto }
+.maxw-auto { max-width: auto }
+.maxvw-auto { max-width: auto }
+.minw-auto { min-width: auto }
+.minvw-auto { min-width: auto }
 ```
 
 ## Colors
