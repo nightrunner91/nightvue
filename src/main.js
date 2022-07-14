@@ -12,9 +12,9 @@ import App from './App.vue'
 // ===== Create global event ===== //
 // =============================== //
 
-// This is deprecated in Vue 3 and only works in Vue 2
-// @link https://www.educative.io/answers/what-is-the-event-bus-in-vuejs
-// @link https://v3-migration.vuejs.org/breaking-changes/events-api.html#event-bus
+/// This is deprecated in Vue 3 and only works in Vue 2
+/// @link https://www.educative.io/answers/what-is-the-event-bus-in-vuejs
+/// @link https://v3-migration.vuejs.org/breaking-changes/events-api.html#event-bus
 
 export const eventBus = new Vue()
 
@@ -32,6 +32,7 @@ import './assets/icons'
 
 import './styles/nightvue.scss'
 import './styles/project.scss'
+import './styles/animations/_animations.css'
 
 
 // ========================================== //

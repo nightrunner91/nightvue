@@ -1,12 +1,11 @@
-// ================================= //
-// ===== Components & Sections ===== //
-// ================================= //
-
 /// 📂 Components folder must contain styles for globally reusable components like:
 ///     buttons, dropdowns, inputs, avatars, modals, alerts, etc...
 ///
 /// 📂 Sections folder must contain styles for "big" and unique parts like:
 ///     header, footer, article, hero, etc.
+/// 
+/// We highly recomend to try BEM methodology to name classnames in your project
+/// @link https://en.bem.info/methodology/
 
 /// Components
 @import "components/button";
@@ -14,21 +13,3 @@
 /// Sections
 @import "sections/header";
 @import "sections/footer";
-
-
-// ============================= //
-// ===== 3rd party plugins ===== //
-// ============================= //
-
-/// Import here styles of plugins you are using in your project
-///   @import carousel from '@carousel'
-///   @import modal from 'cool-modal'
-///   etc...
-
-
-// ================================== //
-// ===== Animations / Keyframes ===== //
-// ================================== //
-
-/// Animations be loaded at the very end of SCSS document
-@import "animations/animations";

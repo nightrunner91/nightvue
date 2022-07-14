@@ -118,7 +118,6 @@ Let's take a look at the crucial parts of framework.
     * `src/styles/core/globals.scss` - this is key file where we import all **functions**, **mixins** and **variables** from so-called files at the same directory
     * `src/styles/core/typography.scss` file describes all text styles (headings, displays, paragraphs, fonts etc)
     * `src/styles/core/normalize.scss` makes browsers render all elements more consistently and in line with modern standards. It is basicly slightly modified SCSS version of widely used [Normalize.css](https://necolas.github.io/normalize.css/)
-  * `src/styles/plugins` folder includes 3rd party plugins styles and is empty by default
   * `src/styles/sections` folder includes styles for "big" and unique parts like: header, footer, article, hero, etc.
 * `src/views` folder includes Vue pages you are using in your project. By default it's only **Home.vue** page
 
