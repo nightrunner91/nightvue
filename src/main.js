@@ -32,7 +32,7 @@ import './assets/icons'
 
 import './styles/nightvue.scss'
 import './styles/style.scss'
-import './styles/animations/_animations.css'
+import './styles/animations/_animations.scss'
 
 
 // ========================================== //
