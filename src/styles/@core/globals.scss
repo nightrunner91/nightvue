@@ -10,6 +10,17 @@
 /// @example
 ///   <style lang="scss" scoped>
 ///     @import "@/styles/@core/globals.scss";
+/// 
+///     .selector {
+///       color: color('primary')
+///     }
+///   </style>
+/// 
+/// @output
+///   <style>
+///     .selector[data-v-fae5bece] {
+///       color: color('primary')
+///     }
 ///   </style>
 
 @import "functions";
