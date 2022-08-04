@@ -683,22 +683,34 @@ margin: spacer(50, auto, 2, 0);
 
 ## Sizing
 
-NightVue sizing system is similar to Bootstrap .Sizing classnames can be used to apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
+NightVue sizing system is similar to Bootstrap. Sizing classnames can be used to apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
 
 NightVue generates set of classnames which uses format `${property}-${breakpoint}-${size}`, where `${property}` is one of:
 
 * `w` - for `width` in `%`
 * `vw` - for `width` in `vw`
-* `maxw` - for `max-width` in `%`
-* `maxvw` - for `max-width` in `vw`
-* `minw` - for `min-width` in `%`
-* `minvw` - for `min-width` in `vw`
+* `max-w` - for `max-width` in `%`
+* `max-vw` - for `max-width` in `vw`
+* `min-w` - for `min-width` in `%`
+* `min-vw` - for `min-width` in `vw`
 * `h` - for `height` in `%`
 * `vh` - for `height` in `vw`
-* `maxh` - for `max-height` in `%`
-* `maxvh` - for `max-height` in `vw`
-* `minh` - for `min-height` in `%`
-* `minvh` - for `min-height` in `vw`
+* `max-h` - for `max-height` in `%`
+* `max-vh` - for `max-height` in `vw`
+* `min-h` - for `min-height` in `%`
+* `min-vh` - for `min-height` in `vw`
+
+Where `$size` is one of sizing values defined in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
+```
+$sizings: (
+  0:    0,
+  25:   25,
+  50:   50,
+  75:   75,
+  100:  100,
+  auto: auto
+);
+```
 
 Here are generated sizing classnames based on 50 size as an example:
 
@@ -721,8 +733,8 @@ Here are generated sizing classnames based on 50 size as an example:
 You can also apply `${breakpoints}` to dynamically change behavior on different screen sizes. For example, this `min-width` style will apply only below 768px (**sm** breakpoint):
 
 ```
-<div class="minw-sm-50 minw-72">
-  I have min-width 50% below 768px and 72% above
+<div class="minw-sm-50 minw-75">
+  I have min-width 50% below 768px and 75% above
 </div>
 ```
 ```
@@ -732,8 +744,8 @@ You can also apply `${breakpoints}` to dynamically change behavior on different 
   }
 }
 
-.minw-sm-72 {
-  min-width: 72%;
+.minw-sm-75 {
+  min-width: 75%;
 }
 ```
 
@@ -746,6 +758,13 @@ Don't forget that you can also apply auto sizing to an element:
 .maxvw-auto { max-width: auto }
 .minw-auto { min-width: auto }
 .minvw-auto { min-width: auto }
+
+.wh-auto { height: auto }
+.vh-auto { height: auto }
+.maxh-auto { max-height: auto }
+.maxvh-auto { max-height: auto }
+.minh-auto { min-height: auto }
+.minvh-auto { min-height: auto }
 ```
 
 ## Colors

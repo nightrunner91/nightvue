@@ -1,4 +1,5 @@
 /// This code generates classnames with specific sizes in %, vw and vh
+/// Sizing values are stored in $sizings map
 /// %	is relative to the parent element
 /// vw is relative to 1% of the width of the viewport
 /// vh is relative to 1% of the height of the viewport
@@ -15,42 +16,53 @@
 ///   .w-auto { width: auto }
 ///   .h-0 { height: 0% }
 ///
-///   .w-72 { width: 72% }
-///   .vw-72 { width: 72vw }
-///   .maxw-72 { max-width: 72% }
-///   .maxvw-72 { max-width: 72vw }
+///   .w-75 { width: 75% }
+///   .vw-75 { width: 75 }
+///   .max-w-75 { max-width: 75% }
+///   .max-vw-75 { max-width: 75 }
 ///
-///   .h-15 { height: 15% }
-///   .vh-15 { height: 15vh }
-///   .minh-15 { min-height: 15% }
-///   .minvh-15 { min-height: 15vh }
+///   .h-25 { height: 25% }
+///   .vh-25 { height: 25vh }
+///   .min-h-25 { min-height: 25% }
+///   .min-vh-25 { min-height: 25vh }
 ///
 ///   @media screen and (min-width: 768px) {
-///     .minw-sm-50 {
+///     .min-w-sm-50 {
 ///        min-width: 50%;
 ///      }
 ///   }
 
 @mixin make-sizing($breakpoint:null) {
-  .w#{$breakpoint}-auto { width: auto !important }
-  .h#{$breakpoint}-auto { height: auto !important }
+  @each $name, $sizing in $sizings {
+    @if $name != 'auto' {
+      .w#{$breakpoint}-#{$name} { width: unquote($sizing + '%') !important }
+      .max-w#{$breakpoint}-#{$name} { max-width: unquote($sizing + '%') !important }
+      .min-w#{$breakpoint}-#{$name} { min-width: unquote($sizing + '%') !important }
+      .h#{$breakpoint}-#{$name} { height: unquote($sizing + '%') !important }
+      .max-h#{$breakpoint}-#{$name} { max-height: unquote($sizing + '%') !important }
+      .min-h#{$breakpoint}-#{$name} { min-height: unquote($sizing + '%') !important }
 
-  $i: 0;
-  @while $i <= 100 {
-    .w#{$breakpoint}-#{$i} { width: unquote($i + '%') !important }
-    .maxw#{$breakpoint}-#{$i} { max-width: unquote($i + '%') !important }
-    .minw#{$breakpoint}-#{$i} { min-width: unquote($i + '%') !important }
-    .h#{$breakpoint}-#{$i} { height: unquote($i + '%') !important }
-    .maxh#{$breakpoint}-#{$i} { max-height: unquote($i + '%') !important }
-    .minh#{$breakpoint}-#{$i} { min-height: unquote($i + '%') !important }
+      .vw#{$breakpoint}-#{$name} { width: unquote($sizing + 'vw') !important }
+      .max-vw#{$breakpoint}-#{$name} { max-width: unquote($sizing + 'vw') !important }
+      .min-vw#{$breakpoint}-#{$name} { min-width: unquote($sizing + 'vw') !important }
+      .vh#{$breakpoint}-#{$name} { height: unquote($sizing + 'vh') !important }
+      .max-vh#{$breakpoint}-#{$name} { max-height: unquote($sizing + 'vh') !important }
+      .min-vh#{$breakpoint}-#{$name} { min-height: unquote($sizing + 'vh') !important }
+    } @else {
+      .w#{$breakpoint}-#{$name} { width: $sizing !important }
+      .max-w#{$breakpoint}-#{$name} { max-width: $sizing !important }
+      .min-w#{$breakpoint}-#{$name} { min-width: $sizing !important }
+      .h#{$breakpoint}-#{$name} { height: $sizing !important }
+      .max-h#{$breakpoint}-#{$name} { max-height: $sizing !important }
+      .min-h#{$breakpoint}-#{$name} { min-height: $sizing !important }
 
-    .vw#{$breakpoint}-#{$i} { width: unquote($i + 'vw') !important }
-    .maxvw#{$breakpoint}-#{$i} { max-width: unquote($i + 'vw') !important }
-    .minvw#{$breakpoint}-#{$i} { min-width: unquote($i + 'vw') !important }
-    .vh#{$breakpoint}-#{$i} { height: unquote($i + 'vh') !important }
-    .maxvh#{$breakpoint}-#{$i} { max-height: unquote($i + 'vh') !important }
-    .minvh#{$breakpoint}-#{$i} { min-height: unquote($i + 'vh') !important }
-    $i: $i + 1;
+      .vw#{$breakpoint}-#{$name} { width: $sizing !important }
+      .max-vw#{$breakpoint}-#{$name} { max-width: $sizing !important }
+      .min-vw#{$breakpoint}-#{$name} { min-width: $sizing !important }
+      .vh#{$breakpoint}-#{$name} { height: $sizing !important }
+      .max-vh#{$breakpoint}-#{$name} { max-height: $sizing !important }
+      .min-vh#{$breakpoint}-#{$name} { min-height: $sizing !important }
+    }
   }
 }
 
