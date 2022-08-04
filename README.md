@@ -717,17 +717,17 @@ Here are generated sizing classnames based on 50 size as an example:
 ```
 .w-50 { width: 50% }
 .vw-50 { width: 50vw }
-.maxw-50 { max-width: 50% }
-.maxvw-50 { max-width: 50vw }
-.minw-50 { min-width: 50% }
-.minvw-50 { min-width: 50vw }
+.max-w-50 { max-width: 50% }
+.max-vw-50 { max-width: 50vw }
+.min-w-50 { min-width: 50% }
+.min-vw-50 { min-width: 50vw }
 
 .wh-50 { height: 50% }
 .vh-50 { height: 50vw }
-.maxh-50 { max-height: 50% }
-.maxvh-50 { max-height: 50vw }
-.minh-50 { min-height: 50% }
-.minvh-50 { min-height: 50vw }
+.max-h-50 { max-height: 50% }
+.max-vh-50 { max-height: 50vw }
+.min-h-50 { min-height: 50% }
+.min-vh-50 { min-height: 50vw }
 ```
 
 You can also apply `${breakpoints}` to dynamically change behavior on different screen sizes. For example, this `min-width` style will apply only below 768px (**sm** breakpoint):
@@ -749,22 +749,16 @@ You can also apply `${breakpoints}` to dynamically change behavior on different 
 }
 ```
 
-Don't forget that you can also apply auto sizing to an element:
+Don't forget that you can also apply `auto` sizing to an element:
 
 ```
 .w-auto { width: auto }
-.vw-auto { width: auto }
-.maxw-auto { max-width: auto }
-.maxvw-auto { max-width: auto }
-.minw-auto { min-width: auto }
-.minvw-auto { min-width: auto }
+.max-w-auto { max-width: auto }
+.min-w-auto { min-width: auto }
 
-.wh-auto { height: auto }
-.vh-auto { height: auto }
-.maxh-auto { max-height: auto }
-.maxvh-auto { max-height: auto }
-.minh-auto { min-height: auto }
-.minvh-auto { min-height: auto }
+.h-auto { height: auto }
+.max-h-auto { max-height: auto }
+.min-h-auto { min-height: auto }
 ```
 
 ## Colors

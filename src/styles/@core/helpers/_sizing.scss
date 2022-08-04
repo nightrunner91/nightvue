@@ -55,13 +55,6 @@
       .h#{$breakpoint}-#{$name} { height: $sizing !important }
       .max-h#{$breakpoint}-#{$name} { max-height: $sizing !important }
       .min-h#{$breakpoint}-#{$name} { min-height: $sizing !important }
-
-      .vw#{$breakpoint}-#{$name} { width: $sizing !important }
-      .max-vw#{$breakpoint}-#{$name} { max-width: $sizing !important }
-      .min-vw#{$breakpoint}-#{$name} { min-width: $sizing !important }
-      .vh#{$breakpoint}-#{$name} { height: $sizing !important }
-      .max-vh#{$breakpoint}-#{$name} { max-height: $sizing !important }
-      .min-vh#{$breakpoint}-#{$name} { min-height: $sizing !important }
     }
   }
 }
