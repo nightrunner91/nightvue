@@ -896,7 +896,7 @@ You may have noticed that we use `gray()` function in `$grays` map to generate s
 "gray-9":  #404040,
 "gray-10": #2b2b2b
 ```
-Each next color is darker than the previous one. When you call `gray(3, 10)` function returns third color in this list (`#bfbfbf`). Also you can pass different color level and total length of list. Here are some examples:
+Each next color is darker than the previous one. When you call `gray(3, 10)` function returns third color in list of 10 colors (`#bfbfbf`). Also you can pass different color level and total length of list. Here are some examples:
 ```
 color: gray($level: 4, $from: 4);
 // ▯▯▯▮
@@ -904,7 +904,7 @@ color: gray($level: 4, $from: 4);
 
 color: gray($level: 3, $from: 10);
 // ▯▯▮▯▯▯▯▯▯▯
-// => color: #c4c4c4;
+// => color: #bfbfbf;
 
 color: gray(7, 24);
 // ▯▯▯▯▯▯▮▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯
