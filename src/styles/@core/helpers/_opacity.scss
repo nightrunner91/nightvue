@@ -1,4 +1,5 @@
-/// This code generates opacity classnames from 0 to 100
+/// This code generates opacity classnames
+/// Opacity values are stored in $opacity map
 /// This classnames supports breakpoints from $breakpoints map
 /// 
 /// @author nightrunner91
@@ -8,25 +9,20 @@
 /// 
 /// @output
 ///   .opacity-0 { opacity: 0 }
-///   .opacity-1 { opacity: 0.01 }
-///   .opacity-2 { opacity: 0.02 }
-///   .opacity-3 { opacity: 0.03 }
-///   ...
+///   .opacity-25 { opacity: 0.25 }
 ///   .opacity-50 { opacity: 0.5 }
-///   ...
+///   .opacity-75 { opacity: 0.75 }
 ///   .opacity-100 { opacity: 1 }
 ///
 ///   @media screen and (min-width: 1280px) {
-///     .opacity-lg-40 {
-///        opacity: 0.4
+///     .opacity-lg-50 {
+///        opacity: 0.5
 ///     }
 ///   }
 
 @mixin make-opacity($breakpoint:null) {
-  $i: 0;
-  @while $i <= 100 {
-    .opacity#{$breakpoint}-#{$i} { opacity: $i / 100 !important }
-    $i: $i + 1;
+  @each $opacity in $opacity {
+    .opacity#{$breakpoint}-#{$opacity} { opacity: $opacity / 100 !important }
   }
 }
 
