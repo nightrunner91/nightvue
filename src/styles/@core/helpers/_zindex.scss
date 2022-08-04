@@ -1,6 +1,6 @@
 /// This code generates classnames for z-index usage in HTML
 /// Min and max levels you can define in $zindex-start and $zindex-end variables
-/// By default they are -1 and 24
+/// By default they are -1 and 12
 /// Each classname supports $breakpoints
 /// 
 /// @author nightrunner91
@@ -17,13 +17,13 @@
 ///   .z-plus-4 { z-index: 4 }
 /// 
 ///   @media screen and (min-width: 1280px) {
-///     .z-lg-plus-22 {
-///        z-index: 22
+///     .z-lg-plus-12 {
+///        z-index: 12
 ///     }
 ///   }
 
 $zindex-start: -1;
-$zindex-end: 24;
+$zindex-end: 12;
 
 @mixin make-zindex($breakpoint:null) {
   $i: $zindex-start;
