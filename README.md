@@ -5,7 +5,7 @@
 
 # Introduction 👋
 
-NightVue is a development framework for [Vue.js 2.x](https://ru.vuejs.org/v2/guide/). While many other frameworks offer ready-to-use UI solutions, NightVue gives you the maximum freedom to develop your own web interfaces. The ideological basis of the framework is the most useful utilities from [Bootstrap 4.x](https://getbootstrap.com/docs/4.6/getting-started/introduction/), many of which have been improved. NightVue uses best practices from [Material Design 2](https://material.io/) throughout. The framework is powered by [Vue CLI 4.x](https://cli.vuejs.org/), one of the most convenient tools for developing with Vue.js.
+NightVue is a development framework for [Vue.js 2.x](https://ru.vuejs.org/v2/guide/). While many other frameworks offer ready-to-use UI solutions, NightVue gives you the maximum freedom to develop your own web interfaces. NightVue uses best practices from [Material Design 2](https://material.io/) throughout. The framework is powered by [Vue CLI 4.x](https://cli.vuejs.org/), one of the most convenient tools for developing with Vue.js.
 
 NightVue is build for Front-end developers who don't like rewriting the built-in styling solutions of third-party frameworks and plugins. It's for those who prefer to develop "from scratch". For those who need framework with ready-to-use UI solutions, we would recomend to use popular ones like [BootstrapVue](https://bootstrap-vue.org/), [Vuetify](https://vuetifyjs.com/en/), [Vue Material](https://www.creative-tim.com/vuematerial/), or whatever you like.
 
@@ -247,7 +247,7 @@ You can learn more about transition classnames [here](https://vuejs.org/guide/bu
 
 ## Grid
 
-NightVue grid system is quite similar to [Bootstrap grid](https://getbootstrap.com/docs/4.0/layout/grid/), but we are using entirely different approach to build mixins and functions. Our grid system is built with flexbox and is fully responsive. If you are not familiar with flex we recomend to read this [article](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background). NightVue grid uses a series of containers, rows, and cols to align content and in general shares the same principles as Bootstrap. Nonetheless we must mention some features and differences. 
+NightVue grid system is built with flexbox and is fully responsive. It uses a series of containers, rows, and cols to align content. If you are not familiar with flex we recomend to read this [article](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background).
 
 There are 3 types of containers in NightVue:
 
@@ -648,13 +648,11 @@ Also here you can import fonts by using `@font-face` mixin. Make sure to store y
 
 ## Display
 
-Bootstrap [display](https://getbootstrap.com/docs/5.0/utilities/display/) and [flex](https://getbootstrap.com/docs/5.0/utilities/flex/) utilities are so handy that we decided to copy it's functionalty almost as it is. This system allows you to change display property and quickly manage the layout, alignment, and sizing of elements with a full suite of responsive flexbox utilities.
+Display system allows you to change display property and quickly manage the layout, alignment, and sizing of elements with a full suite of responsive flexbox utilities.
 
 ## Spacing
 
-NightVue uses the same logic as [Bootstrap spacing system](https://getbootstrap.com/docs/4.0/utilities/spacing/) to generate responsive margin and padding utility classnames.
-
-The classnames are named using the format `{$property}-{$breakpoint}-{$side}-{$size}`.
+NightVue generates responsive margin and padding utility classnames. The classnames are named using the format `{$property}-{$breakpoint}-{$side}-{$size}`.
 
 Where `$property` is one of:
 * `m` - for classnames that set margin
@@ -714,7 +712,7 @@ margin: spacer(50, auto, 2, 0);
 
 ## Sizing
 
-NightVue sizing system is similar to Bootstrap. Sizing classnames can be used to apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
+These utility classnames can be used to apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
 
 NightVue generates set of classnames which uses format `${property}-${breakpoint}-${size}`, where `${property}` is one of:
 
