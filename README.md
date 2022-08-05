@@ -142,8 +142,8 @@ Let's take a look at the crucial parts of framework.
 * [Rotations](#rotations)
 * [Opacity](#opacity)
 * [Z-index](#z-index)
-* [Utilities](#utilities)
 * [Transitions](#transitions)
+* [Utilities](#utilities)
 
 ## Layout
 
@@ -255,7 +255,7 @@ There are 3 types of containers in NightVue:
 * **combined** - container will have `max-width` of *last* value from `$containers` map, then will have 100%
 * **full** - container will *always* have 100% width
 
-Base grid settings are stored in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
+Base grid settings are stored in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
 $num-cols:      12;
 $gutter-width:  1rem;
@@ -423,7 +423,7 @@ Here are some examples of usage:
 
 ## Typography
 
-Typography maps are located in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
+Typography maps are located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
 $font-families: (
   base:      "Onest",
@@ -592,7 +592,7 @@ Each classname supports breakpoints. You can use template `${property}-${breakpo
   }
 }
 ```
-In [typography.scss](src/styles/core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
+In [typography.scss](src/styles/@core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
 
 Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to add your own fonts:
 ```
@@ -646,7 +646,7 @@ Where `$side` is one of:
 * `y` - for classnames that set both *-top and *-bottom
 * blank - for classnames that set a margin or padding on all 4 sides of the element
 
-Where `$size` is one of spacing sizes defined in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
+Where `$size` is one of spacing sizes defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
 $spacers: (
   0:    0,
@@ -700,7 +700,7 @@ NightVue generates set of classnames which uses format `${property}-${breakpoint
 * `min-h` - for `min-height` in `%`
 * `min-vh` - for `min-height` in `vw`
 
-Where `$size` is one of sizing values defined in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
+Where `$size` is one of sizing values defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
 $sizings: (
   0:    0,
@@ -952,13 +952,9 @@ color: gray(7, 24);
 
 [ 🚧 *this part of the documentation is in progress* ]
 
-## Utilities
-
-[ 🚧 *this part of the documentation is in progress* ]
-
 ## Transitions
 
-NightVue provides set of most usable transition timings in web. They are stored in `$transition-timings` map located in [_varaibles.scss](src/styles/core/_varaibles.scss) file:
+NightVue provides set of most usable transition timings in web. They are stored in `$transition-timings` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
 $transition-timings: (
   linear:       cubic-bezier(0, 0, 1, 1),
@@ -1039,6 +1035,39 @@ transition: complex-transition(
 );
 
 // => transition: opacity 0.25s cubic-bezier(0.42, 0, 1, 1), background-color 0.375s cubic-bezier(0, 0, 0.2, 1), color 0.75s cubic-bezier(0, 0, 1, 1) 1s;
+```
+
+## Utilities
+
+In this section are collected small helpers who did not find a place in the sections listed above. These helpers are described in [_utilities.scss](src/styles/@core/helpers/_utilities.scss) file:
+
+```
+$cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
+
+@each $cursor in $cursors {
+  .cursor-#{$cursor} { cursor: $cursor !important }
+}
+
+
+.no-select { user-select: none !important }
+.no-overflow { overflow: hidden !important }
+.no-events  { pointer-events: none !important }
+
+.text-truncate {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-dotted {
+  &:after {
+    content: '…'
+  }
+}
+
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
 ```
 
 # To-do list Q3-Q4 2022 ✅
