@@ -23,7 +23,7 @@
 ///      }
 ///   }
 
-$displays: (block, inline, inline-block, flex, inline-flex, none);
+$displays: (block, inline, inline-block, flex, inline-flex, table, table-cell, table-row, none);
 $directions: (row, row-reverse, column, column-reverse);
 $justifies: (start, end, center, between, around);
 $aligns: (start, end, center, baseline, stretch);

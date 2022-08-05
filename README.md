@@ -648,7 +648,7 @@ Also here you can import fonts by using `@font-face` mixin. Make sure to store y
 
 ## Display
 
-[ 🚧 *this part of the documentation is in progress* ]
+#[Display](https://getbootstrap.com/docs/5.0/utilities/display/) and #[flex](https://getbootstrap.com/docs/5.0/utilities/flex/) utilities from Bootstrap are so handy and easy to use that we decided to copy it's functionalty almost as it is. This system allows you to change display property and quickly manage the layout, alignment, and sizing of elements with a full suite of responsive flexbox utilities.
 
 ## Spacing
 
