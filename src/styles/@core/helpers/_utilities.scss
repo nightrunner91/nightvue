@@ -15,19 +15,5 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 .no-select { user-select: none !important }
 .no-overflow { overflow: hidden !important }
 .no-events  { pointer-events: none !important }
-
-.text-truncate {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.text-dotted {
-  &:after {
-    content: '…'
-  }
-}
-
 .visible { visibility: visible !important; }
 .invisible { visibility: hidden !important; }

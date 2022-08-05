@@ -423,7 +423,7 @@ Here are some examples of usage:
 
 ## Typography
 
-Typography maps are located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+Typography maps are located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file. In [typography.scss](src/styles/@core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
 ```
 $font-families: (
   base:      "Onest",
@@ -592,8 +592,21 @@ Each classname supports breakpoints. You can use template `${property}-${breakpo
   }
 }
 ```
-In [typography.scss](src/styles/@core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
+For truncated text use one of these helpers:
+```
+.text-truncate {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
+.text-dotted {
+  &:after {
+    content: '…'
+  }
+}
+```
 Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to add your own fonts:
 ```
 // Font files location:
@@ -1048,24 +1061,9 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
   .cursor-#{$cursor} { cursor: $cursor !important }
 }
 
-
 .no-select { user-select: none !important }
 .no-overflow { overflow: hidden !important }
 .no-events  { pointer-events: none !important }
-
-.text-truncate {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.text-dotted {
-  &:after {
-    content: '…'
-  }
-}
-
 .visible { visibility: visible !important; }
 .invisible { visibility: hidden !important; }
 ```

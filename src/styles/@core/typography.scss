@@ -64,9 +64,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 
-// ======================== //
-// ====== TEXT STYLES ===== //
-// ======================== //
+// ============================= //
+// ====== BASE TEXT STYLES ===== //
+// ============================= //
 
 p,
 ul,
@@ -155,3 +155,21 @@ hr {
 }
 
 @include selection('black', 'white');
+
+
+// =========================== //
+// ====== TRUNCATED TEXT ===== //
+// =========================== //
+
+.text-truncate {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-dotted {
+  &:after {
+    content: '…'
+  }
+}
