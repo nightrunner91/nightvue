@@ -518,7 +518,7 @@
   /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
   /// @link https://developer.mozilla.org/ru/docs/Web/CSS/white-space
   ///
-  /// @param $width: { Number } [maximum width of text, px | %]
+  /// @param $width: { Number } [required, maximum width of text in px | %]
   /// 
   /// @example
   ///   @include text-truncate(150px);

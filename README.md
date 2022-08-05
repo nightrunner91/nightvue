@@ -592,7 +592,9 @@ Each classname supports breakpoints. You can use template `${property}-${breakpo
   }
 }
 ```
+
 For truncated text use one of these helpers:
+
 ```
 .text-truncate {
   display: inline-block;
@@ -607,7 +609,23 @@ For truncated text use one of these helpers:
   }
 }
 ```
+
+Or use `@text-truncate()` mixin for that. It requires argument `$width` in `px` or `%`.
+
+```
+.text { @include text-truncate(150px) }
+
+// =>
+.text {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+```
+
 Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to add your own fonts:
+
 ```
 // Font files location:
 
