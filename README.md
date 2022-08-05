@@ -639,25 +639,25 @@ NightVue uses the same logic as [Bootstrap spacing system](https://getbootstrap.
 The classnames are named using the format `{$property}-{$breakpoint}-{$side}-{$size}`.
 
 Where `$property` is one of:
-* `m` - for classnames that set margin
-* `p` - for classnames that set padding
+* `m` — for classnames that set margin
+* `p` — for classnames that set padding
 
 Where `$breakpoint` is one of:
-* `xs`  - for classnames that set property on XS breakpoint > 576px
-* `sm`  - for classnames that set property on SM breakpoint > 768px
-* `md`  - for classnames that set property on MD breakpoint > 992px
-* `lg`  - for classnames that set property on LG breakpoint > 1200px
-* `xl`  - for classnames that set property on XL breakpoint > 1400px
+* `xs` — for classnames that set property on XS breakpoint > 576px
+* `sm` — for classnames that set property on SM breakpoint > 768px
+* `md` — for classnames that set property on MD breakpoint > 992px
+* `lg` — for classnames that set property on LG breakpoint > 1200px
+* `xl` — for classnames that set property on XL breakpoint > 1400px
 * blank - if you want to set a margin and padding on all breakpoint
 
 Where `$side` is one of:
-* `t`   - for classnames that set margin-top or padding-top
-* `b`   - for classnames that set margin-bottom or padding-bottom
-* `l`   - for classnames that set margin-left or padding-left
-* `r`   - for classnames that set margin-right or padding-right
-* `x`   - for classnames that set both *-left and *-right
-* `y`   - for classnames that set both *-top and *-bottom
-* blank - for classnames that set a margin or padding on all 4 sides of the element
+* `t` — for classnames that set margin-top or padding-top
+* `b` — for classnames that set margin-bottom or padding-bottom
+* `l` — for classnames that set margin-left or padding-left
+* `r` — for classnames that set margin-right or padding-right
+* `x` — for classnames that set both *-left and *-right
+* `y` — for classnames that set both *-top and *-bottom
+* blank — for classnames that set a margin or padding on all 4 sides of the element
 
 Where `$size` is one of spacing sizes defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
@@ -700,18 +700,18 @@ NightVue sizing system is similar to Bootstrap. Sizing classnames can be used to
 
 NightVue generates set of classnames which uses format `${property}-${breakpoint}-${size}`, where `${property}` is one of:
 
-* `w`      - for `width` in `%`
-* `vw`     - for `width` in `vw`
-* `max-w`  - for `max-width` in `%`
-* `max-vw` - for `max-width` in `vw`
-* `min-w`  - for `min-width` in `%`
-* `min-vw` - for `min-width` in `vw`
-* `h`      - for `height` in `%`
-* `vh`     - for `height` in `vw`
-* `max-h`  - for `max-height` in `%`
-* `max-vh` - for `max-height` in `vw`
-* `min-h`  - for `min-height` in `%`
-* `min-vh` - for `min-height` in `vw`
+* `w` — for `width` in `%`
+* `vw` — for `width` in `vw`
+* `max-w` — for `max-width` in `%`
+* `max-vw` — for `max-width` in `vw`
+* `min-w` — for `min-width` in `%`
+* `min-vw` — for `min-width` in `vw`
+* `h` — for `height` in `%`
+* `vh` — for `height` in `vw`
+* `max-h` — for `max-height` in `%`
+* `max-vh` — for `max-height` in `vw`
+* `min-h` — for `min-height` in `%`
+* `min-vh` — for `min-height` in `vw`
 
 Where `$size` is one of sizing values defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
