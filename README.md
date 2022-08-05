@@ -1058,14 +1058,14 @@ In this section are collected small helpers which did't find a place in the sect
 $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 
 @each $cursor in $cursors {
-  .cursor-#{$cursor} { cursor: $cursor !important }
+  .cursor-#{$cursor} { cursor: $cursor }
 }
 
-.no-select { user-select: none !important }
-.no-overflow { overflow: hidden !important }
-.no-events  { pointer-events: none !important }
-.visible { visibility: visible !important; }
-.invisible { visibility: hidden !important; }
+.no-select { user-select: none }
+.no-overflow { overflow: hidden }
+.no-events  { pointer-events: none }
+.visible { visibility: visible }
+.invisible { visibility: hidden }
 ```
 
 # To-do list Q3-Q4 2022 ✅
