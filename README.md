@@ -534,55 +534,55 @@ $small-fz: 0.875;
 ```
 For each Sass map NightVue generates set of utility classnames to use in HTML:
 ```
-.font-base { font-family: "Onest" }
+.font-base     { font-family: "Onest" }
 .font-headings { font-family: "Onest" }
 .font-displays { font-family: "Onest" }
 
-.line-height-1 { line-height: 1 }
+.line-height-1  { line-height: 1 }
 .line-height-25 { line-height: 1.25 }
 .line-height-50 { line-height: 1.5 }
 .line-height-75 { line-height: 1.75 }
-.line-height-2 { line-height: 2 }
+.line-height-2  { line-height: 2 }
 
-.text-left { text-align: left }
-.text-center { text-align: center }
-.text-right { text-align: right }
+.text-left    { text-align: left }
+.text-center  { text-align: center }
+.text-right   { text-align: right }
 .text-justify { text-align: justify }
 
-.text-underline { text-decoration: underline }
-.text-line-through { text-decoration: line-through }
-.text-none { text-decoration: none }
+.text-underline     { text-decoration: underline }
+.text-line-through  { text-decoration: line-through }
+.text-none          { text-decoration: none }
 
-.text-normal { white-space: normal }
-.text-nowrap { white-space: nowrap }
-.text-pre { white-space: pre }
+.text-normal   { white-space: normal }
+.text-nowrap   { white-space: nowrap }
+.text-pre      { white-space: pre }
 .text-pre-line { white-space: pre-line }
 .text-pre-wrap { white-space: pre-wrap }
 
-.text-lowercase { text-transform: lowercase }
-.text-uppercase { text-transform: uppercase }
+.text-lowercase  { text-transform: lowercase }
+.text-uppercase  { text-transform: uppercase }
 .text-capitalize { text-transform: capitalize }
 
 .font-weight-lighter { font-weight: lighter }
-.font-weight-bolder { font-weight: bolder }
-.font-weight-100 { font-weight: 100 }
-.font-weight-200 { font-weight: 200 }
-.font-weight-300 { font-weight: 300 }
-.font-weight-400 { font-weight: 400 }
-.font-weight-500 { font-weight: 500 }
-.font-weight-600 { font-weight: 600 }
-.font-weight-700 { font-weight: 700 }
-.font-weight-800 { font-weight: 800 }
-.font-weight-900 { font-weight: 900 }
+.font-weight-bolder  { font-weight: bolder }
+.font-weight-100     { font-weight: 100 }
+.font-weight-200     { font-weight: 200 }
+.font-weight-300     { font-weight: 300 }
+.font-weight-400     { font-weight: 400 }
+.font-weight-500     { font-weight: 500 }
+.font-weight-600     { font-weight: 600 }
+.font-weight-700     { font-weight: 700 }
+.font-weight-800     { font-weight: 800 }
+.font-weight-900     { font-weight: 900 }
 
-.font-normal { font-style: normal }
-.font-italic { font-style: italic }
-.font-oblique { font-style: oblique }
+.font-normal   { font-style: normal }
+.font-italic   { font-style: italic }
+.font-oblique  { font-style: oblique }
 
-.spacing-normal { letter-spacing: normal }
-.spacing-tight { letter-spacing: -0.05em }
-.spacing-wide { letter-spacing: 0.1em }
-.spacing-wider { letter-spacing: 0.5em }
+.spacing-normal  { letter-spacing: normal }
+.spacing-tight   { letter-spacing: -0.05em }
+.spacing-wide    { letter-spacing: 0.1em }
+.spacing-wider   { letter-spacing: 0.5em }
 ```
 Each classname supports breakpoints. You can use template `${property}-${breakpoint}-{$value}` to easy change text styles across different breakpoints. For example this `font-weight` will apply only on `sm` breakpoint:
 ```
@@ -643,20 +643,20 @@ Where `$property` is one of:
 * `p` - for classnames that set padding
 
 Where `$breakpoint` is one of:
-* `xs` - for classnames that set property on XS breakpoint > 576px
-* `sm` - for classnames that set property on SM breakpoint > 768px
-* `md` - for classnames that set property on MD breakpoint > 992px
-* `lg` - for classnames that set property on LG breakpoint > 1200px
-* `xl` - for classnames that set property on XL breakpoint > 1400px
+* `xs`  - for classnames that set property on XS breakpoint > 576px
+* `sm`  - for classnames that set property on SM breakpoint > 768px
+* `md`  - for classnames that set property on MD breakpoint > 992px
+* `lg`  - for classnames that set property on LG breakpoint > 1200px
+* `xl`  - for classnames that set property on XL breakpoint > 1400px
 * blank - if you want to set a margin and padding on all breakpoint
 
 Where `$side` is one of:
-* `t` - for classnames that set margin-top or padding-top
-* `b` - for classnames that set margin-bottom or padding-bottom
-* `l` - for classnames that set margin-left or padding-left
-* `r` - for classnames that set margin-right or padding-right
-* `x` - for classnames that set both *-left and *-right
-* `y` - for classnames that set both *-top and *-bottom
+* `t`   - for classnames that set margin-top or padding-top
+* `b`   - for classnames that set margin-bottom or padding-bottom
+* `l`   - for classnames that set margin-left or padding-left
+* `r`   - for classnames that set margin-right or padding-right
+* `x`   - for classnames that set both *-left and *-right
+* `y`   - for classnames that set both *-top and *-bottom
 * blank - for classnames that set a margin or padding on all 4 sides of the element
 
 Where `$size` is one of spacing sizes defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
@@ -700,17 +700,17 @@ NightVue sizing system is similar to Bootstrap. Sizing classnames can be used to
 
 NightVue generates set of classnames which uses format `${property}-${breakpoint}-${size}`, where `${property}` is one of:
 
-* `w` - for `width` in `%`
-* `vw` - for `width` in `vw`
-* `max-w` - for `max-width` in `%`
+* `w`      - for `width` in `%`
+* `vw`     - for `width` in `vw`
+* `max-w`  - for `max-width` in `%`
 * `max-vw` - for `max-width` in `vw`
-* `min-w` - for `min-width` in `%`
+* `min-w`  - for `min-width` in `%`
 * `min-vw` - for `min-width` in `vw`
-* `h` - for `height` in `%`
-* `vh` - for `height` in `vw`
-* `max-h` - for `max-height` in `%`
+* `h`      - for `height` in `%`
+* `vh`     - for `height` in `vw`
+* `max-h`  - for `max-height` in `%`
 * `max-vh` - for `max-height` in `vw`
-* `min-h` - for `min-height` in `%`
+* `min-h`  - for `min-height` in `%`
 * `min-vh` - for `min-height` in `vw`
 
 Where `$size` is one of sizing values defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
@@ -728,18 +728,18 @@ $sizings: (
 Here are generated sizing classnames based on 50 size as an example:
 
 ```
-.w-50 { width: 50% }
-.vw-50 { width: 50vw }
-.max-w-50 { max-width: 50% }
+.w-50      { width: 50% }
+.vw-50     { width: 50vw }
+.max-w-50  { max-width: 50% }
 .max-vw-50 { max-width: 50vw }
-.min-w-50 { min-width: 50% }
+.min-w-50  { min-width: 50% }
 .min-vw-50 { min-width: 50vw }
 
-.wh-50 { height: 50% }
-.vh-50 { height: 50vw }
-.max-h-50 { max-height: 50% }
+.wh-50     { height: 50% }
+.vh-50     { height: 50vw }
+.max-h-50  { max-height: 50% }
 .max-vh-50 { max-height: 50vw }
-.min-h-50 { min-height: 50% }
+.min-h-50  { min-height: 50% }
 .min-vh-50 { min-height: 50vw }
 ```
 
@@ -765,11 +765,11 @@ You can also apply `${breakpoints}` to dynamically change behavior on different 
 Don't forget that you can also apply `auto` sizing to an element:
 
 ```
-.w-auto { width: auto }
+.w-auto     { width: auto }
 .max-w-auto { max-width: auto }
 .min-w-auto { min-width: auto }
 
-.h-auto { height: auto }
+.h-auto     { height: auto }
 .max-h-auto { max-height: auto }
 .min-h-auto { min-height: auto }
 ```
@@ -842,16 +842,16 @@ NightVue automatically generates classnames from maps `$grays` and `$theme-color
 
 Here are some examples:
 ```
-.bg-white { background-color: #ffffff }
-.clr-white { color: #ffffff }
+.bg-white   { background-color: #ffffff }
+.clr-white  { color: #ffffff }
 .fill-white { fill: #ffffff }
 
-.bg-gray-1 { background-color: #eaeaea }
-.clr-gray-1 { color: #eaeaea }
+.bg-gray-1   { background-color: #eaeaea }
+.clr-gray-1  { color: #eaeaea }
 .fill-gray-1 { fill: #eaeaea }
 
-.bg-primary { background-color: #682CAB }
-.clr-primary { color: #682CAB }
+.bg-primary   { background-color: #682CAB }
+.clr-primary  { color: #682CAB }
 .fill-primary { fill: #682CAB }
 ```
 Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations from `$theme-colors` map. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#scale) functions for that. They help to create smooth and steady color pallete. 
@@ -1002,23 +1002,23 @@ $transition-speed: (
 ```
 NightVue generates classnames based on this maps to use them in HTML:
 ```
-.timing-linear { transition-timing-function: cubic-bezier(0, 0, 1, 1) }
-.timing-ease { transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) }
-.timing-ease-in { transition-timing-function: cubic-bezier(0.42, 0, 1, 1) }
-.timing-ease-out { transition-timing-function: cubic-bezier(0,0,0.58,1) }
+.timing-linear      { transition-timing-function: cubic-bezier(0, 0, 1, 1) }
+.timing-ease        { transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) }
+.timing-ease-in     { transition-timing-function: cubic-bezier(0.42, 0, 1, 1) }
+.timing-ease-out    { transition-timing-function: cubic-bezier(0,0,0.58,1) }
 .timing-ease-in-out { transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1) }
-.timing-standard { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) }
-.timing-emphasized { transition-timing-function: cubic-bezier(0.0, 0, 0.2, 1) }
+.timing-standard    { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) }
+.timing-emphasized  { transition-timing-function: cubic-bezier(0.0, 0, 0.2, 1) }
 .timing-decelerated { transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1) }
-.timing-sharp { transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1) }
+.timing-sharp       { transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1) }
 
 .speed-shortest { transition-duration: .15s }
-.speed-shorter { transition-duration: .2s }
-.speed-short { transition-duration: .25s }
-.speed-base { transition-duration: .3s }
-.speed-slow { transition-duration: .375s }
-.speed-slower { transition-duration: .5s }
-.speed-lazy { transition-duration: .75s }
+.speed-shorter  { transition-duration: .2s }
+.speed-short    { transition-duration: .25s }
+.speed-base     { transition-duration: .3s }
+.speed-slow     { transition-duration: .375s }
+.speed-slower   { transition-duration: .5s }
+.speed-lazy     { transition-duration: .75s }
 ```
 But we recomend to apply transitions in SCSS files. To do that use `transition()` and `complex-transition()` functions.
 
@@ -1061,11 +1061,11 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
   .cursor-#{$cursor} { cursor: $cursor }
 }
 
-.no-select { user-select: none }
+.no-select   { user-select: none }
 .no-overflow { overflow: hidden }
-.no-events  { pointer-events: none }
-.visible { visibility: visible }
-.invisible { visibility: hidden }
+.no-events   { pointer-events: none }
+.visible     { visibility: visible }
+.invisible   { visibility: hidden }
 ```
 
 # To-do list Q3-Q4 2022 ✅
