@@ -1039,7 +1039,7 @@ transition: complex-transition(
 
 ## Utilities
 
-In this section are collected small helpers who did not find a place in the sections listed above. These helpers are described in [_utilities.scss](src/styles/@core/helpers/_utilities.scss) file:
+In this section are collected small helpers which did't find a place in the sections listed above. These classnames are described in [_utilities.scss](src/styles/@core/helpers/_utilities.scss) file:
 
 ```
 $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
