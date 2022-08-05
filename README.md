@@ -733,18 +733,18 @@ Here are generated sizing classnames based on 50 size as an example:
 You can also apply `${breakpoints}` to dynamically change behavior on different screen sizes. For example, this `min-width` style will apply only below 768px (**sm** breakpoint):
 
 ```
-<div class="minw-sm-50 minw-75">
+<div class="min-w-sm-50 min-w-75">
   I have min-width 50% below 768px and 75% above
 </div>
 ```
 ```
 @media screen and (min-width: 768px) {
-  .minw-sm-50 {
+  .min-w-sm-50 {
     min-width: 50%;
   }
 }
 
-.minw-sm-75 {
+.min-w-sm-75 {
   min-width: 75%;
 }
 ```
@@ -909,7 +909,7 @@ You may have noticed that we use `gray()` function in `$grays` map to generate s
 "gray-9":  #404040,
 "gray-10": #2b2b2b
 ```
-Each next color is darker than the previous one. When you call `gray(3, 10)` function returns third color in list of 10 colors (`#bfbfbf`). Also you can pass different color level and total length of list. Here are some examples:
+Each next color is darker than the previous one. When you call `gray(3, 10)` function returns third color in list of 10 colors. You can pass different color level and total length of list. Here are some examples:
 ```
 color: gray($level: 4, $from: 4);
 // ▯▯▯▮
