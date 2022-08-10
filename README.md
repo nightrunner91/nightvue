@@ -991,6 +991,8 @@ NightVue uses Sass maps to store project colors. This maps will help you quickly
 * `$grays` map includes achromatic list (shades of gray between `#fff` and `#000`)
 * `$theme-colors` map includes semantically named colors composed from maps above
 
+All this maps are stored in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+
 ```
 $colors: (
   'red':       #F44336,
@@ -1148,7 +1150,123 @@ color: gray(7, 24);
 
 ## Gradients
 
-[ 🚧 *this part of the documentation is in progress* ]
+Working with `linear-gradient` may be akward and cluncy sometimes. It's not easy to remember all settings and features of this CSS function. NightVue provides some tools to easy manage group of gradients and create new ones with ease. Read [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient) describing `linear-gradients` if you are not quite familiar with them.
+
+First of all NightVue uses Sass map `$gradients` to store all gradients used in project. This map is located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file. By default there are already 4 gradients as examples:
+
+```
+$gradients: (
+  primary_success: (
+    direction: 145deg,
+    fallback: map-get($theme-colors, 'primary'),
+    list: (
+      lighten(map-get($theme-colors, 'primary'), map-get($levels, 2)) 10%,
+      lighten(map-get($theme-colors, 'success'), map-get($levels, 1)) 80%
+    )
+  ),
+
+  primary-light-3_primary: (
+    direction: to bottom,
+    fallback: map-get($theme-colors, 'primary'),
+    list: (
+      map-get($theme-colors, 'primary'),
+      lighten(map-get($theme-colors, 'primary'), map-get($levels, 3))
+    )
+  ),
+
+  red_yellow_blue: (
+    direction: to right,
+    fallback: map-get($colors, 'red'),
+    list: (
+      map-get($colors, 'red'),
+      map-get($colors, 'yellow'),
+      map-get($colors, 'blue')
+    )
+  ),
+
+  info_transparent: (
+    direction: 90deg,
+    fallback: map-get($theme-colors, 'info'),
+    list: (
+      map-get($theme-colors, 'info'),
+      transparent
+    )
+  ),
+);
+```
+
+We recomend to name gradients in such pattern: `<color1>_<color2>_<color3>`. It will help you to easy understand what colors are used and what is direction of gradient. Here are some examples: `info_success`, `primary_danger`, `light_dark`, `transparent_black`, `red_yellow_blue`.
+
+If gradient uses modified color you may name it like this: `<color-${style}-${value}>_<color-${style}-${value}>`. For example, gradient named `primary-light-3_primary` indicates that it uses lightened by 3 levels `$primary` and base `$primary` colors and shows the direction of it. Pretty self explanatory, right?
+
+Now let's take a look at gradient itself. Each one is written by template:
+
+```
+gradientName: (
+  direction: { String },
+  fallback: { String },
+  list: ( { String }, { String }, { String }... )
+)
+```
+
+Where `direction` is obviously direction of `linear-gradient`. It may be keyword:
+
+* `to top`
+* `to top right`
+* `to right`
+* `to bottom right`
+* `to bottom`
+* `to bottom left`
+* `to left`,
+* `to left top`
+
+or any angle value in `deg`, `rad`, `grad` or `turn`.
+
+Parameter `fallback` is color by default for unsupported browsers. To know which browsers don't support `linear-gradient` visit [caniuse.com](https://caniuse.com/?search=linear-gradient) website.
+
+And finally most inetersting part is `list` parameter. This is basicly a list of colors in gradient, separated by a comma. One way to fill it is by using `map-get()` function like we did in examples above.
+
+### HTML usage
+
+For each gradient in `$gradients` map NightVue generates unique classname with template `.gradient-${gradient}`:
+
+```
+.gradient-primary_success {
+  background: #682cab;
+  background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+}
+
+.gradient-primary-light-3_primary {
+  background: #682CAB;
+  background: linear-gradient(to bottom, #682CAB, #9b65d8);
+}
+
+.gradient-red_yellow_blue {
+  background: #f44336;
+  background: linear-gradient(90deg, #f44336, #ffee58, #2196f3);
+}
+
+.gradient-info_transparent{
+  background: #009688;
+  background: linear-gradient(90deg, #009688, transparent);
+}
+```
+
+### Sass mixin
+
+In case you need to apply gradient in SCSS file insted of HTML use `@linear-gradient($name)` mixin. It requires only name of gradient from `$gradients` map.
+
+```
+.selector {
+  @include linear-gradient('primary_success');
+}
+
+// =>
+.selector {
+  background: #682cab;
+  background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+}
+```
 
 ## Icons
 
