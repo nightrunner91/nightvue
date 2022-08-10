@@ -421,7 +421,32 @@ Here are some examples of usage:
 
 ## Typography
 
-Typography maps are located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file. In [typography.scss](src/styles/@core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
+NightVue stores all typography settings in Sass maps located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file. In [typography.scss](src/styles/@core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
+
+### Font import
+
+We recomend to start with import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to add your own fonts:
+
+```
+// Font files location:
+
+├── src
+│   ├── assets
+│       ├── fonts
+│           └── Onest
+
+// Import font using @font-face mixin:
+
+@include font-face('Onest', 'OnestRegular', 400, normal, 'recent');
+@include font-face('Onest', 'OnestMedium', 500, normal, 'recent');
+@include font-face('Onest', 'OnestBold', 700, normal, 'recent');
+@include font-face('Onest', 'OnestBlack', 900, normal, 'recent');
+```
+
+### Sass maps
+
+These are Sass maps with typography settings we talked early. Each one is self explanatory, so take a look at them:
+
 ```
 $font-families: (
   base:      "Onest",
@@ -492,7 +517,9 @@ $letter-spacings: (
   wider:  .5em,
 );
 ```
-Important part are settings for headings, displays and base body text styles:
+
+Important part is settings for headings and displays:
+
 ```
 $headings-fz: (
   h1: 4.5rem,
@@ -523,14 +550,27 @@ $displays-margins: (
   bottom: 1em,
 );
 ```
+
+Here you can manage styles for base body text, small and tagline styles:
+
 ```
-$base-fz: 16px;
-$base-lh: map-get($line-heights, 50);
-$base-fw: map-get($font-weights, 400);
-$base-mg: map-get($spacers, 1);
-$small-fz: 0.875;
+$base-fz:      16px; // CRUCIAL VALUE! A lot of things depends on it. Be aware.
+$base-lh:      map-get($line-heights, 50);
+$base-fw:      map-get($font-weights, 400);
+
+$small-fz:     0.875; // Ratio of text size for <small> tag and .small classname
+$small-lh:     map-get($line-heights, 25);
+$small-fw:     map-get($font-weights, 400);
+
+$tagline-fz:   1.25; // Ratio of text size for .tagline classname
+$tagline-lh:   map-get($line-heights, 50);
+$tagline-fw:   map-get($font-weights, 500);
 ```
+
+### Utility classnames
+
 For each Sass map NightVue generates set of utility classnames to use in HTML:
+
 ```
 .font-base     { font-family: "Onest" }
 .font-headings { font-family: "Onest" }
@@ -582,13 +622,32 @@ For each Sass map NightVue generates set of utility classnames to use in HTML:
 .spacing-wide    { letter-spacing: 0.1em }
 .spacing-wider   { letter-spacing: 0.5em }
 ```
+
 Each classname supports breakpoints. You can use template `${property}-${breakpoint}-{$value}` to easy change text styles across different breakpoints. For example this `font-weight` will apply only on `sm` breakpoint:
+
 ```
 @media screen and (min-width: 768px) {
   .font-weight-sm-500 {
       font-weight: 500 ;
   }
 }
+```
+
+To apply small styles to text you can add `.small` classname or wrap element in `<small></small>` tag. Another way is to use `@small()` mixin:
+
+```
+<div class="small">I am small text</div>
+<small>Me too!</small>
+
+.selector { @include small() }
+```
+
+Apply tagline styles to text in similar way:
+
+```
+<div class="tagline">I am tagline text</div>
+
+.selector { @include tagline() }
 ```
 
 For truncated text use one of these helpers:
@@ -620,24 +679,6 @@ Or use `@text-truncate()` mixin for that. It requires argument `$width` in `px` 
   text-overflow: ellipsis;
   max-width: 150px;
 }
-```
-
-Also here you can import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to add your own fonts:
-
-```
-// Font files location:
-
-├── src
-│   ├── assets
-│       ├── fonts
-│           └── Onest
-
-// Import font using @font-face mixin:
-
-@include font-face('Onest', 'OnestRegular', 400, normal, 'recent');
-@include font-face('Onest', 'OnestMedium', 500, normal, 'recent');
-@include font-face('Onest', 'OnestBold', 700, normal, 'recent');
-@include font-face('Onest', 'OnestBlack', 900, normal, 'recent');
 ```
 
 ## Position
@@ -687,6 +728,8 @@ $spacers: (
   5:    5rem,
   auto: auto
 );
+
+$base-mg: map-get($spacers, 1); // Universal margin used for <p>, <ul> etc.
 ```
 In case you prefer SCSS method to define spacers use `spacer()` function for that.
 
