@@ -429,7 +429,7 @@ NightVue stores all typography settings in Sass maps located in [_varaibles.scss
 
 ### Font import
 
-We recomend to start with import fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to add your own fonts:
+We recomend to start with importing fonts by using `@font-face` mixin. Make sure to store your fonts in `src/assets/fonts` folder. Each font must be saved in a folder with the same name as font itself. By default NightVue uses [Onest](https://onest.md/en). This is how we stored and imported it, use this as an example to add your own fonts:
 
 ```
 // Font files location:
@@ -701,7 +701,21 @@ Or use `@text-truncate($width)` mixin for that. It requires a single argument `$
 
 ## Position
 
-[ 🚧 *this part of the documentation is in progress* ]
+These utility classnames will help you to set and change position property of elements. Each classname supports breakpoint, so you can easily change behaviour of element across different breakpoints:
+
+```
+.position-relative  { position: relative }
+.position-absolute  { position: absolute }
+.position-static    { position: static }
+.position-fixed     { position: fixed }
+.position-static    { position: static }
+
+@media screen and (min-width: 1280px) {
+  .position-lg-absolute {
+     position: absolute
+  }
+}
+```
 
 ## Display
 
