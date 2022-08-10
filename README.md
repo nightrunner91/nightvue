@@ -701,7 +701,7 @@ Or use `@text-truncate($width)` mixin for that. It requires a single argument `$
 
 ## Position
 
-These utility classnames will help you to set and change position property of elements. Each classname supports breakpoint, so you can easily change behaviour of element across different breakpoints:
+These utility classnames will help you to set and change position property of elements. 
 
 ```
 .position-relative  { position: relative }
@@ -709,7 +709,11 @@ These utility classnames will help you to set and change position property of el
 .position-static    { position: static }
 .position-fixed     { position: fixed }
 .position-static    { position: static }
+```
 
+Each classname supports breakpoint, so you can easily change behaviour of element across different breakpoints. Use template `.position-${breakpoint}-{$value}` for that. For example, this element will be in `position: absolute` only on LG breakpoint:
+
+```
 @media screen and (min-width: 1280px) {
   .position-lg-absolute {
      position: absolute
