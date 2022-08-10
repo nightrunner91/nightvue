@@ -67,18 +67,20 @@ $spacers: (
   auto: auto
 );
 
+$base-mg: map-get($spacers, 1); // Universal margin used for <p>, <ul> etc.
+
 
 // ================== //
 // ===== Sizing ===== //
 // ================== //
 
 $sizings: (
-  0:    0,
-  25:   25,
-  50:   50,
-  75:   75,
-  100:  100,
-  auto: auto
+  0:    0,   // 0% | 0wv | 0vh
+  25:   25,  // 25% | 25wv | 25vh
+  50:   50,  // 50% | 50wv | 50vh
+  75:   75,  // 75% | 75wv | 75vh
+  100:  100, // 100% | 100wv | 100vh
+  auto: auto // auto
 );
 
 
@@ -183,11 +185,17 @@ $letter-spacings: (
   wider:  .5em,
 );
 
-$base-fz: 16px; // ❗ CRUCIAL VALUE! A lot of things depends on it. Be aware.
-$base-lh: map-get($line-heights, 50);
-$base-fw: map-get($font-weights, 400);
-$base-mg: map-get($spacers, 1);
-$small-fz: 0.875; // ratio of how lower will be font-size for <small> tag and .small classname
+$base-fz:      16px; // CRUCIAL VALUE! A lot of things depends on it. Be aware.
+$base-lh:      map-get($line-heights, 50);
+$base-fw:      map-get($font-weights, 400);
+
+$small-fz:     0.875; // Ratio of text size for <small> tag and .small classname
+$small-lh:     map-get($line-heights, 25);
+$small-fw:     map-get($font-weights, 400);
+
+$tagline-fz:   1.25; // Ratio of text size for .tagline classname
+$tagline-lh:   map-get($line-heights, 50);
+$tagline-fw:   map-get($font-weights, 500);
 
 
 // ================== //

@@ -99,6 +99,10 @@ small, .small {
   @include small();
 }
 
+.tagline {
+  @include tagline();
+}
+
 mark, .mark {
   background-color: rgba(black, 0.75);
 }

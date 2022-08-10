@@ -424,8 +424,8 @@
 
 @mixin small() {
   /// Small mixin that injects small font-size styles
-  /// See variables.scss file for params $base-fz, $base-lh and $small-fz
-  /// By default they are: 16px, 1.5, 0.875
+  /// See variables.scss file for params $base-fz, $small-fz, $small-lh and $small-fw
+  /// By default they are: 16px, 0.875, 1.25, 400
   ///
   /// @author nightrunner91
   ///
@@ -437,9 +437,33 @@
   /// @output
   ///   font-size: 14px;
   ///   line-height: 1.3125;
+  ///   font-weight: 400;
 
   font-size: $base-fz * $small-fz;
-  line-height: $base-lh * $small-fz;
+  line-height: $small-lh;
+  font-weight: $small-fw;
+};
+
+@mixin tagline() {
+  /// Small mixin that injects tagline font-size styles
+  /// See variables.scss file for params $base-fz, $tagline-fz, $tagline-lh, $tagline-fw
+  /// By default they are: 16px, 1.25, 1.5, 500
+  ///
+  /// @author nightrunner91
+  ///
+  /// @link https://github.com/nightrunner91/nightvue
+  /// 
+  /// @example
+  ///   @include tagline();
+  ///
+  /// @output
+  ///   font-size: 14px;
+  ///   line-height: 1.3125;
+  ///   font-weight: 500;
+
+  font-size: $base-fz * $tagline-fz;
+  line-height: $tagline-lh;
+  font-weight: $tagline-fw;
 };
 
 @mixin pseudoelem() {
