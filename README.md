@@ -447,7 +447,7 @@ We recomend to start with importing fonts by using `@font-face` mixin. Make sure
 @include font-face('Onest', 'OnestBlack', 900, normal, 'recent');
 ```
 
-### Sass maps
+### Typography Sass maps
 
 These are Sass maps with typography settings we talked earlier. Each one is self explanatory, so take a look at them:
 
@@ -571,7 +571,7 @@ $tagline-lh:   map-get($line-heights, 50);
 $tagline-fw:   map-get($font-weights, 500);
 ```
 
-### Utility classnames
+### Typography utility classnames
 
 For each Sass map NightVue generates set of utility classnames to use in HTML:
 
@@ -991,7 +991,7 @@ NightVue uses Sass maps to store project colors. This maps will help you quickly
 * `$grays` map includes achromatic list (shades of gray between `#fff` and `#000`)
 * `$theme-colors` map includes semantically named colors composed from maps above
 
-All this maps are stored in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+All this maps are described in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 
 ```
 $colors: (
@@ -1043,7 +1043,7 @@ $levels: (
   5: 30%,
 );
 ```
-### HTML Usage
+### Colors HTML Usage
 
 NightVue automatically generates classnames from maps `$grays` and `$theme-colors` above. Each color have unique classname with `background-color`, `color` and `fill` styles and uses template `${property}-${color}`, where `${property}` is one of:
 
@@ -1095,7 +1095,7 @@ Generated classnames uses pattern `${property}-${color}-${style}-${level}`. Let'
 .clr-primary-desat-5 { color: #693f98 }
 ```
 
-### Sass functions
+### Color Sass functions
 
 If you need to apply colors in SCSS files you can use `color($name, $style, $rate)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$rate` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
 ```
@@ -1226,7 +1226,7 @@ Parameter `fallback` is color by default for unsupported browsers. To know which
 
 And finally most inetersting part is `list` parameter. This is basicly a list of colors in gradient, separated by a comma. One way to fill it is by using `map-get()` function like we did in examples above.
 
-### HTML usage
+### Gradients HTML usage
 
 For each gradient in `$gradients` map NightVue generates unique classname with template `.gradient-${gradient}`:
 
@@ -1252,7 +1252,7 @@ For each gradient in `$gradients` map NightVue generates unique classname with t
 }
 ```
 
-### Sass mixin
+### Gradient Sass mixin
 
 In case you need to apply gradient in SCSS file insted of HTML use `@linear-gradient($name)` mixin. It requires only name of gradient from `$gradients` map.
 
@@ -1379,7 +1379,7 @@ transition: complex-transition(
 
 ## Utilities
 
-In this section are collected small helpers which did't find a place in the sections listed above. These classnames are described in [_utilities.scss](src/styles/@core/helpers/_utilities.scss) file:
+In this section are collected small helpers which didn't find a place in the sections listed above. These classnames are described in [_utilities.scss](src/styles/@core/helpers/_utilities.scss) file:
 
 ```
 $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
