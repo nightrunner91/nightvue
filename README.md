@@ -7,9 +7,9 @@
 
 NightVue is a “crystal clear” development framework for [Vue.js 2.x](https://ru.vuejs.org/v2/guide/) powered by [Vue CLI 4.x](https://cli.vuejs.org/), one of the most convenient tools for developing with Vue.js. 
 
-While many other frameworks comes with pre-build components and styles, NightVue gives you the maximum freedom to develop your own web interfaces. It is created for developers who prefer to develop “from scratch”. NightVue gives you tools to work with and what you do with them is up to you.
+While many other frameworks comes with pre-build components and styles, NightVue gives you the maximum freedom to develop your own web interfaces. It is created for those who prefer to develop “from scratch”. NightVue gives you tools to work with and what you do with them is up to you.
 
-For those developers who need framework with ready-to-use UI solutions, we would recomend to use popular ones like [BootstrapVue](https://bootstrap-vue.org/), [Vuetify](https://vuetifyjs.com/en/), [Vue Material](https://www.creative-tim.com/vuematerial/), or whatever you like. Anyway, take a look at our documentation, maybe NightVue is what you need!
+For those developers who needs framework with ready-to-use UI solutions, we would recomend to use popular ones like [BootstrapVue](https://bootstrap-vue.org/), [Vuetify](https://vuetifyjs.com/en/), [Vue Material](https://www.creative-tim.com/vuematerial/), or whatever you like. Anyway, take a look at our documentation, maybe NightVue is what you need!
 
 # What's Included? 📦
 
@@ -54,7 +54,7 @@ Build your project
 ```
 npm run build
 ```
-Test or fix errors
+Test or test and fix errors
 ```
 npm run lint
 npm run lint --fix
@@ -642,7 +642,8 @@ To apply small styles to text you can add `.small` classname or wrap element in 
 ```
 <div class="small">I am small text</div>
 <small>Me too!</small>
-
+```
+```
 .selector { @include small() }
 ```
 
@@ -650,12 +651,25 @@ Apply tagline styles to text in similar way:
 
 ```
 <div class="tagline">I am tagline text</div>
-
+```
+```
 .selector { @include tagline() }
 ```
 
-For truncated text use one of these helpers:
+Often you need to truncate some long text and put dots at the end of the line. Use one of these helpers to do that:
+```
+<div class="text-truncate" style="width: 120px;">
+  I am very long text and I will be truncated at 120px width
+</div>
 
+<div class="text-truncate max-w-25">
+  I am very long text and I will be truncated at 25% width
+</div>
+
+<div class="text-dotted">
+  I will not be truncated, but will have '…' at the end
+</div>
+```
 ```
 .text-truncate {
   display: inline-block;
@@ -671,7 +685,7 @@ For truncated text use one of these helpers:
 }
 ```
 
-Or use `@text-truncate()` mixin for that. It requires argument `$width` in `px` or `%`.
+Or use `@text-truncate($width)` mixin for that. It requires a single argument `$width` in `px` or `%`.
 
 ```
 .text { @include text-truncate(150px) }
@@ -691,7 +705,123 @@ Or use `@text-truncate()` mixin for that. It requires argument `$width` in `px` 
 
 ## Display
 
-Display system allows you to change display property and quickly manage the layout, alignment, and sizing of elements with a full suite of responsive flexbox utilities.
+Display system allows you to change display property and quickly manage the layout, alignment, and sizing of elements with a full suite of responsive flexbox utilities. If you are not familiar with flex we advice you to read this [article](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background) first. Utility classnames are generated in [_display.scss](src/styles/@core/helpers/_display.scss) file.
+
+Here are listed possible variants of `display` property:
+
+```
+.d-none          { display: none }
+.d-block         { display: block }
+.d-inline        { display: inline }
+.d-inline-block  { display: inline-block }
+.d-flex          { display: flex }
+.d-inline-flex   { display: inline-flex }
+.d-table         { display: table }
+.d-table-cell    { display: table-cell }
+.d-table-row     { display: table-row }
+```
+
+NightVue generates classnames based on flexbox settings:
+
+* `flex-direction`
+* `justify-content`
+* `align-items`
+* `align-self`
+* `align-content`
+* `flex-wrap`
+* `flex-grow`
+* `flex-shrink`
+
+Here are possible variants for each of those:
+
+```
+.flex-row             { flex-direction: row }
+.flex-row-reverse     { flex-direction: row-reverse }
+.flex-column          { flex-direction: column }
+.flex-column-reverse  { flex-direction: column-reverse }
+```
+```
+.justify-content-start    { justify-content: start }
+.justify-content-end      { justify-content: end }
+.justify-content-center   { justify-content: center }
+.justify-content-between  { justify-content: space-between }
+.justify-content-around   { justify-content: space-around }
+```
+```
+.align-items-start     { align-items: start }
+.align-items-end       { align-items: end }
+.align-items-center    { align-items: center }
+.align-items-baseline  { align-items: baseline }
+.align-items-stretch   { align-items: stretch }
+```
+```
+.align-self-start     { align-self: start }
+.align-self-end       { align-self: end }
+.align-self-center    { align-self: center }
+.align-self-baseline  { align-self: baseline }
+.align-self-stretch   { align-self: stretch }
+```
+```
+.align-content-start     { align-content: start }
+.align-content-end       { align-content: end }
+.align-content-center    { align-content: center }
+.align-content-baseline  { align-content: baseline }
+.align-content-stretch   { align-content: stretch }
+```
+```
+.flex-wrap          { flex-wrap: wrap }
+.flex-nowrap        { flex-wrap: nowrap }
+.flex-wrap-reverse  { flex-wrap: wrap-reverse }
+```
+```
+.flex-grow-0    { flex-grow: 0 }
+.flex-grow-1    { flex-grow: 1 }
+```
+```
+.flex-shrink-0  { flex-shrink: 0 }
+.flex-shrink-1  { flex-shrink: 1 }
+```
+
+Each classname supports breakpoints, which can help you to easy change display and flex properties across different breakpoints. Use template `${property}-${breakpoint}-{$value}` for that. Take a look at some examples:
+
+```
+@media screen and (min-width: 1400px) {
+  .d-xl-none { display: none }
+}
+
+@media screen and (min-width: 1200px) {
+  .flex-lg-column { flex-direction: column }
+}
+
+@media screen and (min-width: 992px) {
+  .justify-content-md-center { justify-content: center }
+}
+
+@media screen and (min-width: 768px) {
+  .align-items-sm-start { align-items: start }
+}
+
+@media screen and (min-width: 576px) {
+  .flex-wrap-xs-nowrap { flex-wrap: nowrap }
+}
+```
+
+Often you need to align content right in the center of X and Y axes. In that case use classname `.flex-center` on parent element. It also supports breakpoints.
+
+```
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+```
+.flex-xs-center { ... }  // styles applies above 576px
+.flex-sm-center { ... }  // styles applies above 768px
+.flex-md-center { ... }  // styles applies above 992px
+.flex-lg-center { ... }  // styles applies above 1200px
+.flex-xl-center { ... }  // styles applies above 1400px
+```
 
 ## Spacing
 

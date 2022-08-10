@@ -75,11 +75,11 @@ $base-mg: map-get($spacers, 1); // Universal margin used for <p>, <ul> etc.
 // ================== //
 
 $sizings: (
-  0:    0,   // 0% | 0wv | 0vh
-  25:   25,  // 25% | 25wv | 25vh
-  50:   50,  // 50% | 50wv | 50vh
-  75:   75,  // 75% | 75wv | 75vh
-  100:  100, // 100% | 100wv | 100vh
+  0:    0,   // 0%   | 0vw   | 0vh
+  25:   25,  // 25%  | 25vw  | 25vh
+  50:   50,  // 50%  | 50vw  | 50vh
+  75:   75,  // 75%  | 75vw  | 75vh
+  100:  100, // 100% | 100vw | 100vh
   auto: auto // auto
 );
 
