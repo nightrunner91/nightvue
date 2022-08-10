@@ -5,7 +5,11 @@
 
 # Introduction 👋
 
-NightVue is a "crystal clear" development framework for [Vue.js 2.x](https://ru.vuejs.org/v2/guide/). While many other frameworks comes with pre-build components and styles, NightVue gives you the maximum freedom to develop your own web interfaces. NightVue is build for Front-end developers who don't like rewriting these built-in third-party styling solutions. It's for those who prefer to develop "from scratch". The framework is powered by [Vue CLI 4.x](https://cli.vuejs.org/), one of the most convenient tools for developing with Vue.js. For those who need framework with ready-to-use UI solutions, we would recomend to use popular ones like [BootstrapVue](https://bootstrap-vue.org/), [Vuetify](https://vuetifyjs.com/en/), [Vue Material](https://www.creative-tim.com/vuematerial/), or whatever you like. 
+NightVue is a “crystal clear” development framework for [Vue.js 2.x](https://ru.vuejs.org/v2/guide/) powered by [Vue CLI 4.x](https://cli.vuejs.org/), one of the most convenient tools for developing with Vue.js. 
+
+While many other frameworks comes with pre-build components and styles, NightVue gives you the maximum freedom to develop your own web interfaces. It is created for developers who prefer to develop “from scratch”. NightVue gives you tools to work with and what you do with them is up to you.
+
+For those developers who need framework with ready-to-use UI solutions, we would recomend to use popular ones like [BootstrapVue](https://bootstrap-vue.org/), [Vuetify](https://vuetifyjs.com/en/), [Vue Material](https://www.creative-tim.com/vuematerial/), or whatever you like. Anyway, take a look at our documentation, maybe NightVue is what you need!
 
 # What's Included? 📦
 
@@ -156,7 +160,7 @@ Key file in this system is [AppLayout.vue](src/layouts/AppLayout.vue). Here we c
   <slot />
 </component>
 ```
-NightVue offers 2 types of layouts:
+NightVue offers 2 types of layouts at the begining:
 
 * **default** - widely used `<header></header>` → `<main></main>` → `<footer></footer>` layout
 * **full** - plain page without any additional elements, just a simple `<div></div>`
@@ -181,7 +185,7 @@ These templates are stored in [AppLayoutDefault.vue](src/layouts/AppLayoutDefaul
   </div>
 </template>
 ```
-You can modify them or create your own layout. To do this create new Vue file named in such manner as default ones and don't forget to add new layouts in computed property of core file. This classnames will apply to root element:
+You can modify them or create your own layouts. To do this create new Vue file named in such manner as default ones and don't forget to add new layouts in computed property of core file. This classnames will apply to root element:
 ```
 layoutClassnames() {
   const layout = this.$route.meta.layout || defaultLayout
@@ -212,7 +216,7 @@ When you add new page to Router, define it's layout using `meta.layout` param. I
   },
 },
 ```
-Now let's make things a bit more fancy. We wrapped root dynamic component in `<transition></transition>` to add smooth [transition between pages](https://router.vuejs.org/guide/advanced/transitions.html#transitions):
+Now let's make things a bit more fancy. We wrapped root dynamic component in `<transition></transition>` tag to add smooth [transition between pages](https://router.vuejs.org/guide/advanced/transitions.html#transitions):
 ```
 <transition
   appear
@@ -445,7 +449,7 @@ We recomend to start with import fonts by using `@font-face` mixin. Make sure to
 
 ### Sass maps
 
-These are Sass maps with typography settings we talked early. Each one is self explanatory, so take a look at them:
+These are Sass maps with typography settings we talked earlier. Each one is self explanatory, so take a look at them:
 
 ```
 $font-families: (
@@ -532,8 +536,8 @@ $headings-fz: (
 $headings-lh: map-get($line-heights, 25);
 $headings-fw: map-get($font-weights, 500);
 $headings-margins: (
-  top: 1.5em,
-  bottom: 0.5em,
+  top: map-get($spacers, 1),
+  bottom: map-get($spacers, 50),
 );
 ```
 ```
@@ -546,8 +550,8 @@ $displays-fz: (
 $displays-lh: map-get($line-heights, 25);
 $displays-fw: map-get($font-weights, 500);
 $displays-margins: (
-  top: 1.5em,
-  bottom: 1em,
+  top: map-get($spacers, 1),
+  bottom: map-get($spacers, 50),
 );
 ```
 

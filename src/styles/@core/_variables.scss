@@ -124,34 +124,6 @@ $font-weights: (
   900: 900, // black
 );
 
-$headings-fz: (
-  h1: 4.5rem,
-  h2: 2.5rem,
-  h3: 1.75rem,
-  h4: 1.25rem,
-  h5: 1rem,
-  h6: 0.875rem,
-);
-$headings-lh: map-get($line-heights, 25);
-$headings-fw: map-get($font-weights, 500);
-$headings-margins: (
-  top: 1.5em,
-  bottom: 0.5em,
-);
-
-$displays-fz: (
-  display-1: 74px,
-  display-2: 62px,
-  display-3: 48px,
-  display-4: 34px,
-);
-$displays-lh: map-get($line-heights, 25);
-$displays-fw: map-get($font-weights, 500);
-$displays-margins: (
-  top: 1.5em,
-  bottom: 1em,
-);
-
 $text-transforms: (
   lowercase:  lowercase, 
   uppercase:  uppercase, 
@@ -183,6 +155,34 @@ $letter-spacings: (
   tight:   -0.05em,
   wide:   .1em,
   wider:  .5em,
+);
+
+$headings-fz: (
+  h1: 4.5rem,
+  h2: 2.5rem,
+  h3: 1.75rem,
+  h4: 1.25rem,
+  h5: 1rem,
+  h6: 0.875rem,
+);
+$headings-lh: map-get($line-heights, 25);
+$headings-fw: map-get($font-weights, 500);
+$headings-margins: (
+  top: map-get($spacers, 1),
+  bottom: map-get($spacers, 50),
+);
+
+$displays-fz: (
+  display-1: 74px,
+  display-2: 62px,
+  display-3: 48px,
+  display-4: 34px,
+);
+$displays-lh: map-get($line-heights, 25);
+$displays-fw: map-get($font-weights, 500);
+$displays-margins: (
+  top: map-get($spacers, 1),
+  bottom: map-get($spacers, 50),
 );
 
 $base-fz:      16px; // CRUCIAL VALUE! A lot of things depends on it. Be aware.
