@@ -1296,8 +1296,21 @@ These classnames supports `$breakpoints` so you can easily manage `opacity` leve
 In case you need to apply `opacity` in SCSS use `opacity($level)` function:
 
 ```
+.selector { opacity: opacity(0); }
+// => .selector { opacity: 0; }
+
 .selector { opacity: opacity(25); }
 // => .selector { opacity: 0.25; }
+
+.selector { opacity: opacity(50); }
+// => .selector { opacity: 0.5; }
+
+.selector { opacity: opacity(75); }
+// => .selector { opacity: 0.75; }
+
+.selector { opacity: opacity(100); }
+// => .selector { opacity: 1; }
+
 ```
 
 ## Icons
@@ -1390,13 +1403,13 @@ We _recomend_ to use predefined icon sizes from `$icons` map, but here you can p
 
 ## Z-index
 
-Z-index property has a huge role in how web interface works. To position elements in Z-axis NightVue provides list of utility classnames. Taking into account that each project is unuque and NightVue don't have any pre-build components we decided to make an unversal list from -1 to 12. It's quite possible that this solution won't work for you, in that case use any other solution.
+Z-index property has a huge role in how web interface works. To position elements in Z-axis NightVue provides list of utility classnames. Taking into account that each project is unuque and NightVue don't have any pre-build components we decided to make an unversal list from -1 to 12. It's quite possible that this solution won't work for you, in that case use any other you like more.
 
-Utility classnames uses format `.z-plus-${value}` for positive values and `.z-minus-${value}` for negatives:
+Utility classnames uses format `.z-plus-${value}` for positive values and `.z-minus-${value}` for negatives. You can also determine start and end values in [_zindex.scss](src/styles/@core/helpers/_zindex.scss) file:
 
 ```
 $zindex-start: -1;
-$zindex-end: 12;
+$zindex-end:   12;
 
 .z-minus-1 { z-index: -1 }
 .z-0       { z-index: 0 }
