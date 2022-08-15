@@ -22,7 +22,7 @@
 
 @mixin make-opacity($breakpoint:null) {
   @each $opacity, $value in $opacities {
-    .opacity#{$breakpoint}-#{$opacity} { opacity: $value / 100 !important }
+    .opacity#{$breakpoint}-#{$opacity} { opacity: opacity($opacity) !important }
   }
 }
 

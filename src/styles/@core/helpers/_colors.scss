@@ -24,6 +24,15 @@
   .bg-#{$name} { background-color: $code !important }
   .clr-#{$name} { color: $code !important }
   .fill-#{$name} { fill: $code !important }
+
+  /// Apply rgba variants of $grays
+  /// It refers to $opacities map
+  /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba
+  @each $opacity, $level in $opacities {
+    .bg-#{$name}-opacity-#{$opacity} { background-color: color($name, $opacity: $opacity); }
+    .clr-#{$name}-opacity-#{$opacity} { color: color($name, $opacity: $opacity); }
+    .fill-#{$name}-opacity-#{$opacity} { fill: color($name, $opacity: $opacity); }
+  }
 }
 
 /// Generate classnames from $theme-colors map
@@ -60,6 +69,9 @@
     .fill-#{$name}-desat-#{$level} { fill: color($name, 'desat', $level) !important  }
   }
 
+  /// Apply rgba variants of $theme-colors
+  /// It refers to $opacities map
+  /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba
   @each $opacity, $level in $opacities {
     .bg-#{$name}-opacity-#{$opacity} { background-color: color($name, $opacity: $opacity); }
     .clr-#{$name}-opacity-#{$opacity} { color: color($name, $opacity: $opacity); }

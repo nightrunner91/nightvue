@@ -23,6 +23,29 @@
   @return if($perc > 0, unquote((100 / ($from / $perc)) + "%"), 0%);
 };
 
+@function strip-unit($number) {
+  /// Remove the unit of a length
+  /// 
+  /// @author Kitty Giraudel
+  /// 
+  /// @link https://css-tricks.com/snippets/sass/strip-unit-function/
+  /// 
+  /// @param $number: { Number }, [number to remove unit from]
+  /// 
+  /// @example
+  ///   $length: 42px;
+  ///   $value: strip-unit($length);
+  /// 
+  /// @output
+  ///   $value: 42;
+
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
 @function spacer($val1, $val2: false, $val3: false, $val4: false) {
   /// Function returns specified spacer value from $spacers map
   ///
@@ -106,6 +129,8 @@
   $targetColor: map-get($targetMap, $name);
   $modifiedColor: $targetColor;
 
+  @debug $targetColor;
+
   @if $style {
     $level: map-get($levels, $level);
 
@@ -129,36 +154,6 @@
   @return $modifiedColor
 };
 
-@function gray($level, $from:10) {
-  /// Function returns mixed white and black color based on passed params
-  /// This function is mainly used for compiling an achromatic list of colors
-  /// located in $grays map but you can use it like in examples below
-  /// 
-  /// @author nightrunner91
-  /// 
-  /// @link https://github.com/nightrunner91/nightvue
-  /// @link https://www.color-meanings.com/chromatic-achromatic-colors/
-  /// 
-  /// @param $level: { Number }, [level of gray color in list between #fff and #000]
-  /// @param $from:  { Number }, [total gray colors in list between #fff and #000, default: 10]
-  /// 
-  /// @example
-  ///   .selector { color: gray(1); }
-  ///   .selector { color: gray(3, 5); }
-  ///   .selector { color: gray($level: 12, $from: 50); }
-  /// 
-  /// @output
-  ///   .selector { color: #eaeaea; }
-  ///   .selector { color: #929292; }
-  ///   .selector { color: #c4c4c4; }
-
-  @if $level > $from {
-    @error '$level must be greater than $from!';
-  } @else {
-    @return mix(black, white, 100 / ($from + 2) * $level * 1%);
-  }
-};
-
 @function radius($type) {
   /// Function returns specified border-radius value from $radiuses map
   ///
@@ -179,6 +174,28 @@
   ///   border-top-left-radius: 0;
 
   @return map-get($radiuses, $type);
+};
+
+@function opacity($level) {
+  /// Function returns specified opacity value from $opacities map
+  ///
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  ///
+  /// @param $level: { String }, [opacity value, required]
+  /// 
+  /// @example
+  ///   opacity: opacity(0);
+  ///   opacity: opacity(25);
+  ///   opacity: opacity(100);
+  ///
+  /// @output
+  ///   opacity: 0;
+  ///   opacity: .25;
+  ///   opacity: 1;
+  
+  @return strip-unit(map-get($opacities, $level)) / 100
 };
 
 @function shadow($name) {

@@ -202,7 +202,7 @@ $tagline-fw:   map-get($font-weights, 500);
 // ===== Colors ===== //
 // ================== //
 
-// Library from which you can create $theme-colors below
+// List of 'basic' colors
 $colors: (
   'red':      #F44336,
   'pink':     #EC407A,
@@ -219,16 +219,16 @@ $colors: (
 // List of gray colors
 $grays: (
   'white':   #ffffff,
-  'gray-1':  gray($level: 1, $from: 10),
-  'gray-2':  gray($level: 2, $from: 10),
-  'gray-3':  gray($level: 3, $from: 10),
-  'gray-4':  gray($level: 4, $from: 10),
-  'gray-5':  gray($level: 5, $from: 10),
-  'gray-6':  gray($level: 6, $from: 10),
-  'gray-7':  gray($level: 7, $from: 10),
-  'gray-8':  gray($level: 8, $from: 10),
-  'gray-9':  gray($level: 9, $from: 10),
-  'gray-10': gray($level: 10, $from: 10),
+  'gray-1':  #eaeaea,
+  'gray-2':  #d5d5d5,
+  'gray-3':  #bfbfbf,
+  'gray-4':  #aaaaaa,
+  'gray-5':  #959595,
+  'gray-6':  #cccccc,
+  'gray-7':  #6a6a6a,
+  'gray-8':  #555555,
+  'gray-9':  #404040,
+  'gray-10': #2b2b2b,
   'black':   #000000,
 );
 
@@ -344,11 +344,11 @@ $radiuses: (
 // =================== //
 
 $opacities: (
-  0: 0,
-  25: 25,
-  50: 50,
-  75: 75,
-  100: 100
+  0: 0%,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
 );
 
 

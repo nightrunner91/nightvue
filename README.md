@@ -138,11 +138,11 @@ Let's take a look at the crucial parts of framework.
 * [Sizing](#sizing)
 * [Colors](#colors)
 * [Gradients](#gradients)
+* [Opacity](#opacity)
 * [Icons](#icons)
 * [Radius](#radius)
 * [Shadows](#shadows)
 * [Rotations](#rotations)
-* [Opacity](#opacity)
 * [Z-index](#z-index)
 * [Transitions](#transitions)
 * [Utilities](#utilities)
@@ -1009,16 +1009,16 @@ $colors: (
 
 $grays: (
   'white':   #ffffff,
-  'gray-1':  gray($level: 1, $from: 10),
-  'gray-2':  gray($level: 2, $from: 10),
-  'gray-3':  gray($level: 3, $from: 10),
-  'gray-4':  gray($level: 4, $from: 10),
-  'gray-5':  gray($level: 5, $from: 10),
-  'gray-6':  gray($level: 6, $from: 10),
-  'gray-7':  gray($level: 7, $from: 10),
-  'gray-8':  gray($level: 8, $from: 10),
-  'gray-9':  gray($level: 9, $from: 10),
-  'gray-10': gray($level: 10, $from: 10),
+  'gray-1':  #eaeaea,
+  'gray-2':  #d5d5d5,
+  'gray-3':  #bfbfbf,
+  'gray-4':  #aaaaaa,
+  'gray-5':  #959595,
+  'gray-6':  #cccccc,
+  'gray-7':  #6a6a6a,
+  'gray-8':  #555555,
+  'gray-9':  #404040,
+  'gray-10': #2b2b2b,
   'black':   #000000,
 );
 
@@ -1095,6 +1095,28 @@ Generated classnames uses pattern `${property}-${color}-${style}-${level}`. Let'
 .clr-primary-desat-5 { color: #693f98 }
 ```
 
+Beside that you can use `rgba` versions of `$theme-colors`. For each `opacity` value from `$opacities` map NightVue generates set of transparent colors:
+
+```
+$opacities: (
+  0: 0,
+  25: 25,
+  50: 50,
+  75: 75,
+  100: 100
+);
+```
+
+These classnames uses pattern `${property}-${color}-opacity-${opacity}`. Take a look at `rgba` variants of `success` color as example:
+
+```
+.bg-success-opacity-100 { rgba(71, 176, 91, 1) }
+.bg-success-opacity-75  { rgba(71, 176, 91, 0.75) }
+.bg-success-opacity-50  { rgba(71, 176, 91, 0.5) }
+.bg-success-opacity-25  { rgba(71, 176, 91, 0.25) }
+.bg-success-opacity-0   { rgba(71, 176, 91, 0) }
+```
+
 ### Color Sass functions
 
 If you need to apply colors in SCSS files you can use `color($name, $style, $level)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$level` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
@@ -1119,33 +1141,6 @@ color: color('white');
 
 fill: color('gray-4');
 // => fill: #aaaaaa;
-```
-You may have noticed that we use `gray()` function in `$grays` map to generate shades of gray. Keep in mind that this function receives two arguments `$level` and `$from`. Last one **must be equal to length of gray colors** in order to generate steady achromatic list. Argument `$level` is level of gray color in this list. In order to simplify take a look at already generated list:
-```
-"gray-1":  #eaeaea,
-"gray-2":  #d5d5d5,
-"gray-3":  #bfbfbf, 
-"gray-4":  #aaaaaa, 
-"gray-5":  #959595, 
-"gray-6":  #cccccc, 
-"gray-7":  #6a6a6a, 
-"gray-8":  #555555, 
-"gray-9":  #404040,
-"gray-10": #2b2b2b
-```
-Each next color is darker than the previous one. When you call `gray(3, 10)` function returns third color in list of 10 colors. You can pass different color level and total length of list. Here are some examples:
-```
-color: gray($level: 4, $from: 4);
-// ▯▯▯▮
-// => color: #555555;
-
-color: gray($level: 3, $from: 10);
-// ▯▯▮▯▯▯▯▯▯▯
-// => color: #bfbfbf;
-
-color: gray(7, 24);
-// ▯▯▯▯▯▯▮▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯▯
-// => color: #bababa;
 ```
 
 ## Gradients
@@ -1268,6 +1263,43 @@ In case you need to apply gradient in SCSS file insted of HTML use `@linear-grad
 }
 ```
 
+## Opacity
+
+For each opacity value from `$opacities` map NightVue generates utility classnames with pattern `.opacity-${value}`:
+
+```
+$opacities: (
+  0: 0,
+  25: 25,
+  50: 50,
+  75: 75,
+  100: 100
+);
+```
+```
+.opacity-0   { opacity: 0 }
+.opacity-25  { opacity: 0.25 }
+.opacity-50  { opacity: 0.5 }
+.opacity-75  { opacity: 0.75 }
+.opacity-100 { opacity: 1 }
+```
+These classnames supports `$breakpoints` so you can easily manage `opacity` level on each specific breakpoint. Use template `.opacity-${breakpoint}-{$value}` to do that. For example this `opacity` will apply only on `lg` breakpoint:
+
+```
+@media screen and (min-width: 1280px) {
+  .opacity-lg-50 {
+    opacity: 0.5
+  }
+}
+```
+
+In case you need to apply `opacity` in SCSS use `opacity($level)` function:
+
+```
+.selector { opacity: opacity(25); }
+// => .selector { opacity: .25; }
+```
+
 ## Icons
 
 [ 🚧 *this part of the documentation is in progress* ]
@@ -1281,10 +1313,6 @@ In case you need to apply gradient in SCSS file insted of HTML use `@linear-grad
 [ 🚧 *this part of the documentation is in progress* ]
 
 ## Rotations
-
-[ 🚧 *this part of the documentation is in progress* ]
-
-## Opacity
 
 [ 🚧 *this part of the documentation is in progress* ]
 
