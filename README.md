@@ -1345,9 +1345,7 @@ Any other classname can be applied as usual:
 In case you prefer to set icon size in SCSS file, use `@icon-size` mixin. This mixin apply specific `width`, `height` and `background-size` to an element. If you apply this mixin to selector you can be pretty sure it will have passed dimensions no matter what and will not be compressed or stretched:
 
 ```
-.icon-name {
-  @include icon-size(24);
-}
+.icon-name { @include icon-size(24); }
 
 // =>
 .icon-name {
@@ -1364,9 +1362,7 @@ In case you prefer to set icon size in SCSS file, use `@icon-size` mixin. This m
 We _recomend_ to use predefined icon sizes from `$icons` map, but here you can pass whatever dimensions you want:
 
 ```
-.icon-name {
-  @include icon-size(18, 34);
-}
+.icon-name { @include icon-size(18, 34); }
 
 // =>
 .icon-name {
