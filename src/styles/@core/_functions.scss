@@ -1,3 +1,28 @@
+@function percent($perc, $from) {
+  /// Function returns percent from given values
+  /// 
+  /// @author nightrunner91
+  /// 
+  /// @link https://github.com/nightrunner91/nightvue
+  /// 
+  /// @param $perc: { Number }, [percentфпу value, required]
+  /// @param $from: { Number }, [number from which to calculate, required]
+  /// 
+  /// @example
+  ///   width: percent(10, 100);
+  ///   width: percent(18, 24);
+  ///   width: percent(4, 12);
+  ///   width: percent(0, 37);
+  /// 
+  /// @output
+  ///   width: 10%;
+  ///   width: 75%;
+  ///   width: 33.33333%;
+  ///   width: 0%;
+
+  @return if($perc > 0, unquote((100 / ($from / $perc)) + "%"), 0%);
+};
+
 @function spacer($val1, $val2: false, $val3: false, $val4: false) {
   /// Function returns specified spacer value from $spacers map
   ///
@@ -38,9 +63,10 @@
   }
 };
 
-@function color($name, $style: false, $rate:false) {
+@function color($name, $style: false, $level:false, $opacity:false) {
   /// Function returns color from $grays and $theme-colors maps
   /// You can pass optional arguments `$style` and `$rate` to determine level of brightness or saturation
+  /// Also you can pass opacity level of color (which generates rgba())
   ///
   /// @author nightrunner91
   /// 
@@ -48,9 +74,10 @@
   /// @link https://sass-lang.com/documentation/modules/color#mix
   /// @link https://sass-lang.com/documentation/modules/color#scale
   ///
-  /// @param $name:  { String }, [color name, required]
-  /// @param $style: { String }, [color style: light | dark | sat | desat]
-  /// @param $rate:  { Number }, [color rate: 1...5 (based on $levels map)]
+  /// @param $name:    { String }, [color name, required]
+  /// @param $style:   { String }, [color style: light | dark | sat | desat]
+  /// @param $level:   { Number }, [color level: 1...5 (based on $levels map)]
+  /// @param $opacity: { Number }, [opacity level: 0...100 (based on $opacities map)]
   /// 
   /// @example
   ///   box-shadow: 1px 1px 4px color('primary');
@@ -76,23 +103,30 @@
     $targetMap: $grays;
   }
 
-  $color: map-get($targetMap, $name);
+  $targetColor: map-get($targetMap, $name);
+  $modifiedColor: $targetColor;
 
   @if $style {
-    $level: map-get($levels, $rate);
+    $level: map-get($levels, $level);
 
     @if $style == 'light' {
-      @return mix(white, $color, $level);
+      $modifiedColor: mix(white, $targetColor, $level);
     } @else if $style == 'dark' {
-      @return mix(black, $color, $level);
+      $modifiedColor: mix(black, $targetColor, $level);
     } @else if $style == 'sat' {
-      @return scale-color($color, $saturation: $level);
+      $modifiedColor: scale-color($targetColor, $saturation: $level);
     } @else if $style == 'desat' {
-      @return scale-color($color, $saturation: -$level);
+      $modifiedColor: scale-color($targetColor, $saturation: -$level);
     }
-  } @else {
-    @return $color
   }
+
+  @if $opacity {
+    $opacityLevel: (map-get($opacities, $opacity) / 100);
+
+    $modifiedColor: rgba($modifiedColor, $opacityLevel);
+  }
+
+  @return $modifiedColor
 };
 
 @function gray($level, $from:10) {
@@ -311,28 +345,3 @@
 
   @return $result;
 };
-
-@function percent($perc, $from) {
-  /// Function returns percent from given values
-  /// 
-  /// @author nightrunner91
-  /// 
-  /// @link https://github.com/nightrunner91/nightvue
-  /// 
-  /// @param $perc: { Number }, [percentфпу value, required]
-  /// @param $from: { Number }, [number from which to calculate, required]
-  /// 
-  /// @example
-  ///   width: percent(10, 100);
-  ///   width: percent(18, 24);
-  ///   width: percent(4, 12);
-  ///   width: percent(0, 37);
-  /// 
-  /// @output
-  ///   width: 10%;
-  ///   width: 75%;
-  ///   width: 33.33333%;
-  ///   width: 0%;
-
-  @return if($perc > 0, unquote((100 / ($from / $perc)) + "%"), 0%);
-}

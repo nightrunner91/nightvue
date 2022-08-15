@@ -1097,7 +1097,7 @@ Generated classnames uses pattern `${property}-${color}-${style}-${level}`. Let'
 
 ### Color Sass functions
 
-If you need to apply colors in SCSS files you can use `color($name, $style, $rate)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$rate` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
+If you need to apply colors in SCSS files you can use `color($name, $style, $level)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$level` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
 ```
 box-shadow: 1px 1px 4px color('primary');
 // => box-shadow: 1px 1px 4px #682CAB;

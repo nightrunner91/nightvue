@@ -43,7 +43,7 @@
   /// @link https://sass-lang.com/documentation/modules/color#desaturate
   /// @link https://sass-lang.com/documentation/modules/color#mix
   /// @link https://sass-lang.com/documentation/modules/color#scale
-  @each $level, $rate in $levels {
+  @each $level, $value in $levels {
     .bg-#{$name}-light-#{$level} { background-color: color($name, 'light', $level) !important }
     .bg-#{$name}-dark-#{$level} { background-color: color($name, 'dark', $level) !important }
     .bg-#{$name}-sat-#{$level} { background-color: color($name, 'sat', $level) !important }
@@ -58,5 +58,11 @@
     .fill-#{$name}-dark-#{$level} { fill: color($name, 'dark', $level) !important }
     .fill-#{$name}-sat-#{$level} { fill: color($name, 'sat', $level) !important }
     .fill-#{$name}-desat-#{$level} { fill: color($name, 'desat', $level) !important  }
+  }
+
+  @each $opacity, $level in $opacities {
+    .bg-#{$name}-opacity-#{$opacity} { background-color: color($name, $opacity: $opacity); }
+    .clr-#{$name}-opacity-#{$opacity} { color: color($name, $opacity: $opacity); }
+    .fill-#{$name}-opacity-#{$opacity} { fill: color($name, $opacity: $opacity); }
   }
 }
