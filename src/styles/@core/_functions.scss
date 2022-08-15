@@ -129,8 +129,6 @@
   $targetColor: map-get($targetMap, $name);
   $modifiedColor: $targetColor;
 
-  @debug $targetColor;
-
   @if $style {
     $level: map-get($levels, $level);
 
