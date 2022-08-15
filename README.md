@@ -1390,7 +1390,39 @@ We _recomend_ to use predefined icon sizes from `$icons` map, but here you can p
 
 ## Z-index
 
-[ 🚧 *this part of the documentation is in progress* ]
+Z-index property has a huge role in how web interface works. To position elements in Z-axis NightVue provides list of utility classnames. Taking into account that each project is unuque and NightVue don't have any pre-build components we decided to make an unversal list from -1 to 12. It's quite possible that this solution won't work for you, in that case use any other solution.
+
+Utility classnames uses format `.z-plus-${value}` for positive values and `.z-minus-${value}` for negatives:
+
+```
+$zindex-start: -1;
+$zindex-end: 12;
+
+.z-minus-1 { z-index: -1 }
+.z-0       { z-index: 0 }
+.z-plus-1  { z-index: 1 }
+.z-plus-2  { z-index: 2 }
+.z-plus-3  { z-index: 3 }
+.z-plus-4  { z-index: 4 }
+.z-plus-5  { z-index: 5 }
+.z-plus-6  { z-index: 6 }
+.z-plus-7  { z-index: 7 }
+.z-plus-8  { z-index: 8 }
+.z-plus-9  { z-index: 9 }
+.z-plus-10 { z-index: 10 }
+.z-plus-11 { z-index: 11 }
+.z-plus-12 { z-index: 12 }
+```
+
+Each of these classnames supports `$breakpoints` so you can easily manage `z-index` value on each specific breakpoint:
+
+```
+@media screen and (min-width: 1280px) {
+  .z-lg-plus-12 {
+     z-index: 12
+  }
+}
+```
 
 ## Transitions
 
