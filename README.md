@@ -1340,7 +1340,7 @@ Any other classname can be applied as usual:
   class="m-2 fill-primary" />
 ```
 
-`<SvgIcon>` component renders HTML in a widely used format `<svg><use xlink:href="#id"></use></svg>`. If you are not quite familiar with this feature read [MDN Docs](https://developer.mozilla.org/ru/docs/Web/SVG/Element/use).
+`<SvgIcon>` component and plugin itself renders HTML in a widely used format `<svg><use xlink:href="#id"></use></svg>`. If you are not quite familiar with this feature read [MDN Docs](https://developer.mozilla.org/ru/docs/Web/SVG/Element/use).
 
 In case you prefer to set icon size in SCSS file, use `@icon-size` mixin. This mixin apply specific `width`, `height` and `background-size` to an element. If you apply this mixin to selector you can be pretty sure it will have passed dimensions no matter what and will not be compressed or stretched:
 
