@@ -1302,7 +1302,83 @@ In case you need to apply `opacity` in SCSS use `opacity($level)` function:
 
 ## Icons
 
-[ 🚧 *this part of the documentation is in progress* ]
+To serve SVG icons NightVue uses [SVG Sprite Loader](https://github.com/JetBrains/svg-sprite-loader).
+
+Store your icons in `src/assets/icons/library` folder. We already included there 3 icons for example. There are many icon packs on internet, just pick whatever you like most and import icons in this folder.
+
+```
+├── src
+│   ├── assets
+│       ├── icons
+│           ├── library
+│               face.svg
+│               lightbulb.svg
+│               link.svg
+│            index.js
+```
+
+Plugin automatically creates and injects in `<body>` client-side SVG sprite containing each icon from the folder above. Keep in mind that each icon will have an id based on its name. To include icon in HTML use `<SvgIcon>` component. It accepts properties `icon` and `size`.
+
+```
+<svg-icon icon="face" />
+```
+
+To set icon size define its `size` property. All icon sizes are stored in `$icons` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+```
+$icon-sizes: (18, 24, 36, 48, 64);
+```
+```
+<svg-icon icon="face" size="48" />
+```
+
+Any other classname can be applied as usual:
+
+```
+<svg-icon
+  icon="face"
+  size="48"
+  class="m-2 fill-primary" />
+```
+
+`<SvgIcon>` component renders HTML in a widely used format `<svg><use xlink:href="#id"></use></svg>`. If you are not quite familiar with this feature read [MDN Docs](https://developer.mozilla.org/ru/docs/Web/SVG/Element/use).
+
+In case you prefer to set icon size in SCSS file, use `@icon-size` mixin. This mixin apply specific `width`, `height` and `background-size` to an element. If you apply this mixin to selector you can be pretty sure it will have passed dimensions no matter what and will not be compressed or stretched:
+
+```
+.icon-name {
+  @include icon-size(24);
+}
+
+// =>
+.icon-name {
+  width: 24px !important;
+  max-width: 24px !important;
+  min-width: 24px !important;
+  height: 24px !important;
+  max-height: 24px !important;
+  min-height: 24px !important;
+  background-size: 24px 24px !important;
+}
+```
+
+We _recomend_ to use predefined icon sizes from `$icons` map, but here you can pass whatever dimensions you want:
+
+```
+.icon-name {
+  @include icon-size(18, 34);
+}
+
+// =>
+.icon-name {
+  width: 18px !important;
+  max-width: 18px !important;
+  min-width: 18px !important;
+  height: 34px !important;
+  max-height: 34px !important;
+  min-height: 34px !important;
+  background-size: 18px 34px !important;
+}
+```
 
 ## Radius
 
