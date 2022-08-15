@@ -1422,10 +1422,3 @@ $cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
 .visible     { visibility: visible }
 .invisible   { visibility: hidden }
 ```
-
-# To-do list Q3-Q4 2022 ✅
-
-- [ ] Write documentation
-- [ ] Migrate to Vue.js 3.x
-- [ ] Migrate to Vue CLI 5.x
-- [ ] Release package on npmjs.com
