@@ -1269,11 +1269,11 @@ For each opacity value from `$opacities` map NightVue generates utility classnam
 
 ```
 $opacities: (
-  0: 0,
-  25: 25,
-  50: 50,
-  75: 75,
-  100: 100
+  0: 0%,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
 );
 ```
 ```
@@ -1297,7 +1297,7 @@ In case you need to apply `opacity` in SCSS use `opacity($level)` function:
 
 ```
 .selector { opacity: opacity(25); }
-// => .selector { opacity: .25; }
+// => .selector { opacity: 0.25; }
 ```
 
 ## Icons
