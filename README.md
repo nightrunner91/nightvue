@@ -1575,15 +1575,18 @@ transition: complex-transition(
 In this section are collected small helpers which didn't find a place in the sections listed above. These classnames are described in [_utilities.scss](src/styles/@core/helpers/_utilities.scss) file:
 
 ```
-$cursors: pointer, help, wait, move, not-allowed, context-menu, alias;
-
-@each $cursor in $cursors {
-  .cursor-#{$cursor} { cursor: $cursor }
-}
+.cursor-pointer       { cursor: pointer }
+.cursor-help          { cursor: help }
+.cursor-wait          { cursor: wait }
+.cursor-move          { cursor: move }
+.cursor-not-allowed   { cursor: not-allowed }
+.cursor-context-menu  { cursor: context-menu }
+.cursor-alias         { cursor: alias }
 
 .no-select   { user-select: none }
 .no-overflow { overflow: hidden }
 .no-events   { pointer-events: none }
+
 .visible     { visibility: visible }
 .invisible   { visibility: hidden }
 ```
