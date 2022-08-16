@@ -319,7 +319,7 @@ To apply column width in HTML you can use prepared classnames `col-${breakpoint}
   </div>
 </div>
 ```
-If you need to apply offset to column use `offset-${breakpoint}-${value}` classnames like this:
+If you need apply offset to column use `offset-${breakpoint}-${value}` classnames like this:
 ```
 <div class="container">
   <div class="row">
@@ -332,7 +332,7 @@ If you need to apply offset to column use `offset-${breakpoint}-${value}` classn
   </div>
 </div>
 ```
-If you need to apply order to column use `order-${breakpoint}-${value}` classnames like this:
+If you need apply order to column use `order-${breakpoint}-${value}` classnames like this:
 ```
 <div class="container">
   <div class="row">
@@ -370,7 +370,7 @@ To apply column styles use `@col()` mixin. If you don't pass any params mixin wi
 @include col(10, $md: 8, $lg: 6, $xs: 12);
 @include col(12, 10, 10, 8, 6, 9);
 ```
-If you need to apply offset to column use `@offset()` mixin. It will add `margin-left` property to selector. You can pass number from 0 to 12 for each breakpoint. Note that if you don't pass any params, mixin won't apply any styles:
+If you need apply offset to column use `@offset()` mixin. It will add `margin-left` property to selector. You can pass number from 0 to 12 for each breakpoint. Note that if you don't pass any params, mixin won't apply any styles:
 ```
 @include offset(6);
 @include offset(0, $sm: 4);
@@ -378,7 +378,7 @@ If you need to apply offset to column use `@offset()` mixin. It will add `margin
 @include offset(10, $md: 8, $lg: 6, $xs: 12);
 @include offset($sm: 1, $lg: 4, $xl: 0);
 ```
-In case you need to apply order to column use `@order()` mixin. It will apply `order` property from 1 to 12 to selector:
+In case you need apply order to column use `@order()` mixin. It will apply `order` property from 1 to 12 to selector:
 ```
 @include order(2);
 @include order(1, $sm: 4);
@@ -413,14 +413,14 @@ $lg-xl; // 1200px … 1399px
 ```
 Here are some examples of usage:
 ```
-.selector { @media #{$sm-up} { ... } } // styles applies above 768px
-.selector { @media #{$md-up} { ... } } // styles applies above 992px
+@media #{$sm-up} { ... } } // styles applies above 768px
+@media #{$md-up} { ... } } // styles applies above 992px
 
-.selector { @media #{$xl-dw} { ... } } // styles applies below 1399px
-.selector { @media #{$lg-dw} { ... } } // styles applies below 1199px
+@media #{$xl-dw} { ... } } // styles applies below 1399px
+@media #{$lg-dw} { ... } } // styles applies below 1199px
 
-.selector { @media #{$sm-md} { ... } } // styles applies between 768px … 991px
-.selector { @media #{$md-lg} { ... } } // styles applies between 992px … 1199px
+@media #{$sm-md} { ... } } // styles applies between 768px … 991px
+@media #{$md-lg} { ... } } // styles applies between 992px … 1199px
 ```
 
 ## Typography
@@ -644,7 +644,7 @@ To apply small styles to text you can add `.small` classname or wrap element in 
 <small>Me too!</small>
 ```
 ```
-.selector { @include small() }
+@include small() }
 ```
 
 Apply tagline styles to text in similar way:
@@ -653,7 +653,7 @@ Apply tagline styles to text in similar way:
 <div class="tagline">I am tagline text</div>
 ```
 ```
-.selector { @include tagline() }
+@include tagline() }
 ```
 
 Often you need to truncate some long text and put dots at the end of the line. Use one of these helpers to do that:
@@ -688,15 +688,13 @@ Often you need to truncate some long text and put dots at the end of the line. U
 Or use `@text-truncate($width)` mixin for that. It requires a single argument `$width` in `px` or `%`.
 
 ```
-.text { @include text-truncate(150px) }
+@include text-truncate(150px)
 
 // =>
-.text {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 150px;
-}
+display: inline-block;
+overflow: hidden;
+text-overflow: ellipsis;
+max-width: 150px;
 ```
 
 ## Position
@@ -846,25 +844,25 @@ Often you need to align content right in the center of X and Y axes. In that cas
 NightVue generates responsive margin and padding utility classnames. The classnames are named using the format `{$property}-{$breakpoint}-{$side}-{$size}`.
 
 Where `$property` is one of:
-* `m` - for classnames that set margin
-* `p` - for classnames that set padding
+* `m` - for classnames that set property margin
+* `p` - for classnames that set property padding
 
 Where `$breakpoint` is one of:
-* `xs` - for classnames that set property on XS breakpoint > 576px
-* `sm` - for classnames that set property on SM breakpoint > 768px
-* `md` - for classnames that set property on MD breakpoint > 992px
-* `lg` - for classnames that set property on LG breakpoint > 1200px
-* `xl` - for classnames that set property on XL breakpoint > 1400px
+* `xs` - for classnames that set property property on XS breakpoint > 576px
+* `sm` - for classnames that set property property on SM breakpoint > 768px
+* `md` - for classnames that set property property on MD breakpoint > 992px
+* `lg` - for classnames that set property property on LG breakpoint > 1200px
+* `xl` - for classnames that set property property on XL breakpoint > 1400px
 * blank - if you want to set a margin and padding on all breakpoint
 
 Where `$side` is one of:
-* `t` - for classnames that set margin-top or padding-top
-* `b` - for classnames that set margin-bottom or padding-bottom
-* `l` - for classnames that set margin-left or padding-left
-* `r` - for classnames that set margin-right or padding-right
-* `x` - for classnames that set both *-left and *-right
-* `y` - for classnames that set both *-top and *-bottom
-* blank - for classnames that set a margin or padding on all 4 sides of the element
+* `t` - for classnames that set property margin-top or padding-top
+* `b` - for classnames that set property margin-bottom or padding-bottom
+* `l` - for classnames that set property margin-left or padding-left
+* `r` - for classnames that set property margin-right or padding-right
+* `x` - for classnames that set property both *-left and *-right
+* `y` - for classnames that set property both *-top and *-bottom
+* blank - for classnames that set property a margin or padding on all 4 sides of the element
 
 Where `$size` is one of spacing sizes defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
@@ -905,7 +903,7 @@ margin: spacer(50, auto, 2, 0);
 
 ## Sizing
 
-These utility classnames can be used to apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
+These utility classnames can be used apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
 
 NightVue generates set of classnames which uses format `${property}-${breakpoint}-${size}`, where `${property}` is one of:
 
@@ -944,12 +942,12 @@ Here are generated sizing classnames based on 50 size as an example:
 .min-w-50  { min-width: 50% }
 .min-vw-50 { min-width: 50vw }
 
-.wh-50     { height: 50% }
-.vh-50     { height: 50vw }
+.h-50     { height: 50% }
+.vh-50     { height: 50vh }
 .max-h-50  { max-height: 50% }
-.max-vh-50 { max-height: 50vw }
+.max-vh-50 { max-height: 50vh }
 .min-h-50  { min-height: 50% }
-.min-vh-50 { min-height: 50vw }
+.min-vh-50 { min-height: 50vh }
 ```
 
 You can also apply `${breakpoints}` to dynamically change behavior on different screen sizes. For example, this `min-width` style will apply only below 768px (**sm** breakpoint):
@@ -1119,7 +1117,7 @@ These classnames uses pattern `${property}-${color}-opacity-${opacity}`. Take a 
 
 ### Color Sass functions
 
-If you need to apply colors in SCSS files you can use `color($name, $style, $level)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$level` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
+If you need apply colors in SCSS files you can use `color($name, $style, $level)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$level` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
 ```
 box-shadow: 1px 1px 4px color('primary');
 // => box-shadow: 1px 1px 4px #682CAB;
@@ -1249,18 +1247,14 @@ For each gradient in `$gradients` map NightVue generates unique classname with t
 
 ### Gradient Sass mixin
 
-In case you need to apply gradient in SCSS file insted of HTML use `@linear-gradient($name)` mixin. It requires only name of gradient from `$gradients` map.
+In case you need apply gradient in SCSS file insted of HTML use `@linear-gradient($name)` mixin. It requires only name of gradient from `$gradients` map.
 
 ```
-.selector {
-  @include linear-gradient('primary_success');
-}
+@include linear-gradient('primary_success');
 
 // =>
-.selector {
-  background: #682cab;
-  background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
-}
+background: #682cab;
+background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
 ```
 
 ## Opacity
@@ -1293,23 +1287,23 @@ These classnames supports `$breakpoints` so you can easily manage `opacity` leve
 }
 ```
 
-In case you need to apply `opacity` in SCSS use `opacity($level)` function:
+In case you need apply `opacity` in SCSS use `opacity($level)` function:
 
 ```
-.selector { opacity: opacity(0); }
-// => .selector { opacity: 0; }
+opacity: opacity(0);
+// => opacity: 0;
 
-.selector { opacity: opacity(25); }
-// => .selector { opacity: 0.25; }
+opacity: opacity(25);
+// => opacity: 0.25;
 
-.selector { opacity: opacity(50); }
-// => .selector { opacity: 0.5; }
+opacity: opacity(50);
+// => opacity: 0.5;
 
-.selector { opacity: opacity(75); }
-// => .selector { opacity: 0.75; }
+opacity: opacity(75);
+// => opacity: 0.75;
 
-.selector { opacity: opacity(100); }
-// => .selector { opacity: 1; }
+opacity: opacity(100);
+// => opacity: 1;
 
 ```
 
@@ -1358,40 +1352,82 @@ Any other classname can be applied as usual:
 In case you prefer to set icon size in SCSS file, use `@icon-size` mixin. This mixin apply specific `width`, `height` and `background-size` to an element. If you apply this mixin to selector you can be pretty sure it will have passed dimensions no matter what and will not be compressed or stretched:
 
 ```
-.icon-name { @include icon-size(24); }
+@include icon-size(24);
 
 // =>
-.icon-name {
-  width: 24px !important;
-  max-width: 24px !important;
-  min-width: 24px !important;
-  height: 24px !important;
-  max-height: 24px !important;
-  min-height: 24px !important;
-  background-size: 24px 24px !important;
-}
+width: 24px !important;
+max-width: 24px !important;
+min-width: 24px !important;
+height: 24px !important;
+max-height: 24px !important;
+min-height: 24px !important;
+background-size: 24px 24px !important;
 ```
 
 We _recomend_ to use predefined icon sizes from `$icons` map, but here you can pass whatever dimensions you want:
 
 ```
-.icon-name { @include icon-size(18, 34); }
+@include icon-size(18, 34);
 
 // =>
-.icon-name {
-  width: 18px !important;
-  max-width: 18px !important;
-  min-width: 18px !important;
-  height: 34px !important;
-  max-height: 34px !important;
-  min-height: 34px !important;
-  background-size: 18px 34px !important;
-}
+width: 18px !important;
+max-width: 18px !important;
+min-width: 18px !important;
+height: 34px !important;
+max-height: 34px !important;
+min-height: 34px !important;
+background-size: 18px 34px !important;
 ```
 
 ## Radius
 
-[ 🚧 *this part of the documentation is in progress* ]
+NightVue uses Sass map `$radiuses` to store all variants of `border-radius`. By default it includes:
+
+```
+$radiuses: (
+  'small':   4px,
+  'base':    8px,
+  'large':   20px,
+  'circle':  100%,
+  'zero':    0
+);
+```
+
+For each value from this map NightVue generates set of utlity classnames to use in HTML. Pattern depends on which angle or angles you want to modify:
+
+* `.radius-${type}` - for classnames that set property to all angles
+* `.radius-tl-${type}` - for classnames that set property to **top-left** angle
+* `.radius-tr-${type}` - for classnames that set property to **top-right** angle
+* `.radius-bl-${type}` - for classnames that set property to **bottom-left** angle
+* `.radius-br-${type}` - for classnames that set property to **bottom-right** angle
+* `.radius-t-${type}` - for classnames that set property to **top-left** and **top-right** angles
+* `.radius-r-${type}` - for classnames that set property to **top-right** and **bottom-right** angles
+* `.radius-b-${type}` - for classnames that set property to **bottom-left** and **bottom-right** angles
+* `.radius-l-${type}` - for classnames that set property to **bottom-left** and **top-left** angles
+
+These classnames supports `$breakpoints` so you can easily manage `border-radius` type on each specific breakpoint. Use template `.radius-${direction}-${breakpoint}-{$type}` to do that. For example this element will have "large" `border-radius` only on `sm` breakpoint:
+
+```
+@media screen and (min-width: 768px) {
+  .radius-b-sm-large {
+     border-bottom-left-radius: 20px;
+     border-bottom-right-radius: 20px;
+   }
+}
+```
+
+In case you prefer SCSS method, use `radius($type)` function. It requires type of `border-radius` you want to apply to an element:
+
+```
+border-radius: radius('small');
+// => border-radius: 4px;
+
+border-radius: radius('circle');
+// => border-radius: 100%;
+
+border-top-left-radius: radius('zero');
+// => border-top-left-radius: 0;
+```
 
 ## Shadows
 
@@ -1403,7 +1439,7 @@ We _recomend_ to use predefined icon sizes from `$icons` map, but here you can p
 
 ## Z-index
 
-Z-index property has a huge role in how web interface works. To position elements in Z-axis NightVue provides list of utility classnames. Taking into account that each project is unuque and NightVue don't have any pre-build components we decided to make an unversal list from -1 to 12. It's quite possible that this solution won't work for you, in that case use any other you like more.
+Z-index property has a huge role in how web interface works. To position elements in Z-axis NightVue provides list of utility classnames. Taking into account that each project is unique and NightVue don't has any pre-build components we decided to make an unversal list of z-indexes from -1 to 12. It's quite possible that this solution won't work for you, in that case use any other you like more.
 
 Utility classnames uses format `.z-plus-${value}` for positive values and `.z-minus-${value}` for negatives. You can also determine start and end values in [_zindex.scss](src/styles/@core/helpers/_zindex.scss) file:
 
@@ -1492,7 +1528,7 @@ NightVue generates classnames based on this maps to use them in HTML:
 .speed-slower   { transition-duration: .5s }
 .speed-lazy     { transition-duration: .75s }
 ```
-But we recomend to apply transitions in SCSS files. To do that use `transition()` and `complex-transition()` functions.
+But we recomend apply transitions in SCSS files. To do that use `transition()` and `complex-transition()` functions.
 
 Function `transition()` returns transition based on `$property`, `$speed`, `$timings` and `$delay` params. Only first one param is required, others are by default `base => .3s`, `ease` and `0s`. Function searches params in `$transition-speed` and `$transition-timings` maps, but you could pass whatever you want. We advice you to pass predefined `$speed` and `$timing` values tho. Here are some examples of usage:
 ```
@@ -1511,7 +1547,7 @@ transition: transition(color, lazy, linear, 1s);
 transition: transition(box-shadow, 2s, cubic-bezier(.08,1.04,.82,-0.73));
 // => transition: box-shadow 2s cubic-bezier(.08,1.04,.82,-0.73);
 ```
-If you need to apply many transitions at once we recomend to use `complex-transition()` function. It does basically the same as previous one, but you can write many transitions in clear and fancy way like this:
+If you need apply many transitions at once we recomend to use `complex-transition()` function. It does basically the same as previous one, but you can write many transitions in clear and fancy way like this:
 ```
 transition: complex-transition(
   transition(opacity, short, ease-in),
