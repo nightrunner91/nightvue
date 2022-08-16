@@ -13,7 +13,6 @@
 ///     height: 18px !important;
 ///     max-height: 18px !important;
 ///     min-height: 18px !important;
-///     background-size: 18px 18px !important;
 ///   }
 ///
 ///   @media screen and (min-width: 768px) {
@@ -24,14 +23,13 @@
 ///       height: 24px !important;
 ///       max-height: 24px !important;
 ///       min-height: 24px !important;
-///       background-size: 24px 24px !important;
 ///     }
 ///   }
 
 @mixin make-icons($breakpoint:null) {
-  @each $size in $icon-sizes {
+  @each $size, $value in $icon-sizes {
     .icon-size#{$breakpoint}-#{$size} {
-      @include icon-size($size)
+      @include icon-size($value)
     }
   }
 }

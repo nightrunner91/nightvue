@@ -1332,10 +1332,24 @@ Plugin automatically creates and injects in `<body>` client-side SVG sprite cont
 
 To set icon size define its `size` property. All icon sizes are stored in `$icons` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
-$icon-sizes: (18, 24, 36, 48, 64);
+$icon-sizes: (
+  2xs: 0.625em, // 10px
+  xs:  0.75em,  // 12px
+  sm:  0.857em, // 14px
+  md:  1em,     // 16px
+  lg:  1.25em,  // 20px
+  xl:  1.5em,   // 24px
+  2xl: 2em,     // 32px
+);
 ```
 ```
-<svg-icon icon="face" size="48" />
+<svg-icon icon="face" size="2xs" />
+<svg-icon icon="face" size="xs" />
+<svg-icon icon="face" size="sm" />
+<svg-icon icon="face" size="md" />
+<svg-icon icon="face" size="lg" />
+<svg-icon icon="face" size="xl" />
+<svg-icon icon="face" size="2xl" />
 ```
 
 Any other classname can be applied as usual:
@@ -1343,40 +1357,38 @@ Any other classname can be applied as usual:
 ```
 <svg-icon
   icon="face"
-  size="48"
+  size="sm"
   class="m-2 fill-primary" />
 ```
 
 `<SvgIcon>` component and plugin itself renders HTML in a widely used format `<svg><use xlink:href="#id"></use></svg>`. If you are not quite familiar with this feature read [MDN Docs](https://developer.mozilla.org/ru/docs/Web/SVG/Element/use).
 
-In case you prefer to set icon size in SCSS file, use `@icon-size` mixin. This mixin apply specific `width`, `height` and `background-size` to an element. If you apply this mixin to selector you can be pretty sure it will have passed dimensions no matter what and will not be compressed or stretched:
+In case you prefer to set icon size in SCSS file, use `@icon-size` mixin. This mixin apply specific `width` and `height` to an element. If you apply this mixin to selector you can be pretty sure it will have passed dimensions no matter what and will not be compressed or stretched:
 
 ```
-@include icon-size(24);
+@include icon-size(sm);
 
 // =>
-width: 24px !important;
-max-width: 24px !important;
-min-width: 24px !important;
-height: 24px !important;
-max-height: 24px !important;
-min-height: 24px !important;
-background-size: 24px 24px !important;
+width: 0.875em;
+max-width: 0.875em;
+min-width: 0.875em;
+height: 0.875em;
+max-height: 0.875em;
+min-height: 0.875em;
 ```
 
 We _recomend_ to use predefined icon sizes from `$icons` map, but here you can pass whatever dimensions you want:
 
 ```
-@include icon-size(18, 34);
+@include icon-size(18px, 34px);
 
 // =>
-width: 18px !important;
-max-width: 18px !important;
-min-width: 18px !important;
-height: 34px !important;
-max-height: 34px !important;
-min-height: 34px !important;
-background-size: 18px 34px !important;
+width: 18px;
+max-width: 18px;
+min-width: 18px;
+height: 34px;
+max-height: 34px;
+min-height: 34px;
 ```
 
 ## Radius

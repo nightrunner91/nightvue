@@ -6,7 +6,7 @@
     <use :xlink:href="iconName"/>
   </svg>
 </template>
- 
+
 <script>
   export default {
     name: 'SvgIcon',
@@ -17,8 +17,8 @@
       },
 
       size: {
-        type: Number,
-        default: 24
+        type: String,
+        default: 'md'
       }
     },
     computed: {
@@ -36,7 +36,7 @@
     }
   }
 </script>
- 
+
 <style scoped>
   .svg-icon {
     fill: currentColor;

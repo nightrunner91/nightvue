@@ -479,7 +479,7 @@
 }
 
 @mixin icon-size($d1, $d2:false) {
-  /// This mixin apply specific width, height and background-size
+  /// This mixin apply specific width and height
   /// If you apply this mixin to selector you can be pretty sure it will have
   /// passed dimensions no matter what and will not be compressed or stretched
   /// It is most usefull for SVG icons inside flex container
@@ -488,8 +488,19 @@
   ///
   /// @link https://github.com/nightrunner91/nightvue
   ///
-  /// @param $d1: { Number }, [required, dimension X (width)]
-  /// @param $d2: { Number }, [dimension Y (height)]
+  /// @param $d1: { Number | String }, [required, dimension X (width)]
+  /// @param $d2: { Number | String }, [dimension Y (height)]
+  /// 
+  /// @example
+  ///   @include icon-size(lg);
+  ///
+  /// @output
+  ///   width: 1.25em !important;
+  ///   max-width: 1.25em !important;
+  ///   min-width: 1.25em !important;
+  ///   height: 1.25em !important;
+  ///   max-height: 1.25em !important;
+  ///   min-height: 1.25em !important;
   /// 
   /// @example
   ///   @include icon-size(24);
@@ -501,7 +512,6 @@
   ///   height: 24px !important;
   ///   max-height: 24px !important;
   ///   min-height: 24px !important;
-  ///   background-size: 24px 24px !important;
   ///
   /// @example
   ///   @include icon-size(18, 34);
@@ -513,22 +523,19 @@
   ///   height: 34px !important;
   ///   max-height: 34px !important;
   ///   min-height: 34px !important;
-  ///   background-size: 18px 34px !important;
 
-  width: $d1 + px !important;
-  max-width: $d1 + px !important;
-  min-width: $d1 + px !important;
+  width: $d1 !important;
+  max-width: $d1 !important;
+  min-width: $d1 !important;
 
   @if ($d2) {
-    height: $d2 + px !important;
-    max-height: $d2 + px !important;
-    min-height: $d2 + px !important;
-    background-size: $d1 + px $dimension2 + px !important;
+    height: $d2 !important;
+    max-height: $d2 !important;
+    min-height: $d2 !important;
   } @else {
-    height: $d1 + px !important;
-    max-height: $d1 + px !important;
-    min-height: $d1 + px !important;
-    background-size: $d1 + px $d1 + px !important;
+    height: $d1 !important;
+    max-height: $d1 !important;
+    min-height: $d1 !important;
   }
 };
 
