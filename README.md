@@ -1443,7 +1443,48 @@ border-top-left-radius: radius('zero');
 
 ## Shadows
 
-[ 🚧 *this part of the documentation is in progress* ]
+NightVue stores all types of box-shadows in `$shadows` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file. By default this map contains list of shadows based on [Material methodology](https://material.io/design/environment/light-shadows.html#light):
+
+```
+$shadows: (
+  level-1: (0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)),
+  level-2: (0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)),
+  level-3: (0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)),
+  level-4: (0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)),
+  level-5: (0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)),
+);
+```
+
+Sure you can remove them and/or add your own. For example [this website](https://getcssscan.com/css-box-shadow-examples) provides a large collection of beautiful box-shadows.
+
+For each type from this map NightVue generates classnames using pattern `.shadow-${type}`:
+
+```
+.shadow-level-1 { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) }
+.shadow-level-2 { box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) }
+.shadow-level-3 { box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23) }
+.shadow-level-4 { box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) }
+.shadow-level-5 { box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22) }
+```
+
+In case you prefer to use them in SCSS file use `shadow($type)` function. It requires name of shadow as parameter:
+
+```
+box-shadow: shadow('level-1');
+// => box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+box-shadow: shadow('level-2');
+// => box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+box-shadow: shadow('level-3');
+// => box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+box-shadow: shadow('level-4');
+// => box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+box-shadow: shadow('level-5');
+// => box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+```
 
 ## Rotations
 
