@@ -142,9 +142,9 @@ Let's take a look at the crucial parts of framework.
 * [Icons](#icons)
 * [Radius](#radius)
 * [Shadows](#shadows)
-* [Rotations](#rotations)
 * [Z-index](#z-index)
 * [Transitions](#transitions)
+* [Rotations](#rotations)
 * [Utilities](#utilities)
 
 ## Layout
@@ -1486,10 +1486,6 @@ box-shadow: shadow('level-5');
 // => box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 ```
 
-## Rotations
-
-[ 🚧 *this part of the documentation is in progress* ]
-
 ## Z-index
 
 Z-index property has a huge role in how web interface works. To position elements in Z-axis NightVue provides list of utility classnames. Taking into account that each project is unique and NightVue don't has any pre-build components we decided to make an unversal list of z-indexes from -1 to 12. It's quite possible that this solution won't work for you, in that case use any other you like more.
@@ -1609,6 +1605,25 @@ transition: complex-transition(
 );
 
 // => transition: opacity 0.25s cubic-bezier(0.42, 0, 1, 1), background-color 0.375s cubic-bezier(0, 0, 0.2, 1), color 0.75s cubic-bezier(0, 0, 1, 1) 1s;
+```
+
+## Rotations
+
+Often you need to rotate element by some degree. In CSS you may use `transform: rotate()` for that. NightVue provides some utility classnames to make it a little bit easier.
+
+Most common rotation angles are: `0°`, `90°`, `180°`, `270°` and `360°`. 
+
+For each angle NightVue generates classname with pattern `.rotate-${direction}-${angle}`, where `direction` might be `minus` or `plus`:
+
+```
+.rotate-minus-270  { transform: rotate(-270deg) }
+.rotate-minus-180  { transform: rotate(-180deg) }
+.rotate-minus-90   { transform: rotate(-90deg) }
+.rotate-0          { transform: rotate(0deg) }
+.rotate-plus-90    { transform: rotate(90deg) }
+.rotate-plus-180   { transform: rotate(180deg) }
+.rotate-plus-270   { transform: rotate(270deg) }
+.rotate-plus-360   { transform: rotate(360deg) }
 ```
 
 ## Utilities
