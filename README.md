@@ -1,6 +1,6 @@
 <p></p>
 <p align="center">
-  <img src="src/assets/images/presentation.png" alt="Presentation" width="300" height="284">
+  <img src="https://i.imgur.com/N6EM6CE.png" alt="Presentation" width="300" height="284">
 </p>
 
 # Introduction 👋
