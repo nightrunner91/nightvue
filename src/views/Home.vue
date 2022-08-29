@@ -10,15 +10,11 @@
         <span class="clr-success">Vue</span>
       </h1>
     </div>
-    <docs />
   </div>
 </template>
 
 <script>
-import Docs from '../components/Docs'
-
 export default {
   name: 'Home',
-  components: { Docs },
 }
 </script>
