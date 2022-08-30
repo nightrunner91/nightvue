@@ -5,8 +5,13 @@
   "description": "NightVue is a “crystal clear” development framework for Vue.js",
   "license": "MIT",
   "private": false,
-  "repository": "https://github.com/nightrunner91/nightvue",
-  "files": ["*"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nightrunner91/nightvue.git"
+  },
+  "files": [
+    "*"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "vue-cli-service build --mode preproduction",
@@ -40,5 +45,10 @@
     "sass-loader": "^8.0.2",
     "svg-sprite-loader": "^6.0.11",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/nightrunner91/nightvue/issues"
+  },
+  "homepage": "https://github.com/nightrunner91/nightvue#readme",
+  "main": ".eslintrc.js"
 }
