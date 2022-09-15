@@ -89,9 +89,9 @@ $sizings: (
 // ====================== //
 
 $font-families: (
-  base:      "Onest",
-  headings:  "Onest",
-  displays:  "Onest"
+  base:      ("Onest", sans-serif),
+  headings:  ("Onest", sans-serif),
+  displays:  ("Onest", sans-serif),
 );
 
 $line-heights: (
