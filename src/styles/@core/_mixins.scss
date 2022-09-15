@@ -60,11 +60,11 @@
     );
 
     @if map-has-key($transition-speed, $duration) {
-      $animation: replace-in-list($animation, $duration, transition-speed($duration))
+      $animation: replace-in-list($animation, $duration, map-get($transition-speed, $duration))
     }
 
     @if map-has-key($transition-timings, $timing) {
-      $animation: replace-in-list($animation, $timing, transition-timing($timing))
+      $animation: replace-in-list($animation, $timing, map-get($transition-timings, $timing))
     }
 
     -webkit-animation: to-string($animation, ' ');
