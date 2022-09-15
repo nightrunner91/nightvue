@@ -16,10 +16,21 @@
 ///
 ///   .pt-0 { padding-top: 0 }
 ///   .pr-3 { padding-right: 3rem }
+/// 
+///   .top-2 { top: 2rem }
+///   .right-3 { right: 3rem }
+///   .bottom-3 { bottom: 3rem }
+///   .left-50 { left: .5rem }
 ///
 ///   @media screen and (min-width: 768px) {
 ///     .ml-sm-1 {
 ///        margin-left: 1rem
+///      }
+///   }
+/// 
+///   @media screen and (min-width: 768px) {
+///     .right-sm-4 {
+///        right: 4rem
 ///      }
 ///   }
 
@@ -54,6 +65,11 @@
       margin-top: $indent !important;
       margin-bottom: $indent !important
     }
+
+    .top#{$breakpoint}-#{$name} { top: $indent !important }
+    .right#{$breakpoint}-#{$name} { right: $indent !important }
+    .bottom#{$breakpoint}-#{$name} { bottom: $indent !important }
+    .left#{$breakpoint}-#{$name} { left: $indent !important }
   }
 }
 

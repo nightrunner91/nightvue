@@ -901,6 +901,25 @@ margin: spacer(50, auto, 2, 0);
 // => margin: .5rem auto 2rem 0;
 ```
 
+Beside that NightVue generates classnames which you might use to position elements in `absolute` or `fixed` position. These classnames uses pattern `${side}-${size}`:
+
+```
+.top-2    { top: 2rem }
+.right-3  { right: 3rem }
+.bottom-3 { bottom: 3rem }
+.left-50  { left: .5rem }
+```
+
+And of course they also support breakpoints:
+
+```
+@media screen and (min-width: 768px) {
+  .right-sm-4 {
+     right: 4rem
+   }
+}
+```
+
 ## Sizing
 
 These utility classnames can be used apply to selector these CSS styles: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`. And units can be percentages `%` or relative to viewport `vw` and `vh`.
