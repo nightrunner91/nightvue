@@ -1325,7 +1325,7 @@ $opacities: (
 );
 ```
 ```
-.opacity-0   { opacity: 0 }
+.opacity-0  { opacity: 0 }
 .opacity-1  { opacity: 0.05 }
 .opacity-2  { opacity: 0.15 }
 .opacity-3  { opacity: 0.25 }
