@@ -920,10 +920,10 @@ margin: spacer(5, auto, 2, 0);
 Beside that NightVue generates classnames which you might use to position elements in `absolute` or `fixed` position. These classnames uses pattern `${side}-${size}`:
 
 ```
-.top-2    { top: .25rem }
+.top-2     { top: .25rem }
 .right-10  { right: 2.5rem }
-.bottom-4 { bottom: 1rem }
-.left-5  { left: 1.25rem }
+.bottom-4  { bottom: 1rem }
+.left-5    { left: 1.25rem }
 ```
 
 And of course they also support breakpoints:
