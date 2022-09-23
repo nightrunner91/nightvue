@@ -1152,12 +1152,12 @@ $opacities: (
 These classnames uses pattern `${property}-${color}-opacity-${opacity}`. Take a look at `rgba` variants of `success` color as example:
 
 ```
-.bg-success-opacity-0 { rgba(71, 176, 91, 0) }
+.bg-success-opacity-0  { rgba(71, 176, 91, 0) }
 .bg-success-opacity-1  { rgba(71, 176, 91, 0.05) }
 .bg-success-opacity-2  { rgba(71, 176, 91, 0.15) }
 .bg-success-opacity-3  { rgba(71, 176, 91, 0.25) }
 ...
-.bg-success-opacity-10   { rgba(71, 176, 91, 0.95) }
+.bg-success-opacity-10 { rgba(71, 176, 91, 0.95) }
 ```
 
 ### Color Sass functions
