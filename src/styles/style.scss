@@ -9,6 +9,8 @@
 /// 📂 Sections folder must contain styles for "big" and unique parts like:
 ///     header, footer, article, hero, etc.
 
+// Global varaibles, mixins and functions
+@import "@core/globals.scss";
 
 /// Components
 @import "components/button";

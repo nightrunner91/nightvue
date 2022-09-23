@@ -866,21 +866,37 @@ Where `$side` is one of:
 
 Where `$size` is one of spacing sizes defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
 ```
+$spacer: 1rem;
+
 $spacers: (
-  0:    0,
-  25:   .25rem,
-  50:   .5rem,
-  75:   .75rem,
-  1:    1rem,
-  2:    2rem,
-  3:    3rem,
-  4:    4rem,
-  5:    5rem,
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: ($spacer * .75),
+  4: ($spacer * 1),
+  5: ($spacer * 1.25),
+  6: ($spacer * 1.5),
+  7: ($spacer * 1.75),
+  8: ($spacer * 2),
+  9: ($spacer * 2.25),
+  10: ($spacer * 2.5),
+  11: ($spacer * 2.75),
+  12: ($spacer * 3),
+  13: ($spacer * 3.25),
+  14: ($spacer * 3.5),
+  15: ($spacer * 3.75),
+  16: ($spacer * 4),
+  17: ($spacer * 4.25),
+  18: ($spacer * 4.5),
+  19: ($spacer * 4.75),
+  20: ($spacer * 5),
   auto: auto
 );
 
 $base-mg: map-get($spacers, 1); // Universal margin used for <p>, <ul> etc.
 ```
+We crated a tool [NightVue Spacers Generator](https://codepen.io/Nightrunner/pen/poVrGez), where you can quickly see spacing results based on your initial settings.
+
 In case you prefer SCSS method to define spacers use `spacer()` function for that.
 
 * If you pass one param it will return spacer value
@@ -889,25 +905,25 @@ In case you prefer SCSS method to define spacers use `spacer()` function for tha
 
 ```
 padding: spacer(2);
-// => padding: 2rem;
+// => padding: .25rem;
 
-padding-right: spacer(1);
-// => padding-right: 1rem;
+padding-right: spacer(5);
+// => padding-right: 1.25rem;
 
 margin: spacer(3, auto);
-// => margin: 3rem auto;
+// => margin: .75rem auto;
 
-margin: spacer(50, auto, 2, 0);
-// => margin: .5rem auto 2rem 0;
+margin: spacer(5, auto, 2, 0);
+// => margin: 1.25rem auto 0.25rem 0;
 ```
 
 Beside that NightVue generates classnames which you might use to position elements in `absolute` or `fixed` position. These classnames uses pattern `${side}-${size}`:
 
 ```
-.top-2    { top: 2rem }
-.right-3  { right: 3rem }
-.bottom-3 { bottom: 3rem }
-.left-50  { left: .5rem }
+.top-2    { top: .25rem }
+.right-10  { right: 2.5rem }
+.bottom-4 { bottom: 1rem }
+.left-5  { left: 1.25rem }
 ```
 
 And of course they also support breakpoints:
@@ -915,7 +931,7 @@ And of course they also support breakpoints:
 ```
 @media screen and (min-width: 768px) {
   .right-sm-4 {
-     right: 4rem
+      right: 1rem
    }
 }
 ```
@@ -1054,12 +1070,13 @@ In map `$levels` you can define levels of lightening and saturation of each colo
 ```
 $levels: (
   1: 10%,
-  2: 15%,
-  3: 20%,
-  4: 25%,
-  5: 30%,
+  2: 20%,
+  3: 30%,
+  4: 40%,
+  5: 50%,
 );
 ```
+
 ### Colors HTML Usage
 
 NightVue automatically generates classnames from maps `$grays` and `$theme-colors` above. Each color have unique classname with `background-color`, `color` and `fill` styles and uses template `${property}-${color}`, where `${property}` is one of:
@@ -1082,9 +1099,11 @@ Here are some examples:
 .clr-primary  { color: #682CAB }
 .fill-primary { fill: #682CAB }
 ```
-Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations from `$theme-colors` map. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#scale) functions for that. They help to create smooth and steady color pallete. 
+
+Additionally for each color NightVue generates classnames with brightened, darkened, saturated and desaturated color variations from `$theme-colors` map. We are using [mix()](https://sass-lang.com/documentation/modules/color#mix) and [scale()](https://sass-lang.com/documentation/modules/color#scale) functions for that. They help to create smooth and steady color pallete. We created [NightVue Pallete Generator](https://codepen.io/Nightrunner/pen/NWMggPb) to quickly see the results, check it out.
 
 Generated classnames uses pattern `${property}-${color}-${style}-${level}`. Let's take a look at color variations of `primary` color:
+
 ```
 .clr-primary-light-1 { color: #7741b3 }
 .clr-primary-light-2 { color: #7f4cb8 }
@@ -1117,26 +1136,34 @@ Beside that you can use `rgba` versions of `$theme-colors`. For each `opacity` v
 ```
 $opacities: (
   0: 0%,
-  25: 25%,
-  50: 50%,
-  75: 75%,
-  100: 100%
+  1: 5%,
+  2: 15%,
+  3: 25%,
+  4: 35%,
+  5: 45%,
+  6: 55%,
+  7: 65%,
+  8: 75%,
+  9: 85%,
+  10: 95%
 );
 ```
 
 These classnames uses pattern `${property}-${color}-opacity-${opacity}`. Take a look at `rgba` variants of `success` color as example:
 
 ```
-.bg-success-opacity-100 { rgba(71, 176, 91, 1) }
-.bg-success-opacity-75  { rgba(71, 176, 91, 0.75) }
-.bg-success-opacity-50  { rgba(71, 176, 91, 0.5) }
-.bg-success-opacity-25  { rgba(71, 176, 91, 0.25) }
-.bg-success-opacity-0   { rgba(71, 176, 91, 0) }
+.bg-success-opacity-0 { rgba(71, 176, 91, 0) }
+.bg-success-opacity-1  { rgba(71, 176, 91, 0.05) }
+.bg-success-opacity-2  { rgba(71, 176, 91, 0.15) }
+.bg-success-opacity-3  { rgba(71, 176, 91, 0.25) }
+...
+.bg-success-opacity-10   { rgba(71, 176, 91, 0.95) }
 ```
 
 ### Color Sass functions
 
-If you need apply colors in SCSS files you can use `color($name, $style, $level)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$level` to determine level of brightness or saturation. Here are some examples of usage in SCSS:
+If you need apply colors in SCSS files you can use `color($name, $style, $level)` function. It returns hex value of color by its `$name`. Additionally you can pass optional arguments `$style` and `$level` to determine level of brightness or saturation. Or you can define it's `$opacity` level. Here are some examples of usage in SCSS:
+
 ```
 box-shadow: 1px 1px 4px color('primary');
 // => box-shadow: 1px 1px 4px #682CAB;
@@ -1155,6 +1182,9 @@ background-color: color('warning', desat, 4);
 
 color: color('white');
 // => color: #ffffff;
+
+color: color('white', $opacity: 5);
+// => color: rgba(255, 255, 255, 0.45);
 
 fill: color('gray-4');
 // => fill: #aaaaaa;

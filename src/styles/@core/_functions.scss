@@ -100,7 +100,7 @@
   /// @param $name:    { String }, [color name, required]
   /// @param $style:   { String }, [color style: light | dark | sat | desat]
   /// @param $level:   { Number }, [color level: 1...5 (based on $levels map)]
-  /// @param $opacity: { Number }, [opacity level: 0...100 (based on $opacities map)]
+  /// @param $opacity: { Number }, [opacity level: 0...10 (based on $opacities map)]
   /// 
   /// @example
   ///   box-shadow: 1px 1px 4px color('primary');
@@ -109,6 +109,7 @@
   ///   color: color('danger', sat, 2);
   ///   background-color: color('warning', desat, 4);
   ///   color: color('white');
+  ///   color: color('white', $opacity: 5);
   ///   fill: color('gray-4');
   ///
   /// @output
@@ -118,6 +119,7 @@
   ///   color: #f64234;
   ///   background-color: #eadd6d;
   ///   color: #ffffff;
+  ///   color: rgba(255, 255, 255, 0.45);
   ///   fill: #aaaaaa;
 
   $targetMap: $theme-colors;
