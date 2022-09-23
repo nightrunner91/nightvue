@@ -1312,6 +1312,7 @@ For each opacity value from `$opacities` map NightVue generates utility classnam
 
 ```
 $opacities: (
+  0: 0%,
   1: 5%,
   2: 15%,
   3: 25%,
