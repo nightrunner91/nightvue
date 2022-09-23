@@ -1312,26 +1312,32 @@ For each opacity value from `$opacities` map NightVue generates utility classnam
 
 ```
 $opacities: (
-  0: 0%,
-  25: 25%,
-  50: 50%,
-  75: 75%,
-  100: 100%
+  1: 5%,
+  2: 15%,
+  3: 25%,
+  4: 35%,
+  5: 45%,
+  6: 55%,
+  7: 65%,
+  8: 75%,
+  9: 85%,
+  10: 95%
 );
 ```
 ```
 .opacity-0   { opacity: 0 }
-.opacity-25  { opacity: 0.25 }
-.opacity-50  { opacity: 0.5 }
-.opacity-75  { opacity: 0.75 }
-.opacity-100 { opacity: 1 }
+.opacity-1  { opacity: 0.05 }
+.opacity-2  { opacity: 0.15 }
+.opacity-3  { opacity: 0.25 }
+...
+.opacity-10 { opacity: 0.95 }
 ```
 These classnames supports `$breakpoints` so you can easily manage `opacity` level on each specific breakpoint. Use template `.opacity-${breakpoint}-{$value}` to do that. For example this `opacity` will apply only on `lg` breakpoint:
 
 ```
 @media screen and (min-width: 1280px) {
-  .opacity-lg-50 {
-    opacity: 0.5
+  .opacity-lg-5 {
+    opacity: 0.45
   }
 }
 ```
@@ -1342,17 +1348,17 @@ In case you need apply `opacity` in SCSS use `opacity($level)` function:
 opacity: opacity(0);
 // => opacity: 0;
 
-opacity: opacity(25);
+opacity: opacity(1);
+// => opacity: 0.05;
+
+opacity: opacity(3);
 // => opacity: 0.25;
 
-opacity: opacity(50);
-// => opacity: 0.5;
+opacity: opacity(7);
+// => opacity: 0.65;
 
-opacity: opacity(75);
-// => opacity: 0.75;
-
-opacity: opacity(100);
-// => opacity: 1;
+opacity: opacity(10);
+// => opacity: 0.95;
 
 ```
 
