@@ -54,16 +54,30 @@ $xl-dw: "screen and (max-width: #{map-get($breakpoints, 'xl') - 1px})" !default;
 // ===== Spacing ===== //
 // =================== //
 
+$spacer: 1rem;
+
 $spacers: (
-  0:    0,
-  25:   .25rem,
-  50:   .5rem,
-  75:   .75rem,
-  1:    1rem,
-  2:    2rem,
-  3:    3rem,
-  4:    4rem,
-  5:    5rem,
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: ($spacer * .75),
+  4: ($spacer * 1),
+  5: ($spacer * 1.25),
+  6: ($spacer * 1.5),
+  7: ($spacer * 1.75),
+  8: ($spacer * 2),
+  9: ($spacer * 2.25),
+  10: ($spacer * 2.5),
+  11: ($spacer * 2.75),
+  12: ($spacer * 3),
+  13: ($spacer * 3.25),
+  14: ($spacer * 3.5),
+  15: ($spacer * 3.75),
+  16: ($spacer * 4),
+  17: ($spacer * 4.25),
+  18: ($spacer * 4.5),
+  19: ($spacer * 4.75),
+  20: ($spacer * 5),
   auto: auto
 );
 
@@ -247,10 +261,10 @@ $theme-colors: (
 // Levels of mix() and scale()
 $levels: (
   1: 10%,
-  2: 15%,
-  3: 20%,
-  4: 25%,
-  5: 30%,
+  2: 20%,
+  3: 30%,
+  4: 40%,
+  5: 50%,
 );
 
 
