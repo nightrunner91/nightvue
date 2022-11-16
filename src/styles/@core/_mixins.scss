@@ -67,7 +67,6 @@
       $animation: replace-in-list($animation, $timing, map-get($transition-timings, $timing))
     }
 
-    -webkit-animation: to-string($animation, ' ');
     animation: to-string($animation, ' ');
 };
 

@@ -144,6 +144,7 @@ Let's take a look at the crucial parts of framework.
 * [Shadows](#shadows)
 * [Z-index](#z-index)
 * [Transitions](#transitions)
+* [Animations](#animations)
 * [Rotations](#rotations)
 * [Utilities](#utilities)
 
@@ -1673,6 +1674,50 @@ transition: complex-transition(
 );
 
 // => transition: opacity 0.25s cubic-bezier(0.42, 0, 1, 1), background-color 0.375s cubic-bezier(0, 0, 0.2, 1), color 0.75s cubic-bezier(0, 0, 1, 1) 1s;
+```
+
+## Animations
+
+We have prepared a mixin that will make it easier for you to write and manage animations in your project. To include animation to selector use `@animation($name, $duration, $delay, $count, $direction, $timing, $mode, $state)` mixin, where:
+
+* `$name` - name of animation.
+* `$duration` - duration of animation. Could be predefined value from `$transition-speed` map located in `varaibles.scss` file or any other value in seconds (s) or miliseconds (ms).
+* `$delay` - specifies the amount of time in seconds (s) or miliseconds (ms) to wait from applying the animation to an element before beginning to perform the animation. By default it is equal to 0.
+* `$count` - sets the number of times an animation sequence should be played before stopping. Default is 1 time.
+* `$direction` - sets whether an animation should play forward, backward, or alternate back and forth between playing the sequence forward and backward. By default is set to "normal".
+* `$timing` - sets how an animation progresses through the duration of each cycle. Could be predefined value from `$transition-timings` map located in `varaibles.scss` file or any transition you want. Default is 'ease-in'.
+* `$mode` - sets how a CSS animation applies styles to its target before and after its execution. Default is 'forwards'.
+* `$state` - sets whether an animation is running or paused. By default it's 'running' state.
+
+If you are not sure what each of parameters means check out [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation) for in-depth explanation.
+
+Now let's take a look at example of usage:
+
+```
+@include animation(
+  $name: spin,
+  $duration: slow,
+  $delay: 1s,
+  $count: infinite,
+  $direction: reverse,
+  $timing: emphasized
+  $state: paused
+);
+
+// =>
+animation: spin 0.375s cubic-bezier(0, 0, 0.2, 1) 1s infinite reverse forwards paused;
+```
+
+Only first two parameters are required, so you can shorten mixin like that if your are okay with default values:
+
+```
+@include animation(
+  $name: spin,
+  $duration: 2s
+);
+
+// =>
+animation: spin 2s cubic-bezier(0.42, 0, 1, 1) 0s 1 normal forwards;
 ```
 
 ## Rotations
