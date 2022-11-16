@@ -514,6 +514,13 @@ $text-wraps: (
   pre-wrap: pre-wrap
 );
 
+$word-brakes: (
+  normal:      normal,
+  break-all:   break-all,
+  keep-all:    keep-all,
+  break-word:  break-word,
+);
+
 $letter-spacings: (
   normal:  normal,
   tight:   -0.05em,
@@ -595,11 +602,16 @@ For each Sass map NightVue generates set of utility classnames to use in HTML:
 .text-line-through  { text-decoration: line-through }
 .text-none          { text-decoration: none }
 
-.text-normal   { white-space: normal }
-.text-nowrap   { white-space: nowrap }
-.text-pre      { white-space: pre }
-.text-pre-line { white-space: pre-line }
-.text-pre-wrap { white-space: pre-wrap }
+.white-space-normal    { white-space: normal }
+.white-space-nowrap    { white-space: nowrap }
+.white-space-pre       { white-space: pre }
+.white-space-pre-line  { white-space: pre-line }
+.white-space-pre-wrap  { white-space: pre-wrap }
+
+.word-break-normal     { word-break: normal }
+.word-break-break-all  { word-break: break-all }
+.word-break-keep-all   { word-break: keep-all }
+.word-break-break-word { word-break: break-word }
 
 .text-lowercase  { text-transform: lowercase }
 .text-uppercase  { text-transform: uppercase }
@@ -1633,7 +1645,7 @@ NightVue generates classnames based on this maps to use them in HTML:
 .speed-slower   { transition-duration: .5s }
 .speed-lazy     { transition-duration: .75s }
 ```
-But we recomend apply transitions in SCSS files. To do that use `transition()` and `complex-transition()` functions.
+But we recomend to apply transitions in SCSS files. To do that use `transition()` and `complex-transition()` functions.
 
 Function `transition()` returns transition based on `$property`, `$speed`, `$timings` and `$delay` params. Only first one param is required, others are by default `base => .3s`, `ease` and `0s`. Function searches params in `$transition-speed` and `$transition-timings` maps, but you could pass whatever you want. We advice you to pass predefined `$speed` and `$timing` values tho. Here are some examples of usage:
 ```

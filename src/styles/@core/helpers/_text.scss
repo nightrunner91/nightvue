@@ -30,7 +30,7 @@
     .text#{$breakpoint}-#{$decoration} { text-decoration: $value !important; }
   }
   @each $wrap, $value in $text-wraps {
-    .text#{$breakpoint}-#{$wrap} { white-space: $value !important; }
+    .white-space#{$breakpoint}-#{$wrap} { white-space: $value !important; }
   }
   @each $break, $value in $word-brakes {
     .word-break#{$breakpoint}-#{$break} { word-break: $value !important; }
