@@ -10,6 +10,7 @@
 /// @link https://developer.mozilla.org/ru/docs/Web/CSS/text-align
 /// @link https://developer.mozilla.org/ru/docs/Web/CSS/text-decoration
 /// @link https://developer.mozilla.org/ru/docs/Web/CSS/white-space
+/// @link https://developer.mozilla.org/ru/docs/Web/CSS/word-break
 /// @link https://developer.mozilla.org/ru/docs/Web/CSS/text-transform
 /// @link https://developer.mozilla.org/ru/docs/Web/CSS/font-weight
 /// @link https://developer.mozilla.org/ru/docs/Web/CSS/font-style
@@ -30,6 +31,9 @@
   }
   @each $wrap, $value in $text-wraps {
     .text#{$breakpoint}-#{$wrap} { white-space: $value !important; }
+  }
+  @each $break, $value in $word-brakes {
+    .word-break#{$breakpoint}-#{$break} { word-break: $value !important; }
   }
   @each $transform, $value in $text-transforms {
     .text#{$breakpoint}-#{$transform} { text-transform: $value !important; }

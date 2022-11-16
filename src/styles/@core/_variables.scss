@@ -164,6 +164,13 @@ $text-wraps: (
   pre-wrap: pre-wrap
 );
 
+$word-brakes: (
+  normal:      normal,
+  break-all:   break-all,
+  keep-all:    keep-all,
+  break-word:  break-word,
+);
+
 $letter-spacings: (
   normal:  normal,
   tight:   -0.05em,
