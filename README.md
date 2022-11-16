@@ -1681,11 +1681,11 @@ transition: complex-transition(
 We have prepared a mixin that will make it easier for you to write and manage animations in your project. To include animation to selector use `@animation($name, $duration, $delay, $count, $direction, $timing, $mode, $state)` mixin, where:
 
 * `$name` - name of animation.
-* `$duration` - duration of animation. Could be predefined value from `$transition-speed` map located in `varaibles.scss` file or any other value in seconds (s) or miliseconds (ms).
+* `$duration` - duration of animation. Could be predefined value from `$transition-speed` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file or any other value in seconds (s) or miliseconds (ms).
 * `$delay` - specifies the amount of time in seconds (s) or miliseconds (ms) to wait from applying the animation to an element before beginning to perform the animation. By default it is equal to 0.
 * `$count` - sets the number of times an animation sequence should be played before stopping. Default is 1 time.
 * `$direction` - sets whether an animation should play forward, backward, or alternate back and forth between playing the sequence forward and backward. By default is set to "normal".
-* `$timing` - sets how an animation progresses through the duration of each cycle. Could be predefined value from `$transition-timings` map located in `varaibles.scss` file or any transition you want. Default is 'ease-in'.
+* `$timing` - sets how an animation progresses through the duration of each cycle. Could be predefined value from `$transition-timings` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file or any transition you want. Default is 'ease-in'.
 * `$mode` - sets how a CSS animation applies styles to its target before and after its execution. Default is 'forwards'.
 * `$state` - sets whether an animation is running or paused. By default it's 'running' state.
 
