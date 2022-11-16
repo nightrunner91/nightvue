@@ -10,7 +10,7 @@ export default {
       width: undefined,
       height: undefined
     },
-    currentBreakpoint: undefined,
+    currentBreakpoint: 'xs',
     windowScroll: 0,
 
     // Dublicated in 'styles/core/_variables.scss'
