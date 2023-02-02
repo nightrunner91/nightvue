@@ -5,11 +5,11 @@
 
 # Introduction 👋
 
-NightVue is a “crystal clear” development framework for [Vue.js 2.x](https://ru.vuejs.org/v2/guide/) powered by [Vue CLI 4.x](https://cli.vuejs.org/), one of the most convenient tools for developing with Vue.js. 
+NightVue is a “crystal clear” development framework for [Vue.js 2.x](https://ru.vuejs.org/v2/guide/), powered by [Vue CLI 4.x](https://cli.vuejs.org/), a user-friendly tool for Vue.js development. 
 
-While many other frameworks comes with pre-build components and styles, NightVue gives you the maximum freedom to develop your own web interfaces. It is created for those who prefer to develop “from scratch”. NightVue gives you tools to work with and what you do with them is up to you.
+Unlike many other frameworks that come with pre-built components and styles, NightVue provides maximum flexibility for creating custom web interfaces. It is designed for developers who prefer to start from scratch. NightVue provides tools for you to use as you see fit. 
 
-For those developers who needs framework with ready-to-use UI solutions, we would recomend to use popular ones like [BootstrapVue](https://bootstrap-vue.org/), [Vuetify](https://vuetifyjs.com/en/), [Vue Material](https://www.creative-tim.com/vuematerial/), or whatever you like. Anyway, take a look at our documentation, maybe NightVue is what you need!
+For developers seeking a framework with ready-to-use UI solutions, we recommend popular options such as [BootstrapVue](https://bootstrap-vue.org/), [Vuetify](https://vuetifyjs.com/en/), [Vue Material](https://www.creative-tim.com/vuematerial/). However, please check out our documentation as NightVue may still be the framework you need.
 
 # What's Included? 📦
 
@@ -91,7 +91,7 @@ This is default NightVue file structure. We followed to the principles of modula
 │           └── helpers
 │           _functions.scss
 │           _mixins.scss
-│           _varaibles.scss
+│           _variables.scss
 │           globals.scss
 │           normalize.scss
 │           typography.scss
@@ -150,7 +150,7 @@ Let's take a look at the crucial parts of framework.
 
 ## Layout
 
-Vue.js doesn't provide layout functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/), which is realy great. We also combined this method with [Vue Router transitions](https://router.vuejs.org/guide/advanced/transitions.html) to create smooth, dynamic and easy expandible layout system.
+Vue.js doesn't provide layout functionality by default, but people found [the way to do it](https://markus.oberlehner.net/blog/dynamic-vue-layout-components/), which is realy great. We also combined this method with [Vue Router transitions](https://router.vuejs.org/guide/advanced/transitions.html) to create smooth, dynamic and easy expandable layout system.
 
 Key file in this system is [AppLayout.vue](src/layouts/AppLayout.vue). Here we created dynamic component to which we apply different layout types using `is` attribute:
 ```
@@ -258,7 +258,7 @@ There are 3 types of containers in NightVue:
 * **combined** - container will have `max-width` of *last* value from `$containers` map, then will have 100%
 * **full** - container will *always* have 100% width
 
-Base grid settings are stored in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+Base grid settings are stored in [_variables.scss](src/styles/@core/_variables.scss) file:
 ```
 $num-cols:      12;
 $gutter-width:  1rem;
@@ -347,7 +347,7 @@ If you need apply order to column use `order-${breakpoint}-${value}` classnames 
 
 ### Sass grid mixins
 
-Although HTML method is very familiar to most developers, we highly recomend to use Sass mixins to build grid directly in SCSS files. This will make Vue templates noticeably cleaner and at the same time help keep all the styles in one place.
+While the HTML method is well-known to many developers, we strongly recommend using Sass mixins to construct grids directly in SCSS files. This approach leads to cleaner Vue templates and helps keep all styles in one place.
 
 To convert any selector to container just apply `@container()` mixin to it:
 ```
@@ -426,7 +426,7 @@ Here are some examples of usage:
 
 ## Typography
 
-NightVue stores all typography settings in Sass maps located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file. In [typography.scss](src/styles/@core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
+NightVue stores all typography settings in Sass maps located in [_variables.scss](src/styles/@core/_variables.scss) file. In [typography.scss](src/styles/@core/typography.scss) file are described styles for headings, displays, body text, lists, and more.
 
 ### Font import
 
@@ -877,7 +877,7 @@ Where `$side` is one of:
 * `y` - for classnames that set property both *-top and *-bottom
 * blank - for classnames that set property a margin or padding on all 4 sides of the element
 
-Where `$size` is one of spacing sizes defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+Where `$size` is one of spacing sizes defined in [_variables.scss](src/styles/@core/_variables.scss) file:
 ```
 $spacer: 1rem;
 
@@ -968,7 +968,7 @@ NightVue generates set of classnames which uses format `${property}-${breakpoint
 * `min-h` - for `min-height` in `%`
 * `min-vh` - for `min-height` in `vw`
 
-Where `$size` is one of sizing values defined in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+Where `$size` is one of sizing values defined in [_variables.scss](src/styles/@core/_variables.scss) file:
 ```
 $sizings: (
   0:    0,
@@ -1037,7 +1037,7 @@ NightVue uses Sass maps to store project colors. This maps will help you quickly
 * `$grays` map includes achromatic list (shades of gray between `#fff` and `#000`)
 * `$theme-colors` map includes semantically named colors composed from maps above
 
-All this maps are described in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+All this maps are described in [_variables.scss](src/styles/@core/_variables.scss) file:
 
 ```
 $colors: (
@@ -1205,9 +1205,9 @@ fill: color('gray-4');
 
 ## Gradients
 
-Working with `linear-gradient` may be akward and cluncy sometimes. It's not easy to remember all settings and features of this CSS function. NightVue provides some tools to easy manage group of gradients and create new ones with ease. Read [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient) describing `linear-gradients` if you are not quite familiar with them.
+Working with linear-gradients can sometimes be awkward and clunky. Remembering all the settings and features of this CSS function can be challenging. NightVue offers tools to easily manage a group of gradients and create new ones with ease. If you're not familiar with linear-gradients, we recommend reading the [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient).
 
-First of all NightVue uses Sass map `$gradients` to store all gradients used in project. This map is located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file. By default there are already 4 gradients as examples:
+NightVue uses a Sass map called $gradients to store all gradients used in the project. This map is located in the [_variables.scss](src/styles/@core/_variables.scss) file and contains four gradients as examples by default.
 
 ```
 $gradients: (
@@ -1399,7 +1399,7 @@ Plugin automatically creates and injects in `<body>` client-side SVG sprite cont
 <svg-icon icon="face" />
 ```
 
-To set icon size define its `size` property. All icon sizes are stored in `$icons` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+To set icon size define its `size` property. All icon sizes are stored in `$icons` map located in [_variables.scss](src/styles/@core/_variables.scss) file:
 ```
 $icon-sizes: (
   2xs: 0.625em, // 10px
@@ -1512,7 +1512,7 @@ border-top-left-radius: radius('zero');
 
 ## Shadows
 
-NightVue stores all types of box-shadows in `$shadows` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file. By default this map contains list of shadows based on [Material methodology](https://material.io/design/environment/light-shadows.html#light):
+NightVue stores all types of box-shadows in `$shadows` map located in [_variables.scss](src/styles/@core/_variables.scss) file. By default this map contains list of shadows based on [Material methodology](https://material.io/design/environment/light-shadows.html#light):
 
 ```
 $shadows: (
@@ -1557,7 +1557,7 @@ box-shadow: shadow('level-5');
 
 ## Z-index
 
-Z-index property has a huge role in how web interface works. To position elements in Z-axis NightVue provides list of utility classnames. Taking into account that each project is unique and NightVue don't has any pre-build components we decided to make an unversal list of z-indexes from -1 to 12. It's quite possible that this solution won't work for you, in that case use any other you like more.
+The Z-index property plays a crucial role in determining the behavior of web interfaces. NightVue offers a list of utility class names to position elements in the Z-axis. Since each project is unique and NightVue doesn't have pre-built components, we created a universal list of Z-indexes ranging from -1 to 12. However, this solution may not be suitable for everyone, so feel free to use any alternative you prefer.
 
 Utility classnames uses format `.z-plus-${value}` for positive values and `.z-minus-${value}` for negatives. You can also determine start and end values in [_zindex.scss](src/styles/@core/helpers/_zindex.scss) file:
 
@@ -1593,7 +1593,7 @@ Each of these classnames supports `$breakpoints` so you can easily manage `z-ind
 
 ## Transitions
 
-NightVue provides set of most usable transition timings in web. They are stored in `$transition-timings` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file:
+NightVue provides set of most usable transition timings in web. They are stored in `$transition-timings` map located in [_variables.scss](src/styles/@core/_variables.scss) file:
 ```
 $transition-timings: (
   linear:       cubic-bezier(0, 0, 1, 1),
@@ -1681,11 +1681,11 @@ transition: complex-transition(
 We have prepared a mixin that will make it easier for you to write and manage animations in your project. To include animation to selector use `@animation($name, $duration, $delay, $count, $direction, $timing, $mode, $state)` mixin, where:
 
 * `$name` - name of animation.
-* `$duration` - duration of animation. Could be predefined value from `$transition-speed` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file or any other value in seconds (s) or miliseconds (ms).
+* `$duration` - duration of animation. Could be predefined value from `$transition-speed` map located in [_variables.scss](src/styles/@core/_variables.scss) file or any other value in seconds (s) or miliseconds (ms).
 * `$delay` - specifies the amount of time in seconds (s) or miliseconds (ms) to wait from applying the animation to an element before beginning to perform the animation. By default it is equal to 0.
 * `$count` - sets the number of times an animation sequence should be played before stopping. Default is 1 time.
 * `$direction` - sets whether an animation should play forward, backward, or alternate back and forth between playing the sequence forward and backward. By default is set to "normal".
-* `$timing` - sets how an animation progresses through the duration of each cycle. Could be predefined value from `$transition-timings` map located in [_varaibles.scss](src/styles/@core/_varaibles.scss) file or any transition you want. Default is 'ease-in'.
+* `$timing` - sets how an animation progresses through the duration of each cycle. Could be predefined value from `$transition-timings` map located in [_variables.scss](src/styles/@core/_variables.scss) file or any transition you want. Default is 'ease-in'.
 * `$mode` - sets how a CSS animation applies styles to its target before and after its execution. Default is 'forwards'.
 * `$state` - sets whether an animation is running or paused. By default it's 'running' state.
 
