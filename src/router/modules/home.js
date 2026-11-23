@@ -1,7 +1,6 @@
 export default [
   {
     path: '/home',
-    name: 'Home',
     component: () => import('../RouterView.vue'),
     children: [
       {

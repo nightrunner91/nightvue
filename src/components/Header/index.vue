@@ -43,11 +43,10 @@ export default {
   data() {
     return {
       items: [
-        { id: 'toolkit', label: 'Toolkit' },
-        { id: 'grid', label: 'Grid' },
-        { id: 'colors', label: 'Colors' },
-        { id: 'type', label: 'Type' },
-        { id: 'details', label: 'Details' },
+        { id: 'getting-started', label: 'Start' },
+        { id: 'included', label: 'Included' },
+        { id: 'structure', label: 'Structure' },
+        { id: 'documentation', label: 'Docs' },
       ],
     }
   },
