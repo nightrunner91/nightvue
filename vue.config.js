@@ -8,7 +8,8 @@ function resolve(dir) {
 }
 
 module.exports = {
-  publicPath: '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/nightvue/' : '/',
+  productionSourceMap: false,
   devServer: {
     port: 1991,
   },
@@ -42,5 +43,7 @@ module.exports = {
   css: {
     extract: true,
   },
-  filenameHashing: false
+  // Vue CLI 4 + webpack 4 cannot resolve [contenthash] for the extracted CSS
+  // once splitChunks is disabled, so hashing stays off for this demo.
+  filenameHashing: false,
 }

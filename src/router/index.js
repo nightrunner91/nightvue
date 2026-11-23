@@ -13,12 +13,13 @@ const routes = [
 
   {
     path: '*',
-    redirect: 'error-404',
+    redirect: '/home',
   },
 ]
 
 const router = new VueRouter({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes,
 })
 

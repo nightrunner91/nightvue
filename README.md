@@ -5,6 +5,8 @@
 
 # Introduction 👋
 
+> **Archived project.** NightVue targets Vue 2, which reached end of life in December 2023. The repository is preserved as a historical artifact and a live demo of the SCSS toolkit: **https://nightrunner91.github.io/nightvue/**
+
 NightVue is a “crystal clear” development framework for [Vue.js 2.x](https://ru.vuejs.org/v2/guide/), powered by [Vue CLI 4.x](https://cli.vuejs.org/), a user-friendly tool for Vue.js development. 
 
 Unlike many other frameworks that come with pre-built components and styles, NightVue provides maximum flexibility for creating custom web interfaces. It is designed for developers who prefer to start from scratch. NightVue provides tools for you to use as you see fit. 
