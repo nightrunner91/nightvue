@@ -15,12 +15,12 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "prebuild": "vue-cli-service build --mode preproduction",
+    "build:pre": "vue-cli-service build --mode preproduction",
     "build": "vue-cli-service build",
+    "postbuild": "cp dist/index.html dist/404.html && touch dist/.nojekyll",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@vue/eslint-config-airbnb": "^6.0.0",
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "eslint-plugin-vuejs-accessibility": "^1.1.1",

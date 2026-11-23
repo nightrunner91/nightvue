@@ -12,6 +12,25 @@
 // Global varaibles, mixins and functions
 @import "@core/globals.scss";
 
+/// Showcase page defaults
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background-color: #f6f3fb;
+  color: color('gray-10');
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: color('primary', $opacity: 3);
+  color: color('gray-10');
+}
+
 /// Components
 @import "components/button";
 
