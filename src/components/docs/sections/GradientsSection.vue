@@ -45,8 +45,8 @@
       <demo-panel title="Gradient anatomy">
         <pre class="demo-pre">gradientName: (
   direction: 145deg,
-  fallback: #682CAB,
-  list: (#8e51d2 10%, #68c279 80%)
+  fallback: #17765A,
+  list: (#17765a 10%, #47b05b 80%)
 )</pre>
         <p class="demo-text demo-text--muted">
           <strong>direction</strong> accepts keywords like <code>to right</code> or any
@@ -117,8 +117,8 @@ export default {
   ),
 );`,
         mixin: `.gradient-primary_success {
-  background: #682cab;
-  background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+  background: #17765a;
+  background: linear-gradient(145deg, #17765a 10%, #47b05b 80%);
 }
 
 // SCSS

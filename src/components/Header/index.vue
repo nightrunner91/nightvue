@@ -60,7 +60,7 @@ export default {
   position: sticky;
   top: 0;
   z-index: 20;
-  background-color: rgba(246, 243, 251, 0.82);
+  background-color: rgba(245, 244, 240, 0.86);
   border-bottom: 1px solid color('primary', $opacity: 1);
   backdrop-filter: blur(14px);
 

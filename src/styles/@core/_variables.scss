@@ -234,7 +234,7 @@ $colors: (
   'teal':     #009688,
   'cyan':     #00BCD4,
   'blue':     #2196F3,
-  'purple':   #682CAB,
+  'pine':     #17765A,
 );
 
 // List of gray colors
@@ -255,7 +255,7 @@ $grays: (
 
 // List of theme colors picked from two maps above
 $theme-colors: (
-  'primary':    map-get($colors, 'purple'),
+  'primary':    map-get($colors, 'pine'),
   'secondary':  map-get($colors, 'blue'),
   'success':    map-get($colors, 'green'),
   'info':       map-get($colors, 'teal'),

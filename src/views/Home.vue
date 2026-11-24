@@ -6,27 +6,17 @@
     <section
       id="introduction"
       class="hero">
-      <div
-        class="hero__glow hero__glow--primary"
-        aria-hidden="true" />
-      <div
-        class="hero__glow hero__glow--success"
-        aria-hidden="true" />
-
-      <div class="container position-relative">
+      <div class="container">
         <div class="row align-items-center">
           <div class="col col-12 col-lg-7">
-            <p class="hero__eyebrow">
-              <span class="hero__dot" />
-              Vue 2 · SCSS toolkit · 2020—2023
-            </p>
+            <p class="hero__eyebrow">Vue 2 · SCSS</p>
 
-            <h1 class="hero__title">Night<span class="hero__title-accent">Vue</span></h1>
+            <h1 class="hero__title">A Vue 2 starter with an SCSS toolkit</h1>
 
             <p class="hero__lead">
-              A crystal-clear development framework for Vue.js 2.x, powered by Vue CLI 4.x.
-              No pre-built UI kit and no opinions about your design — just a responsive
-              grid, a small army of Sass helpers and enough structure to start from scratch.
+              A responsive grid, a set of Sass helpers and enough structure to start from
+              scratch, with no pre-built UI kit and no opinions about your design. Vue 2
+              reached end of life in December 2023, so this site stays online as a live demo.
             </p>
 
             <div class="hero__actions">
@@ -39,37 +29,11 @@
                 target="_blank"
                 rel="noopener">View on GitHub</a>
             </div>
-
-            <ul class="hero__facts">
-              <li>
-                <strong>Vue 2.6.11</strong>
-                <span>last supported line</span>
-              </li>
-              <li>
-                <strong>18</strong>
-                <span>documented sections</span>
-              </li>
-              <li>
-                <strong>58 KB</strong>
-                <span>of reference material</span>
-              </li>
-            </ul>
-
-            <p class="hero__archive">
-              <strong>Archived project.</strong>
-              NightVue targets Vue 2, which reached end of life in December 2023.
-              This site is preserved as a live demo of the SCSS toolkit.
-            </p>
           </div>
 
           <div class="col col-12 col-lg-5">
             <div class="terminal">
               <div class="terminal__bar">
-                <span class="terminal__dots">
-                  <i class="terminal__dot terminal__dot--red" />
-                  <i class="terminal__dot terminal__dot--yellow" />
-                  <i class="terminal__dot terminal__dot--green" />
-                </span>
                 <span class="terminal__title">nightvue — zsh</span>
               </div>
 
@@ -101,7 +65,7 @@
                 </div>
 
                 <p class="terminal__note">
-                  Live values from the <code>config</code> Vuex module — resize the window.
+                  Live values come from the <code>config</code> Vuex module. Resize the window to see them.
                 </p>
               </div>
             </div>
@@ -118,11 +82,11 @@
       class="page-section page-section--paper">
       <div class="container">
         <header class="page-head">
-          <p class="page-head__index">01 — Getting started</p>
-          <h2 class="page-head__title">Four commands to a running project</h2>
+          <p class="page-head__index">01 Getting started</p>
+          <h2 class="page-head__title">Install and run</h2>
           <p class="page-head__lead">
-            Clone the repository, install dependencies and start the hot-reload dev
-            server. Build, lint and fix scripts are included as well.
+            Clone the repository, install the dependencies and start the hot-reload dev
+            server. Build, lint and fix scripts come with the project.
           </p>
         </header>
 
@@ -148,12 +112,11 @@
       class="page-section">
       <div class="container">
         <header class="page-head">
-          <p class="page-head__index">02 — What's included</p>
-          <h2 class="page-head__title">A small core, deliberately</h2>
+          <p class="page-head__index">02 What's included</p>
+          <h2 class="page-head__title">Modules and features</h2>
           <p class="page-head__lead">
-            NightVue ships modules, a file structure and a collection of Sass tools — not
-            finished components. Use them as a foundation and build the interface you
-            actually need.
+            NightVue ships modules, a file structure and Sass tools, not finished
+            components. Use them as a base and build the interface you need.
           </p>
         </header>
 
@@ -172,11 +135,11 @@
 
           <article class="included-card">
             <h3 class="included-card__title">Features</h3>
-            <ul class="included-list included-list--check">
+            <ul class="included-list">
               <li
                 v-for="feature in features"
                 :key="feature">
-                <span class="included-list__check">✓</span>
+                <span class="included-list__dot" />
                 {{ feature }}
               </li>
             </ul>
@@ -193,12 +156,11 @@
       class="page-section page-section--paper">
       <div class="container">
         <header class="page-head">
-          <p class="page-head__index">03 — File structure</p>
-          <h2 class="page-head__title">Small folders, clear responsibilities</h2>
+          <p class="page-head__index">03 File structure</p>
+          <h2 class="page-head__title">Where things live</h2>
           <p class="page-head__lead">
-            The default structure follows the principles of modularity and extensibility.
-            Everything is grouped by purpose, so a new page, layout or style block has an
-            obvious home.
+            The default structure is grouped by purpose, so a new page, layout or style
+            block has an obvious home.
           </p>
         </header>
 
@@ -228,11 +190,11 @@
       class="page-section">
       <div class="container">
         <header class="page-head">
-          <p class="page-head__index">04 — Documentation</p>
-          <h2 class="page-head__title">Everything is written down</h2>
+          <p class="page-head__index">04 Documentation</p>
+          <h2 class="page-head__title">Reference</h2>
           <p class="page-head__lead">
-            Eighteen sections, each with a short explanation, a live dummy example and
-            copy-ready code. The same material lives in the repository README.
+            Each section has a short explanation, a live example and code you can copy.
+            The same material is in the repository README.
           </p>
         </header>
 
@@ -249,7 +211,6 @@
               <strong class="toc-card__title">{{ section.title }}</strong>
               <span class="toc-card__text">{{ section.blurb }}</span>
             </span>
-            <span class="toc-card__arrow">→</span>
           </a>
         </nav>
       </div>

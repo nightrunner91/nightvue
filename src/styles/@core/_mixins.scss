@@ -142,8 +142,8 @@
   ///   @include linear-gradient('primary_success');
   ///
   /// @output
-  ///   background: #682cab;
-  ///   background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+  ///   background: #17765a;
+  ///   background: linear-gradient(145deg, #17765a 10%, #47b05b 80%);
 
   @if map-has-key($gradients, quote($name)) {
     $target: map-get($gradients, $name);

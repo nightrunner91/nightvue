@@ -12,13 +12,13 @@
 ///
 /// @output
 ///   .gradient-primary_success {
-///     background: #682cab;
-///     background: linear-gradient(145deg, #8e51d2 10%, #68c279 80%);
+///     background: #17765a;
+///     background: linear-gradient(145deg, #17765a 10%, #47b05b 80%);
 ///   }
 ///
 ///   .gradient-primary-light-3_primary {
-///     background: #682CAB;
-///     background: linear-gradient(to bottom, #682CAB, #9b65d8);
+///     background: #17765A;
+///     background: linear-gradient(to bottom, #17765A, #2fa37a);
 ///   }
 
 @each $gradient, $value in $gradients {

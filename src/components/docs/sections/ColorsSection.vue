@@ -98,7 +98,7 @@ export default {
       levelStyles: ['light', 'dark', 'sat', 'desat'],
       opacities: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       themeColors: [
-        { name: 'primary', hex: '#682CAB', contrast: 'clr-white' },
+        { name: 'primary', hex: '#17765A', contrast: 'clr-white' },
         { name: 'secondary', hex: '#2196F3', contrast: 'clr-white' },
         { name: 'success', hex: '#47B05B', contrast: 'clr-white' },
         { name: 'info', hex: '#009688', contrast: 'clr-white' },
@@ -132,7 +132,7 @@ export default {
   'teal':     #009688,
   'cyan':     #00BCD4,
   'blue':     #2196F3,
-  'purple':   #682CAB,
+  'pine':     #17765A,
 );
 
 $grays: (
@@ -151,7 +151,7 @@ $grays: (
 );
 
 $theme-colors: (
-  'primary':   map-get($colors, 'purple'),
+  'primary':   map-get($colors, 'pine'),
   'secondary': map-get($colors, 'blue'),
   'success':   map-get($colors, 'green'),
   'info':      map-get($colors, 'teal'),
@@ -164,20 +164,20 @@ $theme-colors: (
 .clr-white  { color: #ffffff }
 .fill-white { fill: #ffffff }
 
-.bg-primary   { background-color: #682CAB }
-.clr-primary  { color: #682CAB }
-.fill-primary { fill: #682CAB }
+.bg-primary   { background-color: #17765A }
+.clr-primary  { color: #17765A }
+.fill-primary { fill: #17765A }
 
 // \${property}-\${color}-\${style}-\${level}
-.bg-primary-light-3 { background-color: #8656bc }
-.clr-primary-dark-2 { color: #582591 }
+.bg-primary-light-3 { background-color: #5d9f8c }
+.clr-primary-dark-2 { color: #125e48 }
 .fill-success-sat-4 { fill: ... }
 
 // \${property}-\${color}-opacity-\${opacity}
 .bg-success-opacity-2  { background-color: rgba(71, 176, 91, 0.15) }
 .bg-success-opacity-10 { background-color: rgba(71, 176, 91, 0.95) }`,
         function: `box-shadow: 1px 1px 4px color('primary');
-// => box-shadow: 1px 1px 4px #682CAB;
+// => box-shadow: 1px 1px 4px #17765A;
 
 border-color: color('secondary', light, 2);
 // => border-color: #42a6f5;
@@ -211,13 +211,13 @@ $opacities: (
 );
 
 .clr-primary-light-1 { color: #7741b3 }
-.clr-primary-light-3 { color: #8656bc }
+.clr-primary-light-3 { color: #5d9f8c }
 .clr-primary-light-5 { color: #956bc4 }
 
 .clr-primary-dark-1  { color: #5e289a }
 .clr-primary-dark-3  { color: #532389 }
 
-.clr-primary-sat-2   { color: #6825b2 }
+.clr-primary-sat-2   { color: #127b5c }
 .clr-primary-desat-4 { color: #693c9b }`,
       },
     }
