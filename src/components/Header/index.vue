@@ -43,11 +43,10 @@ export default {
   data() {
     return {
       items: [
-        { id: 'toolkit', label: 'Toolkit' },
-        { id: 'grid', label: 'Grid' },
-        { id: 'colors', label: 'Colors' },
-        { id: 'type', label: 'Type' },
-        { id: 'details', label: 'Details' },
+        { id: 'getting-started', label: 'Start' },
+        { id: 'included', label: 'Included' },
+        { id: 'structure', label: 'Structure' },
+        { id: 'documentation', label: 'Docs' },
       ],
     }
   },
@@ -61,7 +60,7 @@ export default {
   position: sticky;
   top: 0;
   z-index: 20;
-  background-color: rgba(246, 243, 251, 0.82);
+  background-color: rgba(245, 244, 240, 0.86);
   border-bottom: 1px solid color('primary', $opacity: 1);
   backdrop-filter: blur(14px);
 

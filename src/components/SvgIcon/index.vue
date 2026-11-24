@@ -38,8 +38,11 @@
 </script>
 
 <style scoped>
-  .svg-icon {
+  .icon {
+    display: inline-block;
+    flex-shrink: 0;
     fill: currentColor;
     overflow: hidden;
+    vertical-align: middle;
   }
 </style>

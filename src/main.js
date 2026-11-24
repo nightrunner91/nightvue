@@ -43,11 +43,17 @@ import appLayout from '@/layouts/AppLayout'
 import appHeader from '@/components/Header'
 import appFooter from '@/components/Footer'
 import SvgIcon from '@/components/SvgIcon'
+import DocSection from '@/components/docs/DocSection'
+import DemoPanel from '@/components/docs/DemoPanel'
+import CodeBlock from '@/components/docs/CodeBlock'
 
 Vue.component('app-layout', appLayout)
 Vue.component('app-header', appHeader)
 Vue.component('app-footer', appFooter)
 Vue.component('svg-icon', SvgIcon)
+Vue.component('doc-section', DocSection)
+Vue.component('demo-panel', DemoPanel)
+Vue.component('code-block', CodeBlock)
 
 
 // ================================================= //

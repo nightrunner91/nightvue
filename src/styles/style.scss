@@ -20,15 +20,40 @@ html {
 }
 
 body {
-  background-color: #f6f3fb;
+  background-color: #f5f4f0;
   color: color('gray-10');
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: color('primary', $opacity: 3);
-  color: color('gray-10');
+  background-color: color('primary');
+  color: color('white');
+}
+
+html {
+  scrollbar-color: #c9c9c9 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background: #c9c9c9;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b5b5b5;
+  background-clip: content-box;
 }
 
 /// Components
@@ -37,3 +62,4 @@ body {
 /// Sections
 @import "sections/header";
 @import "sections/footer";
+@import "sections/docs";

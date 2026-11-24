@@ -43,7 +43,7 @@ export default {
 
 .footer {
   padding: spacer(12) 0 spacer(8);
-  background-color: #17121f;
+  background-color: #15181c;
   color: color('gray-4');
 
   &__inner {
